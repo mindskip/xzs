@@ -1,0 +1,12 @@
+ds:
+  url: jdbc:postgresql://localhost:5432/exam
+  username: postgres
+  password: 123456
+
+redis:
+  host: 10.103.15.180
+
+fdfs:
+  ngix: http://localhost:8888
+  tracker-list:
+    - localhost:22122

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.alvis.exam.repository.ExamPaperAnswerMapper" >
+  <resultMap id="BaseResultMap" type="com.alvis.exam.domain.ExamPaperAnswer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="exam_paper_id" property="examPaperId" jdbcType="INTEGER" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="user_score" property="userScore" jdbcType="INTEGER" />
+    <result column="subject_id" property="subjectId" jdbcType="INTEGER" />
+    <result column="question_count" property="questionCount" jdbcType="INTEGER" />
+    <result column="question_correct" property="questionCorrect" jdbcType="INTEGER" />
+    <result column="paper_score" property="paperScore" jdbcType="INTEGER" />
+    <result column="do_time" property="doTime" jdbcType="INTEGER" />
+    <result column="paper_type" property="paperType" jdbcType="INTEGER" />
+    <result column="system_score" property="systemScore" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="paper_name" property="paperName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, exam_paper_id, create_user, create_time, user_score, subject_id, question_count,
+    question_correct, paper_score, do_time, paper_type, system_score, status, paper_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from t_exam_paper_answer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_exam_paper_answer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.alvis.exam.domain.ExamPaperAnswer" useGeneratedKeys="true" keyProperty="id">
+    insert into t_exam_paper_answer (id, exam_paper_id, create_user,
+      create_time, user_score, subject_id,
+      question_count, question_correct, paper_score,
+      do_time, paper_type, system_score,
+      status, paper_name)
+    values (#{id,jdbcType=INTEGER}, #{examPaperId,jdbcType=INTEGER}, #{createUser,jdbcType=INTEGER},
+      #{createTime,jdbcType=TIMESTAMP}, #{userScore,jdbcType=INTEGER}, #{subjectId,jdbcType=INTEGER},
+      #{questionCount,jdbcType=INTEGER}, #{questionCorrect,jdbcType=INTEGER}, #{paperScore,jdbcType=INTEGER},
+      #{doTime,jdbcType=INTEGER}, #{paperType,jdbcType=INTEGER}, #{systemScore,jdbcType=INTEGER},
+      #{status,jdbcType=INTEGER}, #{paperName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.alvis.exam.domain.ExamPaperAnswer" useGeneratedKeys="true" keyProperty="id">
+    insert into t_exam_paper_answer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="examPaperId != null" >
+        exam_paper_id,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="userScore != null" >
+        user_score,
+      </if>
+      <if test="subjectId != null" >
+        subject_id,
+      </if>
+      <if test="questionCount != null" >
+        question_count,
+      </if>
+      <if test="questionCorrect != null" >
+        question_correct,
+      </if>
+      <if test="paperScore != null" >
+        paper_score,
+      </if>
+      <if test="doTime != null" >
+        do_time,
+      </if>
+      <if test="paperType != null" >
+        paper_type,
+      </if>
+      <if test="systemScore != null" >
+        system_score,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="paperName != null" >
+        paper_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="examPaperId != null" >
+        #{examPaperId,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userScore != null" >
+        #{userScore,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null" >
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="questionCount != null" >
+        #{questionCount,jdbcType=INTEGER},
+      </if>
+      <if test="questionCorrect != null" >
+        #{questionCorrect,jdbcType=INTEGER},
+      </if>
+      <if test="paperScore != null" >
+        #{paperScore,jdbcType=INTEGER},
+      </if>
+      <if test="doTime != null" >
+        #{doTime,jdbcType=INTEGER},
+      </if>
+      <if test="paperType != null" >
+        #{paperType,jdbcType=INTEGER},
+      </if>
+      <if test="systemScore != null" >
+        #{systemScore,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="paperName != null" >
+        #{paperName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.alvis.exam.domain.ExamPaperAnswer" >
+    update t_exam_paper_answer
+    <set >
+      <if test="examPaperId != null" >
+        exam_paper_id = #{examPaperId,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userScore != null" >
+        user_score = #{userScore,jdbcType=INTEGER},
+      </if>
+      <if test="subjectId != null" >
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="questionCount != null" >
+        question_count = #{questionCount,jdbcType=INTEGER},
+      </if>
+      <if test="questionCorrect != null" >
+        question_correct = #{questionCorrect,jdbcType=INTEGER},
+      </if>
+      <if test="paperScore != null" >
+        paper_score = #{paperScore,jdbcType=INTEGER},
+      </if>
+      <if test="doTime != null" >
+        do_time = #{doTime,jdbcType=INTEGER},
+      </if>
+      <if test="paperType != null" >
+        paper_type = #{paperType,jdbcType=INTEGER},
+      </if>
+      <if test="systemScore != null" >
+        system_score = #{systemScore,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="paperName != null" >
+        paper_name = #{paperName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.alvis.exam.domain.ExamPaperAnswer" >
+    update t_exam_paper_answer
+    set exam_paper_id = #{examPaperId,jdbcType=INTEGER},
+      create_user = #{createUser,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      user_score = #{userScore,jdbcType=INTEGER},
+      subject_id = #{subjectId,jdbcType=INTEGER},
+      question_count = #{questionCount,jdbcType=INTEGER},
+      question_correct = #{questionCorrect,jdbcType=INTEGER},
+      paper_score = #{paperScore,jdbcType=INTEGER},
+      do_time = #{doTime,jdbcType=INTEGER},
+      paper_type = #{paperType,jdbcType=INTEGER},
+      system_score = #{systemScore,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      paper_name = #{paperName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+
+
+
+  <select id="studentPage" resultMap="BaseResultMap" parameterType="com.alvis.exam.viewmodel.student.exampaper.ExamPaperAnswerPageVM">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM t_exam_paper_answer
+    <where>
+        and create_user = #{createUser}
+     <if test="subjectId != null">
+         and subject_id = #{subjectId}
+     </if>
+    </where>
+  </select>
+
+
+  <select id="selectAllCount"  resultType="java.lang.Integer">
+		SELECT count(*) from t_exam_paper_answer
+  </select>
+
+
+  <select id="selectCountByDate"  resultType="com.alvis.exam.domain.KeyValue">
+		SELECT create_time as name,COUNT(create_time) as value from
+		        (
+				  SELECT to_char(create_time,'YYYY-mm-dd') as create_time from t_exam_paper_answer
+					WHERE  create_time  between  #{startTime}  and  #{endTime}
+				) a
+		GROUP BY create_time
+	</select>
+
+</mapper>
