@@ -2,13 +2,13 @@
   <div class="app-container">
     <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading">
       <el-form-item label="年级：" required>
-        <el-select v-model="form.level" placeholder="年级">
+        <el-select v-model="form.level" placeholder="年级"  @change="levelChange">
           <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="学科：" required>
         <el-select v-model="form.subjectId" placeholder="学科">
-          <el-option v-for="item in subjects.filter(data => data.level==form.level)" :key="item.id" :value="item.id"
+          <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id"
                      :label="item.name+' ( '+item.levelName+' )'"></el-option>
         </el-select>
       </el-form-item>
@@ -98,14 +98,15 @@ export default {
     return {
       form: {
         id: null,
-        level: 1,
-        subjectId: 1,
+        level: null,
+        subjectId: null,
         paperType: 1,
         limitDateTime: [],
         name: '',
         suggestTime: null,
         titleItems: []
       },
+      subjectFilter: null,
       formLoading: false,
       questionPage: {
         multipleSelection: [],
@@ -125,9 +126,11 @@ export default {
     }
   },
   created () {
-    this.initSubject()
     let id = this.$route.query.id
     let _this = this
+    this.initSubject(function () {
+      _this.subjectFilter = _this.subjects
+    })
     if (id && parseInt(id) !== 0) {
       _this.formLoading = true
       examPaperApi.select(id).then(re => {
@@ -181,6 +184,10 @@ export default {
         })
       })
       this.questionPage.showDialog = false
+    },
+    levelChange () {
+      this.form.subjectId = null
+      this.subjectFilter = this.subjects.filter(data => data.level === this.form.level)
     },
     search () {
       this.questionPage.queryParam.subjectId = this.form.subjectId
