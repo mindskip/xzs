@@ -6,7 +6,7 @@
         <el-radio-group v-model="answer.content">
           <el-radio  v-for="item in question.items"  :key="item.prefix"  :label="item.prefix" class="question-item-margin">
             <span class="question-prefix">{{item.prefix}}.</span>
-            <span v-html="item.content"></span>
+            <span v-html="item.content" class="q-item-span-content"></span>
           </el-radio>
         </el-radio-group>
       </div>
@@ -17,7 +17,7 @@
         <el-checkbox-group v-model="answer.contentArray" >
           <el-checkbox v-for="item in question.items" :label="item.prefix" :key="item.prefix"  class="question-item-margin">
             <span class="question-prefix">{{item.prefix}}.</span>
-            <span v-html="item.content"></span>
+            <span v-html="item.content" class="q-item-span-content"></span>
           </el-checkbox>
         </el-checkbox-group>
       </div>
@@ -27,7 +27,7 @@
       <span style="padding-right: 10px;">(</span>
       <el-radio-group v-model="answer.content">
         <el-radio  v-for="item in question.items"  :key="item.prefix"  :label="item.prefix" class="question-item-margin">
-          <span v-html="item.content"></span>
+          <span v-html="item.content" class="q-item-span-content"></span>
         </el-radio>
       </el-radio-group>
       <span style="padding-left: 10px;">)</span>

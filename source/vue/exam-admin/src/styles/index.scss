@@ -224,6 +224,7 @@ aside {
 
 .q-title {
   margin: 0px 5px;
+  line-height: 1.7;
   p {
     display: inline !important;
   }
@@ -231,7 +232,6 @@ aside {
 
 
 .q-content {
-  margin: 10px 35px 15px 25px;
   p {
     display: inline !important;
   }
@@ -241,9 +241,14 @@ aside {
   margin: 5px 10px;
 }
 
+.q-item-contain{
+  display: inline-block;
+}
+
 .q-item-content {
   margin: 5px;
-  line-height: 30px;
+  white-space: normal;
+  line-height: 1.7;
   p {
     display: inline !important;
   }

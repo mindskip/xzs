@@ -5,13 +5,13 @@
         <el-input v-model="queryParam.id" clearable></el-input>
       </el-form-item>
       <el-form-item label="年级：">
-        <el-select v-model="queryParam.level" placeholder="年级">
+        <el-select v-model="queryParam.level" placeholder="年级"  @change="levelChange" clearable>
           <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="学科：">
         <el-select v-model="queryParam.subjectId" clearable>
-          <el-option v-for="item in subjects.filter(data => data.level==queryParam.level)" :key="item.id" :value="item.id"
+          <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id"
                      :label="item.name+' ( '+item.levelName+' )'"></el-option>
         </el-select>
       </el-form-item>
@@ -67,11 +67,12 @@ export default {
       queryParam: {
         id: null,
         questionType: null,
-        level: 1,
+        level: null,
         subjectId: null,
         pageIndex: 1,
         pageSize: 10
       },
+      subjectFilter: null,
       listLoading: true,
       tableData: [],
       total: 0,
@@ -101,6 +102,10 @@ export default {
         this.queryParam.pageIndex = re.pageNum
         this.listLoading = false
       })
+    },
+    levelChange () {
+      this.queryParam.subjectId = null
+      this.subjectFilter = this.subjects.filter(data => data.level === this.queryParam.level)
     },
     addQuestion () {
       this.$router.push('/exam/question/edit/singleChoice')

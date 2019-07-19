@@ -1,14 +1,14 @@
 <template>
   <div class="app-container">
     <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading">
-      <el-form-item label="年级：">
-        <el-select v-model="form.gradeLevel" placeholder="年级">
+      <el-form-item label="年级：" required>
+        <el-select v-model="form.gradeLevel" placeholder="年级"  @change="levelChange">
           <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="学科：" required>
         <el-select v-model="form.subjectId" placeholder="学科" >
-          <el-option v-for="item in subjects.filter(data => data.level==form.gradeLevel)" :key="item.id" :value="item.id" :label="item.name+' ( '+item.levelName+' )'"></el-option>
+          <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id" :label="item.name+' ( '+item.levelName+' )'"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="题干：" required>
@@ -70,8 +70,8 @@ export default {
       form: {
         id: null,
         questionType: 2,
-        gradeLevel: 1,
-        subjectId: 1,
+        gradeLevel: null,
+        subjectId: null,
         title: '',
         items: [
           { id: null, prefix: 'A', content: '' },
@@ -85,6 +85,7 @@ export default {
         score: '',
         difficult: 0
       },
+      subjectFilter: null,
       formLoading: false,
       richEditor: {
         dialogVisible: false,
@@ -101,9 +102,11 @@ export default {
     }
   },
   created () {
-    this.initSubject()
     let id = this.$route.query.id
     let _this = this
+    this.initSubject(function () {
+      _this.subjectFilter = _this.subjects
+    })
     if (id && parseInt(id) !== 0) {
       _this.formLoading = true
       questionApi.select(id).then(re => {
@@ -151,6 +154,10 @@ export default {
       }).catch(e => {
         this.formLoading = false
       })
+    },
+    levelChange () {
+      this.form.subjectId = null
+      this.subjectFilter = this.subjects.filter(data => data.level === this.form.gradeLevel)
     },
     showQuestion () {
       let _this = this

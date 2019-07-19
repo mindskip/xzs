@@ -29,7 +29,8 @@ html {
   .el-menu-title {
     border-bottom: 0px !important;
     float: right;
-    .el-menu-item{
+
+    .el-menu-item {
       font-size: 15px !important;
       line-height: 62px !important;
     }
@@ -86,24 +87,25 @@ html {
       font-weight: 700;
     }
 
-    a{
+    a {
       margin-left: 5px;
     }
   }
 }
 
 
-.app-item-contain{
-  padding:30px 100px 0px 100px;
+.app-item-contain {
+  padding: 30px 100px 0px 100px;
 }
 
-.app-contain{
-  padding:30px 100px 0px 100px;
+.app-contain {
+  padding: 30px 100px 0px 100px;
 }
 
 
 .q-title {
-  margin: 0px 5px;
+  margin: 5px 5px 0px 5px;
+  line-height: 1.8;
   p {
     display: inline !important;
   }
@@ -112,6 +114,7 @@ html {
 
 .q-content {
   margin: 10px 35px 15px 25px;
+
   p {
     display: inline !important;
   }
@@ -129,45 +132,53 @@ html {
   }
 }
 
-.question-prefix{
-  padding-right: 20px;
-  font-weight: 600!important;
+.q-item-span-content {
+  white-space: normal;
+  line-height: 1.7;
 }
 
-.gapfilling-span{
+.question-prefix {
+  padding-right: 20px;
+  font-weight: 600 !important;
+}
+
+.gapfilling-span {
   color: red;
   padding: 0px 30px;
   margin: 0px 5px;
-  border-bottom:3px double red;
+  border-bottom: 3px double red;
 }
 
-.question-item-margin{
+.question-item-margin {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.exam-question-item{
-  .el-form-item__label{
+.exam-question-item {
+  .el-form-item__label {
     font-size: 15px !important;
-    font-weight: 600!important;
-    color: #1f2f3d!important;
+    font-weight: 600 !important;
+    color: #1f2f3d !important;
   }
 }
 
 
-.record-answer-info{
+.record-answer-info {
   margin-top: 40px;
-  .el-form-item{
+
+  .el-form-item {
     margin-bottom: 0px !important;
   }
 }
 
-.question-answer-show-item{
+.question-answer-show-item {
   height: 36px;
-  .question-show-item{
-    float:left;
+
+  .question-show-item {
+    float: left;
   }
-  .el-rate{
+
+  .el-rate {
     line-height: 2.5;
   }
 }
