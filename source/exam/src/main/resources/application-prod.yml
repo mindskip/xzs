@@ -4,7 +4,7 @@ ds:
   password: 123456
 
 redis:
-  host: 10.103.15.180
+  host: localhost
 
 fdfs:
   ngix: http://localhost:8888
