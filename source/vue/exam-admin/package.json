@@ -2,8 +2,8 @@
   "name": "exam-admin",
   "version": "1.0.0",
   "author": "alvis",
-	"description": "学之思管理系统",
-  "license":"MIT",
+  "description": "学之思管理系统",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --mode dev",
@@ -18,7 +18,6 @@
     "axios": "^0.19.0",
     "core-js": "^2.6.9",
     "element-ui": "^2.10.1",
-    "sass-loader": "^7.1.0",
     "vue": "2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "3.1.0",
@@ -28,15 +27,16 @@
     "vue-count-to": "^1.0.13"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-eslint": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
+    "@vue/cli-plugin-babel": "^3.9.0",
+    "@vue/cli-plugin-eslint": "^3.9.0",
+    "@vue/cli-service": "^3.9.0",
     "@vue/eslint-config-standard": "^4.0.0",
-    "vue-template-compiler": "^2.6.10",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "5.2.2",
     "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10",
     "svg-sprite-loader": "4.1.6"
   }
 }
