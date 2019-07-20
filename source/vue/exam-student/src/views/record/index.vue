@@ -41,7 +41,7 @@
                 <span>{{selectItem.questionCorrect}}</span>
               </el-form-item>
               <el-form-item label="总题数：">
-                <span>{{selectItem.paperScore}}</span>
+                <span>{{selectItem.questionCount}}</span>
               </el-form-item>
               <el-form-item label="用时：">
                 <span>{{selectItem.doTime}}</span>

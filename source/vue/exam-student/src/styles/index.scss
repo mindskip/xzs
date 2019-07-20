@@ -172,8 +172,6 @@ html {
 }
 
 .question-answer-show-item {
-  height: 36px;
-
   .question-show-item {
     float: left;
   }
@@ -181,4 +179,8 @@ html {
   .el-rate {
     line-height: 2.5;
   }
+}
+
+.question-show-item-analyze{
+  line-height: 1.8;
 }

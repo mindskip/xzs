@@ -5,9 +5,9 @@
         <div class="q-title" v-html="question.title"/>
         <div class="q-content">
           <el-radio-group v-model="answer.content">
-            <el-radio  v-for="item in question.items"  :key="item.prefix"  :label="item.prefix" class="question-item-margin">
+            <el-radio  v-for="item in question.items"  :key="item.prefix"  :label="item.prefix" >
               <span class="question-prefix">{{item.prefix}}.</span>
-              <span v-html="item.content"></span>
+              <span v-html="item.content" class="q-item-span-content"></span>
             </el-radio>
           </el-radio-group>
         </div>
@@ -16,7 +16,7 @@
         <div class="q-title" v-html="question.title"/>
         <div class="q-content">
           <el-checkbox-group v-model="answer.contentArray" >
-            <el-checkbox v-for="item in question.items" :label="item.prefix" :key="item.prefix"  class="question-item-margin">
+            <el-checkbox v-for="item in question.items" :label="item.prefix" :key="item.prefix" >
               <span class="question-prefix">{{item.prefix}}.</span>
               <span v-html="item.content"  class="q-item-span-content"></span>
             </el-checkbox>
@@ -27,7 +27,7 @@
         <div class="q-title" v-html="question.title" style="display: inline;margin-right: 10px"/>
         <span style="padding-right: 10px;">(</span>
         <el-radio-group v-model="answer.content">
-          <el-radio  v-for="item in question.items"  :key="item.prefix"  :label="item.prefix" class="question-item-margin">
+          <el-radio  v-for="item in question.items"  :key="item.prefix"  :label="item.prefix">
             <span v-html="item.content" class="q-item-span-content"></span>
           </el-radio>
         </el-radio-group>
@@ -61,14 +61,15 @@
         <span class="question-show-item">难度：</span>
         <el-rate disabled v-model="question.difficult" class="question-show-item"></el-rate>
       </div>
-      <div class="question-answer-show-item">
+      <br/>
+      <div class="question-answer-show-item" style="line-height: 1.8">
         <span class="question-show-item">解析：</span>
-        <div v-html="question.analyze"/>
+        <span v-html="question.analyze" />
       </div>
       <div class="question-answer-show-item">
         <span class="question-show-item">正确答案：</span>
-        <span>{{question.correct}}</span>
-        <span>{{question.correctArray}}</span>
+        <span v-if="qType==1||qType==2||qType==3">{{question.correct}}</span>
+        <span v-if="qType==4||qType==5">{{question.correctArray}}</span>
       </div>
     </div>
     <div v-else>
