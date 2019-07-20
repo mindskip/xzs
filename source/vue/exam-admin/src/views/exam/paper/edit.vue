@@ -33,7 +33,7 @@
         <el-button type="text" class="link-left" size="mini" @click="form.titleItems.splice(index,1)">删除</el-button>
         <el-card class="exampaper-item-box" v-if="titleItem.questionItems.length!==0">
           <el-form-item :key="questionIndex" :label="'题目'+(questionIndex+1)+'：'"
-                        v-for="(questionItem,questionIndex) in titleItem.questionItems">
+                        v-for="(questionItem,questionIndex) in titleItem.questionItems" style="margin-bottom: 15px">
             <el-row>
               <el-col :span="23">
                 <QuestionShow :qType="questionItem.questionType" :question="questionItem"/>
@@ -230,10 +230,8 @@ export default {
   .exampaper-item-box {
     .q-title {
       margin: 0px 5px 0px 5px;
-      line-height: 2.8;
     }
     .q-item-content {
-      line-height: 0.2 !important;
     }
   }
 </style>

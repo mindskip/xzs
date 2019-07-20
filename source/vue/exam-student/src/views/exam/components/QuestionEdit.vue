@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div style="line-height:1.8">
     <div v-if="qType==1" v-loading="qLoading">
       <div class="q-title" v-html="question.title"/>
       <div class="q-content">
         <el-radio-group v-model="answer.content">
-          <el-radio  v-for="item in question.items"  :key="item.prefix"  :label="item.prefix" class="question-item-margin">
+          <el-radio  v-for="item in question.items"  :key="item.prefix"  :label="item.prefix" >
             <span class="question-prefix">{{item.prefix}}.</span>
             <span v-html="item.content" class="q-item-span-content"></span>
           </el-radio>
@@ -15,7 +15,7 @@
       <div class="q-title" v-html="question.title"/>
       <div class="q-content">
         <el-checkbox-group v-model="answer.contentArray" >
-          <el-checkbox v-for="item in question.items" :label="item.prefix" :key="item.prefix"  class="question-item-margin">
+          <el-checkbox v-for="item in question.items" :label="item.prefix" :key="item.prefix"  >
             <span class="question-prefix">{{item.prefix}}.</span>
             <span v-html="item.content" class="q-item-span-content"></span>
           </el-checkbox>
@@ -26,7 +26,7 @@
       <div class="q-title" v-html="question.title" style="display: inline;margin-right: 10px"/>
       <span style="padding-right: 10px;">(</span>
       <el-radio-group v-model="answer.content">
-        <el-radio  v-for="item in question.items"  :key="item.prefix"  :label="item.prefix" class="question-item-margin">
+        <el-radio  v-for="item in question.items"  :key="item.prefix"  :label="item.prefix" >
           <span v-html="item.content" class="q-item-span-content"></span>
         </el-radio>
       </el-radio-group>

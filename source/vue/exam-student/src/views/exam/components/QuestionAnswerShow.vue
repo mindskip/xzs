@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="qLoading">
+  <div v-loading="qLoading" style="line-height:1.8">
     <div v-if="qType==1||qType==2||qType==3||qType==4||qType==5">
       <div v-if="qType==1" >
         <div class="q-title" v-html="question.title"/>
@@ -64,7 +64,7 @@
       <br/>
       <div class="question-answer-show-item" style="line-height: 1.8">
         <span class="question-show-item">解析：</span>
-        <span v-html="question.analyze" />
+        <span v-html="question.analyze" class="q-item-span-content" />
       </div>
       <div class="question-answer-show-item">
         <span class="question-show-item">正确答案：</span>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="line-height:1.8">
     <div v-if="qType==1" v-loading="qLoading">
       <div class="q-title" v-html="question.title"/>
       <div class="q-content">
