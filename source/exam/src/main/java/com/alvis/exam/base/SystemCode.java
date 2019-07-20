@@ -32,7 +32,7 @@ public enum SystemCode {
     /**
      * AccessDenied
      */
-    AccessDenied(502,"用户没有权限");
+    AccessDenied(502,"用户没有权限访问");
 
     int code;
     String message;
