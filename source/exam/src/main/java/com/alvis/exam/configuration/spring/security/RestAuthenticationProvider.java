@@ -18,20 +18,21 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 
 /**
+ * 登录用户名密码验证
  * @author :  Alvis
  * Description :  身份验证
  * Creation Date:  2018-05-02 5:00 PM
  */
 
 @Component
-public class FormAuthenticationProvider implements AuthenticationProvider {
+public class RestAuthenticationProvider implements AuthenticationProvider {
 
     private final AuthenticationService authenticationService;
 
     private final UserService userService;
 
     @Autowired
-    public FormAuthenticationProvider(AuthenticationService authenticationService, UserService userService) {
+    public RestAuthenticationProvider(AuthenticationService authenticationService, UserService userService) {
         this.authenticationService = authenticationService;
         this.userService = userService;
     }

@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * 登录账号密码错误
  * @author alvis
  */
 @Component
-public class FormAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
+public class RestAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-        /*RestUtil.response(response, SystemCode.AuthError.getCode(), exception.getMessage());*/
         RestUtil.response(response, SystemCode.AuthError.getCode(), SystemCode.AuthError.getMessage());
     }
 }

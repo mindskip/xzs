@@ -27,7 +27,12 @@ public enum SystemCode {
     /**
      * ParameterValidError
      */
-    ParameterValidError(501, "参数验证错误");
+    ParameterValidError(501, "参数验证错误"),
+
+    /**
+     * AccessDenied
+     */
+    AccessDenied(502,"用户没有权限");
 
     int code;
     String message;

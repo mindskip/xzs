@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * 登录参数序列化
  * @author alvis
  */
 

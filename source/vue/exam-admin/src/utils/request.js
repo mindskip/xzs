@@ -20,10 +20,10 @@ const request = function (loadtip, query) {
         vue.prototype.$$router.push({ path: '/login' })
         return Promise.reject(res.data)
       } else if (res.data.code === 500) {
-        vue.prototype.$message.error(res.data.message)
         return Promise.reject(res.data)
       } else if (res.data.code === 501) {
-        vue.prototype.$message.error(res.data.message)
+        return Promise.reject(res.data)
+      } else if (res.data.code === 502) {
         return Promise.reject(res.data)
       } else {
         return Promise.resolve(res.data)

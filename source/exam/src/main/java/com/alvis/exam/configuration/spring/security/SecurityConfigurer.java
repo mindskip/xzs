@@ -31,12 +31,12 @@ public class SecurityConfigurer {
 
         private final SystemConfig systemConfig;
         private final LoginAuthenticationEntryPoint restAuthenticationEntryPoint;
-        private final FormAuthenticationProvider formAuthenticationProvider;
-        private final FormDetailsServiceImpl formDetailsService;
-        private final FormAuthenticationSuccessHandler formAuthenticationSuccessHandler;
-        private final FormAuthenticationFailureHandler formAuthenticationFailureHandler;
-        private final FormLogoutSuccessHandler formLogoutSuccessHandler;
-
+        private final RestAuthenticationProvider restAuthenticationProvider;
+        private final RestDetailsServiceImpl formDetailsService;
+        private final RestAuthenticationSuccessHandler restAuthenticationSuccessHandler;
+        private final RestAuthenticationFailureHandler restAuthenticationFailureHandler;
+        private final RestLogoutSuccessHandler restLogoutSuccessHandler;
+        private final RestAccessDeniedHandler restAccessDeniedHandler;
 
         /**
          * @param http http
@@ -50,15 +50,16 @@ public class SecurityConfigurer {
             http
                     .addFilterAt(authenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                     .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint)
-                    .and().authenticationProvider(formAuthenticationProvider)
+                    .and().authenticationProvider(restAuthenticationProvider)
                     .authorizeRequests()
                     .antMatchers(securityIgnoreUrls.toArray(ignores)).permitAll()
                     .antMatchers("/api/admin/**").hasRole(RoleEnum.ADMIN.getName())
                     .antMatchers("/api/student/**").hasRole(RoleEnum.STUDENT.getName())
                     .antMatchers("/api/teacher/**").hasRole(RoleEnum.TEACHER.getName())
                     .anyRequest().permitAll()
-                    .and().formLogin().successHandler(formAuthenticationSuccessHandler).failureHandler(formAuthenticationFailureHandler)
-                    .and().logout().logoutUrl("/api/user/logout").logoutSuccessHandler(formLogoutSuccessHandler).invalidateHttpSession(true)
+                    .and().exceptionHandling().accessDeniedHandler(restAccessDeniedHandler)
+                    .and().formLogin().successHandler(restAuthenticationSuccessHandler).failureHandler(restAuthenticationFailureHandler)
+                    .and().logout().logoutUrl("/api/user/logout").logoutSuccessHandler(restLogoutSuccessHandler).invalidateHttpSession(true)
                     .and().rememberMe().key(CookieConfig.getName()).tokenValiditySeconds(CookieConfig.getInterval()).userDetailsService(formDetailsService)
                     .and().csrf().disable()
                     .cors();
@@ -82,8 +83,8 @@ public class SecurityConfigurer {
         @Bean
         public RestLoginAuthenticationFilter authenticationFilter() throws Exception {
             RestLoginAuthenticationFilter authenticationFilter = new RestLoginAuthenticationFilter();
-            authenticationFilter.setAuthenticationSuccessHandler(formAuthenticationSuccessHandler);
-            authenticationFilter.setAuthenticationFailureHandler(formAuthenticationFailureHandler);
+            authenticationFilter.setAuthenticationSuccessHandler(restAuthenticationSuccessHandler);
+            authenticationFilter.setAuthenticationFailureHandler(restAuthenticationFailureHandler);
             authenticationFilter.setAuthenticationManager(authenticationManagerBean());
             authenticationFilter.setUserDetailsService(formDetailsService);
             return authenticationFilter;

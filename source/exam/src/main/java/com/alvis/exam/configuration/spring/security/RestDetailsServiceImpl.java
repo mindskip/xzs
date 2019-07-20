@@ -19,12 +19,12 @@ import java.util.ArrayList;
  */
 
 @Component
-public class FormDetailsServiceImpl implements UserDetailsService {
+public class RestDetailsServiceImpl implements UserDetailsService {
 
     private final UserService userService;
 
     @Autowired
-    public FormDetailsServiceImpl(UserService userService) {
+    public RestDetailsServiceImpl(UserService userService) {
         this.userService = userService;
     }
 

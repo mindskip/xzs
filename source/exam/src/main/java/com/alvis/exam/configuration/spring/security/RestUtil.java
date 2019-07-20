@@ -17,10 +17,6 @@ import java.io.IOException;
 class RestUtil {
     private static final Logger logger = LoggerFactory.getLogger(RestUtil.class);
 
-    static boolean isJson(HttpServletRequest request) {
-        String contentType = request.getContentType();
-        return null != contentType && (contentType.equals(MediaType.APPLICATION_JSON_UTF8_VALUE) || contentType.equals(MediaType.APPLICATION_JSON_VALUE));
-    }
 
     static void response(HttpServletResponse response, SystemCode systemCode) {
         response(response, systemCode.getCode(), systemCode.getMessage());
