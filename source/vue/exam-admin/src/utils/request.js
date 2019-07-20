@@ -34,6 +34,7 @@ const request = function (loadtip, query) {
         loading.close()
       }
       vue.prototype.$message.error(e.message)
+      return Promise.reject(e.message)
     })
 }
 
