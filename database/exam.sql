@@ -35,7 +35,8 @@ CREATE TABLE "public"."t_user" (
   "image_path" varchar(255) COLLATE "pg_catalog"."default",
   "create_time" timestamp(6),
   "modify_time" timestamp(6),
-  "last_active_time" timestamp(6)
+  "last_active_time" timestamp(6),
+  "deleted" bool
 )
 ;
 COMMENT ON COLUMN "public"."t_user"."user_name" IS '用户名';
@@ -45,12 +46,13 @@ COMMENT ON COLUMN "public"."t_user"."user_level" IS '学生年级(1-12)';
 COMMENT ON COLUMN "public"."t_user"."role" IS '1.学生 2.老师 3.管理员';
 COMMENT ON COLUMN "public"."t_user"."status" IS '1.启用 2禁用';
 COMMENT ON COLUMN "public"."t_user"."image_path" IS '头像地址';
+COMMENT ON COLUMN "public"."t_user"."deleted" IS '是否删除';
 
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
-INSERT INTO "public"."t_user" VALUES (1, 'd2d29da2-dcb3-4013-b874-727626236f47', 'student', 'i+/ukCFsMYsIwiSNW1JVXMUCSHe1bugya5u/XagGlja5uEQyBNyeBJCZpQZz0ebdHCQI1NDdgrXYKISyrauwLh3aO9IGRqqjDN+4S8ogAob3Yu85TEmCIaX0OpSkn0sj3+ulfGCC+C+ugVbZlvQ/EjWxio1UdiOf7KXlHHsYMGE=', '学生', 17, 1, NULL, 12, NULL, 1, 1, NULL, '2019-07-16 15:13:02', '2019-07-16 15:13:10', '2019-07-16 15:13:13');
-INSERT INTO "public"."t_user" VALUES (2, '52045f5f-a13f-4ccc-93dd-f7ee8270ad4c', 'admin', 'D1AGFL+Gx37t0NPG4d6biYP5Z31cNbwhK5w1lUeiHB2zagqbk8efYfSjYoh1Z/j1dkiRjHU+b0EpwzCh8IGsksJjzD65ci5LsnodQVf4Uj6D3pwoscXGqmkjjpzvSJbx42swwNTA+QoDU8YLo7JhtbUK2X0qCjFGpd+8eJ5BGvk=', '管理员', 30, 1, NULL, NULL, NULL, 3, 1, NULL, '2019-07-16 15:14:12', '2019-07-16 15:14:15', '2019-07-16 15:14:17');
+INSERT INTO "public"."t_user" VALUES (1, 'd2d29da2-dcb3-4013-b874-727626236f47', 'student', 'i+/ukCFsMYsIwiSNW1JVXMUCSHe1bugya5u/XagGlja5uEQyBNyeBJCZpQZz0ebdHCQI1NDdgrXYKISyrauwLh3aO9IGRqqjDN+4S8ogAob3Yu85TEmCIaX0OpSkn0sj3+ulfGCC+C+ugVbZlvQ/EjWxio1UdiOf7KXlHHsYMGE=', '学生', 17, 1, NULL, 12, NULL, 1, 1, NULL, '2019-07-16 15:13:02', '2019-07-16 15:13:10', '2019-07-16 15:13:13','f');
+INSERT INTO "public"."t_user" VALUES (2, '52045f5f-a13f-4ccc-93dd-f7ee8270ad4c', 'admin', 'D1AGFL+Gx37t0NPG4d6biYP5Z31cNbwhK5w1lUeiHB2zagqbk8efYfSjYoh1Z/j1dkiRjHU+b0EpwzCh8IGsksJjzD65ci5LsnodQVf4Uj6D3pwoscXGqmkjjpzvSJbx42swwNTA+QoDU8YLo7JhtbUK2X0qCjFGpd+8eJ5BGvk=', '管理员', 30, 1, NULL, NULL, NULL, 3, 1, NULL, '2019-07-16 15:14:12', '2019-07-16 15:14:15', '2019-07-16 15:14:17','f');
 
 select setval('t_user_id_seq',(select max(id) from t_user));
 
@@ -173,7 +175,8 @@ CREATE TABLE "public"."t_question" (
   "info_text_content_id" int4,
   "create_user" int4,
   "status" int4,
-  "create_time" timestamp(6)
+  "create_time" timestamp(6),
+  "deleted" bool
 )
 ;
 COMMENT ON COLUMN "public"."t_question"."question_type" IS '1.单选题  2.多选题  3.判断题 4.填空题 5.简答题';
@@ -186,7 +189,7 @@ COMMENT ON COLUMN "public"."t_question"."info_text_content_id" IS '题目  填�
 COMMENT ON COLUMN "public"."t_question"."create_user" IS '创建人';
 COMMENT ON COLUMN "public"."t_question"."status" IS '1.正常 2.删除';
 COMMENT ON COLUMN "public"."t_question"."create_time" IS '创建时间';
-
+COMMENT ON COLUMN "public"."t_user"."deleted" IS '是否删除';
 
 
 
@@ -206,7 +209,8 @@ CREATE TABLE "public"."t_exam_paper" (
   "limit_end_time" timestamp(6),
   "frame_text_content_id" int4,
   "create_user" int4,
-  "create_time" timestamp(6)
+  "create_time" timestamp(6),
+  "deleted" bool
 )
 ;
 COMMENT ON COLUMN "public"."t_exam_paper"."name" IS '试卷名称';
@@ -219,6 +223,7 @@ COMMENT ON COLUMN "public"."t_exam_paper"."suggest_time" IS '建议时长(分钟
 COMMENT ON COLUMN "public"."t_exam_paper"."limit_start_time" IS '时段试卷 开始时间';
 COMMENT ON COLUMN "public"."t_exam_paper"."limit_end_time" IS '时段试卷 结束时间';
 COMMENT ON COLUMN "public"."t_exam_paper"."frame_text_content_id" IS '试卷框架 内容为JSON';
+COMMENT ON COLUMN "public"."t_user"."deleted" IS '是否删除';
 
 
 
