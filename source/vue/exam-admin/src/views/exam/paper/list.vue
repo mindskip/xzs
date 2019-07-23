@@ -29,7 +29,7 @@
       <el-table-column  label="操作" align="center"  width="160px">
         <template slot-scope="{row}">
           <el-button size="mini" @click="$router.push({path:'/exam/paper/edit',query:{id:row.id}})" >编辑</el-button>
-          <el-button size="mini" type="danger" class="link-left">删除</el-button>
+          <el-button size="mini" type="danger" @click="deletePaper(row)" class="link-left">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -77,6 +77,17 @@ export default {
         this.total = re.total
         this.queryParam.pageIndex = re.pageNum
         this.listLoading = false
+      })
+    },
+    deletePaper (row) {
+      let _this = this
+      examPaperApi.deletePaper(row.id).then(re => {
+        if (re.code === 1) {
+          _this.search()
+          _this.$message.success(re.message)
+        } else {
+          _this.$message.error(re.message)
+        }
       })
     },
     levelChange () {

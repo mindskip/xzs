@@ -45,4 +45,10 @@ public class ExamPaperController extends BaseApiController {
         ExamPaperEditRequestVM vm = examPaperService.examPaperToVM(id);
         return RestResponse.ok(vm);
     }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    public RestResponse delete(@PathVariable Integer id) {
+        ExamPaper examPaper = examPaperService.selectById(id);
+        return RestResponse.ok();
+    }
 }
