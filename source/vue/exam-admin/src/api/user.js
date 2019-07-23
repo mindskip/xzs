@@ -5,5 +5,7 @@ export default {
   createUser: query => post('/api/admin/user/edit', query),
   selectUser: id => post('/api/admin/user/select/' + id),
   getCurrentUser: () => post('/api/admin/user/current'),
-  updateUser: query => post('/api/admin/user/update', query)
+  updateUser: query => post('/api/admin/user/update', query),
+  changeStatus: id => post('/api/admin/user/changeStatus/' + id),
+  deleteUser: id => post('/api/admin/user/delete/' + id)
 }

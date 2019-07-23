@@ -1,14 +1,14 @@
 <template>
   <div class="app-container">
 
-    <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading">
-      <el-form-item label="用户名：" required>
+    <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
+      <el-form-item label="用户名："  prop="userName" required>
         <el-input v-model="form.userName"></el-input>
       </el-form-item>
-      <el-form-item label="密码：" required>
+      <el-form-item label="密码："  required>
         <el-input v-model="form.password"></el-input>
       </el-form-item>
-      <el-form-item label="真实姓名：" required>
+      <el-form-item label="真实姓名：" prop="userName" required>
         <el-input v-model="form.realName"></el-input>
       </el-form-item>
       <el-form-item label="年龄：">
@@ -63,7 +63,15 @@ export default {
         phone: null,
         userLevel: 1
       },
-      formLoading: false
+      formLoading: false,
+      rules: {
+        userName: [
+          { required: true, message: '请输入用户名', trigger: 'blur' }
+        ],
+        realName: [
+          { required: true, message: '请输入真实姓名', trigger: 'blur' }
+        ]
+      }
     }
   },
   created () {
@@ -80,17 +88,23 @@ export default {
   methods: {
     submitForm () {
       let _this = this
-      this.formLoading = true
-      userApi.createUser(this.form).then(data => {
-        if (data.code === 1) {
-          _this.form.id = data.response.id
-          _this.$message.success(data.message)
+      this.$refs.form.validate((valid) => {
+        if (valid) {
+          this.formLoading = true
+          userApi.createUser(this.form).then(data => {
+            if (data.code === 1) {
+              _this.form.id = data.response.id
+              _this.$message.success(data.message)
+            } else {
+              _this.$message.error(data.message)
+            }
+            _this.formLoading = false
+          }).catch(e => {
+            _this.formLoading = false
+          })
         } else {
-          _this.$message.error(data.message)
+          return false
         }
-        _this.formLoading = false
-      }).catch(e => {
-        _this.formLoading = false
       })
     },
     resetForm () {

@@ -77,11 +77,27 @@ export default {
         this.listLoading = false
       })
     },
-    changeStatus (status) {
-
+    changeStatus (row) {
+      let _this = this
+      userApi.changeStatus(row.id).then(re => {
+        if (re.code === 1) {
+          row.status = re.response
+          _this.$message.success(re.message)
+        } else {
+          _this.$message.error(re.message)
+        }
+      })
     },
     deleteUser (row) {
-
+      let _this = this
+      userApi.deleteUser(row.id).then(re => {
+        if (re.code === 1) {
+          _this.search()
+          _this.$message.success(re.message)
+        } else {
+          _this.$message.error(re.message)
+        }
+      })
     },
     submitForm () {
       this.queryParam.pageIndex = 1

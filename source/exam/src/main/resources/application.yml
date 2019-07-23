@@ -57,7 +57,8 @@ spring:
     username: ${ds.username}
     password: ${ds.password}
     hikari:
-      idle-timeout: 10000
+      idle-timeout: 600000  #10 min
+      max-lifetime: 1800000 #30 min
   redis:
     host: ${redis.host}
     timeout: 10000 #超时时间

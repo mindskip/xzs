@@ -3,6 +3,7 @@ package com.alvis.exam.controller.admin;
 import com.alvis.exam.base.BaseApiController;
 import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.domain.User;
+import com.alvis.exam.domain.enums.UserStatusEnum;
 import com.alvis.exam.service.AuthenticationService;
 import com.alvis.exam.service.UserService;
 import com.alvis.exam.viewmodel.admin.user.UserCreateVM;
@@ -57,24 +58,34 @@ public class UserController extends BaseApiController {
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public RestResponse<User> edit(@RequestBody @Valid UserCreateVM model) {
-        if (model.getId() == null) {
+        if (model.getId() == null) {  //create
             User existUser = userService.getUserByUserName(model.getUserName());
             if (null != existUser) {
                 return new RestResponse<>(2, "用户已存在");
+            }
+
+            if (StringUtils.isBlank(model.getPassword())) {
+                return new RestResponse<>(3, "密码不能为空");
             }
         }
         if (StringUtils.isBlank(model.getBirthDay())) {
             model.setBirthDay(null);
         }
         User user = modelMapper.map(model, User.class);
-        String encodePwd = authenticationService.pwdEncode(model.getPassword());
-        user.setPassword(encodePwd);
-        user.setUserUuid(UUID.randomUUID().toString());
-        user.setCreateTime(new Date());
-        user.setLastActiveTime(new Date());
+
         if (model.getId() == null) {
+            String encodePwd = authenticationService.pwdEncode(model.getPassword());
+            user.setPassword(encodePwd);
+            user.setUserUuid(UUID.randomUUID().toString());
+            user.setCreateTime(new Date());
+            user.setLastActiveTime(new Date());
             userService.insertByFilter(user);
         } else {
+            if (!StringUtils.isBlank(model.getPassword())) {
+                String encodePwd = authenticationService.pwdEncode(model.getPassword());
+                user.setPassword(encodePwd);
+            }
+            user.setModifyTime(new Date());
             userService.updateByIdFilter(user);
         }
         return RestResponse.ok(user);
@@ -86,6 +97,24 @@ public class UserController extends BaseApiController {
         User user = userService.selectById(getCurrentUser().getId());
         modelMapper.map(model, user);
         userService.updateByIdFilter(user);
+        return RestResponse.ok();
+    }
+
+
+    @RequestMapping(value = "/changeStatus/{id}", method = RequestMethod.POST)
+    public RestResponse<Integer> changeStatus(@PathVariable Integer id) {
+        User user = userService.getUserById(id);
+        UserStatusEnum userStatusEnum = UserStatusEnum.fromCode(user.getStatus());
+        Integer newStatus = userStatusEnum == UserStatusEnum.On ? UserStatusEnum.OFF.getCode() : UserStatusEnum.On.getCode();
+        user.setStatus(newStatus);
+        userService.updateByIdFilter(user);
+        return RestResponse.ok(newStatus);
+    }
+
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    public RestResponse delete(@PathVariable Integer id) {
+        userService.deleteById(id);
         return RestResponse.ok();
     }
 
