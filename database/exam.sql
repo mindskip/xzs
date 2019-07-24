@@ -187,7 +187,7 @@ COMMENT ON COLUMN "public"."t_question"."difficult" IS '题目难度';
 COMMENT ON COLUMN "public"."t_question"."correct" IS '正确答案';
 COMMENT ON COLUMN "public"."t_question"."info_text_content_id" IS '题目  填空、 题干、解析、答案等信息';
 COMMENT ON COLUMN "public"."t_question"."create_user" IS '创建人';
-COMMENT ON COLUMN "public"."t_question"."status" IS '1.正常 2.删除';
+COMMENT ON COLUMN "public"."t_question"."status" IS '1.正常';
 COMMENT ON COLUMN "public"."t_question"."create_time" IS '创建时间';
 COMMENT ON COLUMN "public"."t_user"."deleted" IS '是否删除';
 
