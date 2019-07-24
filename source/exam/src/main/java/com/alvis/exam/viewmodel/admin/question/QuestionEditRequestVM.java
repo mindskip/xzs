@@ -1,10 +1,10 @@
 package com.alvis.exam.viewmodel.admin.question;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Range;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.util.List;
 
 @Data
@@ -30,7 +30,8 @@ public class QuestionEditRequestVM {
     private String correct;
     @NotBlank
     private String score;
-    @NotNull
+
+    @Range(min = 1, max = 5, message = "请选择题目难度")
     private Integer difficult;
 
     private Integer itemOrder;

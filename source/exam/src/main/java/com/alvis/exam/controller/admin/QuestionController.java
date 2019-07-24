@@ -67,6 +67,15 @@ public class QuestionController extends BaseApiController {
         return RestResponse.ok(newVM);
     }
 
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    public RestResponse delete(@PathVariable Integer id) {
+        Question question = questionService.selectById(id);
+        question.setDeleted(true);
+        questionService.updateByIdFilter(question);
+        return RestResponse.ok();
+    }
+
     private RestResponse validQuestionEditRequestVM(QuestionEditRequestVM model) {
         int qType = model.getQuestionType().intValue();
         boolean requireCorrect = qType == QuestionTypeEnum.SingleChoice.getCode() || qType == QuestionTypeEnum.TrueFalse.getCode();

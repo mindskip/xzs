@@ -14,7 +14,7 @@
         </commentGenerator>
 
         <!-- jdbc -->
-        <jdbcConnection driverClass="org.postgresql.Driver" connectionURL="jdbc:postgresql://10.103.15.180:5432/exam2"
+        <jdbcConnection driverClass="org.postgresql.Driver" connectionURL="jdbc:postgresql://10.103.15.180:5432/exam"
                         userId="postgres" password="123456">
         </jdbcConnection>
 

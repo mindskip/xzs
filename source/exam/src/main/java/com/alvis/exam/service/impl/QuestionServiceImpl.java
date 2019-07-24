@@ -77,6 +77,7 @@ public class QuestionServiceImpl extends BaseServiceImpl<Question> implements Qu
         question.setDifficult(model.getDifficult());
         question.setInfoTextContentId(infoTextContent.getId());
         question.setCreateUser(userId);
+        question.setDeleted(false);
         questionMapper.insertSelective(question);
         return question;
     }
@@ -127,9 +128,11 @@ public class QuestionServiceImpl extends BaseServiceImpl<Question> implements Qu
                 questionEditRequestVM.setCorrectArray(ExamUtil.contentToArray(question.getCorrect()));
                 break;
             case GapFilling:
-            case ShortAnswer:
                 List<String> correctContent = questionObject.getQuestionItemObjects().stream().map(d -> d.getContent()).collect(Collectors.toList());
                 questionEditRequestVM.setCorrectArray(correctContent);
+                break;
+            case ShortAnswer:
+                questionEditRequestVM.setCorrect(questionObject.getCorrect());
                 break;
             default:
                 break;
@@ -162,6 +165,7 @@ public class QuestionServiceImpl extends BaseServiceImpl<Question> implements Qu
         questionObject.setQuestionItemObjects(itemObjects);
         questionObject.setAnalyze(model.getAnalyze());
         questionObject.setTitleContent(model.getTitle());
+        questionObject.setCorrect(model.getCorrect());
         infoTextContent.setContent(JsonUtil.toJsonStr(questionObject));
     }
 

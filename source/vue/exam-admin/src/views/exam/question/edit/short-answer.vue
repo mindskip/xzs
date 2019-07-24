@@ -1,26 +1,26 @@
 <template>
   <div class="app-container">
-    <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading">
-      <el-form-item label="年级：" required>
-        <el-select v-model="form.gradeLevel" placeholder="年级"  @change="levelChange">
+    <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
+      <el-form-item label="年级：" prop="gradeLevel" required>
+        <el-select v-model="form.gradeLevel"   placeholder="年级"  @change="levelChange">
           <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="学科：" required>
+      <el-form-item label="学科：" prop="subjectId" required>
         <el-select v-model="form.subjectId" placeholder="学科" >
           <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id" :label="item.name+' ( '+item.levelName+' )'"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="题干：" required>
+      <el-form-item label="题干：" prop="title" required>
         <el-input v-model="form.title"   @focus="inputClick(form,'title')" />
       </el-form-item>
-      <el-form-item label="答案：" required>
-        <el-input v-model="item.content"  :key="item.prefix"  @focus="inputClick(item,'content')"  v-for="item in form.items" />
+      <el-form-item label="答案：" prop="correct" required>
+        <el-input v-model="form.correct"   @focus="inputClick(form,'correct')" />
       </el-form-item>
-      <el-form-item label="解析：" required>
+      <el-form-item label="解析：" prop="analyze" required>
         <el-input v-model="form.analyze"  @focus="inputClick(form,'analyze')" />
       </el-form-item>
-      <el-form-item label="分数：" required>
+      <el-form-item label="分数：" prop="score" required>
         <el-input v-model="form.score" placeholder="分数支持小数点后一位"  />
       </el-form-item>
       <el-form-item label="难度：" required>
@@ -63,9 +63,7 @@ export default {
         gradeLevel: null,
         subjectId: null,
         title: '',
-        items: [
-          { id: null, prefix: 'A', content: '' }
-        ],
+        items: [],
         analyze: '',
         correct: '',
         score: '',
@@ -73,6 +71,26 @@ export default {
       },
       subjectFilter: null,
       formLoading: false,
+      rules: {
+        gradeLevel: [
+          { required: true, message: '请选择年级', trigger: 'change' }
+        ],
+        subjectId: [
+          { required: true, message: '请选择学科', trigger: 'change' }
+        ],
+        title: [
+          { required: true, message: '请输入题干', trigger: 'blur' }
+        ],
+        correct: [
+          { required: true, message: '请输入答案', trigger: 'blur' }
+        ],
+        analyze: [
+          { required: true, message: '请输入解析', trigger: 'blur' }
+        ],
+        score: [
+          { required: true, message: '请输入分数', trigger: 'blur' }
+        ]
+      },
       richEditor: {
         dialogVisible: false,
         object: null,
@@ -119,17 +137,23 @@ export default {
     },
     submitForm () {
       let _this = this
-      this.formLoading = true
-      questionApi.edit(this.form).then(re => {
-        if (re.code === 1) {
-          _this.form = re.response
-          _this.$message.success(re.message)
+      this.$refs.form.validate((valid) => {
+        if (valid) {
+          this.formLoading = true
+          questionApi.edit(this.form).then(re => {
+            if (re.code === 1) {
+              _this.form = re.response
+              _this.$message.success(re.message)
+            } else {
+              _this.$message.error(re.message)
+            }
+            this.formLoading = false
+          }).catch(e => {
+            this.formLoading = false
+          })
         } else {
-          _this.$message.error(re.message)
+          return false
         }
-        this.formLoading = false
-      }).catch(e => {
-        this.formLoading = false
       })
     },
     resetForm () {

@@ -1,17 +1,17 @@
 <template>
   <div class="app-container">
-    <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading">
-      <el-form-item label="年级：" required>
+    <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
+      <el-form-item label="年级：" prop="gradeLevel" required>
         <el-select v-model="form.gradeLevel" placeholder="年级"  @change="levelChange">
           <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="学科：" required>
+      <el-form-item label="学科：" prop="subjectId" required>
         <el-select v-model="form.subjectId" placeholder="学科" >
           <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id" :label="item.name+' ( '+item.levelName+' )'"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="题干：" required>
+      <el-form-item label="题干：" prop="title" required>
         <el-input v-model="form.title"   @focus="inputClick(form,'title')" />
       </el-form-item>
       <el-form-item label="选项：" required>
@@ -21,16 +21,16 @@
            <el-button type="danger" size="mini" class="question-item-remove" icon="el-icon-delete" @click="questionItemRemove(index)"></el-button>
         </el-form-item>
       </el-form-item>
-      <el-form-item label="解析：" required>
+      <el-form-item label="解析：" prop="analyze" required>
         <el-input v-model="form.analyze"  @focus="inputClick(form,'analyze')" />
       </el-form-item>
-      <el-form-item label="分数：" required>
+      <el-form-item label="分数：" prop="score" required>
         <el-input v-model="form.score" placeholder="分数支持小数点后一位"  />
       </el-form-item>
       <el-form-item label="难度：" required>
         <el-rate v-model="form.difficult" class="question-item-rate"></el-rate>
       </el-form-item>
-      <el-form-item label="正确答案：" required>
+      <el-form-item label="正确答案：" prop="correct" required>
         <el-radio-group v-model="form.correct">
           <el-radio  v-for="item in form.items"  :key="item.prefix"  :label="item.prefix">{{item.prefix}}</el-radio>
         </el-radio-group>
@@ -86,6 +86,26 @@ export default {
       },
       subjectFilter: null,
       formLoading: false,
+      rules: {
+        gradeLevel: [
+          { required: true, message: '请选择年级', trigger: 'change' }
+        ],
+        subjectId: [
+          { required: true, message: '请选择学科', trigger: 'change' }
+        ],
+        title: [
+          { required: true, message: '请输入题干', trigger: 'blur' }
+        ],
+        analyze: [
+          { required: true, message: '请输入解析', trigger: 'blur' }
+        ],
+        score: [
+          { required: true, message: '请输入分数', trigger: 'blur' }
+        ],
+        correct: [
+          { required: true, message: '请选择正确答案', trigger: 'change' }
+        ]
+      },
       richEditor: {
         dialogVisible: false,
         object: null,
@@ -141,17 +161,23 @@ export default {
     },
     submitForm () {
       let _this = this
-      this.formLoading = true
-      questionApi.edit(this.form).then(re => {
-        if (re.code === 1) {
-          _this.form = re.response
-          _this.$message.success(re.message)
+      this.$refs.form.validate((valid) => {
+        if (valid) {
+          this.formLoading = true
+          questionApi.edit(this.form).then(re => {
+            if (re.code === 1) {
+              _this.form = re.response
+              _this.$message.success(re.message)
+            } else {
+              _this.$message.error(re.message)
+            }
+            this.formLoading = false
+          }).catch(e => {
+            this.formLoading = false
+          })
         } else {
-          _this.$message.error(re.message)
+          return false
         }
-        this.formLoading = false
-      }).catch(e => {
-        this.formLoading = false
       })
     },
     resetForm () {

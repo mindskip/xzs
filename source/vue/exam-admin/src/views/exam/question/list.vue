@@ -125,7 +125,15 @@ export default {
       this.$router.push({ path: url, query: { id: row.id } })
     },
     deleteQuestion (row) {
-
+      let _this = this
+      questionApi.deleteQuestion(row.id).then(re => {
+        if (re.code === 1) {
+          _this.search()
+          _this.$message.success(re.message)
+        } else {
+          _this.$message.error(re.message)
+        }
+      })
     },
     questionTypeFormatter (row, column, cellValue, index) {
       return this.enumFormat(this.questionType, cellValue)
