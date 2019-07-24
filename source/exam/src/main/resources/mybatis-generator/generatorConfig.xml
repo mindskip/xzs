@@ -14,7 +14,7 @@
         </commentGenerator>
 
         <!-- jdbc -->
-        <jdbcConnection driverClass="org.postgresql.Driver" connectionURL="jdbc:postgresql://10.103.15.180:5432/exam"
+        <jdbcConnection driverClass="org.postgresql.Driver" connectionURL="jdbc:postgresql://10.103.15.180:5432/exam2"
                         userId="postgres" password="123456">
         </jdbcConnection>
 
@@ -42,13 +42,11 @@
         </javaClientGenerator>
 
 
-<!--
         <table tableName="t_user" domainObjectName="User" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <columnOverride column="user_uuid"  javaType="java.lang.String"  jdbcType="VARCHAR" />
         </table>
--->
 
 
 <!--        <table tableName="t_subject" domainObjectName="Subject" enableCountByExample="false"
@@ -57,11 +55,10 @@
         </table>-->
 
 
-        <!--
                 <table tableName="t_question" domainObjectName="Question" enableCountByExample="false"
                        enableUpdateByExample="false"
                        enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-                </table>-->
+                </table>
 
 
 
@@ -73,10 +70,10 @@
                 </table>-->
 
 
-<!--      <table tableName="t_exam_paper" domainObjectName="ExamPaper" enableCountByExample="false"
+      <table tableName="t_exam_paper" domainObjectName="ExamPaper" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>-->
+        </table>
 
         <!--     <table tableName="t_exam_paper_answer" domainObjectName="ExamPaperAnswer" enableCountByExample="false"
                   enableUpdateByExample="false"
@@ -84,10 +81,12 @@
            </table>-->
 
 
+<!--
         <table tableName="t_exam_paper_question_customer_answer" domainObjectName="ExamPaperQuestionCustomerAnswer" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
+-->
 
 
     </context>

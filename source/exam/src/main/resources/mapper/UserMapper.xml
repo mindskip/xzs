@@ -1,207 +1,217 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.alvis.exam.repository.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.alvis.exam.domain.User" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="user_uuid" property="userUuid" jdbcType="VARCHAR" />
-    <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="real_name" property="realName" jdbcType="VARCHAR" />
-    <result column="age" property="age" jdbcType="INTEGER" />
-    <result column="sex" property="sex" jdbcType="INTEGER" />
-    <result column="birth_day" property="birthDay" jdbcType="TIMESTAMP" />
-    <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="last_active_time" property="lastActiveTime" jdbcType="TIMESTAMP" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
-    <result column="role" property="role" jdbcType="INTEGER" />
-    <result column="image_path" property="imagePath" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="INTEGER" />
-    <result column="user_level" property="userLevel" jdbcType="INTEGER" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alvis.exam.repository.UserMapper">
+  <resultMap id="BaseResultMap" type="com.alvis.exam.domain.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_uuid" jdbcType="VARCHAR" property="userUuid" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="birth_day" jdbcType="TIMESTAMP" property="birthDay" />
+    <result column="user_level" jdbcType="INTEGER" property="userLevel" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="role" jdbcType="INTEGER" property="role" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="image_path" jdbcType="VARCHAR" property="imagePath" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="last_active_time" jdbcType="TIMESTAMP" property="lastActiveTime" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    id, user_uuid, user_name, password, real_name, age, sex, birth_day, phone, last_active_time,
-    create_time, modify_time, role, image_path, status, user_level
+  <sql id="Base_Column_List">
+    id, user_uuid, user_name, password, real_name, age, sex, birth_day, user_level, phone,
+    role, status, image_path, create_time, modify_time, last_active_time, deleted
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_user
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.alvis.exam.domain.User"   useGeneratedKeys="true" keyProperty="id" >
     insert into t_user (id, user_uuid, user_name,
       password, real_name, age,
-      sex, birth_day, phone,
-      last_active_time, create_time, modify_time,
-      role, image_path, status,
-      user_level)
+      sex, birth_day, user_level,
+      phone, role, status,
+      image_path, create_time, modify_time,
+      last_active_time, deleted)
     values (#{id,jdbcType=INTEGER}, #{userUuid}::uuid, #{userName,jdbcType=VARCHAR},
       #{password,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
-      #{sex,jdbcType=INTEGER}, #{birthDay,jdbcType=TIMESTAMP}, #{phone,jdbcType=VARCHAR},
-      #{lastActiveTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP},
-      #{role,jdbcType=INTEGER}, #{imagePath,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
-      #{userLevel,jdbcType=INTEGER})
+      #{sex,jdbcType=INTEGER}, #{birthDay,jdbcType=TIMESTAMP}, #{userLevel,jdbcType=INTEGER},
+      #{phone,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, #{status,jdbcType=INTEGER},
+      #{imagePath,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP},
+      #{lastActiveTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="com.alvis.exam.domain.User"   useGeneratedKeys="true" keyProperty="id" >
     insert into t_user
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         id,
       </if>
-      <if test="userUuid != null" >
+      <if test="userUuid != null">
         user_uuid,
       </if>
-      <if test="userName != null" >
+      <if test="userName != null">
         user_name,
       </if>
-      <if test="password != null" >
+      <if test="password != null">
         password,
       </if>
-      <if test="realName != null" >
+      <if test="realName != null">
         real_name,
       </if>
-      <if test="age != null" >
+      <if test="age != null">
         age,
       </if>
-      <if test="sex != null" >
+      <if test="sex != null">
         sex,
       </if>
-      <if test="birthDay != null" >
+      <if test="birthDay != null">
         birth_day,
       </if>
-      <if test="phone != null" >
-        phone,
-      </if>
-      <if test="lastActiveTime != null" >
-        last_active_time,
-      </if>
-      <if test="createTime != null" >
-        create_time,
-      </if>
-      <if test="modifyTime != null" >
-        modify_time,
-      </if>
-      <if test="role != null" >
-        role,
-      </if>
-      <if test="imagePath != null" >
-        image_path,
-      </if>
-      <if test="status != null" >
-        status,
-      </if>
-      <if test="userLevel != null" >
+      <if test="userLevel != null">
         user_level,
       </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="imagePath != null">
+        image_path,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="lastActiveTime != null">
+        last_active_time,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="userUuid != null" >
+      <if test="userUuid != null">
         #{userUuid}::uuid,
       </if>
-      <if test="userName != null" >
+      <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
+      <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="realName != null" >
+      <if test="realName != null">
         #{realName,jdbcType=VARCHAR},
       </if>
-      <if test="age != null" >
+      <if test="age != null">
         #{age,jdbcType=INTEGER},
       </if>
-      <if test="sex != null" >
+      <if test="sex != null">
         #{sex,jdbcType=INTEGER},
       </if>
-      <if test="birthDay != null" >
+      <if test="birthDay != null">
         #{birthDay,jdbcType=TIMESTAMP},
       </if>
-      <if test="phone != null" >
+      <if test="userLevel != null">
+        #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="lastActiveTime != null" >
-        #{lastActiveTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifyTime != null" >
-        #{modifyTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="role != null" >
+      <if test="role != null">
         #{role,jdbcType=INTEGER},
       </if>
-      <if test="imagePath != null" >
-        #{imagePath,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
+      <if test="status != null">
         #{status,jdbcType=INTEGER},
       </if>
-      <if test="userLevel != null" >
-        #{userLevel,jdbcType=INTEGER},
+      <if test="imagePath != null">
+        #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastActiveTime != null">
+        #{lastActiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.alvis.exam.domain.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.alvis.exam.domain.User">
     update t_user
-    <set >
-      <if test="userUuid != null" >
+    <set>
+      <if test="userUuid != null">
         user_uuid = #{userUuid}::uuid,
       </if>
-      <if test="userName != null" >
+      <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
+      <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="realName != null" >
+      <if test="realName != null">
         real_name = #{realName,jdbcType=VARCHAR},
       </if>
-      <if test="age != null" >
+      <if test="age != null">
         age = #{age,jdbcType=INTEGER},
       </if>
-      <if test="sex != null" >
+      <if test="sex != null">
         sex = #{sex,jdbcType=INTEGER},
       </if>
-      <if test="birthDay != null" >
+      <if test="birthDay != null">
         birth_day = #{birthDay,jdbcType=TIMESTAMP},
       </if>
-      <if test="phone != null" >
+      <if test="userLevel != null">
+        user_level = #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="lastActiveTime != null" >
-        last_active_time = #{lastActiveTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifyTime != null" >
-        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="role != null" >
+      <if test="role != null">
         role = #{role,jdbcType=INTEGER},
       </if>
-      <if test="imagePath != null" >
-        image_path = #{imagePath,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
+      <if test="status != null">
         status = #{status,jdbcType=INTEGER},
       </if>
-      <if test="userLevel != null" >
-        user_level = #{userLevel,jdbcType=INTEGER},
+      <if test="imagePath != null">
+        image_path = #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastActiveTime != null">
+        last_active_time = #{lastActiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=BIT},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.alvis.exam.domain.User" >
+  <update id="updateByPrimaryKey" parameterType="com.alvis.exam.domain.User">
     update t_user
     set user_uuid = #{userUuid}::uuid,
       user_name = #{userName,jdbcType=VARCHAR},
@@ -210,14 +220,15 @@
       age = #{age,jdbcType=INTEGER},
       sex = #{sex,jdbcType=INTEGER},
       birth_day = #{birthDay,jdbcType=TIMESTAMP},
+      user_level = #{userLevel,jdbcType=INTEGER},
       phone = #{phone,jdbcType=VARCHAR},
-      last_active_time = #{lastActiveTime,jdbcType=TIMESTAMP},
+      role = #{role,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      image_path = #{imagePath,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       modify_time = #{modifyTime,jdbcType=TIMESTAMP},
-      role = #{role,jdbcType=INTEGER},
-      image_path = #{imagePath,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      user_level = #{userLevel,jdbcType=INTEGER}
+      last_active_time = #{lastActiveTime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 
@@ -226,7 +237,7 @@
   <select id="getAllUser" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
-    from t_user
+    from t_user where deleted='f'
   </select>
 
   <select id="getUserById" resultMap="BaseResultMap">
@@ -240,21 +251,21 @@
     select
     <include refid="Base_Column_List"/>
     from t_user
-    where user_name=#{value} limit 1
+    where deleted='f' and user_name=#{value} limit 1
   </select>
 
   <select id="getUserByUserNamePwd" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
     from t_user
-    where user_name=#{username} and password=#{pwd} limit 1
+    where deleted='f' and user_name=#{username} and password=#{pwd} limit 1
   </select>
 
   <select id="getUserByUuid" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
     from t_user
-    where user_uuid=#{value}::uuid
+    where deleted='f' and user_uuid=#{value}::uuid
   </select>
 
 
@@ -263,6 +274,7 @@
     <include refid="Base_Column_List"/>
     FROM t_user
     <where>
+        and deleted='f'
       <if test="name != null and name != ''">
         and  real_name like concat('%',#{name},'%')
       </if>
@@ -278,6 +290,7 @@
   <select id="userPageCount" resultType="java.lang.Integer">
     select count(*) from t_user
     <where>
+        and deleted='f'
       <if test="name != null and name != ''">
         and real_name like concat('%', #{name}, '%')
       </if>
@@ -290,6 +303,7 @@
     <include refid="Base_Column_List"/>
     FROM t_user
     <where>
+        and deleted='f'
       <if test="userName != null and userName != ''">
         and user_name like concat('%',#{userName},'%')
       </if>
@@ -351,7 +365,7 @@
   </delete>
 
   <select id="selectAllCount"  resultType="java.lang.Integer">
-		SELECT count(*) from t_user
+		SELECT count(*) from t_user where deleted='f'
 	</select>
 
 </mapper>

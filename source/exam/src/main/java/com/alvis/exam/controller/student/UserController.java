@@ -48,9 +48,10 @@ public class UserController extends BaseApiController {
         user.setUserUuid(UUID.randomUUID().toString());
         user.setPassword(encodePwd);
         user.setRole(RoleEnum.STUDENT.getCode());
-        user.setStatus(UserStatusEnum.On.getCode());
+        user.setStatus(UserStatusEnum.Enable.getCode());
         user.setLastActiveTime(new Date());
         user.setCreateTime(new Date());
+        user.setDeleted(false);
         userService.insertByFilter(user);
         return RestResponse.ok();
     }

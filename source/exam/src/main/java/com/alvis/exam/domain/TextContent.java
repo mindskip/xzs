@@ -5,6 +5,8 @@ import java.util.Date;
 
 public class TextContent implements Serializable {
 
+    private static final long serialVersionUID = -1279530310964668131L;
+
     public TextContent(){
 
     }

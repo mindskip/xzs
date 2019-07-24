@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class ExamPaperAnswer implements Serializable {
+
+    private static final long serialVersionUID = -2143539181805283910L;
+
     private Integer id;
 
     private Integer examPaperId;

@@ -8,30 +8,34 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Question implements Serializable {
+
+    private static final long serialVersionUID = 8826266720383164363L;
+
     private Integer id;
 
     private Integer questionType;
 
-    private Date createTime;
-
     private Integer subjectId;
-
-    private Integer createUser;
 
     private Integer score;
 
-    private Integer status;
-
-    private String correct;
+    private Integer gradeLevel;
 
     private Integer difficult;
 
+    private String correct;
+
     private Integer infoTextContentId;
 
-    private Integer gradeLevel;
+    private Integer createUser;
+
+    private Integer status;
+
+    private Date createTime;
+
+    private Boolean deleted;
 
     public Integer getId() {
         return id;
@@ -49,28 +53,12 @@ public class Question implements Serializable {
         this.questionType = questionType;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
     public Integer getSubjectId() {
         return subjectId;
     }
 
     public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
-    }
-
-    public Integer getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(Integer createUser) {
-        this.createUser = createUser;
     }
 
     public Integer getScore() {
@@ -81,20 +69,12 @@ public class Question implements Serializable {
         this.score = score;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getGradeLevel() {
+        return gradeLevel;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getCorrect() {
-        return correct;
-    }
-
-    public void setCorrect(String correct) {
-        this.correct = correct == null ? null : correct.trim();
+    public void setGradeLevel(Integer gradeLevel) {
+        this.gradeLevel = gradeLevel;
     }
 
     public Integer getDifficult() {
@@ -105,6 +85,14 @@ public class Question implements Serializable {
         this.difficult = difficult;
     }
 
+    public String getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(String correct) {
+        this.correct = correct == null ? null : correct.trim();
+    }
+
     public Integer getInfoTextContentId() {
         return infoTextContentId;
     }
@@ -113,13 +101,38 @@ public class Question implements Serializable {
         this.infoTextContentId = infoTextContentId;
     }
 
-    public Integer getGradeLevel() {
-        return gradeLevel;
+    public Integer getCreateUser() {
+        return createUser;
     }
 
-    public void setGradeLevel(Integer gradeLevel) {
-        this.gradeLevel = gradeLevel;
+    public void setCreateUser(Integer createUser) {
+        this.createUser = createUser;
     }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
+
 
     public void setCorrectFromVM(String correct, List<String> correctArray) {
         int qType = this.getQuestionType();
@@ -130,5 +143,4 @@ public class Question implements Serializable {
             this.setCorrect(correct);
         }
     }
-
 }

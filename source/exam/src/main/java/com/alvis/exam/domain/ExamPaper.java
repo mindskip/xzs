@@ -4,23 +4,22 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class ExamPaper implements Serializable {
+
+    private static final long serialVersionUID = 8509645224550501395L;
+
     private Integer id;
 
     private String name;
-
-    private Integer questionCount;
-
-    private Integer score;
-
-    private Date createTime;
-
-    private Integer createUser;
 
     private Integer subjectId;
 
     private Integer paperType;
 
-    private Integer frameTextContentId;
+    private Integer gradeLevel;
+
+    private Integer score;
+
+    private Integer questionCount;
 
     private Integer suggestTime;
 
@@ -28,7 +27,13 @@ public class ExamPaper implements Serializable {
 
     private Date limitEndTime;
 
-    private Integer gradeLevel;
+    private Integer frameTextContentId;
+
+    private Integer createUser;
+
+    private Date createTime;
+
+    private Boolean deleted;
 
     public Integer getId() {
         return id;
@@ -44,38 +49,6 @@ public class ExamPaper implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
-    }
-
-    public Integer getQuestionCount() {
-        return questionCount;
-    }
-
-    public void setQuestionCount(Integer questionCount) {
-        this.questionCount = questionCount;
-    }
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(Integer createUser) {
-        this.createUser = createUser;
     }
 
     public Integer getSubjectId() {
@@ -94,12 +67,28 @@ public class ExamPaper implements Serializable {
         this.paperType = paperType;
     }
 
-    public Integer getFrameTextContentId() {
-        return frameTextContentId;
+    public Integer getGradeLevel() {
+        return gradeLevel;
     }
 
-    public void setFrameTextContentId(Integer frameTextContentId) {
-        this.frameTextContentId = frameTextContentId;
+    public void setGradeLevel(Integer gradeLevel) {
+        this.gradeLevel = gradeLevel;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public Integer getQuestionCount() {
+        return questionCount;
+    }
+
+    public void setQuestionCount(Integer questionCount) {
+        this.questionCount = questionCount;
     }
 
     public Integer getSuggestTime() {
@@ -126,11 +115,35 @@ public class ExamPaper implements Serializable {
         this.limitEndTime = limitEndTime;
     }
 
-    public Integer getGradeLevel() {
-        return gradeLevel;
+    public Integer getFrameTextContentId() {
+        return frameTextContentId;
     }
 
-    public void setGradeLevel(Integer gradeLevel) {
-        this.gradeLevel = gradeLevel;
+    public void setFrameTextContentId(Integer frameTextContentId) {
+        this.frameTextContentId = frameTextContentId;
+    }
+
+    public Integer getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(Integer createUser) {
+        this.createUser = createUser;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
     }
 }

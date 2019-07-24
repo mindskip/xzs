@@ -3,6 +3,9 @@ package com.alvis.exam.domain;
 import java.io.Serializable;
 
 public class Subject implements Serializable {
+
+    private static final long serialVersionUID = 8058095034457106501L;
+
     private Integer id;
 
     private String name;

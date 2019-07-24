@@ -2,11 +2,13 @@ package com.alvis.exam.configuration.spring.security;
 
 
 import com.alvis.exam.domain.enums.RoleEnum;
+import com.alvis.exam.domain.enums.UserStatusEnum;
 import com.alvis.exam.service.AuthenticationService;
 import com.alvis.exam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 
 /**
  * 登录用户名密码验证
+ *
  * @author :  Alvis
  * Description :  身份验证
  * Creation Date:  2018-05-02 5:00 PM
@@ -52,12 +55,10 @@ public class RestAuthenticationProvider implements AuthenticationProvider {
             throw new BadCredentialsException("用户名或密码错误");
         }
 
-/*
-        if (true) {
-            throw new LockedException("Account Lock .");
+        UserStatusEnum userStatusEnum = UserStatusEnum.fromCode(user.getStatus());
+        if (UserStatusEnum.Disable == userStatusEnum) {
+            throw new LockedException("用户被禁用");
         }
-*/
-
 
         ArrayList<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(new SimpleGrantedAuthority(RoleEnum.fromCode(user.getRole()).getRoleName()));

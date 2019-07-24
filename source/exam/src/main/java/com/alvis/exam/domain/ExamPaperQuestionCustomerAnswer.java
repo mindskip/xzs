@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.List;
 
 public class ExamPaperQuestionCustomerAnswer implements Serializable {
+
+    private static final long serialVersionUID = 3389482731220342366L;
+
     private Integer id;
 
     private Integer questionId;

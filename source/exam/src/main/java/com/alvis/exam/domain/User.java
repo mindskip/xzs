@@ -23,21 +23,23 @@ public class User implements Serializable {
 
     private Date birthDay;
 
+    private Integer userLevel;
+
     private String phone;
 
-    private Date lastActiveTime;
+    private Integer role;
+
+    private Integer status;
+
+    private String imagePath;
 
     private Date createTime;
 
     private Date modifyTime;
 
-    private Integer role;
+    private Date lastActiveTime;
 
-    private String imagePath;
-
-    private Integer status;
-
-    private Integer userLevel;
+    private Boolean deleted;
 
     public Integer getId() {
         return id;
@@ -103,6 +105,14 @@ public class User implements Serializable {
         this.birthDay = birthDay;
     }
 
+    public Integer getUserLevel() {
+        return userLevel;
+    }
+
+    public void setUserLevel(Integer userLevel) {
+        this.userLevel = userLevel;
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -111,12 +121,28 @@ public class User implements Serializable {
         this.phone = phone == null ? null : phone.trim();
     }
 
-    public Date getLastActiveTime() {
-        return lastActiveTime;
+    public Integer getRole() {
+        return role;
     }
 
-    public void setLastActiveTime(Date lastActiveTime) {
-        this.lastActiveTime = lastActiveTime;
+    public void setRole(Integer role) {
+        this.role = role;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath == null ? null : imagePath.trim();
     }
 
     public Date getCreateTime() {
@@ -135,35 +161,19 @@ public class User implements Serializable {
         this.modifyTime = modifyTime;
     }
 
-    public Integer getRole() {
-        return role;
+    public Date getLastActiveTime() {
+        return lastActiveTime;
     }
 
-    public void setRole(Integer role) {
-        this.role = role;
+    public void setLastActiveTime(Date lastActiveTime) {
+        this.lastActiveTime = lastActiveTime;
     }
 
-    public String getImagePath() {
-        return imagePath;
+    public Boolean getDeleted() {
+        return deleted;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath == null ? null : imagePath.trim();
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Integer getUserLevel() {
-        return userLevel;
-    }
-
-    public void setUserLevel(Integer userLevel) {
-        this.userLevel = userLevel;
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
     }
 }

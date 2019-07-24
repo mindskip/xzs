@@ -8,7 +8,7 @@
       <el-form-item label="密码：" required>
         <el-input v-model="form.password"></el-input>
       </el-form-item>
-      <el-form-item label="真实姓名："  prop="userName"  required>
+      <el-form-item label="真实姓名："  prop="realName"  required>
         <el-input v-model="form.realName"></el-input>
       </el-form-item>
       <el-form-item label="年龄：">

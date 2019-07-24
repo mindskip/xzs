@@ -3,7 +3,6 @@ package com.alvis.exam.controller.admin;
 import com.alvis.exam.base.BaseApiController;
 import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.domain.User;
-import com.alvis.exam.domain.enums.DeletedEnum;
 import com.alvis.exam.domain.enums.UserStatusEnum;
 import com.alvis.exam.service.AuthenticationService;
 import com.alvis.exam.service.UserService;
@@ -80,6 +79,7 @@ public class UserController extends BaseApiController {
             user.setUserUuid(UUID.randomUUID().toString());
             user.setCreateTime(new Date());
             user.setLastActiveTime(new Date());
+            user.setDeleted(false);
             userService.insertByFilter(user);
         } else {
             if (!StringUtils.isBlank(model.getPassword())) {
@@ -106,7 +106,7 @@ public class UserController extends BaseApiController {
     public RestResponse<Integer> changeStatus(@PathVariable Integer id) {
         User user = userService.getUserById(id);
         UserStatusEnum userStatusEnum = UserStatusEnum.fromCode(user.getStatus());
-        Integer newStatus = userStatusEnum == UserStatusEnum.On ? UserStatusEnum.OFF.getCode() : UserStatusEnum.On.getCode();
+        Integer newStatus = userStatusEnum == UserStatusEnum.Enable ? UserStatusEnum.Disable.getCode() : UserStatusEnum.Enable.getCode();
         user.setStatus(newStatus);
         userService.updateByIdFilter(user);
         return RestResponse.ok(newStatus);
@@ -116,8 +116,7 @@ public class UserController extends BaseApiController {
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     public RestResponse delete(@PathVariable Integer id) {
         User user = userService.getUserById(id);
-        DeletedEnum.Normal.getCode();
-        user.setStatus(newStatus);
+        user.setDeleted(true);
         userService.updateByIdFilter(user);
         return RestResponse.ok();
     }
