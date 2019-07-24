@@ -3,6 +3,7 @@ package com.alvis.exam.controller.admin;
 import com.alvis.exam.base.BaseApiController;
 import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.domain.User;
+import com.alvis.exam.domain.enums.DeletedEnum;
 import com.alvis.exam.domain.enums.UserStatusEnum;
 import com.alvis.exam.service.AuthenticationService;
 import com.alvis.exam.service.UserService;
@@ -114,7 +115,10 @@ public class UserController extends BaseApiController {
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     public RestResponse delete(@PathVariable Integer id) {
-        userService.deleteById(id);
+        User user = userService.getUserById(id);
+        DeletedEnum.Normal.getCode();
+        user.setStatus(newStatus);
+        userService.updateByIdFilter(user);
         return RestResponse.ok();
     }
 

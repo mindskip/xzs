@@ -3,7 +3,7 @@ package com.alvis.exam.domain.enums;
 public enum QuestionStatusEnum {
 
     OK(1, "正常"),
-    DELETE(2, "删除");
+    Publish(2, "发布");
 
     int code;
     String name;
