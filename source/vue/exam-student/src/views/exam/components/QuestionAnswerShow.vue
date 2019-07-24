@@ -68,8 +68,8 @@
       </div>
       <div class="question-answer-show-item">
         <span class="question-show-item">正确答案：</span>
-        <span v-if="qType==1||qType==2||qType==3">{{question.correct}}</span>
-        <span v-if="qType==4||qType==5">{{question.correctArray}}</span>
+        <span v-if="qType==1||qType==2||qType==3||qType==5">{{question.correct}}</span>
+        <span v-if="qType==4">{{question.correctArray}}</span>
       </div>
     </div>
     <div v-else>
