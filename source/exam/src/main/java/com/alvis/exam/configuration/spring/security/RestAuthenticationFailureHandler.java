@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 登录账号密码错误
+ * 账号验证异常
  * @author alvis
  */
 @Component
@@ -19,6 +19,6 @@ public class RestAuthenticationFailureHandler extends SimpleUrlAuthenticationFai
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-        RestUtil.response(response, SystemCode.AuthError.getCode(), SystemCode.AuthError.getMessage());
+        RestUtil.response(response, SystemCode.AuthError.getCode(), exception.getMessage());
     }
 }
