@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class ExamPaperEditRequestVM {
 
     private List<String> limitDateTime;
 
-    @NotNull
+    @Size(min = 1,message = "请添加试卷标题")
     @Valid
     private List<ExamPaperTitleItemVM> titleItems;
 

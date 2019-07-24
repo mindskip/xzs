@@ -49,6 +49,8 @@ public class ExamPaperController extends BaseApiController {
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     public RestResponse delete(@PathVariable Integer id) {
         ExamPaper examPaper = examPaperService.selectById(id);
+        examPaper.setDeleted(true);
+        examPaperService.updateByIdFilter(examPaper);
         return RestResponse.ok();
     }
 }

@@ -1,18 +1,18 @@
 <template>
   <div class="app-container">
-    <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading">
-      <el-form-item label="年级：" required>
+    <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
+      <el-form-item label="年级：" prop="level" required>
         <el-select v-model="form.level" placeholder="年级"  @change="levelChange">
           <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="学科：" required>
+      <el-form-item label="学科：" prop="subjectId" required>
         <el-select v-model="form.subjectId" placeholder="学科">
           <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id"
                      :label="item.name+' ( '+item.levelName+' )'"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="试卷类型：" required>
+      <el-form-item label="试卷类型：" prop="paperType" required>
         <el-select v-model="form.paperType" placeholder="试卷类型">
           <el-option v-for="item in paperTypeEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
@@ -22,7 +22,7 @@
                         range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
         </el-date-picker>
       </el-form-item>
-      <el-form-item label="试卷名称：" required>
+      <el-form-item label="试卷名称："  prop="name" required>
         <el-input v-model="form.name"/>
       </el-form-item>
       <el-form-item :key="index" :label="'标题'+(index+1)+'：'" required v-for="(titleItem,index) in form.titleItems">
@@ -46,7 +46,7 @@
           </el-form-item>
         </el-card>
       </el-form-item>
-      <el-form-item label="建议时长：" required>
+      <el-form-item label="建议时长：" prop="suggestTime" required>
         <el-input v-model="form.suggestTime" placeholder="分钟"/>
       </el-form-item>
       <el-form-item>
@@ -108,6 +108,23 @@ export default {
       },
       subjectFilter: null,
       formLoading: false,
+      rules: {
+        level: [
+          { required: true, message: '请选择年级', trigger: 'change' }
+        ],
+        subjectId: [
+          { required: true, message: '请选择学科', trigger: 'change' }
+        ],
+        paperType: [
+          { required: true, message: '请选择试卷类型', trigger: 'change' }
+        ],
+        name: [
+          { required: true, message: '请输入试卷名称', trigger: 'blur' }
+        ],
+        suggestTime: [
+          { required: true, message: '请输入建议时长', trigger: 'blur' }
+        ]
+      },
       questionPage: {
         multipleSelection: [],
         showDialog: false,
@@ -142,17 +159,23 @@ export default {
   methods: {
     submitForm () {
       let _this = this
-      this.formLoading = true
-      examPaperApi.edit(this.form).then(re => {
-        if (re.code === 1) {
-          _this.form = re.response
-          _this.$message.success(re.message)
+      this.$refs.form.validate((valid) => {
+        if (valid) {
+          this.formLoading = true
+          examPaperApi.edit(this.form).then(re => {
+            if (re.code === 1) {
+              _this.form = re.response
+              _this.$message.success(re.message)
+            } else {
+              _this.$message.error(re.message)
+            }
+            this.formLoading = false
+          }).catch(e => {
+            this.formLoading = false
+          })
         } else {
-          _this.$message.error(re.message)
+          return false
         }
-        this.formLoading = false
-      }).catch(e => {
-        this.formLoading = false
       })
     },
     addTitle () {

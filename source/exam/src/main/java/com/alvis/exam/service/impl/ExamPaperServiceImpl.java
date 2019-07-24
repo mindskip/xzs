@@ -86,6 +86,7 @@ public class ExamPaperServiceImpl extends BaseServiceImpl<ExamPaper> implements 
             examPaper.setFrameTextContentId(frameTextContent.getId());
             examPaper.setCreateTime(now);
             examPaper.setCreateUser(user.getId());
+            examPaper.setDeleted(false);
             examPaperFromVM(examPaperEditRequestVM, examPaper, titleItemsVM);
             examPaperMapper.insertSelective(examPaper);
         } else {

@@ -204,6 +204,7 @@
     <include refid="Base_Column_List"/>
     FROM t_exam_paper
     <where>
+        and deleted='f'
       <if test="id != null ">
         and id= #{id}
       </if>
@@ -222,6 +223,7 @@
     <include refid="Base_Column_List"/>
     FROM t_exam_paper
     <where>
+       and deleted='f'
        and subject_id=#{subjectId}
        and paper_type=#{paperType}
     </where>
@@ -233,6 +235,7 @@
     <include refid="Base_Column_List"/>
     FROM t_exam_paper
     <where>
+      and deleted='f'
       and paper_type= #{examPaperType}
       and grade_level=#{gradeLevel}
       <if test="examPaperType == 3 ">
@@ -246,14 +249,14 @@
 
 
   <select id="selectAllCount"  resultType="java.lang.Integer">
-		SELECT count(*) from t_exam_paper
+		SELECT count(*) from t_exam_paper where deleted='f'
 	</select>
 
   <select id="selectCountByDate"  resultType="com.alvis.exam.domain.KeyValue">
 		SELECT create_time as name,COUNT(create_time) as value from
 		        (
 				  SELECT to_char(create_time,'YYYY-mm-dd') as create_time from t_exam_paper
-					WHERE  create_time  between  #{startTime}  and  #{endTime}
+					WHERE  deleted='f' and create_time  between  #{startTime}  and  #{endTime}
 				) a
 		GROUP BY create_time
 	</select>
