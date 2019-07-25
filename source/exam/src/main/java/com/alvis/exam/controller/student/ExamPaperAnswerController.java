@@ -60,12 +60,17 @@ public class ExamPaperAnswerController extends BaseApiController {
     public RestResponse<String> answerSubmit(@RequestBody @Valid ExamPaperSubmitVM examPaperSubmitVM) {
         User user = getCurrentUser();
         ExamPaperAnswerInfo examPaperAnswerInfo = examPaperAnswerService.calculateExamPaperAnswer(examPaperSubmitVM, user);
-        Integer userScore = examPaperAnswerInfo.getExamPaperAnswer().getUserScore();
-        eventPublisher.publishEvent(new CalculateExamPaperAnswerCompleteEvent(examPaperAnswerInfo));
+        ExamPaperAnswer examPaperAnswer = examPaperAnswerInfo.getExamPaperAnswer();
+        Integer userScore = examPaperAnswer.getUserScore();
+        String scoreVm = ExamUtil.scoreToVM(userScore);
         UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
-        userEventLog.setContent(user.getUserName() + " 提交试卷：" + examPaperAnswerInfo.getExamPaper().getName() + " 得分：" + userScore);
+        String content = user.getUserName() + " 提交试卷：" + examPaperAnswerInfo.getExamPaper().getName()
+                + " 得分：" + scoreVm
+                + " 耗时：" + ExamUtil.secondToVM(examPaperAnswer.getDoTime());
+        userEventLog.setContent(content);
+        eventPublisher.publishEvent(new CalculateExamPaperAnswerCompleteEvent(examPaperAnswerInfo));
         eventPublisher.publishEvent(new UserEvent(userEventLog));
-        return RestResponse.ok(ExamUtil.scoreToVM(userScore));
+        return RestResponse.ok(scoreVm);
     }
 
     @RequestMapping(value = "/read/{id}", method = RequestMethod.POST)
