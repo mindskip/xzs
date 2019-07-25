@@ -105,6 +105,7 @@ html {
 
 .q-title {
   margin: 5px 5px 0px 5px;
+
   p {
     display: inline !important;
   }
@@ -118,7 +119,7 @@ html {
     display: inline !important;
   }
 
-  .el-checkbox__input{
+  .el-checkbox__input {
     line-height: 1.8;
     vertical-align: top;
   }
@@ -130,6 +131,7 @@ html {
 
 .q-item-content {
   margin: 5px;
+
   p {
     display: inline !important;
   }
@@ -138,6 +140,7 @@ html {
 .q-item-span-content {
   white-space: normal;
   line-height: 1.8;
+
   p {
     display: inline !important;
   }
@@ -187,5 +190,16 @@ html {
   }
 }
 
-.question-show-item-analyze{
+.question-show-item-analyze {
+}
+
+.user-info-userName {
+  text-align: center;
+  margin-top: 15px
+}
+
+.user-info-fullInfo {
+  label {
+    line-height: 1.5;
+  }
 }

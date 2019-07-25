@@ -61,10 +61,7 @@ export default {
         if (result && result.code === 1) {
           _this.$router.push({ path: '/login' })
         } else {
-          _this.$message({
-            message: result.message,
-            type: 'error'
-          })
+          _this.$message.error(result.message)
         }
       })
     },

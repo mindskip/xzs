@@ -3,6 +3,8 @@ package com.alvis.exam.repository;
 import com.alvis.exam.domain.UserEventLog;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface UserEventLogMapper extends BaseMapper<UserEventLog> {
 
@@ -17,4 +19,6 @@ public interface UserEventLogMapper extends BaseMapper<UserEventLog> {
     int updateByPrimaryKeySelective(UserEventLog record);
 
     int updateByPrimaryKey(UserEventLog record);
+
+    List<UserEventLog> getUserEventLogByUserId(Integer id);
 }

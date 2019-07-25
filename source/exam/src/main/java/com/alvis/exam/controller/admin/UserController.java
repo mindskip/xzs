@@ -97,6 +97,7 @@ public class UserController extends BaseApiController {
     public RestResponse update(@RequestBody @Valid UserUpdateVM model) {
         User user = userService.selectById(getCurrentUser().getId());
         modelMapper.map(model, user);
+        user.setModifyTime(new Date());
         userService.updateByIdFilter(user);
         return RestResponse.ok();
     }
@@ -108,6 +109,7 @@ public class UserController extends BaseApiController {
         UserStatusEnum userStatusEnum = UserStatusEnum.fromCode(user.getStatus());
         Integer newStatus = userStatusEnum == UserStatusEnum.Enable ? UserStatusEnum.Disable.getCode() : UserStatusEnum.Enable.getCode();
         user.setStatus(newStatus);
+        user.setModifyTime(new Date());
         userService.updateByIdFilter(user);
         return RestResponse.ok(newStatus);
     }

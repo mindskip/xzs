@@ -3,18 +3,28 @@ package com.alvis.exam.controller.student;
 import com.alvis.exam.base.BaseApiController;
 import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.domain.User;
+import com.alvis.exam.domain.UserEventLog;
 import com.alvis.exam.domain.enums.RoleEnum;
 import com.alvis.exam.domain.enums.UserStatusEnum;
+import com.alvis.exam.event.UserEvent;
 import com.alvis.exam.service.AuthenticationService;
+import com.alvis.exam.service.UserEventLogService;
 import com.alvis.exam.service.UserService;
+import com.alvis.exam.utility.DateTimeUtil;
+import com.alvis.exam.viewmodel.student.user.UserEventLogVM;
 import com.alvis.exam.viewmodel.student.user.UserRegisterVM;
 import com.alvis.exam.viewmodel.student.user.UserResponseVM;
+import com.alvis.exam.viewmodel.student.user.UserUpdateVM;
 import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 
 /**
@@ -26,8 +36,9 @@ import java.util.UUID;
 public class UserController extends BaseApiController {
 
     private final UserService userService;
+    private UserEventLogService userEventLogService;
     private final AuthenticationService authenticationService;
-
+    private final ApplicationEventPublisher eventPublisher;
 
     @RequestMapping(value = "/current", method = RequestMethod.POST)
     public RestResponse<UserResponseVM> current() {
@@ -53,6 +64,38 @@ public class UserController extends BaseApiController {
         user.setCreateTime(new Date());
         user.setDeleted(false);
         userService.insertByFilter(user);
+        UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
+        userEventLog.setContent("欢迎 " + user.getUserName() + " 注册来到学之思考试系统");
+        eventPublisher.publishEvent(new UserEvent(userEventLog));
         return RestResponse.ok();
     }
+
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public RestResponse update(@RequestBody @Valid UserUpdateVM model) {
+        if (StringUtils.isBlank(model.getBirthDay())) {
+            model.setBirthDay(null);
+        }
+        User user = userService.selectById(getCurrentUser().getId());
+        modelMapper.map(model, user);
+        user.setModifyTime(new Date());
+        userService.updateByIdFilter(user);
+        UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
+        userEventLog.setContent(user.getUserName() + " 更新了个人资料");
+        eventPublisher.publishEvent(new UserEvent(userEventLog));
+        return RestResponse.ok();
+    }
+
+    @RequestMapping(value = "/log", method = RequestMethod.POST)
+    public RestResponse<List<UserEventLogVM>> log() {
+        User user = getCurrentUser();
+        List<UserEventLog> userEventLogs = userEventLogService.getUserEventLogByUserId(user.getId());
+        List<UserEventLogVM> userEventLogVMS = userEventLogs.stream().map(d -> {
+            UserEventLogVM vm = modelMapper.map(d, UserEventLogVM.class);
+            vm.setCreateTime(DateTimeUtil.dateFormat(d.getCreateTime()));
+            return vm;
+        }).collect(Collectors.toList());
+        return RestResponse.ok(userEventLogVMS);
+    }
+
 }

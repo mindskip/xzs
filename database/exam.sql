@@ -296,3 +296,24 @@ COMMENT ON COLUMN "public"."t_exam_paper_question_customer_answer"."answer" IS '
 COMMENT ON COLUMN "public"."t_exam_paper_question_customer_answer"."text_content_id" IS '做题内容';
 COMMENT ON COLUMN "public"."t_exam_paper_question_customer_answer"."do_right" IS '是否正确';
 COMMENT ON COLUMN "public"."t_exam_paper_question_customer_answer"."create_user" IS '做题人';
+
+
+
+
+-- ----------------------------
+-- Table structure for t_user_event_log
+-- ----------------------------
+CREATE TABLE "public"."t_user_event_log" (
+  "id" serial4 primary key,
+  "user_id" int4,
+  "user_name" varchar(255) COLLATE "pg_catalog"."default",
+  "real_name" varchar(255) COLLATE "pg_catalog"."default",
+  "content" text COLLATE "pg_catalog"."default",
+  "create_time" timestamp(6)
+)
+;
+COMMENT ON COLUMN "public"."t_user_event_log"."user_id" IS '用户id';
+COMMENT ON COLUMN "public"."t_user_event_log"."user_name" IS '用户名';
+COMMENT ON COLUMN "public"."t_user_event_log"."real_name" IS '真实姓名';
+COMMENT ON COLUMN "public"."t_user_event_log"."content" IS '内容';
+COMMENT ON COLUMN "public"."t_user_event_log"."create_time" IS '时间';

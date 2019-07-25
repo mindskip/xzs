@@ -7,13 +7,25 @@ public class UserEventLog implements Serializable {
 
     private static final long serialVersionUID = -3951198127152024633L;
 
+
+    public UserEventLog(){
+
+    }
+
+    public UserEventLog(Integer userId, String userName, String realName, Date createTime) {
+        this.userId = userId;
+        this.userName = userName;
+        this.realName = realName;
+        this.createTime = createTime;
+    }
+
     private Integer id;
 
     private Integer userId;
 
     private String userName;
 
-    private String userRealname;
+    private String realName;
 
     private String content;
 
@@ -43,12 +55,12 @@ public class UserEventLog implements Serializable {
         this.userName = userName == null ? null : userName.trim();
     }
 
-    public String getUserRealname() {
-        return userRealname;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setUserRealname(String userRealname) {
-        this.userRealname = userRealname == null ? null : userRealname.trim();
+    public void setRealName(String realName) {
+        this.realName = realName == null ? null : realName.trim();
     }
 
     public String getContent() {

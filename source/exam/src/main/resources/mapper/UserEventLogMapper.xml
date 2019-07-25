@@ -5,14 +5,14 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="user_realname" jdbcType="VARCHAR" property="userRealname" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_id, user_name, user_realname, content, create_time
+    id, user_id, user_name, real_name, content, create_time
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_user_event_log
@@ -22,15 +22,15 @@
     delete from t_user_event_log
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.alvis.exam.domain.UserEventLog"  useGeneratedKeys="true" keyProperty="id" >
+  <insert id="insert" parameterType="com.alvis.exam.domain.UserEventLog" useGeneratedKeys="true" keyProperty="id" >
     insert into t_user_event_log (id, user_id, user_name,
-      user_realname, content, create_time
+      real_name, content, create_time
       )
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR},
-      #{userRealname,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      #{realName,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.alvis.exam.domain.UserEventLog"  useGeneratedKeys="true" keyProperty="id" >
+  <insert id="insertSelective" parameterType="com.alvis.exam.domain.UserEventLog" useGeneratedKeys="true" keyProperty="id" >
     insert into t_user_event_log
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -42,8 +42,8 @@
       <if test="userName != null">
         user_name,
       </if>
-      <if test="userRealname != null">
-        user_realname,
+      <if test="realName != null">
+        real_name,
       </if>
       <if test="content != null">
         content,
@@ -62,8 +62,8 @@
       <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="userRealname != null">
-        #{userRealname,jdbcType=VARCHAR},
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
@@ -82,8 +82,8 @@
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="userRealname != null">
-        user_realname = #{userRealname,jdbcType=VARCHAR},
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
@@ -98,9 +98,25 @@
     update t_user_event_log
     set user_id = #{userId,jdbcType=INTEGER},
       user_name = #{userName,jdbcType=VARCHAR},
-      user_realname = #{userRealname,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+
+
+
+
+  <select id="getUserEventLogByUserId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from t_user_event_log
+    where user_id=#{value}
+    order by id desc
+    limit 10
+  </select>
+
+
 </mapper>

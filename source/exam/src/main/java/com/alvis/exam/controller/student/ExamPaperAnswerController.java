@@ -2,11 +2,9 @@ package com.alvis.exam.controller.student;
 
 import com.alvis.exam.base.BaseApiController;
 import com.alvis.exam.base.RestResponse;
-import com.alvis.exam.domain.ExamPaper;
-import com.alvis.exam.domain.ExamPaperAnswer;
-import com.alvis.exam.domain.ExamPaperAnswerInfo;
-import com.alvis.exam.domain.Subject;
+import com.alvis.exam.domain.*;
 import com.alvis.exam.event.CalculateExamPaperAnswerCompleteEvent;
+import com.alvis.exam.event.UserEvent;
 import com.alvis.exam.service.ExamPaperAnswerService;
 import com.alvis.exam.service.ExamPaperService;
 import com.alvis.exam.service.SubjectService;
@@ -26,6 +24,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 
 @RestController("StudentExamPaperAnswerController")
 @RequestMapping(value = "/api/student/exampaper/answer")
@@ -59,9 +58,13 @@ public class ExamPaperAnswerController extends BaseApiController {
 
     @RequestMapping(value = "/answerSubmit", method = RequestMethod.POST)
     public RestResponse<String> answerSubmit(@RequestBody @Valid ExamPaperSubmitVM examPaperSubmitVM) {
-        ExamPaperAnswerInfo examPaperAnswerInfo = examPaperAnswerService.calculateExamPaperAnswer(examPaperSubmitVM, getCurrentUser());
+        User user = getCurrentUser();
+        ExamPaperAnswerInfo examPaperAnswerInfo = examPaperAnswerService.calculateExamPaperAnswer(examPaperSubmitVM, user);
         Integer userScore = examPaperAnswerInfo.getExamPaperAnswer().getUserScore();
         eventPublisher.publishEvent(new CalculateExamPaperAnswerCompleteEvent(examPaperAnswerInfo));
+        UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
+        userEventLog.setContent(user.getUserName() + " 提交试卷：" + examPaperAnswerInfo.getExamPaper().getName() + " 得分：" + userScore);
+        eventPublisher.publishEvent(new UserEvent(userEventLog));
         return RestResponse.ok(ExamUtil.scoreToVM(userScore));
     }
 
@@ -75,7 +78,6 @@ public class ExamPaperAnswerController extends BaseApiController {
         vm.setAnswer(answer);
         return RestResponse.ok(vm);
     }
-
 
 
 }

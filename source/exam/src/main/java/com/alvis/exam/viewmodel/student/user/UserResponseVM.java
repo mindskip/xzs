@@ -38,6 +38,8 @@ public class UserResponseVM extends BaseVM {
 
     private Integer status;
 
+    private Integer userLevel;
+
     public static UserResponseVM from(User user) {
         UserResponseVM vm = modelMapper.map(user, UserResponseVM.class);
         vm.setBirthDay(DateTimeUtil.dateFormat(user.getBirthDay()));
