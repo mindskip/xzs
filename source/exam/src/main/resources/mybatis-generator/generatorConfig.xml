@@ -97,11 +97,11 @@
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>-->
 
-        <table tableName="t_message" domainObjectName="Message" enableCountByExample="false"
+     <!--   <table tableName="t_message" domainObjectName="Message" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
-
+-->
 
         <table tableName="t_message_user" domainObjectName="MessageUser" enableCountByExample="false"
                enableUpdateByExample="false"

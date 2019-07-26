@@ -9,9 +9,11 @@
     <result column="receive_real_name" jdbcType="VARCHAR" property="receiveRealName" />
     <result column="readed" jdbcType="BIT" property="readed" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="read_time" jdbcType="TIMESTAMP" property="readTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, message_id, receive_user_id, receive_user_name, receive_real_name, readed, create_time
+    id, message_id, receive_user_id, receive_user_name, receive_real_name, readed, create_time,
+    read_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
@@ -26,10 +28,10 @@
   <insert id="insert" parameterType="com.alvis.exam.domain.MessageUser" useGeneratedKeys="true" keyProperty="id" >
     insert into t_message_user (id, message_id, receive_user_id,
       receive_user_name, receive_real_name, readed,
-      create_time)
+      create_time, read_time)
     values (#{id,jdbcType=INTEGER}, #{messageId,jdbcType=INTEGER}, #{receiveUserId,jdbcType=INTEGER},
       #{receiveUserName,jdbcType=VARCHAR}, #{receiveRealName,jdbcType=VARCHAR}, #{readed,jdbcType=BIT},
-      #{createTime,jdbcType=TIMESTAMP})
+      #{createTime,jdbcType=TIMESTAMP}, #{readTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.alvis.exam.domain.MessageUser" useGeneratedKeys="true" keyProperty="id" >
     insert into t_message_user
@@ -55,6 +57,9 @@
       <if test="createTime != null">
         create_time,
       </if>
+      <if test="readTime != null">
+        read_time,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -77,6 +82,9 @@
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="readTime != null">
+        #{readTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -101,6 +109,9 @@
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="readTime != null">
+        read_time = #{readTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -111,7 +122,8 @@
       receive_user_name = #{receiveUserName,jdbcType=VARCHAR},
       receive_real_name = #{receiveRealName,jdbcType=VARCHAR},
       readed = #{readed,jdbcType=BIT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      read_time = #{readTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 

@@ -21,6 +21,8 @@ public class MessageUser implements Serializable {
 
     private Date createTime;
 
+    private Date readTime;
+
     public Integer getId() {
         return id;
     }
@@ -75,5 +77,13 @@ public class MessageUser implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Date getReadTime() {
+        return readTime;
+    }
+
+    public void setReadTime(Date readTime) {
+        this.readTime = readTime;
     }
 }
