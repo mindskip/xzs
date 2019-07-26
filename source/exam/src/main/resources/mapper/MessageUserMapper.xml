@@ -125,14 +125,10 @@
     select
     <include refid="Base_Column_List" />
     from t_message_user
-    <where>
-      <if test="list != null">
-        and  message_id  in
-        <foreach item="id" collection="list" open="(" separator=","  close=")">
-          #{id}
-        </foreach>
-      </if>
-    </where>
+    where  message_id  in
+    <foreach item="id" collection="list" open="(" separator=","  close=")">
+      #{id}
+    </foreach>
   </select>
 
 
@@ -148,5 +144,13 @@
       #{item.createTime,jdbcType=TIMESTAMP})
     </foreach>
   </insert>
+
+
+  <select id="studentPage" resultMap="BaseResultMap" parameterType="com.alvis.exam.viewmodel.student.user.MessageRequestVM">
+    select
+    <include refid="Base_Column_List" />
+    from t_message_user
+    where  receive_user_id = #{receiveUserId}
+  </select>
 
 </mapper>

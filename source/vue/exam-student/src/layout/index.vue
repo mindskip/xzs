@@ -8,7 +8,7 @@
            </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="$router.push({path:'/user/index'})">个人中心</el-dropdown-item>
-            <el-dropdown-item>消息</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push({path:'/user/message'})">消息</el-dropdown-item>
             <el-dropdown-item @click.native="logout" divided>退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>

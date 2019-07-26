@@ -21,4 +21,8 @@ public interface MessageMapper extends BaseMapper<Message> {
     int updateByPrimaryKey(Message record);
 
     List<Message> page(MessagePageRequestVM requestVM);
+
+    List<Message> selectByIds(List<Integer> ids);
+
+    int readAdd(Integer id);
 }

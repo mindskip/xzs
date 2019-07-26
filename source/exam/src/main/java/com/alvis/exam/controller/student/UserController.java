@@ -2,19 +2,21 @@ package com.alvis.exam.controller.student;
 
 import com.alvis.exam.base.BaseApiController;
 import com.alvis.exam.base.RestResponse;
+import com.alvis.exam.domain.Message;
+import com.alvis.exam.domain.MessageUser;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.domain.UserEventLog;
 import com.alvis.exam.domain.enums.RoleEnum;
 import com.alvis.exam.domain.enums.UserStatusEnum;
 import com.alvis.exam.event.UserEvent;
 import com.alvis.exam.service.AuthenticationService;
+import com.alvis.exam.service.MessageService;
 import com.alvis.exam.service.UserEventLogService;
 import com.alvis.exam.service.UserService;
 import com.alvis.exam.utility.DateTimeUtil;
-import com.alvis.exam.viewmodel.student.user.UserEventLogVM;
-import com.alvis.exam.viewmodel.student.user.UserRegisterVM;
-import com.alvis.exam.viewmodel.student.user.UserResponseVM;
-import com.alvis.exam.viewmodel.student.user.UserUpdateVM;
+import com.alvis.exam.utility.PageInfoHelper;
+import com.alvis.exam.viewmodel.student.user.*;
+import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.ApplicationEventPublisher;
@@ -36,7 +38,8 @@ import java.util.stream.Collectors;
 public class UserController extends BaseApiController {
 
     private final UserService userService;
-    private UserEventLogService userEventLogService;
+    private final UserEventLogService userEventLogService;
+    private final MessageService messageService;
     private final AuthenticationService authenticationService;
     private final ApplicationEventPublisher eventPublisher;
 
@@ -96,6 +99,32 @@ public class UserController extends BaseApiController {
             return vm;
         }).collect(Collectors.toList());
         return RestResponse.ok(userEventLogVMS);
+    }
+
+    @RequestMapping(value = "/message/page", method = RequestMethod.POST)
+    public RestResponse<PageInfo<MessageResponseVM>> messagePageList(@RequestBody MessageRequestVM messageRequestVM) {
+        messageRequestVM.setReceiveUserId(getCurrentUser().getId());
+        PageInfo<MessageUser> messageUserPageInfo = messageService.studentPage(messageRequestVM);
+        List<Integer> ids = messageUserPageInfo.getList().stream().map(d -> d.getMessageId()).collect(Collectors.toList());
+        List<Message> messages = messageService.selectMessageByIds(ids);
+        PageInfo<MessageResponseVM> page = PageInfoHelper.copyMap(messageUserPageInfo, e -> {
+            MessageResponseVM vm = modelMapper.map(e, MessageResponseVM.class);
+            Message message = messages.stream().filter(d -> e.getMessageId().equals(d.getId())).findFirst().orElse(null);
+            if (null != message) {
+                vm.setTitle(message.getTitle());
+                vm.setContent(message.getContent());
+            }
+            vm.setCreateTime(DateTimeUtil.dateFormat(e.getCreateTime()));
+            return vm;
+        });
+        return RestResponse.ok(page);
+    }
+
+
+    @RequestMapping(value = "/message/read/{id}", method = RequestMethod.POST)
+    public RestResponse read(@PathVariable Integer id) {
+        messageService.read(id);
+        return RestResponse.ok();
     }
 
 }

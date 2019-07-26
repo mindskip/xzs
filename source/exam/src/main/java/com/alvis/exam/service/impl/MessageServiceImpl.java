@@ -6,6 +6,7 @@ import com.alvis.exam.repository.MessageMapper;
 import com.alvis.exam.repository.MessageUserMapper;
 import com.alvis.exam.service.MessageService;
 import com.alvis.exam.viewmodel.admin.message.MessagePageRequestVM;
+import com.alvis.exam.viewmodel.student.user.MessageRequestVM;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,18 @@ public class MessageServiceImpl implements MessageService {
 
     private final MessageMapper messageMapper;
     private final MessageUserMapper messageUserMapper;
+
+    @Override
+    public List<Message> selectMessageByIds(List<Integer> ids) {
+        return messageMapper.selectByIds(ids);
+    }
+
+    @Override
+    public PageInfo<MessageUser> studentPage(MessageRequestVM requestVM) {
+        return PageHelper.startPage(requestVM.getPageIndex(), requestVM.getPageSize(), "id desc").doSelectPageInfo(() ->
+                messageUserMapper.studentPage(requestVM)
+        );
+    }
 
     @Override
     public PageInfo<Message> page(MessagePageRequestVM requestVM) {
@@ -40,6 +53,17 @@ public class MessageServiceImpl implements MessageService {
         messageMapper.insertSelective(message);
         messageUsers.forEach(d -> d.setMessageId(message.getId()));
         messageUserMapper.inserts(messageUsers);
+    }
+
+    @Override
+    @Transactional
+    public void read(Integer id) {
+        MessageUser messageUser = messageUserMapper.selectByPrimaryKey(id);
+        if (messageUser.getReaded())
+            return;
+        messageUser.setReaded(true);
+        messageUserMapper.updateByPrimaryKeySelective(messageUser);
+        messageMapper.readAdd(messageUser.getMessageId());
     }
 
 
