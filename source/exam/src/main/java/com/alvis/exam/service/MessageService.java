@@ -12,4 +12,6 @@ public interface MessageService {
     PageInfo<Message> page(MessagePageRequestVM requestVM);
 
     List<MessageUser> selectByMessageIds(List<Integer> ids);
+
+    void sendMessage(Message message, List<MessageUser> messageUsers);
 }

@@ -11,6 +11,7 @@ import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -31,6 +32,14 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public List<MessageUser> selectByMessageIds(List<Integer> ids) {
         return messageUserMapper.selectByMessageIds(ids);
+    }
+
+    @Override
+    @Transactional
+    public void sendMessage(Message message, List<MessageUser> messageUsers) {
+        messageMapper.insertSelective(message);
+        messageUsers.forEach(d -> d.setMessageId(message.getId()));
+        messageUserMapper.inserts(messageUsers);
     }
 
 

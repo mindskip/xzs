@@ -2,6 +2,7 @@ package com.alvis.exam.controller.admin;
 
 import com.alvis.exam.base.BaseApiController;
 import com.alvis.exam.base.RestResponse;
+import com.alvis.exam.domain.KeyValue;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.domain.UserEventLog;
 import com.alvis.exam.domain.enums.UserStatusEnum;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -136,5 +138,11 @@ public class UserController extends BaseApiController {
         return RestResponse.ok();
     }
 
+
+    @RequestMapping(value = "/selectByUserName", method = RequestMethod.POST)
+    public RestResponse<List<KeyValue>> selectByUserName(@RequestBody String userName) {
+        List<KeyValue> keyValues = userService.selectByUserName(userName);
+        return RestResponse.ok(keyValues);
+    }
 
 }

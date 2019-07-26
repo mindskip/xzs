@@ -8,5 +8,6 @@ export default {
   getCurrentUser: () => post('/api/admin/user/current'),
   updateUser: query => post('/api/admin/user/update', query),
   changeStatus: id => post('/api/admin/user/changeStatus/' + id),
-  deleteUser: id => post('/api/admin/user/delete/' + id)
+  deleteUser: id => post('/api/admin/user/delete/' + id),
+  selectByUserName: query => post('/api/admin/user/selectByUserName', query)
 }

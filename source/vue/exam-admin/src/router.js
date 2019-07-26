@@ -205,10 +205,16 @@ const constantRoutes = [
     alwaysShow: true,
     children: [
       {
-        path: 'message/list',
+        path: 'list',
         component: () => import('@/views/message/list'),
         name: 'MessagePage',
         meta: { title: '消息列表', noCache: true }
+      },
+      {
+        path: 'send',
+        component: () => import('@/views/message/send'),
+        name: 'MessageSendPage',
+        meta: { title: '消息发送', noCache: true }
       }
     ]
   },

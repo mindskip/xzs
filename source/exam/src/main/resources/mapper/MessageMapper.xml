@@ -6,9 +6,15 @@
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="send_user_id" jdbcType="INTEGER" property="sendUserId" />
+    <result column="send_user_name" jdbcType="VARCHAR" property="sendUserName" />
+    <result column="send_real_name" jdbcType="VARCHAR" property="sendRealName" />
+    <result column="receive_user_count" jdbcType="INTEGER" property="receiveUserCount" />
+    <result column="read_count" jdbcType="INTEGER" property="readCount" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, title, content, create_time
+    id, title, content, create_time, send_user_id, send_user_name, send_real_name, receive_user_count,
+    read_count
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
@@ -22,9 +28,13 @@
   </delete>
   <insert id="insert" parameterType="com.alvis.exam.domain.Message" useGeneratedKeys="true" keyProperty="id" >
     insert into t_message (id, title, content,
-      create_time)
+      create_time, send_user_id, send_user_name,
+      send_real_name, receive_user_count, read_count
+      )
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR},
-      #{createTime,jdbcType=TIMESTAMP})
+      #{createTime,jdbcType=TIMESTAMP}, #{sendUserId,jdbcType=INTEGER}, #{sendUserName,jdbcType=VARCHAR},
+      #{sendRealName,jdbcType=VARCHAR}, #{receiveUserCount,jdbcType=INTEGER}, #{readCount,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.alvis.exam.domain.Message" useGeneratedKeys="true" keyProperty="id" >
     insert into t_message
@@ -41,6 +51,21 @@
       <if test="createTime != null">
         create_time,
       </if>
+      <if test="sendUserId != null">
+        send_user_id,
+      </if>
+      <if test="sendUserName != null">
+        send_user_name,
+      </if>
+      <if test="sendRealName != null">
+        send_real_name,
+      </if>
+      <if test="receiveUserCount != null">
+        receive_user_count,
+      </if>
+      <if test="readCount != null">
+        read_count,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -54,6 +79,21 @@
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendUserId != null">
+        #{sendUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sendUserName != null">
+        #{sendUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="sendRealName != null">
+        #{sendRealName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveUserCount != null">
+        #{receiveUserCount,jdbcType=INTEGER},
+      </if>
+      <if test="readCount != null">
+        #{readCount,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -69,6 +109,21 @@
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="sendUserId != null">
+        send_user_id = #{sendUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sendUserName != null">
+        send_user_name = #{sendUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="sendRealName != null">
+        send_real_name = #{sendRealName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveUserCount != null">
+        receive_user_count = #{receiveUserCount,jdbcType=INTEGER},
+      </if>
+      <if test="readCount != null">
+        read_count = #{readCount,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -76,7 +131,12 @@
     update t_message
     set title = #{title,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      send_user_id = #{sendUserId,jdbcType=INTEGER},
+      send_user_name = #{sendUserName,jdbcType=VARCHAR},
+      send_real_name = #{sendRealName,jdbcType=VARCHAR},
+      receive_user_count = #{receiveUserCount,jdbcType=INTEGER},
+      read_count = #{readCount,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 
@@ -88,7 +148,9 @@
     <include refid="Base_Column_List" />
     from t_message
     <where>
-
+         <if test="sendUserName != null">
+           and send_user_name  like concat('%',#{sendUserName},'%')
+         </if>
     </where>
   </select>
 

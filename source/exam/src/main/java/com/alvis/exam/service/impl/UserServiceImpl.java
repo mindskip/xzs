@@ -1,5 +1,6 @@
 package com.alvis.exam.service.impl;
 
+import com.alvis.exam.domain.KeyValue;
 import com.alvis.exam.exception.BusinessException;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.event.OnRegistrationCompleteEvent;
@@ -137,5 +138,16 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     public Integer selectAllCount() {
         return userMapper.selectAllCount();
     }
+
+    @Override
+    public List<KeyValue> selectByUserName(String userName) {
+        return userMapper.selectByUserName(userName);
+    }
+
+    @Override
+    public List<User> selectByIds(List<Integer> ids) {
+        return userMapper.selectByIds(ids);
+    }
+
 
 }

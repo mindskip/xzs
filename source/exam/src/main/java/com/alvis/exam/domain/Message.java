@@ -15,6 +15,16 @@ public class Message implements Serializable {
 
     private Date createTime;
 
+    private Integer sendUserId;
+
+    private String sendUserName;
+
+    private String sendRealName;
+
+    private Integer receiveUserCount;
+
+    private Integer readCount;
+
     public Integer getId() {
         return id;
     }
@@ -45,5 +55,45 @@ public class Message implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getSendUserId() {
+        return sendUserId;
+    }
+
+    public void setSendUserId(Integer sendUserId) {
+        this.sendUserId = sendUserId;
+    }
+
+    public String getSendUserName() {
+        return sendUserName;
+    }
+
+    public void setSendUserName(String sendUserName) {
+        this.sendUserName = sendUserName == null ? null : sendUserName.trim();
+    }
+
+    public String getSendRealName() {
+        return sendRealName;
+    }
+
+    public void setSendRealName(String sendRealName) {
+        this.sendRealName = sendRealName == null ? null : sendRealName.trim();
+    }
+
+    public Integer getReceiveUserCount() {
+        return receiveUserCount;
+    }
+
+    public void setReceiveUserCount(Integer receiveUserCount) {
+        this.receiveUserCount = receiveUserCount;
+    }
+
+    public Integer getReadCount() {
+        return readCount;
+    }
+
+    public void setReadCount(Integer readCount) {
+        this.readCount = readCount;
     }
 }

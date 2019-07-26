@@ -17,12 +17,6 @@ public class MessageUser implements Serializable {
 
     private String receiveRealName;
 
-    private Integer sendUserId;
-
-    private String sendUserName;
-
-    private String sendRealName;
-
     private Boolean readed;
 
     private Date createTime;
@@ -65,30 +59,6 @@ public class MessageUser implements Serializable {
 
     public void setReceiveRealName(String receiveRealName) {
         this.receiveRealName = receiveRealName == null ? null : receiveRealName.trim();
-    }
-
-    public Integer getSendUserId() {
-        return sendUserId;
-    }
-
-    public void setSendUserId(Integer sendUserId) {
-        this.sendUserId = sendUserId;
-    }
-
-    public String getSendUserName() {
-        return sendUserName;
-    }
-
-    public void setSendUserName(String sendUserName) {
-        this.sendUserName = sendUserName == null ? null : sendUserName.trim();
-    }
-
-    public String getSendRealName() {
-        return sendRealName;
-    }
-
-    public void setSendRealName(String sendRealName) {
-        this.sendRealName = sendRealName == null ? null : sendRealName.trim();
     }
 
     public Boolean getReaded() {

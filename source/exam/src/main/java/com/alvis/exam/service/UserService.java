@@ -1,5 +1,6 @@
 package com.alvis.exam.service;
 
+import com.alvis.exam.domain.KeyValue;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.viewmodel.admin.user.UserPageRequestVM;
 import com.github.pagehelper.PageInfo;
@@ -116,4 +117,10 @@ public interface UserService extends BaseService<User> {
 
 
     Integer selectAllCount();
+
+
+    List<KeyValue> selectByUserName(String userName);
+
+
+    List<User> selectByIds(List<Integer> ids);
 }

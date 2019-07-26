@@ -1,5 +1,6 @@
 package com.alvis.exam.repository;
 
+import com.alvis.exam.domain.KeyValue;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.viewmodel.admin.user.UserPageRequestVM;
 import org.apache.ibatis.annotations.Mapper;
@@ -137,4 +138,8 @@ public interface UserMapper extends BaseMapper<User> {
     void insertUserSql(User user);
 
     Integer selectAllCount();
+
+    List<KeyValue> selectByUserName(String userName);
+
+    List<User> selectByIds(List<Integer> ids);
 }

@@ -21,4 +21,6 @@ public interface MessageUserMapper extends BaseMapper<MessageUser> {
     int updateByPrimaryKey(MessageUser record);
 
     List<MessageUser> selectByMessageIds(List<Integer> ids);
+
+    int inserts(List<MessageUser> list);
 }

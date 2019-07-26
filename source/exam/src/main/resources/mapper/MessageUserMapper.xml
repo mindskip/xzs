@@ -7,15 +7,11 @@
     <result column="receive_user_id" jdbcType="INTEGER" property="receiveUserId" />
     <result column="receive_user_name" jdbcType="VARCHAR" property="receiveUserName" />
     <result column="receive_real_name" jdbcType="VARCHAR" property="receiveRealName" />
-    <result column="send_user_id" jdbcType="INTEGER" property="sendUserId" />
-    <result column="send_user_name" jdbcType="VARCHAR" property="sendUserName" />
-    <result column="send_real_name" jdbcType="VARCHAR" property="sendRealName" />
     <result column="readed" jdbcType="BIT" property="readed" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, message_id, receive_user_id, receive_user_name, receive_real_name, send_user_id,
-    send_user_name, send_real_name, readed, create_time
+    id, message_id, receive_user_id, receive_user_name, receive_real_name, readed, create_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
@@ -29,12 +25,10 @@
   </delete>
   <insert id="insert" parameterType="com.alvis.exam.domain.MessageUser" useGeneratedKeys="true" keyProperty="id" >
     insert into t_message_user (id, message_id, receive_user_id,
-      receive_user_name, receive_real_name, send_user_id,
-      send_user_name, send_real_name, readed,
+      receive_user_name, receive_real_name, readed,
       create_time)
     values (#{id,jdbcType=INTEGER}, #{messageId,jdbcType=INTEGER}, #{receiveUserId,jdbcType=INTEGER},
-      #{receiveUserName,jdbcType=VARCHAR}, #{receiveRealName,jdbcType=VARCHAR}, #{sendUserId,jdbcType=INTEGER},
-      #{sendUserName,jdbcType=VARCHAR}, #{sendRealName,jdbcType=VARCHAR}, #{readed,jdbcType=BIT},
+      #{receiveUserName,jdbcType=VARCHAR}, #{receiveRealName,jdbcType=VARCHAR}, #{readed,jdbcType=BIT},
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.alvis.exam.domain.MessageUser" useGeneratedKeys="true" keyProperty="id" >
@@ -54,15 +48,6 @@
       </if>
       <if test="receiveRealName != null">
         receive_real_name,
-      </if>
-      <if test="sendUserId != null">
-        send_user_id,
-      </if>
-      <if test="sendUserName != null">
-        send_user_name,
-      </if>
-      <if test="sendRealName != null">
-        send_real_name,
       </if>
       <if test="readed != null">
         readed,
@@ -87,15 +72,6 @@
       <if test="receiveRealName != null">
         #{receiveRealName,jdbcType=VARCHAR},
       </if>
-      <if test="sendUserId != null">
-        #{sendUserId,jdbcType=INTEGER},
-      </if>
-      <if test="sendUserName != null">
-        #{sendUserName,jdbcType=VARCHAR},
-      </if>
-      <if test="sendRealName != null">
-        #{sendRealName,jdbcType=VARCHAR},
-      </if>
       <if test="readed != null">
         #{readed,jdbcType=BIT},
       </if>
@@ -119,15 +95,6 @@
       <if test="receiveRealName != null">
         receive_real_name = #{receiveRealName,jdbcType=VARCHAR},
       </if>
-      <if test="sendUserId != null">
-        send_user_id = #{sendUserId,jdbcType=INTEGER},
-      </if>
-      <if test="sendUserName != null">
-        send_user_name = #{sendUserName,jdbcType=VARCHAR},
-      </if>
-      <if test="sendRealName != null">
-        send_real_name = #{sendRealName,jdbcType=VARCHAR},
-      </if>
       <if test="readed != null">
         readed = #{readed,jdbcType=BIT},
       </if>
@@ -143,9 +110,6 @@
       receive_user_id = #{receiveUserId,jdbcType=INTEGER},
       receive_user_name = #{receiveUserName,jdbcType=VARCHAR},
       receive_real_name = #{receiveRealName,jdbcType=VARCHAR},
-      send_user_id = #{sendUserId,jdbcType=INTEGER},
-      send_user_name = #{sendUserName,jdbcType=VARCHAR},
-      send_real_name = #{sendRealName,jdbcType=VARCHAR},
       readed = #{readed,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
@@ -160,11 +124,29 @@
   <select id="selectByMessageIds" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from t_message
-    where messageId  in
-    <foreach item="id" collection="ids" open="(" separator=","  close=")">
-      #{id}
-    </foreach>
+    from t_message_user
+    <where>
+      <if test="list != null">
+        and  message_id  in
+        <foreach item="id" collection="list" open="(" separator=","  close=")">
+          #{id}
+        </foreach>
+      </if>
+    </where>
   </select>
+
+
+  <insert id="inserts" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+    insert into t_message_user (message_id, receive_user_id,
+    receive_user_name, receive_real_name, readed,
+    create_time)
+    values
+    <foreach collection="list" item="item" index="index"
+             separator=",">
+      (#{item.messageId,jdbcType=INTEGER}, #{item.receiveUserId,jdbcType=INTEGER},
+      #{item.receiveUserName,jdbcType=VARCHAR}, #{item.receiveRealName,jdbcType=VARCHAR}, #{item.readed,jdbcType=BIT},
+      #{item.createTime,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
 
 </mapper>
