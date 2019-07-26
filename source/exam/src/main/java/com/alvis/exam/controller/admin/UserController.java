@@ -3,14 +3,14 @@ package com.alvis.exam.controller.admin;
 import com.alvis.exam.base.BaseApiController;
 import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.domain.User;
+import com.alvis.exam.domain.UserEventLog;
 import com.alvis.exam.domain.enums.UserStatusEnum;
 import com.alvis.exam.service.AuthenticationService;
+import com.alvis.exam.service.UserEventLogService;
 import com.alvis.exam.service.UserService;
-import com.alvis.exam.viewmodel.admin.user.UserCreateVM;
-import com.alvis.exam.viewmodel.admin.user.UserPageRequestVM;
+import com.alvis.exam.utility.DateTimeUtil;
+import com.alvis.exam.viewmodel.admin.user.*;
 import com.alvis.exam.utility.PageInfoHelper;
-import com.alvis.exam.viewmodel.admin.user.UserResponseVM;
-import com.alvis.exam.viewmodel.admin.user.UserUpdateVM;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
 
@@ -31,6 +31,7 @@ import java.util.UUID;
 public class UserController extends BaseApiController {
 
     private final UserService userService;
+    private final UserEventLogService userEventLogService;
     private final AuthenticationService authenticationService;
 
 
@@ -38,6 +39,18 @@ public class UserController extends BaseApiController {
     public RestResponse<PageInfo<UserResponseVM>> pageList(@RequestBody UserPageRequestVM model) {
         PageInfo<User> pageInfo = userService.userPage(model);
         PageInfo<UserResponseVM> page = PageInfoHelper.copyMap(pageInfo, d -> UserResponseVM.from(d));
+        return RestResponse.ok(page);
+    }
+
+
+    @RequestMapping(value = "/event/page/list", method = RequestMethod.POST)
+    public RestResponse<PageInfo<UserEventLogVM>> eventPageList(@RequestBody UserEventPageRequestVM model) {
+        PageInfo<UserEventLog> pageInfo = userEventLogService.page(model);
+        PageInfo<UserEventLogVM> page = PageInfoHelper.copyMap(pageInfo, d -> {
+            UserEventLogVM vm = modelMapper.map(d, UserEventLogVM.class);
+            vm.setCreateTime(DateTimeUtil.dateFormat(d.getCreateTime()));
+            return vm;
+        });
         return RestResponse.ok(page);
     }
 

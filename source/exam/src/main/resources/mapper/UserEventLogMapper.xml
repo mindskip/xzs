@@ -118,5 +118,20 @@
     limit 10
   </select>
 
+  <select id="page" resultMap="BaseResultMap" parameterType="com.alvis.exam.viewmodel.admin.user.UserEventPageRequestVM">
+    select
+    <include refid="Base_Column_List"/>
+    from t_user_event_log
+    <where>
+      <if test="userId != null">
+         and user_id= #{userId}
+      </if>
+      <if test="userName != null">
+        and user_name= #{userName}
+      </if>
+    </where>
+
+  </select>
+
 
 </mapper>

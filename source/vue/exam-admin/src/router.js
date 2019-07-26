@@ -177,6 +177,42 @@ const constantRoutes = [
     ]
   },
   {
+    path: '/log',
+    component: Layout,
+    name: 'LogPage',
+    meta: {
+      title: '日志中心',
+      icon: 'log'
+    },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'user/list',
+        component: () => import('@/views/log/list'),
+        name: 'LogUserPage',
+        meta: { title: '用户日志', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/message',
+    component: Layout,
+    name: 'MessagePage',
+    meta: {
+      title: '消息中心',
+      icon: 'message'
+    },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'message/list',
+        component: () => import('@/views/message/list'),
+        name: 'MessagePage',
+        meta: { title: '消息列表', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/profile',
     component: Layout,
     hidden: true,

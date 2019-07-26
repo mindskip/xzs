@@ -1,6 +1,7 @@
 package com.alvis.exam.repository;
 
 import com.alvis.exam.domain.UserEventLog;
+import com.alvis.exam.viewmodel.admin.user.UserEventPageRequestVM;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -21,4 +22,6 @@ public interface UserEventLogMapper extends BaseMapper<UserEventLog> {
     int updateByPrimaryKey(UserEventLog record);
 
     List<UserEventLog> getUserEventLogByUserId(Integer id);
+
+    List<UserEventLog> page(UserEventPageRequestVM requestVM);
 }
