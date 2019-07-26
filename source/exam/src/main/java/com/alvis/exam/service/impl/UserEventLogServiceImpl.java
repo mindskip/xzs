@@ -17,10 +17,9 @@ public class UserEventLogServiceImpl extends BaseServiceImpl<UserEventLog> imple
 
     private final UserEventLogMapper userEventLogMapper;
 
-
     @Autowired
-    public UserEventLogServiceImpl(BaseMapper<UserEventLog> baseMapper, UserEventLogMapper userEventLogMapper) {
-        super(baseMapper);
+    public UserEventLogServiceImpl(UserEventLogMapper userEventLogMapper) {
+        super(userEventLogMapper);
         this.userEventLogMapper = userEventLogMapper;
     }
 

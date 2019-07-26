@@ -92,7 +92,18 @@
 -->
 
 
-        <table tableName="t_user_event_log" domainObjectName="UserEventLog" enableCountByExample="false"
+ <!--       <table tableName="t_user_event_log" domainObjectName="UserEventLog" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+
+        <table tableName="t_message" domainObjectName="Message" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+
+
+        <table tableName="t_message_user" domainObjectName="MessageUser" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
