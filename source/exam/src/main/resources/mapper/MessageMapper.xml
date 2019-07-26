@@ -165,7 +165,7 @@
   </select>
 
   <update id="readAdd" parameterType="java.lang.Integer">
-      UPDATE t_message SET read_count=read_count+1
+      UPDATE t_message SET read_count = read_count + 1
       WHERE id= #{id} and read_count = ( SELECT read_count from t_message WHERE id= #{id} )
   </update>
 
