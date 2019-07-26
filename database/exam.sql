@@ -317,3 +317,51 @@ COMMENT ON COLUMN "public"."t_user_event_log"."user_name" IS '用户名';
 COMMENT ON COLUMN "public"."t_user_event_log"."real_name" IS '真实姓名';
 COMMENT ON COLUMN "public"."t_user_event_log"."content" IS '内容';
 COMMENT ON COLUMN "public"."t_user_event_log"."create_time" IS '时间';
+
+
+
+-- ----------------------------
+-- Table structure for t_message
+-- ----------------------------
+CREATE TABLE "public"."t_message" (
+  "id" serial4 primary key,
+  "title" varchar(255) COLLATE "pg_catalog"."default",
+  "content" varchar(500) COLLATE "pg_catalog"."default",
+  "send_user_id" int4,
+  "send_user_name" varchar(255) COLLATE "pg_catalog"."default",
+  "send_real_name" varchar(255) COLLATE "pg_catalog"."default",
+  "read_count" int4,
+  "receive_user_count" int4,
+  "create_time" timestamp(6)
+)
+;
+COMMENT ON COLUMN "public"."t_message"."title" IS '标题';
+COMMENT ON COLUMN "public"."t_message"."content" IS '内容';
+COMMENT ON COLUMN "public"."t_message"."send_user_id" IS '发送者用户ID';
+COMMENT ON COLUMN "public"."t_message"."send_user_name" IS '发送者用户名';
+COMMENT ON COLUMN "public"."t_message"."send_real_name" IS '发送者真实姓名';
+COMMENT ON COLUMN "public"."t_message"."receive_user_count" IS '接收人数';
+COMMENT ON COLUMN "public"."t_message"."read_count" IS '已读人数';
+
+
+
+-- ----------------------------
+-- Table structure for t_message_user
+-- ----------------------------
+CREATE TABLE "public"."t_message_user" (
+  "id" int4 NOT NULL DEFAULT nextval('t_message_user_id_seq'::regclass),
+  "message_id" int4,
+  "receive_user_id" int4,
+  "receive_user_name" varchar(255) COLLATE "pg_catalog"."default",
+  "receive_real_name" varchar(255) COLLATE "pg_catalog"."default",
+  "readed" bool,
+  "read_time" timestamp(6),
+  "create_time" timestamp(6)
+)
+;
+COMMENT ON COLUMN "public"."t_message_user"."message_id" IS '消息内容ID';
+COMMENT ON COLUMN "public"."t_message_user"."receive_user_id" IS '接收人ID';
+COMMENT ON COLUMN "public"."t_message_user"."receive_user_name" IS '接收人用户名';
+COMMENT ON COLUMN "public"."t_message_user"."receive_real_name" IS '接收人真实姓名';
+COMMENT ON COLUMN "public"."t_message_user"."readed" IS '是否已读';
+COMMENT ON COLUMN "public"."t_message_user"."read_time" IS '阅读时间';
