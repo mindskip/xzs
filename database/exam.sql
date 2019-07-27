@@ -349,7 +349,7 @@ COMMENT ON COLUMN "public"."t_message"."read_count" IS '已读人数';
 -- Table structure for t_message_user
 -- ----------------------------
 CREATE TABLE "public"."t_message_user" (
-  "id" int4 NOT NULL DEFAULT nextval('t_message_user_id_seq'::regclass),
+  "id" serial4 primary key,
   "message_id" int4,
   "receive_user_id" int4,
   "receive_user_name" varchar(255) COLLATE "pg_catalog"."default",
