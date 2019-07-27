@@ -5,11 +5,17 @@
         <el-collapse-item :name="item.id" :key="item.id" v-for="item in tableData">
           <template slot="title">
             {{item.title}}
-            <el-tag style=" margin: 0 8px 0 auto;">{{item.createTime}}</el-tag>
+            <el-tag style=" margin: 0 8px 0 auto;" :type="readTagFormat(item.readed)">{{readTextFormat(item.readed)}}</el-tag>
           </template>
-          <div>
-            {{item.content}}
-          </div>
+          <el-row>
+            <label>发送人：{{item.sendUserName}}</label>
+          </el-row>
+          <el-row>
+            <label>发送时间：{{item.createTime}}</label>
+          </el-row>
+          <el-row>
+            <label>发送内容：{{item.content}}</label>
+          </el-row>
         </el-collapse-item>
       </el-collapse>
       <pagination v-show="total>0" :total="total" :background="false" :page.sync="queryParam.pageIndex"
@@ -20,6 +26,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations } from 'vuex'
 import Pagination from '@/components/Pagination'
 import userApi from '@/api/user'
 
@@ -45,10 +52,15 @@ export default {
       if (val.length === 0) {
         return
       }
+      let _this = this
       let id = val[val.length - 1]
-      userApi.read(id).then(re => {
-
-      })
+      let selectItem = this.tableData.filter(d => d.id === id)[0]
+      if (!selectItem.readed) {
+        userApi.read(id).then(re => {
+          selectItem.readed = true
+          _this.messageCountSubtract(1)
+        })
+      }
     },
     search () {
       this.listLoading = true
@@ -59,7 +71,21 @@ export default {
         this.queryParam.pageIndex = re.pageNum
         this.listLoading = false
       })
-    }
+    },
+    readTagFormat (status) {
+      return this.enumFormat(this.readTag, status)
+    },
+    readTextFormat (status) {
+      return this.enumFormat(this.readText, status)
+    },
+    ...mapMutations('user', ['messageCountSubtract'])
+  },
+  computed: {
+    ...mapGetters('enumItem', ['enumFormat']),
+    ...mapState('enumItem', {
+      readTag: state => state.user.message.readTag,
+      readText: state => state.user.message.readText
+    })
   }
 }
 </script>

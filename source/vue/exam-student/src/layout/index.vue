@@ -3,12 +3,15 @@
     <el-header height="61" class="student-header">
       <div class="head-user">
         <el-dropdown trigger="click" placement="bottom">
-           <span>
-             <el-avatar class="el-dropdown-avatar" size="medium"  :src="require('@/assets/avatar.png')" ></el-avatar>
-           </span>
+          <el-avatar  class="el-dropdown-avatar" size="medium"  :src="require('@/assets/avatar.png')" ></el-avatar>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="$router.push({path:'/user/index'})">个人中心</el-dropdown-item>
-            <el-dropdown-item @click.native="$router.push({path:'/user/message'})">消息</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push({path:'/user/message'})">
+              <el-badge :value="messageCount" v-if="messageCount!==0">
+                <span>消息中心</span>
+              </el-badge>
+              <span  v-if="messageCount===0">消息中心</span>
+            </el-dropdown-item>
             <el-dropdown-item @click.native="logout" divided>退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -57,7 +60,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 import loginApi from '@/api/login'
 export default {
   name: 'Layout',
@@ -68,6 +71,7 @@ export default {
   },
   created () {
     this.defaultUrl = this.$route.path
+    this.getUserMessageInfo()
   },
   methods: {
     logout () {
@@ -79,7 +83,13 @@ export default {
         }
       })
     },
+    ...mapActions('user', ['getUserMessageInfo']),
     ...mapMutations('user', ['clearLogin'])
+  },
+  computed: {
+    ...mapState('user', {
+      messageCount: state => state.messageCount
+    })
   }
 }
 </script>

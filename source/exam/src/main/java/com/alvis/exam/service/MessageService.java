@@ -21,4 +21,6 @@ public interface MessageService {
     void sendMessage(Message message, List<MessageUser> messageUsers);
 
     void read(Integer id);
+
+   Integer unReadCount(Integer userId);
 }

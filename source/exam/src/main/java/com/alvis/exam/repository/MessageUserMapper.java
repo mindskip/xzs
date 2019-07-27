@@ -26,4 +26,6 @@ public interface MessageUserMapper extends BaseMapper<MessageUser> {
     int inserts(List<MessageUser> list);
 
     List<MessageUser> studentPage(MessageRequestVM requestVM);
+
+    Integer unReadCount(Integer userId);
 }

@@ -13,7 +13,7 @@
       <el-table-column prop="id" label="Id"  width="100" />
       <el-table-column prop="title" label="标题" show-overflow-tooltip/>
       <el-table-column prop="content" label="内容" show-overflow-tooltip />
-      <el-table-column prop="sendRealName" label="发送人"  width="100" />
+      <el-table-column prop="sendUserName" label="发送人"  width="100" />
       <el-table-column prop="receives" label="接收人"  show-overflow-tooltip />
       <el-table-column prop="readCount" label="已读数" width="70" />
       <el-table-column prop="receiveUserCount" label="接收人数" width="100" />

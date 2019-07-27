@@ -113,6 +113,7 @@ public class UserController extends BaseApiController {
             if (null != message) {
                 vm.setTitle(message.getTitle());
                 vm.setContent(message.getContent());
+                vm.setSendUserName(message.getSendUserName());
             }
             vm.setCreateTime(DateTimeUtil.dateFormat(e.getCreateTime()));
             return vm;
@@ -120,6 +121,11 @@ public class UserController extends BaseApiController {
         return RestResponse.ok(page);
     }
 
+    @RequestMapping(value = "/message/unreadCount", method = RequestMethod.POST)
+    public RestResponse unReadCount() {
+        Integer count = messageService.unReadCount(getCurrentUser().getId());
+        return RestResponse.ok(count);
+    }
 
     @RequestMapping(value = "/message/read/{id}", method = RequestMethod.POST)
     public RestResponse read(@PathVariable Integer id) {

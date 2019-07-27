@@ -3,7 +3,8 @@ import userApi from '@/api/user'
 // initial state
 const state = {
   userName: Cookies.get('userName'),
-  userInfo: Cookies.get('userInfo')
+  userInfo: Cookies.get('userInfo'),
+  messageCount: 0
 }
 
 // actions
@@ -11,6 +12,11 @@ const actions = {
   initUserInfo ({ commit }) {
     userApi.getCurrentUser().then(re => {
       commit('setUserInfo', re.response)
+    })
+  },
+  getUserMessageInfo ({ commit }) {
+    userApi.getMessageCount().then(re => {
+      commit('setMessageCount', re.response)
     })
   }
 }
@@ -24,6 +30,12 @@ const mutations = {
   setUserInfo: (state, userInfo) => {
     state.userInfo = userInfo
     Cookies.set('userInfo', userInfo, { expires: 30 })
+  },
+  setMessageCount: (state, messageCount) => {
+    state.messageCount = messageCount
+  },
+  messageCountSubtract: (state, num) => {
+    state.messageCount = state.messageCount - num
   },
   clearLogin (state) {
     Cookies.remove('userName')

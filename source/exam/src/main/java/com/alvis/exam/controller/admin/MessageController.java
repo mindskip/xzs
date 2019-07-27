@@ -40,7 +40,7 @@ public class MessageController extends BaseApiController {
         List<MessageUser> messageUsers = ids.size() == 0 ? null : messageService.selectByMessageIds(ids);
         PageInfo<MessageResponseVM> page = PageInfoHelper.copyMap(pageInfo, m -> {
             MessageResponseVM vm = modelMapper.map(m, MessageResponseVM.class);
-            String receives = messageUsers.stream().filter(d -> d.getMessageId().equals(m.getId())).map(d -> d.getReceiveRealName())
+            String receives = messageUsers.stream().filter(d -> d.getMessageId().equals(m.getId())).map(d -> d.getReceiveUserName())
                     .collect(Collectors.joining(","));
             vm.setReceives(receives);
             vm.setCreateTime(DateTimeUtil.dateFormat(m.getCreateTime()));

@@ -68,5 +68,10 @@ public class MessageServiceImpl implements MessageService {
         messageMapper.readAdd(messageUser.getMessageId());
     }
 
+    @Override
+    public Integer unReadCount(Integer userId) {
+        return messageUserMapper.unReadCount(userId);
+    }
+
 
 }

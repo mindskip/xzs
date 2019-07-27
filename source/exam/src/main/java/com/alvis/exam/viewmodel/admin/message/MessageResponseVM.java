@@ -12,7 +12,7 @@ public class MessageResponseVM {
 
     private String content;
 
-    private String sendRealName;
+    private String sendUserName;
 
     private String receives;
 

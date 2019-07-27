@@ -5,7 +5,11 @@ const state = {
     levelEnum: [{ 'key': 1, 'value': '一年级' }, { 'key': 2, 'value': '二年级' }, { 'key': 3, 'value': '三年级' }, { 'key': 4, 'value': '四年级' }, { 'key': 5, 'value': '五年级' }, { 'key': 6, 'value': '六年级' },
       { 'key': 7, 'value': '初一' }, { 'key': 8, 'value': '初二' }, { 'key': 9, 'value': '初三' },
       { 'key': 10, 'value': '高一' }, { 'key': 11, 'value': '高二' }, { 'key': 12, 'value': '高三' }],
-    roleEnum: [{ 'key': 1, 'value': '学生' }, { 'key': 2, 'value': '教师' }, { 'key': 3, 'value': '管理员' }]
+    roleEnum: [{ 'key': 1, 'value': '学生' }, { 'key': 2, 'value': '教师' }, { 'key': 3, 'value': '管理员' }],
+    message: {
+      readTag: [{ 'key': true, 'value': 'success' }, { 'key': false, 'value': 'warning' }],
+      readText: [{ 'key': true, 'value': '已读' }, { 'key': false, 'value': '未读' }]
+    }
   },
   exam: {
     examPaper: {

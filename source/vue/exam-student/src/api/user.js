@@ -6,5 +6,6 @@ export default {
   getUserEvent: () => post('/api/student/user/log'),
   update: query => post('/api/student/user/update', query),
   messagePageList: query => post('/api/student/user/message/page', query),
-  read: id => post('/api/student/user/message/read/' + id)
+  read: id => post('/api/student/user/message/read/' + id),
+  getMessageCount: () => post('/api/student/user/message/unreadCount')
 }
