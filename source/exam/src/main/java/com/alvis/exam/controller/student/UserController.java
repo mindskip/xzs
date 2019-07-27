@@ -106,7 +106,7 @@ public class UserController extends BaseApiController {
         messageRequestVM.setReceiveUserId(getCurrentUser().getId());
         PageInfo<MessageUser> messageUserPageInfo = messageService.studentPage(messageRequestVM);
         List<Integer> ids = messageUserPageInfo.getList().stream().map(d -> d.getMessageId()).collect(Collectors.toList());
-        List<Message> messages = messageService.selectMessageByIds(ids);
+        List<Message> messages = ids.size() != 0 ? messageService.selectMessageByIds(ids) : null;
         PageInfo<MessageResponseVM> page = PageInfoHelper.copyMap(messageUserPageInfo, e -> {
             MessageResponseVM vm = modelMapper.map(e, MessageResponseVM.class);
             Message message = messages.stream().filter(d -> e.getMessageId().equals(d.getId())).findFirst().orElse(null);
