@@ -17,7 +17,7 @@
 * 考试记录： 所有的试卷考试记录在此处分页，可以查看试卷结果、用时、得分、自行批改(TODO)等
 * 错题本： 所有做错的题目，可以看到做题的结果、分数、难度、解析、正确答案、扩展练习(TODO)等
 * 个人中心： 个人日志记录
-* 消息： TODO 
+* 消息： 消息通知 
 * 试卷答题和试卷查看： 展示出题目的基本信息和需要填写的内容
 
 管理系统模块：
@@ -73,6 +73,8 @@
 ![](doc/image/admin/7.png)
 ![](doc/image/admin/8.png)
 ![](doc/image/admin/9.png)
+![](doc/image/admin/10.png)
+![](doc/image/admin/11.png)
 
 2. 学之思考试系统
 
@@ -84,6 +86,8 @@
 ![](doc/image/student/6.png)
 ![](doc/image/student/7.png)
 ![](doc/image/student/8.png)
+![](doc/image/student/9.png)
+![](doc/image/student/10.png)
 
 #### 系统优化说明
 
@@ -94,7 +98,6 @@
 3. session使用redis共享，应用可水平扩展
 
 #### 后续更新计划
-* 完成消息中心模块
 * 完成任务中心模块(试卷类型新增任务卷)
 *  学生批改试卷
 * 完成扩展训练模块，错题本试卷扩展
