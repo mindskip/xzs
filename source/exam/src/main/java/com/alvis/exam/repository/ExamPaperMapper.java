@@ -27,6 +27,8 @@ public interface ExamPaperMapper extends BaseMapper<ExamPaper> {
     int updateByPrimaryKey(ExamPaper record);
 
     List<ExamPaper> page(ExamPaperPageRequestVM requestVM);
+    
+    List<ExamPaper> taskExamPage(ExamPaperPageRequestVM requestVM);
 
     List<ExamPaper> studentPage(ExamPaperPageVM requestVM);
 

@@ -234,6 +234,20 @@
   </select>
 
 
+
+
+
+  <select id="taskExamPage" resultMap="BaseResultMap" parameterType="com.alvis.exam.viewmodel.admin.exam.ExamPaperPageRequestVM">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM t_exam_paper
+    <where>
+      and deleted='f'
+      and task_exam_id = null
+      and grade_level= #{level}
+    </where>
+  </select>
+
   <select id="studentPage" resultMap="BaseResultMap" parameterType="com.alvis.exam.viewmodel.student.exam.ExamPaperPageVM">
     SELECT
     <include refid="Base_Column_List"/>

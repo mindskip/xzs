@@ -63,6 +63,12 @@ public class ExamPaperServiceImpl extends BaseServiceImpl<ExamPaper> implements 
     }
 
     @Override
+    public PageInfo<ExamPaper> taskExamPage(ExamPaperPageRequestVM requestVM) {
+        return PageHelper.startPage(requestVM.getPageIndex(), requestVM.getPageSize(), "id desc").doSelectPageInfo(() ->
+                examPaperMapper.taskExamPage(requestVM));
+    }
+
+    @Override
     public PageInfo<ExamPaper> studentPage(ExamPaperPageVM requestVM) {
         return PageHelper.startPage(requestVM.getPageIndex(), requestVM.getPageSize(), "id desc").doSelectPageInfo(() ->
                 examPaperMapper.studentPage(requestVM));

@@ -33,6 +33,21 @@ public class ExamPaperController extends BaseApiController {
         return RestResponse.ok(page);
     }
 
+
+
+    @RequestMapping(value = "/taskExamPage", method = RequestMethod.POST)
+    public RestResponse<PageInfo<ExamResponseVM>> taskExamPageList(@RequestBody ExamPaperPageRequestVM model) {
+        PageInfo<ExamPaper> pageInfo = examPaperService.taskExamPage(model);
+        PageInfo<ExamResponseVM> page = PageInfoHelper.copyMap(pageInfo, e -> {
+            ExamResponseVM vm = modelMapper.map(e, ExamResponseVM.class);
+            vm.setCreateTime(DateTimeUtil.dateFormat(e.getCreateTime()));
+            return vm;
+        });
+        return RestResponse.ok(page);
+    }
+
+
+
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public RestResponse<ExamPaperEditRequestVM> edit(@RequestBody @Valid ExamPaperEditRequestVM model) {
         ExamPaper examPaper = examPaperService.savePaperFromVM(model, getCurrentUser());

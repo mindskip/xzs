@@ -116,7 +116,7 @@ export default {
     search () {
       this.paperPage.showDialog = true
       this.listLoading = true
-      examPaperApi.pageList(this.paperPage.queryParam).then(data => {
+      examPaperApi.taskExamPage(this.paperPage.queryParam).then(data => {
         const re = data.response
         this.paperPage.tableData = re.list
         this.paperPage.total = re.total
