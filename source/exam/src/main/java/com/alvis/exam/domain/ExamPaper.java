@@ -35,6 +35,8 @@ public class ExamPaper implements Serializable {
 
     private Boolean deleted;
 
+    private Integer taskExamId;
+
     public Integer getId() {
         return id;
     }
@@ -145,5 +147,13 @@ public class ExamPaper implements Serializable {
 
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public Integer getTaskExamId() {
+        return taskExamId;
+    }
+
+    public void setTaskExamId(Integer taskExamId) {
+        this.taskExamId = taskExamId;
     }
 }
