@@ -1,7 +1,10 @@
 <template>
   <div style="margin-top: 10px" class="app-contain">
     <el-card style="padding-top: 50px;padding-bottom: 50px">
-      <el-collapse @change="handleChange" class="student-message-list">
+      <div class="el-table__empty-text" style="text-align: center;width: 100%" v-if="total ===0">
+        <span>暂无消息</span>
+      </div>
+      <el-collapse @change="handleChange" class="student-message-list" v-if="total !==0 ">
         <el-collapse-item :name="item.id" :key="item.id" v-for="item in tableData">
           <template slot="title">
             {{item.title}}

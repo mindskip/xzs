@@ -72,10 +72,22 @@ export default {
     }
   },
   created () {
-    this.defaultUrl = this.$route.path
+    this.defaultUrl = this.routeSelect(this.$route.path)
     this.getUserMessageInfo()
   },
+  watch: {
+    $route (to, from) {
+      this.defaultUrl = this.routeSelect(to.path)
+    }
+  },
   methods: {
+    routeSelect (path) {
+      let topPath = ['/', '/index', '/paper/index', '/record/index', '/question/index']
+      if (topPath.indexOf(path)) {
+        return path
+      }
+      return null
+    },
     logout () {
       let _this = this
       loginApi.logout().then(function (result) {
