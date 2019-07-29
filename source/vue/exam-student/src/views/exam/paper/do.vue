@@ -14,17 +14,18 @@
           <el-card class="exampaper-item-box" v-if="titleItem.questionItems.length!==0">
             <el-form-item :key="questionItem.itemOrder" :label="questionItem.itemOrder+'.'"
                           v-for="questionItem in titleItem.questionItems"
-                        class="exam-question-item"  label-width="50px">
-              <QuestionEdit :qType="questionItem.questionType" :question="questionItem"  :answer="answer.answerItems[questionItem.itemOrder-1]"/>
+                          class="exam-question-item" label-width="50px">
+              <QuestionEdit :qType="questionItem.questionType" :question="questionItem"
+                            :answer="answer.answerItems[questionItem.itemOrder-1]"/>
             </el-form-item>
           </el-card>
         </el-form-item>
+        <el-form-item class="do-align-center">
+          <el-button type="primary" @click="submitForm">提交</el-button>
+          <el-button>取消</el-button>
+        </el-form-item>
       </el-form>
     </el-main>
-    <el-footer class="align-center">
-      <el-button type="primary" @click="submitForm">提交</el-button>
-      <el-button>取消</el-button>
-    </el-footer>
   </el-container>
 </template>
 
@@ -102,19 +103,31 @@ export default {
 }
 </script>
 
+<style lang="scss">
+  .do-align-center {
+    text-align: center;
+    margin-top: 40px;
+
+    .el-form-item__content {
+      margin-left: 0px !important;
+    }
+  }
+</style>
+
 <style lang="scss" scoped>
   .align-center {
     text-align: center
   }
 
-  .exam-question-item{
+  .exam-question-item {
     padding: 10px;
-    .el-form-item__label{
+
+    .el-form-item__label {
       font-size: 15px !important;
     }
   }
 
-  .question-title-padding{
+  .question-title-padding {
     padding-left: 25px;
     padding-right: 25px;
   }
