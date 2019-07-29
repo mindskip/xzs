@@ -21,6 +21,8 @@ public class TaskExam  implements Serializable {
 
     private Boolean deleted;
 
+    private String createUserName;
+
     public Integer getId() {
         return id;
     }
@@ -75,5 +77,13 @@ public class TaskExam  implements Serializable {
 
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public String getCreateUserName() {
+        return createUserName;
+    }
+
+    public void setCreateUserName(String createUserName) {
+        this.createUserName = createUserName == null ? null : createUserName.trim();
     }
 }

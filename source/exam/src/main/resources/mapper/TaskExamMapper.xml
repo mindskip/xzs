@@ -9,9 +9,11 @@
     <result column="create_user" jdbcType="INTEGER" property="createUser" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, title, grade_level, frame_text_content_id, create_user, create_time, deleted
+    id, title, grade_level, frame_text_content_id, create_user, create_time, deleted,
+    create_user_name
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
@@ -26,10 +28,10 @@
   <insert id="insert" parameterType="com.alvis.exam.domain.TaskExam" useGeneratedKeys="true" keyProperty="id" >
     insert into t_task_exam (id, title, grade_level,
       frame_text_content_id, create_user, create_time,
-      deleted)
+      deleted, create_user_name)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{gradeLevel,jdbcType=INTEGER},
       #{frameTextContentId,jdbcType=INTEGER}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
-      #{deleted,jdbcType=BIT})
+      #{deleted,jdbcType=BIT}, #{createUserName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.alvis.exam.domain.TaskExam" useGeneratedKeys="true" keyProperty="id" >
     insert into t_task_exam
@@ -55,6 +57,9 @@
       <if test="deleted != null">
         deleted,
       </if>
+      <if test="createUserName != null">
+        create_user_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -77,6 +82,9 @@
       </if>
       <if test="deleted != null">
         #{deleted,jdbcType=BIT},
+      </if>
+      <if test="createUserName != null">
+        #{createUserName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -101,6 +109,9 @@
       <if test="deleted != null">
         deleted = #{deleted,jdbcType=BIT},
       </if>
+      <if test="createUserName != null">
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -111,7 +122,8 @@
       frame_text_content_id = #{frameTextContentId,jdbcType=INTEGER},
       create_user = #{createUser,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      deleted = #{deleted,jdbcType=BIT}
+      deleted = #{deleted,jdbcType=BIT},
+      create_user_name = #{createUserName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 

@@ -13,9 +13,7 @@ public class TaskPageResponseVM {
 
     private Integer gradeLevel;
 
-    private Integer frameTextContentId;
-
-    private Integer createUser;
+    private String createUserName;
 
     private String createTime;
 

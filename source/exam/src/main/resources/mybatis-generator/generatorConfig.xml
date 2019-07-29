@@ -115,10 +115,10 @@
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
 
-        <table tableName="t_task_exam_customer_answer" domainObjectName="TaskExamCustomerAnswer" enableCountByExample="false"
+<!--        <table tableName="t_task_exam_customer_answer" domainObjectName="TaskExamCustomerAnswer" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>
+        </table>-->
 
     </context>
 </generatorConfiguration>
