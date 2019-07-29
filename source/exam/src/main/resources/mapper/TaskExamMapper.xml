@@ -114,4 +114,23 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+
+
+
+
+
+
+  <select id="page" resultMap="BaseResultMap" parameterType="com.alvis.exam.viewmodel.admin.task.TaskPageRequestVM">
+    select
+    <include refid="Base_Column_List" />
+    from t_task_exam
+    <where>
+      <if test="gradeLevel != null">
+        and grade_level = #{gradeLevel}
+      </if>
+    </where>
+  </select>
+
 </mapper>

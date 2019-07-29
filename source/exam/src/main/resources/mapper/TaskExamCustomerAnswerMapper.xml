@@ -90,4 +90,10 @@
       text_content_id = #{textContentId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+
+
+
+
 </mapper>
