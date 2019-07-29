@@ -4,7 +4,7 @@
       <div class="el-table__empty-text" style="text-align: center;width: 100%" v-if="total ===0">
         <span>暂无消息</span>
       </div>
-      <el-collapse @change="handleChange" class="student-message-list" v-if="total !==0 ">
+      <el-collapse @change="handleChange" class="student-message-list" v-if="total !==0 " accordion>
         <el-collapse-item :name="item.id" :key="item.id" v-for="item in tableData">
           <template slot="title">
             {{item.title}}
@@ -52,14 +52,13 @@ export default {
   },
   methods: {
     handleChange (val) {
-      if (val.length === 0) {
+      if (val === '') {
         return
       }
       let _this = this
-      let id = val[val.length - 1]
-      let selectItem = this.tableData.filter(d => d.id === id)[0]
+      let selectItem = this.tableData.filter(d => d.id === val)[0]
       if (!selectItem.readed) {
-        userApi.read(id).then(re => {
+        userApi.read(val).then(re => {
           selectItem.readed = true
           _this.messageCountSubtract(1)
         })

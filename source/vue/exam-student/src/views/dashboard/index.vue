@@ -19,7 +19,7 @@
     <el-row class="app-item-contain">
       <h3 class="index-title-h3" style="border-left: solid 10px #3651d4;">任务中心</h3>
       <div style="padding-left: 15px">
-        <el-collapse>
+        <el-collapse  v-loading="taskLoading"  accordion>
           <el-collapse-item title="考试训练一期" name="1">
             <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
             <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
@@ -103,7 +103,8 @@ export default {
     return {
       fixedPaper: [],
       timeLimitPaper: [],
-      loading: false
+      loading: false,
+      taskLoading: false
     }
   },
   created () {
