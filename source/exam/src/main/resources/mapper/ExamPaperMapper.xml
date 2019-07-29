@@ -264,4 +264,13 @@
 		GROUP BY create_time
 	</select>
 
+
+  <update id="updateTaskPaper">
+    update t_exam_paper set task_exam_id = #{taskId} where id in
+    <foreach item="id" collection="paperIds" open="(" separator=","
+             close=")">
+      #{id}
+    </foreach>
+  </update>
+
 </mapper>
