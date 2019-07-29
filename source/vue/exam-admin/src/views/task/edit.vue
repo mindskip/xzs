@@ -2,7 +2,7 @@
   <div class="app-container">
 
     <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
-      <el-form-item label="年级：" >
+      <el-form-item label="年级：" prop="gradeLevel"  required>
         <el-select v-model="form.gradeLevel" placeholder="年级" @change="levelChange" >
           <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
@@ -12,13 +12,12 @@
       </el-form-item>
       <el-form-item label="试卷："  required>
         <el-table  :data="form.paperItems" border fit highlight-current-row style="width: 100%">
-          <el-table-column prop="id" label="Id" width="90px"/>
           <el-table-column prop="subjectId" label="学科" :formatter="subjectFormatter" width="120px" />
           <el-table-column prop="name" label="名称"  />
           <el-table-column prop="createTime" label="创建时间" width="160px"/>
           <el-table-column  label="操作" align="center"  width="160px">
             <template slot-scope="{row}">
-              <el-button size="mini" type="danger" @click="deletePaper(row)" class="link-left">删除</el-button>
+              <el-button size="mini" type="danger" @click="removePaper(row)" class="link-left">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -61,8 +60,8 @@
 </template>
 
 <script>
+import taskApi from '@/api/task'
 import examPaperApi from '@/api/examPaper'
-import messageApi from '@/api/message'
 import Pagination from '@/components/Pagination'
 import { mapGetters, mapState, mapActions } from 'vuex'
 
@@ -71,6 +70,7 @@ export default {
   data () {
     return {
       form: {
+        id: null,
         gradeLevel: null,
         title: '',
         paperItems: []
@@ -92,9 +92,8 @@ export default {
         total: 0
       },
       rules: {
-        title: [
-          { required: true, message: '请输入任务标题', trigger: 'blur' }
-        ]
+        gradeLevel: [{ required: true, message: '请输入年级', trigger: 'change' }],
+        title: [{ required: true, message: '请输入任务标题', trigger: 'blur' }]
       }
     }
   },
@@ -111,7 +110,8 @@ export default {
       this.search()
     },
     confirmPaperSelect () {
-
+      this.paperPage.multipleSelection.forEach(ep => this.form.paperItems.push(ep))
+      this.paperPage.showDialog = false
     },
     search () {
       this.paperPage.showDialog = true
@@ -131,13 +131,21 @@ export default {
       this.paperPage.queryParam.subjectId = null
       this.paperPage.subjectFilter = this.subjects.filter(data => data.level === this.form.gradeLevel)
     },
+    removePaper (row) {
+      this.form.paperItems.forEach((item, index, arr) => {
+        if (item.id === row.id) {
+          arr.splice(index, 1)
+        }
+      })
+    },
     submitForm () {
       let _this = this
       this.$refs.form.validate((valid) => {
         if (valid) {
           this.formLoading = true
-          messageApi.send(this.form).then(data => {
+          taskApi.edit(this.form).then(data => {
             if (data.code === 1) {
+              _this.form = data.response
               _this.$message.success(data.message)
             } else {
               _this.$message.error(data.message)

@@ -5,6 +5,7 @@ import com.alvis.exam.repository.BaseMapper;
 import com.alvis.exam.repository.TaskExamMapper;
 import com.alvis.exam.service.TaskExamService;
 import com.alvis.exam.viewmodel.admin.task.TaskPageRequestVM;
+import com.alvis.exam.viewmodel.admin.task.TaskRequestVM;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
@@ -27,5 +28,11 @@ public class TaskExamServiceImpl extends BaseServiceImpl<TaskExam> implements Ta
         return PageHelper.startPage(requestVM.getPageIndex(), requestVM.getPageSize(), "id desc").doSelectPageInfo(() ->
                 taskExamMapper.page(requestVM)
         );
+    }
+
+    @Override
+    public TaskRequestVM taskExamToVM(Integer id) {
+        TaskRequestVM vm = new TaskRequestVM();
+        return vm;
     }
 }

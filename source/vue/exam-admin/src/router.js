@@ -213,7 +213,7 @@ const constantRoutes = [
       {
         path: 'list',
         component: () => import('@/views/message/list'),
-        name: 'MessagePage',
+        name: 'MessageListPage',
         meta: { title: '消息列表', noCache: true }
       },
       {

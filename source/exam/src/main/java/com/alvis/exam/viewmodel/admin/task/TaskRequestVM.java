@@ -14,6 +14,9 @@ public class TaskRequestVM {
     private Integer id;
 
     @NotNull
+    private Integer gradeLevel;
+
+    @NotNull
     private String title;
 
     @Size(min = 1, message = "请添加试卷")

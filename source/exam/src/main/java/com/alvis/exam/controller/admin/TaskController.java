@@ -12,10 +12,7 @@ import com.alvis.exam.viewmodel.admin.task.TaskPageResponseVM;
 import com.alvis.exam.viewmodel.admin.task.TaskRequestVM;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -40,8 +37,16 @@ public class TaskController extends BaseApiController {
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public RestResponse edit(@RequestBody @Valid TaskRequestVM model) {
+        TaskExam taskExam = null;
+        TaskRequestVM vm = taskExamService.taskExamToVM(taskExam.getId());
+        return RestResponse.ok(vm);
+    }
 
-        return RestResponse.ok();
+
+    @RequestMapping(value = "/select/{id}", method = RequestMethod.POST)
+    public RestResponse<TaskRequestVM> select(@PathVariable Integer id) {
+        TaskRequestVM vm = taskExamService.taskExamToVM(id);
+        return RestResponse.ok(vm);
     }
 
 }
