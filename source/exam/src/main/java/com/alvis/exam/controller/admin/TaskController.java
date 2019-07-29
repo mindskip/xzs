@@ -9,12 +9,15 @@ import com.alvis.exam.utility.DateTimeUtil;
 import com.alvis.exam.utility.PageInfoHelper;
 import com.alvis.exam.viewmodel.admin.task.TaskPageRequestVM;
 import com.alvis.exam.viewmodel.admin.task.TaskPageResponseVM;
+import com.alvis.exam.viewmodel.admin.task.TaskRequestVM;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RestController("AdminTaskController")
 @RequestMapping(value = "/api/admin/task")
@@ -34,5 +37,11 @@ public class TaskController extends BaseApiController {
         return RestResponse.ok(page);
     }
 
+
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public RestResponse edit(@RequestBody @Valid TaskRequestVM model) {
+
+        return RestResponse.ok();
+    }
 
 }

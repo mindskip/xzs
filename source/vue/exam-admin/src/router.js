@@ -164,7 +164,7 @@ const constantRoutes = [
       {
         path: 'list',
         component: () => import('@/views/task/list'),
-        name: 'TaskPage',
+        name: 'TaskListPage',
         meta: { title: '任务列表', noCache: true }
       },
       {

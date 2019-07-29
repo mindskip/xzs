@@ -2,67 +2,134 @@
   <div class="app-container">
 
     <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
+      <el-form-item label="年级：" >
+        <el-select v-model="form.gradeLevel" placeholder="年级" @change="levelChange" >
+          <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="标题："  prop="title" required>
         <el-input v-model="form.title"></el-input>
       </el-form-item>
-      <el-form-item label="内容：" prop="content" required>
-        <el-input type="textarea" rows="13"  v-model="form.content"></el-input>
-      </el-form-item>
-      <el-form-item label="接收人：" required>
-        <el-select v-model="form.receiveUserIds" multiple filterable remote reserve-keyword
-          placeholder="请输入用户名"
-          :remote-method="getUserByUserName"
-          :loading="selectLoading">
-          <el-option v-for="item in options" :key="item.value" :label="item.name" :value="item.value"/>
-        </el-select>
+      <el-form-item label="试卷："  required>
+        <el-table  :data="form.paperItems" border fit highlight-current-row style="width: 100%">
+          <el-table-column prop="id" label="Id" width="90px"/>
+          <el-table-column prop="subjectId" label="学科" :formatter="subjectFormatter" width="120px" />
+          <el-table-column prop="name" label="名称"  />
+          <el-table-column prop="createTime" label="创建时间" width="160px"/>
+          <el-table-column  label="操作" align="center"  width="160px">
+            <template slot-scope="{row}">
+              <el-button size="mini" type="danger" @click="deletePaper(row)" class="link-left">删除</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm">发送</el-button>
+        <el-button type="primary" @click="submitForm">提交</el-button>
         <el-button @click="resetForm">重置</el-button>
+        <el-button type="success" @click="addPaper">添加试卷</el-button>
       </el-form-item>
     </el-form>
+
+    <el-dialog :visible.sync="paperPage.showDialog" width="70%">
+      <el-form :model="paperPage.queryParam" ref="queryForm" :inline="true">
+        <el-form-item label="学科：" >
+          <el-select v-model="paperPage.queryParam.subjectId"  clearable>
+            <el-option v-for="item in paperPage.subjectFilter" :key="item.id" :value="item.id" :label="item.name+' ( '+item.levelName+' )'"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm">查询</el-button>
+        </el-form-item>
+      </el-form>
+      <el-table v-loading="paperPage.listLoading" :data="paperPage.tableData"
+                @selection-change="handleSelectionChange" border fit highlight-current-row style="width: 100%">
+        <el-table-column type="selection" width="35"></el-table-column>
+        <el-table-column prop="id" label="Id" width="90px"/>
+        <el-table-column prop="subjectId" label="学科" :formatter="subjectFormatter" width="120px" />
+        <el-table-column prop="name" label="名称"  />
+        <el-table-column prop="createTime" label="创建时间" width="160px"/>
+      </el-table>
+      <pagination v-show="paperPage.total>0" :total="paperPage.total"
+                  :page.sync="paperPage.queryParam.pageIndex" :limit.sync="paperPage.queryParam.pageSize"
+                  @pagination="search"/>
+      <span slot="footer" class="dialog-footer">
+          <el-button @click="paperPage.showDialog = false">取 消</el-button>
+          <el-button type="primary" @click="confirmPaperSelect">确定</el-button>
+     </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import userApi from '@/api/user'
+import examPaperApi from '@/api/examPaper'
 import messageApi from '@/api/message'
+import Pagination from '@/components/Pagination'
+import { mapGetters, mapState, mapActions } from 'vuex'
 
 export default {
+  components: { Pagination },
   data () {
     return {
       form: {
+        gradeLevel: null,
         title: '',
-        content: '',
-        receiveUserIds: []
+        paperItems: []
       },
       formLoading: false,
-      selectLoading: false,
-      options: [],
+      paperPage: {
+        subjectFilter: null,
+        multipleSelection: [],
+        showDialog: false,
+        queryParam: {
+          subjectId: null,
+          level: null,
+          paperType: 6,
+          pageIndex: 1,
+          pageSize: 5
+        },
+        listLoading: true,
+        tableData: [],
+        total: 0
+      },
       rules: {
         title: [
-          { required: true, message: '请输入消息标题', trigger: 'blur' }
-        ],
-        realName: [
-          { required: true, message: '请输入消息内容', trigger: 'blur' }
+          { required: true, message: '请输入任务标题', trigger: 'blur' }
         ]
       }
     }
   },
   created () {
+    let _this = this
+    this.initSubject(function () {
+      _this.paperPage.subjectFilter = _this.subjects
+    })
   },
   methods: {
-    getUserByUserName (query) {
-      let _this = this
-      if (query !== '') {
-        _this.selectLoading = true
-        userApi.selectByUserName(query).then(re => {
-          _this.selectLoading = false
-          _this.options = re.response
-        })
-      } else {
-        _this.options = []
-      }
+    addPaper () {
+      this.paperPage.queryParam.level = this.form.gradeLevel
+      this.paperPage.showDialog = true
+      this.search()
+    },
+    confirmPaperSelect () {
+
+    },
+    search () {
+      this.paperPage.showDialog = true
+      this.listLoading = true
+      examPaperApi.pageList(this.paperPage.queryParam).then(data => {
+        const re = data.response
+        this.paperPage.tableData = re.list
+        this.paperPage.total = re.total
+        this.paperPage.queryParam.pageIndex = re.pageNum
+        this.paperPage.listLoading = false
+      })
+    },
+    handleSelectionChange (val) {
+      this.paperPage.multipleSelection = val
+    },
+    levelChange () {
+      this.paperPage.queryParam.subjectId = null
+      this.paperPage.subjectFilter = this.subjects.filter(data => data.level === this.form.gradeLevel)
     },
     submitForm () {
       let _this = this
@@ -72,7 +139,6 @@ export default {
           messageApi.send(this.form).then(data => {
             if (data.code === 1) {
               _this.$message.success(data.message)
-              _this.$router.push('/message/list')
             } else {
               _this.$message.error(data.message)
             }
@@ -87,9 +153,20 @@ export default {
     },
     resetForm () {
       this.$refs['form'].resetFields()
-      this.options = []
-      this.form.receiveUserIds = []
-    }
+    },
+    subjectFormatter (row, column, cellValue, index) {
+      return this.subjectEnumFormat(cellValue)
+    },
+    ...mapActions('exam', { initSubject: 'initSubject' })
+  },
+  computed: {
+    ...mapGetters('enumItem', ['enumFormat']),
+    ...mapState('enumItem', {
+      questionTypeEnum: state => state.exam.question.typeEnum,
+      levelEnum: state => state.user.levelEnum
+    }),
+    ...mapGetters('exam', ['subjectEnumFormat']),
+    ...mapState('exam', { subjects: state => state.subjects })
   }
 }
 </script>

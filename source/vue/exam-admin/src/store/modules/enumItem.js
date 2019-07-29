@@ -12,7 +12,7 @@ const state = {
   },
   exam: {
     examPaper: {
-      paperTypeEnum: [{ 'key': 1, 'value': '固定试卷' }, { 'key': 4, 'value': '时段试卷' }]
+      paperTypeEnum: [{ 'key': 1, 'value': '固定试卷' }, { 'key': 4, 'value': '时段试卷' }, { 'key': 6, 'value': '任务试卷' }]
     },
     question: {
       typeEnum: [{ 'key': 1, 'value': '单选题' }, { 'key': 2, 'value': '多选题' }, { 'key': 3, 'value': '判断题' }, { 'key': 4, 'value': '填空题' }, { 'key': 5, 'value': '简答题' }],

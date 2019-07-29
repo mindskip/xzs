@@ -55,10 +55,10 @@
         <el-button type="success" @click="addTitle">添加标题</el-button>
       </el-form-item>
     </el-form>
-    <el-dialog :visible.sync="questionPage.showDialog">
+    <el-dialog :visible.sync="questionPage.showDialog"  width="70%">
       <el-form :model="questionPage.queryParam" ref="queryForm" :inline="true">
         <el-form-item label="ID：">
-          <el-input v-model="questionPage.queryParam.id" style="width: 140px;" clearable></el-input>
+          <el-input v-model="questionPage.queryParam.id"  clearable></el-input>
         </el-form-item>
         <el-form-item label="题型：">
           <el-select v-model="questionPage.queryParam.questionType" clearable>
@@ -67,7 +67,6 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="queryForm">查询</el-button>
-          <el-button type="primary" @click="confirmQuestionSelect">确定</el-button>
         </el-form-item>
       </el-form>
       <el-table v-loading="questionPage.listLoading" :data="questionPage.tableData"
@@ -80,6 +79,10 @@
       <pagination v-show="questionPage.total>0" :total="questionPage.total"
                   :page.sync="questionPage.queryParam.pageIndex" :limit.sync="questionPage.queryParam.pageSize"
                   @pagination="search"/>
+      <span slot="footer" class="dialog-footer">
+          <el-button @click="questionPage.showDialog = false">取 消</el-button>
+          <el-button type="primary" @click="confirmQuestionSelect">确定</el-button>
+     </span>
     </el-dialog>
   </div>
 </template>
