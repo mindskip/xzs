@@ -205,6 +205,7 @@ CREATE TABLE "public"."t_exam_paper" (
   "score" int4,
   "question_count" int4,
   "suggest_time" int4,
+  "task_exam_id" int4,
   "limit_start_time" timestamp(6),
   "limit_end_time" timestamp(6),
   "frame_text_content_id" int4,
@@ -365,3 +366,38 @@ COMMENT ON COLUMN "public"."t_message_user"."receive_user_name" IS '接收人用
 COMMENT ON COLUMN "public"."t_message_user"."receive_real_name" IS '接收人真实姓名';
 COMMENT ON COLUMN "public"."t_message_user"."readed" IS '是否已读';
 COMMENT ON COLUMN "public"."t_message_user"."read_time" IS '阅读时间';
+
+
+
+-- ----------------------------
+-- Table structure for t_task_exam
+-- ----------------------------
+CREATE TABLE "public"."t_task_exam" (
+  "id" serial4 primary key,
+  "title" varchar(255) COLLATE "pg_catalog"."default",
+  "grade_level" int4,
+  "frame_text_content_id" int4,
+  "create_user" int4,
+  "create_user_name" varchar(255) COLLATE "pg_catalog"."default",
+  "create_time" timestamp(6),
+  "deleted" bool
+)
+;
+COMMENT ON COLUMN "public"."t_task_exam"."grade_level" IS '级别';
+COMMENT ON COLUMN "public"."t_task_exam"."frame_text_content_id" IS '任务框架 内容为JSON';
+
+
+
+
+-- ----------------------------
+-- Table structure for t_task_exam_customer_answer
+-- ----------------------------
+CREATE TABLE "public"."t_task_exam_customer_answer" (
+  "id" serial4 primary key,
+  "task_exam_id" int4,
+  "text_content_id" int4,
+  "create_user" int4,
+  "create_time" timestamp(6)
+)
+;
+COMMENT ON COLUMN "public"."t_task_exam_customer_answer"."text_content_id" IS '任务完成情况(Json)';
