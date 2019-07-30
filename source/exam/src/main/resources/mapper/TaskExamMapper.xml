@@ -139,6 +139,7 @@
     <include refid="Base_Column_List" />
     from t_task_exam
     <where>
+        and deleted='f'
       <if test="gradeLevel != null">
         and grade_level = #{gradeLevel}
       </if>

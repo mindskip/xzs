@@ -86,8 +86,11 @@ public class TaskExamServiceImpl extends BaseServiceImpl<TaskExam> implements Ta
             }).collect(Collectors.toList());
 
             //清空试卷任务的试卷Id，后面会统一设置
-            List<Integer> paperIds = taskItemObjectList.stream().map(d -> d.getExamPaperId()).collect(Collectors.toList());
-            examPaperMapper.updateTaskPaper(null, paperIds);
+            List<Integer> paperIds = JsonUtil.toJsonListObject(textContent.getContent(), TaskItemObject.class)
+                    .stream()
+                    .map(d -> d.getExamPaperId())
+                    .collect(Collectors.toList());
+            examPaperMapper.clearTaskPaper(paperIds);
 
             String frameTextContent = JsonUtil.toJsonStr(taskItemObjectList);
             textContent.setContent(frameTextContent);

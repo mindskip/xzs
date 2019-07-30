@@ -37,8 +37,8 @@ public class TaskController extends BaseApiController {
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public RestResponse edit(@RequestBody @Valid TaskRequestVM model) {
-        TaskExam taskExam = null;
-        TaskRequestVM vm = taskExamService.taskExamToVM(taskExam.getId());
+        taskExamService.edit(model, getCurrentUser());
+        TaskRequestVM vm = taskExamService.taskExamToVM(model.getId());
         return RestResponse.ok(vm);
     }
 
@@ -49,4 +49,11 @@ public class TaskController extends BaseApiController {
         return RestResponse.ok(vm);
     }
 
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    public RestResponse delete(@PathVariable Integer id) {
+        TaskExam taskExam = taskExamService.selectById(id);
+        taskExam.setDeleted(true);
+        taskExamService.updateByIdFilter(taskExam);
+        return RestResponse.ok();
+    }
 }

@@ -17,6 +17,12 @@
       <el-table-column prop="gradeLevel" label="学级"  :formatter="levelFormatter"/>
       <el-table-column prop="createUserName" label="发送人"  width="100" />
       <el-table-column prop="createTime" label="创建时间" width="160px"/>
+      <el-table-column  label="操作" align="center"  width="160px">
+        <template slot-scope="{row}">
+          <el-button size="mini" @click="$router.push({path:'/task/edit',query:{id:row.id}})" >编辑</el-button>
+          <el-button size="mini" type="danger" @click="deleteTask(row)" class="link-left">删除</el-button>
+        </template>
+      </el-table-column>
     </el-table>
     <pagination v-show="total>0" :total="total" :page.sync="queryParam.pageIndex" :limit.sync="queryParam.pageSize"
                 @pagination="search"/>
@@ -60,9 +66,20 @@ export default {
       this.queryParam.pageIndex = 1
       this.search()
     },
+    deleteTask (row) {
+      let _this = this
+      taskApi.deleteTask(row.id).then(re => {
+        if (re.code === 1) {
+          _this.search()
+          _this.$message.success(re.message)
+        } else {
+          _this.$message.error(re.message)
+        }
+      })
+    },
     levelFormatter  (row, column, cellValue, index) {
       return this.enumFormat(this.levelEnum, cellValue)
-    },
+    }
   },
   computed: {
     ...mapGetters('enumItem', ['enumFormat']),

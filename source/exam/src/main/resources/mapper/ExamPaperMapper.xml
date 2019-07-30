@@ -243,7 +243,7 @@
     FROM t_exam_paper
     <where>
       and deleted='f'
-      and task_exam_id = null
+      and task_exam_id is null
       and grade_level= #{level}
     </where>
   </select>
@@ -294,6 +294,15 @@
 
   <update id="updateTaskPaper">
     update t_exam_paper set task_exam_id = #{taskId} where id in
+    <foreach item="id" collection="paperIds" open="(" separator=","
+             close=")">
+      #{id}
+    </foreach>
+  </update>
+
+
+  <update id="clearTaskPaper" parameterType="java.util.List">
+    update t_exam_paper set task_exam_id = null where id in
     <foreach item="id" collection="paperIds" open="(" separator=","
              close=")">
       #{id}

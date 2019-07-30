@@ -37,7 +37,7 @@
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm">查询</el-button>
+          <el-button type="primary" @click="examPaperSubmitForm">查询</el-button>
         </el-form-item>
       </el-form>
       <el-table v-loading="paperPage.listLoading" :data="paperPage.tableData"
@@ -102,6 +102,15 @@ export default {
     this.initSubject(function () {
       _this.paperPage.subjectFilter = _this.subjects
     })
+
+    let id = this.$route.query.id
+    if (id && parseInt(id) !== 0) {
+      _this.formLoading = true
+      taskApi.select(id).then(re => {
+        _this.form = re.response
+        _this.formLoading = false
+      })
+    }
   },
   methods: {
     addPaper () {
@@ -126,6 +135,10 @@ export default {
     },
     handleSelectionChange (val) {
       this.paperPage.multipleSelection = val
+    },
+    examPaperSubmitForm () {
+      this.paperPage.queryParam.pageIndex = 1
+      this.search()
     },
     levelChange () {
       this.paperPage.queryParam.subjectId = null
