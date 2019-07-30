@@ -146,4 +146,13 @@
     </where>
   </select>
 
+
+  <select id="getByGradeLevel" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from t_task_exam
+    where deleted='f'
+    and grade_level = #{gradeLevel,jdbcType=INTEGER}
+  </select>
+
 </mapper>

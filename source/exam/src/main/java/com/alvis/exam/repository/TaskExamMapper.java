@@ -21,4 +21,6 @@ public interface TaskExamMapper extends BaseMapper<TaskExam> {
     int updateByPrimaryKey(TaskExam record);
 
     List<TaskExam> page(TaskPageRequestVM requestVM);
+
+    List<TaskExam> getByGradeLevel(Integer gradeLevel);
 }

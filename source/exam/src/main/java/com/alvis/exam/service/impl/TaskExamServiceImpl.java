@@ -66,6 +66,7 @@ public class TaskExamServiceImpl extends BaseServiceImpl<TaskExam> implements Ta
             List<TaskItemObject> taskItemObjectList = model.getPaperItems().stream().map(p -> {
                 TaskItemObject taskItemObject = new TaskItemObject();
                 taskItemObject.setExamPaperId(p.getId());
+                taskItemObject.setExamPaperName(p.getName());
                 return taskItemObject;
             }).collect(Collectors.toList());
             String frameTextContent = JsonUtil.toJsonStr(taskItemObjectList);
@@ -82,6 +83,7 @@ public class TaskExamServiceImpl extends BaseServiceImpl<TaskExam> implements Ta
             List<TaskItemObject> taskItemObjectList = model.getPaperItems().stream().map(p -> {
                 TaskItemObject taskItemObject = new TaskItemObject();
                 taskItemObject.setExamPaperId(p.getId());
+                taskItemObject.setExamPaperName(p.getName());
                 return taskItemObject;
             }).collect(Collectors.toList());
 
@@ -117,5 +119,10 @@ public class TaskExamServiceImpl extends BaseServiceImpl<TaskExam> implements Ta
         }).collect(Collectors.toList());
         vm.setPaperItems(examResponseVMS);
         return vm;
+    }
+
+    @Override
+    public List<TaskExam> getByGradeLevel(Integer gradeLevel) {
+        return taskExamMapper.getByGradeLevel(gradeLevel);
     }
 }
