@@ -64,12 +64,13 @@ public class TaskExamServiceImpl extends BaseServiceImpl<TaskExam> implements Ta
             taskExam.setDeleted(false);
 
             //保存任务结构
-            TextContent textContent = textContentService.insertContentMapperByStream(model.getPaperItems(), now, p -> {
+            TextContent textContent = textContentService.jsonConvertInsert(model.getPaperItems(), now, p -> {
                 TaskItemObject taskItemObject = new TaskItemObject();
                 taskItemObject.setExamPaperId(p.getId());
                 taskItemObject.setExamPaperName(p.getName());
                 return taskItemObject;
             });
+            textContentService.insertByFilter(textContent);
             taskExam.setFrameTextContentId(textContent.getId());
             taskExamMapper.insertSelective(taskExam);
 
@@ -86,12 +87,13 @@ public class TaskExamServiceImpl extends BaseServiceImpl<TaskExam> implements Ta
             examPaperMapper.clearTaskPaper(paperIds);
 
             //更新任务结构
-            textContentService.updateContentMapperByContent(textContent, model.getPaperItems(), p -> {
+            textContentService.jsonConvertUpdate(textContent, model.getPaperItems(), p -> {
                 TaskItemObject taskItemObject = new TaskItemObject();
                 taskItemObject.setExamPaperId(p.getId());
                 taskItemObject.setExamPaperName(p.getName());
                 return taskItemObject;
             });
+            textContentService.updateByIdFilter(textContent);
             taskExamMapper.updateByPrimaryKeySelective(taskExam);
         }
 

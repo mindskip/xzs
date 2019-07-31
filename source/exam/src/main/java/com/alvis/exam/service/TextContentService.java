@@ -8,8 +8,8 @@ import java.util.function.Function;
 
 public interface TextContentService extends BaseService<TextContent> {
 
-    <T, R> TextContent insertContentMapperByStream(List<T> list, Date now, Function<? super T, ? extends R> mapper);
+    <T, R> TextContent jsonConvertInsert(List<T> list, Date now, Function<? super T, ? extends R> mapper);
 
-    <T, R> TextContent updateContentMapperByContent(TextContent textContent, List<T> list, Function<? super T, ? extends R> mapper);
+    <T, R> TextContent jsonConvertUpdate(TextContent textContent, List<T> list, Function<? super T, ? extends R> mapper);
 
 }

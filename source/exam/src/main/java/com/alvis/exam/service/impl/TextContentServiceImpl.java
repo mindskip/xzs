@@ -44,7 +44,7 @@ public class TextContentServiceImpl extends BaseServiceImpl<TextContent> impleme
     }
 
     @Override
-    public <T, R> TextContent insertContentMapperByStream(List<T> list, Date now, Function<? super T, ? extends R> mapper) {
+    public <T, R> TextContent jsonConvertInsert(List<T> list, Date now, Function<? super T, ? extends R> mapper) {
         String frameTextContent = null;
         if (null == mapper) {
             frameTextContent = JsonUtil.toJsonStr(list);
@@ -53,12 +53,12 @@ public class TextContentServiceImpl extends BaseServiceImpl<TextContent> impleme
             frameTextContent = JsonUtil.toJsonStr(mapList);
         }
         TextContent textContent = new TextContent(frameTextContent, now);
-        insertByFilter(textContent);
+        //insertByFilter(textContent);  cache useless
         return textContent;
     }
 
     @Override
-    public <T, R> TextContent updateContentMapperByContent(TextContent textContent, List<T> list, Function<? super T, ? extends R> mapper) {
+    public <T, R> TextContent jsonConvertUpdate(TextContent textContent, List<T> list, Function<? super T, ? extends R> mapper) {
         String frameTextContent = null;
         if (null == mapper) {
             frameTextContent = JsonUtil.toJsonStr(list);
@@ -67,7 +67,7 @@ public class TextContentServiceImpl extends BaseServiceImpl<TextContent> impleme
             frameTextContent = JsonUtil.toJsonStr(mapList);
         }
         textContent.setContent(frameTextContent);
-        updateByIdFilter(textContent);
+        //this.updateByIdFilter(textContent);  cache useless
         return textContent;
     }
 

@@ -40,14 +40,16 @@ public class TaskExamCustomerAnswerImpl extends BaseServiceImpl<TaskExamCustomer
             taskExamCustomerAnswer.setCreateUser(userId);
             taskExamCustomerAnswer.setTaskExamId(taskId);
             List<TaskItemAnswerObject> taskItemAnswerObjects = Arrays.asList(new TaskItemAnswerObject(examPaperAnswer.getExamPaperId(), examPaperAnswer.getId(), examPaperAnswer.getStatus()));
-            TextContent textContent = textContentService.insertContentMapperByStream(taskItemAnswerObjects, now, null);
+            TextContent textContent = textContentService.jsonConvertInsert(taskItemAnswerObjects, now, null);
+            textContentService.insertByFilter(textContent);
             taskExamCustomerAnswer.setTextContentId(textContent.getId());
             insertByFilter(taskExamCustomerAnswer);
         } else {
             TextContent textContent = textContentService.selectById(taskExamCustomerAnswer.getTextContentId());
             List<TaskItemAnswerObject> taskItemAnswerObjects = JsonUtil.toJsonListObject(textContent.getContent(), TaskItemAnswerObject.class);
             taskItemAnswerObjects.add(new TaskItemAnswerObject(examPaperAnswer.getExamPaperId(), examPaperAnswer.getId(), examPaperAnswer.getStatus()));
-            textContentService.updateContentMapperByContent(textContent, taskItemAnswerObjects, null);
+            textContentService.jsonConvertUpdate(textContent, taskItemAnswerObjects, null);
+            textContentService.updateByIdFilter(textContent);
         }
     }
 
