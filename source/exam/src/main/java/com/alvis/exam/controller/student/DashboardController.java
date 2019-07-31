@@ -62,11 +62,15 @@ public class DashboardController extends BaseApiController {
     public RestResponse<List<TaskItemVm>> task() {
         User user = getCurrentUser();
         List<TaskExam> taskExams = taskExamService.getByGradeLevel(user.getUserLevel());
+        List<Integer> tIds = taskExams.stream().map(taskExam -> taskExam.getId()).collect(Collectors.toList());
+        List<TaskExamCustomerAnswer> taskExamCustomerAnswers = taskExamCustomerAnswerService.selectByTUid(tIds, user.getId());
         List<TaskItemVm> vm = taskExams.stream().map(t -> {
             TaskItemVm itemVm = new TaskItemVm();
             itemVm.setId(t.getId());
             itemVm.setTitle(t.getTitle());
-            List<TaskItemPaperVm> paperItemVMS = getTaskItemPaperVm(t.getFrameTextContentId(), t.getId(), user.getId());
+            TaskExamCustomerAnswer taskExamCustomerAnswer = taskExamCustomerAnswers.stream()
+                    .filter(tc -> tc.getTaskExamId().equals(t.getId())).findFirst().orElse(null);
+            List<TaskItemPaperVm> paperItemVMS = getTaskItemPaperVm(t.getFrameTextContentId(), taskExamCustomerAnswer);
             itemVm.setPaperItems(paperItemVMS);
             return itemVm;
         }).collect(Collectors.toList());
@@ -74,14 +78,13 @@ public class DashboardController extends BaseApiController {
     }
 
 
-    private List<TaskItemPaperVm> getTaskItemPaperVm(Integer tFrameId, Integer tItemId, Integer uid) {
+    private List<TaskItemPaperVm> getTaskItemPaperVm(Integer tFrameId, TaskExamCustomerAnswer taskExamCustomerAnswers) {
         TextContent textContent = textContentService.selectById(tFrameId);
         List<TaskItemObject> paperItems = JsonUtil.toJsonListObject(textContent.getContent(), TaskItemObject.class);
 
         List<TaskItemAnswerObject> answerPaperItems = null;
-        TaskExamCustomerAnswer taskExamCustomerAnswer = taskExamCustomerAnswerService.selectByTUid(tItemId, uid);
-        if (null != taskExamCustomerAnswer) {
-            TextContent answerTextContent = textContentService.selectById(taskExamCustomerAnswer.getTextContentId());
+        if (null != taskExamCustomerAnswers) {
+            TextContent answerTextContent = textContentService.selectById(taskExamCustomerAnswers.getTextContentId());
             answerPaperItems = JsonUtil.toJsonListObject(answerTextContent.getContent(), TaskItemAnswerObject.class);
         }
 

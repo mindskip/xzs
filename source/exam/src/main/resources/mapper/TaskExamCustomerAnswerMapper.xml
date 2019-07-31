@@ -102,4 +102,16 @@
     limit 1
   </select>
 
+
+  <select id="selectByTUid"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_task_exam_customer_answer
+    where create_user=#{uid} and
+    task_exam_id in
+    <foreach collection="taskIds" open="(" close=")" separator="," item="id">
+      #{id}
+    </foreach>
+  </select>
+
 </mapper>

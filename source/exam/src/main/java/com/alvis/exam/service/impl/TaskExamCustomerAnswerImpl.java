@@ -57,4 +57,9 @@ public class TaskExamCustomerAnswerImpl extends BaseServiceImpl<TaskExamCustomer
     public TaskExamCustomerAnswer selectByTUid(Integer tid, Integer uid) {
         return taskExamCustomerAnswerMapper.getByTUid(tid, uid);
     }
+
+    @Override
+    public List<TaskExamCustomerAnswer> selectByTUid(List<Integer> taskIds, Integer uid) {
+        return taskExamCustomerAnswerMapper.selectByTUid(taskIds, uid);
+    }
 }
