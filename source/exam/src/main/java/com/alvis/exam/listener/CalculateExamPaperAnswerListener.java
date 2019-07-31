@@ -1,10 +1,12 @@
 package com.alvis.exam.listener;
 
 import com.alvis.exam.domain.*;
+import com.alvis.exam.domain.enums.ExamPaperTypeEnum;
 import com.alvis.exam.domain.enums.QuestionTypeEnum;
 import com.alvis.exam.event.CalculateExamPaperAnswerCompleteEvent;
 import com.alvis.exam.service.ExamPaperAnswerService;
 import com.alvis.exam.service.ExamPaperQuestionCustomerAnswerService;
+import com.alvis.exam.service.TaskExamCustomerAnswerService;
 import com.alvis.exam.service.TextContentService;
 import lombok.AllArgsConstructor;
 import org.apache.ibatis.type.BooleanTypeHandler;
@@ -27,12 +29,15 @@ public class CalculateExamPaperAnswerListener implements ApplicationListener<Cal
     private final ExamPaperAnswerService examPaperAnswerService;
     private final ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService;
     private final TextContentService textContentService;
+    private final TaskExamCustomerAnswerService examCustomerAnswerService;
 
     @Override
     @Transactional
     public void onApplicationEvent(CalculateExamPaperAnswerCompleteEvent calculateExamPaperAnswerCompleteEvent) {
         Date now = new Date();
+
         ExamPaperAnswerInfo examPaperAnswerInfo = (ExamPaperAnswerInfo) calculateExamPaperAnswerCompleteEvent.getSource();
+        ExamPaper examPaper = examPaperAnswerInfo.getExamPaper();
         ExamPaperAnswer examPaperAnswer = examPaperAnswerInfo.getExamPaperAnswer();
         List<ExamPaperQuestionCustomerAnswer> examPaperQuestionCustomerAnswers = examPaperAnswerInfo.getExamPaperQuestionCustomerAnswers();
 
@@ -47,5 +52,14 @@ public class CalculateExamPaperAnswerListener implements ApplicationListener<Cal
             d.setExamPaperAnswerId(examPaperAnswer.getId());
         });
         examPaperQuestionCustomerAnswerService.insertList(examPaperQuestionCustomerAnswers);
+
+        switch (ExamPaperTypeEnum.fromCode(examPaper.getPaperType())) {
+            case Task: {
+                examCustomerAnswerService.insertOrUpdate(examPaper, examPaperAnswer, now);
+                break;
+            }
+            default:
+                break;
+        }
     }
 }

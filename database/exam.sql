@@ -245,6 +245,7 @@ CREATE TABLE "public"."t_exam_paper_answer" (
   "question_correct" int4,
   "question_count" int4,
   "do_time" int4,
+  "task_exam_id" int4,
   "status" int4,
   "create_user" int4,
   "create_time" timestamp(6)

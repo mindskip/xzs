@@ -3,10 +3,16 @@ package com.alvis.exam.service.impl;
 import com.alvis.exam.domain.TextContent;
 import com.alvis.exam.repository.TextContentMapper;
 import com.alvis.exam.service.TextContentService;
+import com.alvis.exam.utility.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 public class TextContentServiceImpl extends BaseServiceImpl<TextContent> implements TextContentService {
@@ -36,4 +42,34 @@ public class TextContentServiceImpl extends BaseServiceImpl<TextContent> impleme
     public int updateByIdFilter(TextContent record) {
         return super.updateByIdFilter(record);
     }
+
+    @Override
+    public <T, R> TextContent insertContentMapperByStream(List<T> list, Date now, Function<? super T, ? extends R> mapper) {
+        String frameTextContent = null;
+        if (null == mapper) {
+            frameTextContent = JsonUtil.toJsonStr(list);
+        } else {
+            List<R> mapList = list.stream().map(mapper).collect(Collectors.toList());
+            frameTextContent = JsonUtil.toJsonStr(mapList);
+        }
+        TextContent textContent = new TextContent(frameTextContent, now);
+        insertByFilter(textContent);
+        return textContent;
+    }
+
+    @Override
+    public <T, R> TextContent updateContentMapperByContent(TextContent textContent, List<T> list, Function<? super T, ? extends R> mapper) {
+        String frameTextContent = null;
+        if (null == mapper) {
+            frameTextContent = JsonUtil.toJsonStr(list);
+        } else {
+            List<R> mapList = list.stream().map(mapper).collect(Collectors.toList());
+            frameTextContent = JsonUtil.toJsonStr(mapList);
+        }
+        textContent.setContent(frameTextContent);
+        updateByIdFilter(textContent);
+        return textContent;
+    }
+
+
 }

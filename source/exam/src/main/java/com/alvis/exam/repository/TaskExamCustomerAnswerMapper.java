@@ -2,6 +2,7 @@ package com.alvis.exam.repository;
 
 import com.alvis.exam.domain.TaskExamCustomerAnswer;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface TaskExamCustomerAnswerMapper extends BaseMapper<TaskExamCustomerAnswer> {
@@ -16,4 +17,6 @@ public interface TaskExamCustomerAnswerMapper extends BaseMapper<TaskExamCustome
     int updateByPrimaryKeySelective(TaskExamCustomerAnswer record);
 
     int updateByPrimaryKey(TaskExamCustomerAnswer record);
+
+    TaskExamCustomerAnswer getByTUid(@Param("tid") Integer tid, @Param("uid") Integer uid);
 }

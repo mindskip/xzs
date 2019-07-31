@@ -62,31 +62,22 @@ public class TaskExamServiceImpl extends BaseServiceImpl<TaskExam> implements Ta
             taskExam.setCreateUserName(user.getUserName());
             taskExam.setCreateTime(now);
             taskExam.setDeleted(false);
+
             //保存任务结构
-            List<TaskItemObject> taskItemObjectList = model.getPaperItems().stream().map(p -> {
+            TextContent textContent = textContentService.insertContentMapperByStream(model.getPaperItems(), now, p -> {
                 TaskItemObject taskItemObject = new TaskItemObject();
                 taskItemObject.setExamPaperId(p.getId());
                 taskItemObject.setExamPaperName(p.getName());
                 return taskItemObject;
-            }).collect(Collectors.toList());
-            String frameTextContent = JsonUtil.toJsonStr(taskItemObjectList);
-            TextContent textContent = new TextContent(frameTextContent, now);
-            textContentService.insertByFilter(textContent);
+            });
             taskExam.setFrameTextContentId(textContent.getId());
             taskExamMapper.insertSelective(taskExam);
 
         } else {
             taskExam = taskExamMapper.selectByPrimaryKey(model.getId());
             modelMapper.map(model, taskExam);
-            //更新任务结构
-            TextContent textContent = textContentService.selectById(taskExam.getFrameTextContentId());
-            List<TaskItemObject> taskItemObjectList = model.getPaperItems().stream().map(p -> {
-                TaskItemObject taskItemObject = new TaskItemObject();
-                taskItemObject.setExamPaperId(p.getId());
-                taskItemObject.setExamPaperName(p.getName());
-                return taskItemObject;
-            }).collect(Collectors.toList());
 
+            TextContent textContent = textContentService.selectById(taskExam.getFrameTextContentId());
             //清空试卷任务的试卷Id，后面会统一设置
             List<Integer> paperIds = JsonUtil.toJsonListObject(textContent.getContent(), TaskItemObject.class)
                     .stream()
@@ -94,9 +85,13 @@ public class TaskExamServiceImpl extends BaseServiceImpl<TaskExam> implements Ta
                     .collect(Collectors.toList());
             examPaperMapper.clearTaskPaper(paperIds);
 
-            String frameTextContent = JsonUtil.toJsonStr(taskItemObjectList);
-            textContent.setContent(frameTextContent);
-            textContentService.updateByIdFilter(textContent);
+            //更新任务结构
+            textContentService.updateContentMapperByContent(textContent, model.getPaperItems(), p -> {
+                TaskItemObject taskItemObject = new TaskItemObject();
+                taskItemObject.setExamPaperId(p.getId());
+                taskItemObject.setExamPaperName(p.getName());
+                return taskItemObject;
+            });
             taskExamMapper.updateByPrimaryKeySelective(taskExam);
         }
 
