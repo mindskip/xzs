@@ -19,16 +19,24 @@
     <el-row class="app-item-contain">
       <h3 class="index-title-h3" style="border-left: solid 10px #3651d4;">任务中心</h3>
       <div style="padding-left: 15px">
-        <el-collapse  v-loading="taskLoading"  accordion>
+        <el-collapse  v-loading="taskLoading"  accordion v-if="taskList.length!==0">
           <el-collapse-item :title="taskItem.title" :name="taskItem.id" :key="taskItem.id" v-for="taskItem in taskList">
             <table class="index-task-table">
               <tr v-for="paperItem in taskItem.paperItems" :key="paperItem.examPaperId">
                 <td class="index-task-table-paper">
                   {{paperItem.examPaperName}}
                 </td>
-                <td width="90px">
-                  <router-link target="_blank" :to="{path:'/do',query:{id:paperItem.examPaperId}}">
+                <td width="70px">
+                  <el-tag :type="statusTagFormatter(paperItem.status)" v-if="paperItem.status !== null">
+                    {{ statusTextFormatter(paperItem.status) }}
+                  </el-tag>
+                </td>
+                <td width="80px">
+                  <router-link target="_blank" :to="{path:'/do',query:{id:paperItem.examPaperId}}" v-if="paperItem.examPaperAnswerId === null">
                     <el-button  type="text" size="small">开始答题</el-button>
+                  </router-link>
+                  <router-link target="_blank" :to="{path:'/read',query:{id:paperItem.examPaperAnswerId}}" v-if="paperItem.examPaperAnswerId !== null">
+                    <el-button  type="text" size="small">查看试卷</el-button>
                   </router-link>
                 </td>
               </tr>
@@ -93,7 +101,7 @@
 </template>
 
 <script>
-
+import { mapState, mapGetters } from 'vuex'
 import indexApi from '@/api/dashboard'
 export default {
   data () {
@@ -118,6 +126,23 @@ export default {
     indexApi.task().then(re => {
       _this.taskList = re.response
       _this.taskLoading = false
+    })
+  },
+  methods: {
+    statusTagFormatter (status) {
+      return this.enumFormat(this.statusTag, status)
+    },
+    statusTextFormatter (status) {
+      return this.enumFormat(this.statusEnum, status)
+    }
+  },
+  computed: {
+    ...mapGetters('enumItem', [
+      'enumFormat'
+    ]),
+    ...mapState('enumItem', {
+      statusEnum: state => state.exam.examPaperAnswer.statusEnum,
+      statusTag: state => state.exam.examPaperAnswer.statusTag
     })
   }
 }

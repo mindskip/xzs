@@ -99,6 +99,7 @@
     <include refid="Base_Column_List" />
     from t_task_exam_customer_answer
     where task_exam_id = #{tid} and create_user=#{uid}
+    limit 1
   </select>
 
 </mapper>

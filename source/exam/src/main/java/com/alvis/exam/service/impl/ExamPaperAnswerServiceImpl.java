@@ -2,6 +2,7 @@ package com.alvis.exam.service.impl;
 
 import com.alvis.exam.domain.*;
 import com.alvis.exam.domain.enums.ExamPaperAnswerStatusEnum;
+import com.alvis.exam.domain.enums.ExamPaperTypeEnum;
 import com.alvis.exam.domain.enums.QuestionTypeEnum;
 import com.alvis.exam.domain.exam.ExamPaperTitleItemObject;
 import com.alvis.exam.repository.*;
@@ -55,6 +56,12 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
         ExamPaperAnswerInfo examPaperAnswerInfo = new ExamPaperAnswerInfo();
         Date now = new Date();
         ExamPaper examPaper = examPaperMapper.selectByPrimaryKey(examPaperSubmitVM.getId());
+        ExamPaperTypeEnum paperTypeEnum = ExamPaperTypeEnum.fromCode(examPaper.getPaperType());
+        if (paperTypeEnum == ExamPaperTypeEnum.Task) {
+            ExamPaperAnswer examPaperAnswer = examPaperAnswerMapper.getByPidUid(examPaperSubmitVM.getId(), user.getId());
+            if (null != examPaperAnswer)
+                return null;
+        }
         String frameTextContent = textContentService.selectById(examPaper.getFrameTextContentId()).getContent();
         List<ExamPaperTitleItemObject> examPaperTitleItemObjects = JsonUtil.toJsonListObject(frameTextContent, ExamPaperTitleItemObject.class);
         List<Integer> questionIds = examPaperTitleItemObjects.stream().flatMap(t -> t.getQuestionItems().stream().map(q -> q.getId())).collect(Collectors.toList());
@@ -166,6 +173,7 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
         examPaperAnswer.setPaperType(examPaper.getPaperType());
         examPaperAnswer.setSystemScore(systemScore);
         examPaperAnswer.setUserScore(systemScore);
+        examPaperAnswer.setTaskExamId(examPaper.getTaskExamId());
         examPaperAnswer.setQuestionCorrect((int) questionCorrect);
         boolean needJudge = examPaperQuestionCustomerAnswers.stream().anyMatch(d -> QuestionTypeEnum.needSaveTextContent(d.getQuestionType()));
         if (needJudge) {

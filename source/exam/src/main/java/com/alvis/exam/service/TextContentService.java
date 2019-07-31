@@ -11,4 +11,5 @@ public interface TextContentService extends BaseService<TextContent> {
     <T, R> TextContent insertContentMapperByStream(List<T> list, Date now, Function<? super T, ? extends R> mapper);
 
     <T, R> TextContent updateContentMapperByContent(TextContent textContent, List<T> list, Function<? super T, ? extends R> mapper);
+
 }

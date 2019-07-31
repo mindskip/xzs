@@ -109,12 +109,11 @@ public class UserController extends BaseApiController {
         List<Message> messages = ids.size() != 0 ? messageService.selectMessageByIds(ids) : null;
         PageInfo<MessageResponseVM> page = PageInfoHelper.copyMap(messageUserPageInfo, e -> {
             MessageResponseVM vm = modelMapper.map(e, MessageResponseVM.class);
-            Message message = messages.stream().filter(d -> e.getMessageId().equals(d.getId())).findFirst().orElse(null);
-            if (null != message) {
+            messages.stream().filter(d -> e.getMessageId().equals(d.getId())).findFirst().ifPresent(message -> {
                 vm.setTitle(message.getTitle());
                 vm.setContent(message.getContent());
                 vm.setSendUserName(message.getSendUserName());
-            }
+            });
             vm.setCreateTime(DateTimeUtil.dateFormat(e.getCreateTime()));
             return vm;
         });

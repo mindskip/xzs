@@ -60,6 +60,9 @@ public class ExamPaperAnswerController extends BaseApiController {
     public RestResponse<String> answerSubmit(@RequestBody @Valid ExamPaperSubmitVM examPaperSubmitVM) {
         User user = getCurrentUser();
         ExamPaperAnswerInfo examPaperAnswerInfo = examPaperAnswerService.calculateExamPaperAnswer(examPaperSubmitVM, user);
+        if (null == examPaperAnswerInfo) {
+            return RestResponse.fail(2, "试卷不能重复做");
+        }
         ExamPaperAnswer examPaperAnswer = examPaperAnswerInfo.getExamPaperAnswer();
         Integer userScore = examPaperAnswer.getUserScore();
         String scoreVm = ExamUtil.scoreToVM(userScore);

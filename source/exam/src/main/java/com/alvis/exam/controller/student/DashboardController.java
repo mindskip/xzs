@@ -3,16 +3,20 @@ package com.alvis.exam.controller.student;
 import com.alvis.exam.base.BaseApiController;
 import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.domain.TaskExam;
+import com.alvis.exam.domain.TaskExamCustomerAnswer;
 import com.alvis.exam.domain.TextContent;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.domain.enums.ExamPaperTypeEnum;
+import com.alvis.exam.domain.task.TaskItemAnswerObject;
 import com.alvis.exam.domain.task.TaskItemObject;
 import com.alvis.exam.service.*;
 import com.alvis.exam.utility.JsonUtil;
 import com.alvis.exam.viewmodel.student.dashboard.IndexVM;
 import com.alvis.exam.viewmodel.student.dashboard.PaperFilter;
+import com.alvis.exam.viewmodel.student.dashboard.TaskItemPaperVm;
 import com.alvis.exam.viewmodel.student.dashboard.TaskItemVm;
 import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +35,7 @@ public class DashboardController extends BaseApiController {
     private final ExamPaperService examPaperService;
     private final QuestionService questionService;
     private final TaskExamService taskExamService;
+    private final TaskExamCustomerAnswerService taskExamCustomerAnswerService;
     private final TextContentService textContentService;
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
@@ -55,16 +60,48 @@ public class DashboardController extends BaseApiController {
 
     @RequestMapping(value = "/task", method = RequestMethod.POST)
     public RestResponse<List<TaskItemVm>> task() {
-        List<TaskExam> taskExams = taskExamService.getByGradeLevel(getCurrentUser().getUserLevel());
-        List<TaskItemVm> vm = taskExams.stream().map(e -> {
+        User user = getCurrentUser();
+        List<TaskExam> taskExams = taskExamService.getByGradeLevel(user.getUserLevel());
+        List<TaskItemVm> vm = taskExams.stream().map(t -> {
             TaskItemVm itemVm = new TaskItemVm();
-            itemVm.setId(e.getId());
-            itemVm.setTitle(e.getTitle());
-            TextContent textContent = textContentService.selectById(e.getFrameTextContentId());
-            List<TaskItemObject> paperItems = JsonUtil.toJsonListObject(textContent.getContent(), TaskItemObject.class);
-            itemVm.setPaperItems(paperItems);
+            itemVm.setId(t.getId());
+            itemVm.setTitle(t.getTitle());
+            List<TaskItemPaperVm> paperItemVMS = getTaskItemPaperVm(t.getFrameTextContentId(), t.getId(), user.getId());
+            itemVm.setPaperItems(paperItemVMS);
             return itemVm;
         }).collect(Collectors.toList());
         return RestResponse.ok(vm);
+    }
+
+
+    private List<TaskItemPaperVm> getTaskItemPaperVm(Integer tFrameId, Integer tItemId, Integer uid) {
+        TextContent textContent = textContentService.selectById(tFrameId);
+        List<TaskItemObject> paperItems = JsonUtil.toJsonListObject(textContent.getContent(), TaskItemObject.class);
+
+        List<TaskItemAnswerObject> answerPaperItems = null;
+        TaskExamCustomerAnswer taskExamCustomerAnswer = taskExamCustomerAnswerService.selectByTUid(tItemId, uid);
+        if (null != taskExamCustomerAnswer) {
+            TextContent answerTextContent = textContentService.selectById(taskExamCustomerAnswer.getTextContentId());
+            answerPaperItems = JsonUtil.toJsonListObject(answerTextContent.getContent(), TaskItemAnswerObject.class);
+        }
+
+
+        List<TaskItemAnswerObject> finalAnswerPaperItems = answerPaperItems;
+        return paperItems.stream().map(p -> {
+                    TaskItemPaperVm ivm = new TaskItemPaperVm();
+                    ivm.setExamPaperId(p.getExamPaperId());
+                    ivm.setExamPaperName(p.getExamPaperName());
+                    if (null != finalAnswerPaperItems) {
+                        finalAnswerPaperItems.stream()
+                                .filter(a -> a.getExamPaperId().equals(p.getExamPaperId()))
+                                .findFirst()
+                                .ifPresent(a -> {
+                                    ivm.setExamPaperAnswerId(a.getExamPaperAnswerId());
+                                    ivm.setStatus(a.getStatus());
+                                });
+                    }
+                    return ivm;
+                }
+        ).collect(Collectors.toList());
     }
 }

@@ -9,5 +9,5 @@ import java.util.List;
 public class TaskItemVm {
     private Integer id;
     private String title;
-    private List<TaskItemObject> paperItems;
+    private List<TaskItemPaperVm> paperItems;
 }
