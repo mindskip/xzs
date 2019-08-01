@@ -23,7 +23,8 @@ const state = {
       typeEnum: [{ 'key': 1, 'value': '单选题' }, { 'key': 2, 'value': '多选题' }, { 'key': 3, 'value': '判断题' }, { 'key': 4, 'value': '填空题' }, { 'key': 5, 'value': '简答题' }],
       answer: {
         doRightTag: [{ 'key': true, 'value': 'success' }, { 'key': false, 'value': 'danger' }, { 'key': null, 'value': 'warning' }],
-        doRightEnum: [{ 'key': true, 'value': '正确' }, { 'key': false, 'value': '错误' }, { 'key': null, 'value': '待批改' }]
+        doRightEnum: [{ 'key': true, 'value': '正确' }, { 'key': false, 'value': '错误' }, { 'key': null, 'value': '待批改' }],
+        doCompletedTag: [{ 'key': false, 'value': 'info' }, { 'key': true, 'value': 'success' }]
       }
     }
   }
