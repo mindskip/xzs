@@ -27,7 +27,7 @@
                   {{paperItem.examPaperName}}
                 </td>
                 <td width="70px">
-                  <el-tag :type="statusTagFormatter(paperItem.status)" v-if="paperItem.status !== null">
+                  <el-tag :type="statusTagFormatter(paperItem.status)" v-if="paperItem.status !== null" size="mini">
                     {{ statusTextFormatter(paperItem.status) }}
                   </el-tag>
                 </td>
