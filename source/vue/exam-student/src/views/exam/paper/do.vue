@@ -4,21 +4,20 @@
       <el-col :span="24">
         <span :key="item.itemOrder"  v-for="item in answer.answerItems">
              <el-tag :type="questionCompleted(item.completed)" class="do-exam-title-tag" @click="goAnchor('#question-'+item.itemOrder)">{{item.itemOrder}}</el-tag>
-           </span>
-        <span style="float: right">
-          <label>剩余时间：2小时</label>
+        </span>
+        <span class="do-exam-time">
+          <label>剩余时间：</label>
+          <label>{{formatSeconds(remainTime)}}</label>
         </span>
       </el-col>
     </el-row>
     <el-row  class="do-exam-title-hidden">
       <el-col :span="24">
-        <span :key="index" v-for="(titleItem,index) in form.titleItems">
-           <span :key="questionItem.itemOrder"  v-for="questionItem in titleItem.questionItems">
-             <el-tag class="do-exam-title-tag" @click="goAnchor('#question-'+questionItem.itemOrder)">{{questionItem.itemOrder}}</el-tag>
-           </span>
+        <span :key="item.itemOrder"  v-for="item in answer.answerItems">
+             <el-tag  class="do-exam-title-tag" >{{item.itemOrder}}</el-tag>
         </span>
-        <span style="float: right">
-          <label>剩余时间：2小时</label>
+        <span class="do-exam-time">
+          <label>剩余时间：</label>
         </span>
       </el-col>
     </el-row>
@@ -70,7 +69,8 @@ export default {
         doTime: 0,
         answerItems: []
       },
-      timer: null
+      timer: null,
+      remainTime: 0
     }
   },
   created () {
@@ -80,6 +80,7 @@ export default {
       _this.formLoading = true
       examPaperApi.select(id).then(re => {
         _this.form = re.response
+        _this.remainTime = re.response.suggestTime * 60
         _this.initAnswer()
         _this.formLoading = false
       })
@@ -88,11 +89,17 @@ export default {
   mounted () {
     let _this = this
     this.timer = setInterval(function () {
-      ++_this.answer.doTime
+      if (_this.remainTime <= 0) {
+        window.clearInterval(_this.timer)
+        _this.submitForm()
+      } else {
+        ++_this.answer.doTime
+        --_this.remainTime
+      }
     }, 1000)
   },
   beforeDestroy () {
-    clearInterval(this.timer)
+    window.clearInterval(this.timer)
   },
   methods: {
     questionCompleted (completed) {
@@ -100,6 +107,26 @@ export default {
     },
     goAnchor (selector) {
       this.$el.querySelector(selector).scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' })
+    },
+    formatSeconds (theTime) {
+      let theTime1 = 0
+      let theTime2 = 0
+      if (theTime > 60) {
+        theTime1 = parseInt(theTime / 60)
+        theTime = parseInt(theTime % 60)
+        if (theTime1 > 60) {
+          theTime2 = parseInt(theTime1 / 60)
+          theTime1 = parseInt(theTime1 % 60)
+        }
+      }
+      let result = '' + parseInt(theTime) + '秒'
+      if (theTime1 > 0) {
+        result = '' + parseInt(theTime1) + '分' + result
+      }
+      if (theTime2 > 0) {
+        result = '' + parseInt(theTime2) + '小时' + result
+      }
+      return result
     },
     initAnswer () {
       this.answer.id = this.form.id
