@@ -2,8 +2,8 @@ import Cookies from 'js-cookie'
 import userApi from '@/api/user'
 // initial state
 const state = {
-  userName: Cookies.get('userName'),
-  userInfo: Cookies.get('userInfo'),
+  userName: Cookies.get('studentUserName'),
+  userInfo: Cookies.get('studentUserInfo'),
   messageCount: 0
 }
 
@@ -25,11 +25,11 @@ const actions = {
 const mutations = {
   setUserName (state, userName) {
     state.userName = userName
-    Cookies.set('userName', userName, { expires: 30 })
+    Cookies.set('studentUserName', userName, { expires: 30 })
   },
   setUserInfo: (state, userInfo) => {
     state.userInfo = userInfo
-    Cookies.set('userInfo', userInfo, { expires: 30 })
+    Cookies.set('studentUserInfo', userInfo, { expires: 30 })
   },
   setMessageCount: (state, messageCount) => {
     state.messageCount = messageCount
@@ -38,8 +38,8 @@ const mutations = {
     state.messageCount = state.messageCount - num
   },
   clearLogin (state) {
-    Cookies.remove('userName')
-    Cookies.remove('userInfo')
+    Cookies.remove('studentUserName')
+    Cookies.remove('studentUserInfo')
   }
 }
 
