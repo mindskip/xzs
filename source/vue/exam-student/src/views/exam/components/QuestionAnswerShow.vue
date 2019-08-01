@@ -68,7 +68,8 @@
       </div>
       <div class="question-answer-show-item">
         <span class="question-show-item">正确答案：</span>
-        <span v-if="qType==1||qType==2||qType==3||qType==5">{{question.correct}}</span>
+        <span v-if="qType==1||qType==2 ||qType==5" v-html="question.correct" class="q-item-span-content"/>
+        <span v-if="qType==3" v-html="trueFalseFormatter(question)" class="q-item-span-content"/>
         <span v-if="qType==4">{{question.correctArray}}</span>
       </div>
     </div>
@@ -105,6 +106,9 @@ export default {
     }
   },
   methods: {
+    trueFalseFormatter (question) {
+      return question.items.filter(d => d.prefix === question.correct)[0].content
+    },
     doRightTagFormatter (status) {
       return this.enumFormat(this.doRightTag, status)
     },
