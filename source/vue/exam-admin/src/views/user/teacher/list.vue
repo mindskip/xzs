@@ -34,7 +34,7 @@
           <router-link :to="{path:'/user/teacher/edit', query:{id:row.id}}" class="link-left">
             <el-button size="mini" >编辑</el-button>
           </router-link>
-          <el-button size="mini" type="danger" @click="deleteUser(row)" class="link-left">删除</el-button>
+          <el-button size="mini" type="danger" disabled @click="deleteUser(row)" class="link-left">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

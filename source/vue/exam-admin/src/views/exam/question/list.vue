@@ -42,7 +42,7 @@
         <template slot-scope="{row}">
           <el-button size="mini"   @click="showQuestion(row)">预览</el-button>
           <el-button size="mini"  @click="editQuestion(row)">编辑</el-button>
-          <el-button size="mini" type="danger" @click="deleteQuestion(row)" class="link-left">删除</el-button>
+          <el-button size="mini" disabled type="danger" @click="deleteQuestion(row)" class="link-left">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

@@ -38,7 +38,7 @@
           <router-link :to="{path:'/log/user/list', query:{userId:row.id}}" class="link-left">
             <el-button size="mini" >日志</el-button>
           </router-link>
-          <el-button size="mini" type="danger" @click="deleteUser(row)" class="link-left">删除</el-button>
+          <el-button disabled size="mini" type="danger" @click="deleteUser(row)" class="link-left">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

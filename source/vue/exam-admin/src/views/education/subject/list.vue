@@ -23,7 +23,7 @@
           <router-link :to="{path:'/education/subject/edit', query:{id:row.id}}" class="link-left">
             <el-button size="mini">编辑</el-button>
           </router-link>
-          <el-button size="mini" type="danger"  class="link-left">删除</el-button>
+          <el-button size="mini" type="danger" disabled class="link-left">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

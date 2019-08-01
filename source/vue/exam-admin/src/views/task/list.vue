@@ -20,7 +20,7 @@
       <el-table-column  label="操作" align="center"  width="160px">
         <template slot-scope="{row}">
           <el-button size="mini" @click="$router.push({path:'/task/edit',query:{id:row.id}})" >编辑</el-button>
-          <el-button size="mini" type="danger" @click="deleteTask(row)" class="link-left">删除</el-button>
+          <el-button size="mini" disabled type="danger" @click="deleteTask(row)" class="link-left">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
