@@ -212,6 +212,20 @@
   </update>
 
 
+
+
+
+
+
+
+  <resultMap id="PaperInfoResultMap" type="com.alvis.exam.viewmodel.student.dashboard.PaperInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="limit_start_time" jdbcType="TIMESTAMP" property="limitStartTime" />
+    <result column="limit_end_time" jdbcType="TIMESTAMP" property="limitEndTime" />
+  </resultMap>
+
+
   <select id="page" resultMap="BaseResultMap" parameterType="com.alvis.exam.viewmodel.admin.exam.ExamPaperPageRequestVM">
     SELECT
     <include refid="Base_Column_List"/>
@@ -261,9 +275,8 @@
   </select>
 
 
-  <select id="indexPaper" resultType="com.alvis.exam.viewmodel.student.dashboard.PaperInfo" parameterType="com.alvis.exam.viewmodel.student.dashboard.PaperFilter">
-    SELECT
-    <include refid="Base_Column_List"/>
+  <select id="indexPaper" resultMap="PaperInfoResultMap" parameterType="com.alvis.exam.viewmodel.student.dashboard.PaperFilter">
+    SELECT id,name,limit_start_time,limit_end_time
     FROM t_exam_paper
     <where>
       and deleted='f'

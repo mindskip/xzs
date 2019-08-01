@@ -71,6 +71,11 @@
             <img src="@/assets/exam-paper/show2.png" class="image">
             <div style="padding: 14px;">
               <span>{{item.name}}</span>
+              <p class="index-limit-paper-time">
+                <span>{{item.startTime}}</span>
+                <br/>
+                <span>{{item.endTime}}</span>
+              </p>
               <div class="bottom clearfix">
                 <router-link target="_blank" :to="{path:'/do',query:{id:item.id}}">
                   <el-button type="text" class="button">开始做题</el-button>

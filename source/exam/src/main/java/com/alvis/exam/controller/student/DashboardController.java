@@ -10,11 +10,9 @@ import com.alvis.exam.domain.enums.ExamPaperTypeEnum;
 import com.alvis.exam.domain.task.TaskItemAnswerObject;
 import com.alvis.exam.domain.task.TaskItemObject;
 import com.alvis.exam.service.*;
+import com.alvis.exam.utility.DateTimeUtil;
 import com.alvis.exam.utility.JsonUtil;
-import com.alvis.exam.viewmodel.student.dashboard.IndexVM;
-import com.alvis.exam.viewmodel.student.dashboard.PaperFilter;
-import com.alvis.exam.viewmodel.student.dashboard.TaskItemPaperVm;
-import com.alvis.exam.viewmodel.student.dashboard.TaskItemVm;
+import com.alvis.exam.viewmodel.student.dashboard.*;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,7 +51,14 @@ public class DashboardController extends BaseApiController {
         timeLimitPaperFilter.setGradeLevel(user.getUserLevel());
         timeLimitPaperFilter.setExamPaperType(ExamPaperTypeEnum.TimeLimit.getCode());
 
-        indexVM.setTimeLimitPaper(examPaperService.indexPaper(timeLimitPaperFilter));
+        List<PaperInfo> limitPaper = examPaperService.indexPaper(timeLimitPaperFilter);
+        List<PaperInfoVM> paperInfoVMS = limitPaper.stream().map(d -> {
+            PaperInfoVM vm = modelMapper.map(d, PaperInfoVM.class);
+            vm.setStartTime(DateTimeUtil.dateFormat(d.getLimitStartTime()));
+            vm.setEndTime(DateTimeUtil.dateFormat(d.getLimitEndTime()));
+            return vm;
+        }).collect(Collectors.toList());
+        indexVM.setTimeLimitPaper(paperInfoVMS);
         return RestResponse.ok(indexVM);
     }
 

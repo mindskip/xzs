@@ -7,6 +7,6 @@ import java.util.List;
 @Data
 public class IndexVM {
     private List<PaperInfo> fixedPaper;
-    private List<PaperInfo> timeLimitPaper;
+    private List<PaperInfoVM> timeLimitPaper;
     private List<PaperInfo> pushPaper;
 }
