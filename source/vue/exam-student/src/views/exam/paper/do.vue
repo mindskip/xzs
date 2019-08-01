@@ -54,6 +54,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import { formatSeconds } from '@/utils'
 import QuestionEdit from '../components/QuestionEdit'
 import examPaperApi from '@/api/examPaper'
 import examPaperAnswerApi from '@/api/examPaperAnswer'
@@ -82,51 +83,37 @@ export default {
         _this.form = re.response
         _this.remainTime = re.response.suggestTime * 60
         _this.initAnswer()
+        _this.timeReduce()
         _this.formLoading = false
       })
     }
   },
   mounted () {
-    let _this = this
-    this.timer = setInterval(function () {
-      if (_this.remainTime <= 0) {
-        window.clearInterval(_this.timer)
-        _this.submitForm()
-      } else {
-        ++_this.answer.doTime
-        --_this.remainTime
-      }
-    }, 1000)
+
   },
   beforeDestroy () {
     window.clearInterval(this.timer)
   },
   methods: {
+    formatSeconds (theTime) {
+      return formatSeconds(theTime)
+    },
+    timeReduce () {
+      let _this = this
+      this.timer = setInterval(function () {
+        if (_this.remainTime <= 0) {
+          _this.submitForm()
+        } else {
+          ++_this.answer.doTime
+          --_this.remainTime
+        }
+      }, 1000)
+    },
     questionCompleted (completed) {
       return this.enumFormat(this.doCompletedTag, completed)
     },
     goAnchor (selector) {
       this.$el.querySelector(selector).scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' })
-    },
-    formatSeconds (theTime) {
-      let theTime1 = 0
-      let theTime2 = 0
-      if (theTime > 60) {
-        theTime1 = parseInt(theTime / 60)
-        theTime = parseInt(theTime % 60)
-        if (theTime1 > 60) {
-          theTime2 = parseInt(theTime1 / 60)
-          theTime1 = parseInt(theTime1 % 60)
-        }
-      }
-      let result = '' + parseInt(theTime) + '秒'
-      if (theTime1 > 0) {
-        result = '' + parseInt(theTime1) + '分' + result
-      }
-      if (theTime2 > 0) {
-        result = '' + parseInt(theTime2) + '小时' + result
-      }
-      return result
     },
     initAnswer () {
       this.answer.id = this.form.id
@@ -141,6 +128,7 @@ export default {
     },
     submitForm () {
       let _this = this
+      window.clearInterval(_this.timer)
       _this.formLoading = true
       examPaperAnswerApi.answerSubmit(this.answer).then(re => {
         if (re.code === 1) {
