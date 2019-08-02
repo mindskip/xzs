@@ -44,7 +44,7 @@ public class ExamPaperQuestionCustomerAnswerServiceImpl extends BaseServiceImpl<
 
     @Override
     public List<ExamPaperQuestionCustomerAnswer> selectListByPaperAnswerId(Integer id) {
-        return  examPaperQuestionCustomerAnswerMapper.selectListByPaperAnswerId(id);
+        return examPaperQuestionCustomerAnswerMapper.selectListByPaperAnswerId(id);
     }
 
 
@@ -58,6 +58,7 @@ public class ExamPaperQuestionCustomerAnswerServiceImpl extends BaseServiceImpl<
         ExamPaperSubmitItemVM examPaperSubmitItemVM = new ExamPaperSubmitItemVM();
         examPaperSubmitItemVM.setQuestionId(qa.getQuestionId());
         examPaperSubmitItemVM.setDoRight(qa.getDoRight());
+        examPaperSubmitItemVM.setItemOrder(qa.getItemOrder());
         setSpecialToVM(examPaperSubmitItemVM, qa);
         return examPaperSubmitItemVM;
     }

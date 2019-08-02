@@ -80,18 +80,16 @@
         </table>
 -->
 
-             <table tableName="t_exam_paper_answer" domainObjectName="ExamPaperAnswer" enableCountByExample="false"
+<!--             <table tableName="t_exam_paper_answer" domainObjectName="ExamPaperAnswer" enableCountByExample="false"
                   enableUpdateByExample="false"
                   enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-           </table>
+           </table>-->
 
 
-<!--
         <table tableName="t_exam_paper_question_customer_answer" domainObjectName="ExamPaperQuestionCustomerAnswer" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
--->
 
 
  <!--       <table tableName="t_user_event_log" domainObjectName="UserEventLog" enableCountByExample="false"

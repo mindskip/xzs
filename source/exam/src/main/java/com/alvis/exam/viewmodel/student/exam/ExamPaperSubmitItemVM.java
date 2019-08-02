@@ -14,5 +14,7 @@ public class ExamPaperSubmitItemVM {
 
     private String content;
 
+    private Integer itemOrder;
+
     private List<String> contentArray;
 }

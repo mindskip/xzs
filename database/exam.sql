@@ -283,6 +283,7 @@ CREATE TABLE "public"."t_exam_paper_question_customer_answer" (
   "answer" varchar(255) COLLATE "pg_catalog"."default",
   "text_content_id" int4,
   "do_right" bool,
+  "item_order" int4,
   "create_user" int4,
   "create_time" timestamp(6)
 )

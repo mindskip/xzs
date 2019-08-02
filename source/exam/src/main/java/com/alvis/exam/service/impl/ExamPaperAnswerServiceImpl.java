@@ -124,6 +124,7 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
         examPaperQuestionCustomerAnswer.setExamPaperId(examPaper.getId());
         examPaperQuestionCustomerAnswer.setQuestionScore(question.getScore());
         examPaperQuestionCustomerAnswer.setSubjectId(examPaper.getSubjectId());
+        examPaperQuestionCustomerAnswer.setItemOrder(itemOrder);
         examPaperQuestionCustomerAnswer.setCreateTime(now);
         examPaperQuestionCustomerAnswer.setCreateUser(user.getId());
         examPaperQuestionCustomerAnswer.setQuestionType(question.getQuestionType());

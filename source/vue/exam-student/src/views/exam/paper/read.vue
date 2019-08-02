@@ -1,13 +1,9 @@
 <template>
 <div>
-  <el-row  class="do-exam-title">
+  <el-row  class="do-exam-title" style="background-color: #F5F5DC">
     <el-col :span="24">
         <span :key="item.itemOrder"  v-for="item in answer.answerItems">
              <el-tag :type="questionDoRightTag(item.doRight)" class="do-exam-title-tag" @click="goAnchor('#question-'+item.itemOrder)">{{item.itemOrder}}</el-tag>
-        </span>
-      <span class="do-exam-time">
-          <label>耗时间：</label>
-          <label>{{formatSeconds(answer.doTime)}}</label>
         </span>
     </el-col>
   </el-row>
@@ -16,9 +12,6 @@
         <span :key="item.itemOrder"  v-for="item in answer.answerItems">
              <el-tag  class="do-exam-title-tag" >{{item.itemOrder}}</el-tag>
         </span>
-      <span class="do-exam-time">
-          <label>剩余时间：</label>
-        </span>
     </el-col>
   </el-row>
   <el-container  class="app-item-contain">
@@ -26,7 +19,7 @@
       <h1>{{form.name}}</h1>
       <div>
         <span class="question-title-padding">试卷得分：{{answer.score}}</span>
-        <span class="question-title-padding">考试时间：{{answer.doTime}}分钟</span>
+        <span class="question-title-padding">试卷耗时：{{formatSeconds(answer.doTime)}}</span>
       </div>
     </el-header>
     <el-main>
