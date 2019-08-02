@@ -21,7 +21,7 @@
         </span>
       </el-col>
     </el-row>
-    <el-container>
+    <el-container  class="app-item-contain">
       <el-header class="align-center">
         <h1>{{form.name}}</h1>
         <div>
@@ -31,7 +31,7 @@
       </el-header>
       <el-main>
         <el-form :model="form" ref="form" v-loading="formLoading" label-width="100px">
-          <el-form-item :key="index" required v-for="(titleItem,index) in form.titleItems">
+          <el-row :key="index"  v-for="(titleItem,index) in form.titleItems">
             <h3>{{titleItem.name}}</h3>
             <el-card class="exampaper-item-box" v-if="titleItem.questionItems.length!==0">
               <el-form-item :key="questionItem.itemOrder" :label="questionItem.itemOrder+'.'"
@@ -41,11 +41,11 @@
                               :answer="answer.answerItems[questionItem.itemOrder-1]"/>
               </el-form-item>
             </el-card>
-          </el-form-item>
-          <el-form-item class="do-align-center">
-            <el-button type="primary" @click="submitForm">提交</el-button>
-            <el-button>取消</el-button>
-          </el-form-item>
+          </el-row>
+           <el-row class="do-align-center">
+             <el-button type="primary" @click="submitForm">提交</el-button>
+             <el-button>取消</el-button>
+           </el-row>
         </el-form>
       </el-main>
     </el-container>

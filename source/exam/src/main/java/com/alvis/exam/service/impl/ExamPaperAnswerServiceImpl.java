@@ -70,8 +70,11 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
                 .flatMap(t -> t.getQuestionItems().stream()
                         .map(q -> {
                             Question question = questions.stream().filter(tq -> tq.getId().equals(q.getId())).findFirst().get();
-                            ExamPaperSubmitItemVM customerQuestionAnswer = examPaperSubmitVM.getAnswerItems().stream().filter(tq -> tq.getQuestionId().equals(q.getId())).findFirst().orElse(null);
-                            return ExamPaperQuestionCustomerAnswerFromVM(question, customerQuestionAnswer, examPaper, user, now);
+                            ExamPaperSubmitItemVM customerQuestionAnswer = examPaperSubmitVM.getAnswerItems().stream()
+                                    .filter(tq -> tq.getQuestionId().equals(q.getId()))
+                                    .findFirst()
+                                    .orElse(null);
+                            return ExamPaperQuestionCustomerAnswerFromVM(question, customerQuestionAnswer, examPaper, q.getItemOrder(), user, now);
                         })
                 ).collect(Collectors.toList());
 
@@ -90,7 +93,9 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
         examPaperSubmitVM.setDoTime(examPaperAnswer.getDoTime());
         examPaperSubmitVM.setScore(ExamUtil.scoreToVM(examPaperAnswer.getUserScore()));
         List<ExamPaperQuestionCustomerAnswer> examPaperQuestionCustomerAnswers = examPaperQuestionCustomerAnswerService.selectListByPaperAnswerId(examPaperAnswer.getId());
-        List<ExamPaperSubmitItemVM> examPaperSubmitItemVMS = examPaperQuestionCustomerAnswers.stream().map(a -> examPaperQuestionCustomerAnswerService.examPaperQuestionCustomerAnswerToVM(a)).collect(Collectors.toList());
+        List<ExamPaperSubmitItemVM> examPaperSubmitItemVMS = examPaperQuestionCustomerAnswers.stream()
+                .map(a -> examPaperQuestionCustomerAnswerService.examPaperQuestionCustomerAnswerToVM(a))
+                .collect(Collectors.toList());
         examPaperSubmitVM.setAnswerItems(examPaperSubmitItemVMS);
         return examPaperSubmitVM;
     }
@@ -113,7 +118,7 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
     }
 
 
-    private ExamPaperQuestionCustomerAnswer ExamPaperQuestionCustomerAnswerFromVM(Question question, ExamPaperSubmitItemVM customerQuestionAnswer, ExamPaper examPaper, User user, Date now) {
+    private ExamPaperQuestionCustomerAnswer ExamPaperQuestionCustomerAnswerFromVM(Question question, ExamPaperSubmitItemVM customerQuestionAnswer, ExamPaper examPaper, Integer itemOrder, User user, Date now) {
         ExamPaperQuestionCustomerAnswer examPaperQuestionCustomerAnswer = new ExamPaperQuestionCustomerAnswer();
         examPaperQuestionCustomerAnswer.setQuestionId(question.getId());
         examPaperQuestionCustomerAnswer.setExamPaperId(examPaper.getId());

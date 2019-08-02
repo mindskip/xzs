@@ -58,9 +58,30 @@ html {
   padding: 0px !important;
 }
 
+
+@media only screen and (max-width: 768px) {
+  .student-footer {
+    padding: 40px 20px;
+  }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .student-footer {
+    padding: 40px 70px;
+  }
+}
+
+
+@media only screen and (min-width: 1200px) {
+  .student-footer {
+    padding: 40px 150px;
+  }
+}
+
+
 .student-footer {
   margin-top: 150px;
-  padding: 40px 150px;
   background-color: #f7fbfd;
   width: 100%;
   box-sizing: border-box;
@@ -99,12 +120,36 @@ html {
 }
 
 
-.app-item-contain {
-  padding: 30px 100px 0px 100px;
+@media only screen and (max-width: 768px) {
+  .app-item-contain {
+    padding: 30px 0px 0px 0px;
+  }
+
+  .app-contain {
+    padding: 30px 0px 0px 0px;
+  }
 }
 
-.app-contain {
-  padding: 30px 100px 0px 100px;
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .app-item-contain {
+    padding: 30px 30px 0px 30px;
+  }
+
+  .app-contain {
+    padding: 30px 30px 0px 30px;
+  }
+}
+
+
+@media only screen and (min-width: 1200px) {
+  .app-item-contain {
+    padding: 30px 100px 0px 100px;
+  }
+
+  .app-contain {
+    padding: 30px 100px 0px 100px;
+  }
 }
 
 
@@ -221,37 +266,37 @@ html {
   width: 100%;
 }
 
-.index-task-table-paper{
+.index-task-table-paper {
   padding-left: 20px;
 }
 
-.index-limit-paper-time{
+.index-limit-paper-time {
   font-size: 12px;
   line-height: 1.3;
   color: gray;
   text-align: right;
 }
 
-.do-exam-title{
+.do-exam-title {
   position: fixed;
   width: 100%;
   background: #fff6f6;
-  z-index:999;
+  z-index: 999;
   padding: 5px 0px;
 }
 
-.do-exam-title-hidden{
+.do-exam-title-hidden {
   width: 100%;
-  visibility:hidden;
+  visibility: hidden;
   padding: 5px 0px;
 }
 
-.do-exam-title-tag{
+.do-exam-title-tag {
   margin-left: 5px;
-  cursor: pointer ;
+  cursor: pointer;
 }
 
-.do-exam-time{
+.do-exam-time {
   float: right;
   line-height: 2;
   font-size: 14px;
