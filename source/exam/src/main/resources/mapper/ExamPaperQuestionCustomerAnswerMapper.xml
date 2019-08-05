@@ -224,6 +224,7 @@
     <include refid="Base_Column_List" />
     from t_exam_paper_question_customer_answer
     where exam_paper_answer_id = #{id,jdbcType=INTEGER}
+    order by item_order
   </select>
 
 
