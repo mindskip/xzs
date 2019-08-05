@@ -369,7 +369,7 @@
   </select>
 
 
-  <select id="selectByUserName"  resultType="com.alvis.exam.domain.KeyValue">
+  <select id="selectByUserName"  resultType="com.alvis.exam.domain.other.KeyValue">
 		SELECT  id as value,user_name as name
 		from t_user
 		where deleted='f' and user_name like concat('%',#{value},'%')

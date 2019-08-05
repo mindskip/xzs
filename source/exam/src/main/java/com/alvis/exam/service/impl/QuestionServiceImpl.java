@@ -1,6 +1,6 @@
 package com.alvis.exam.service.impl;
 
-import com.alvis.exam.domain.KeyValue;
+import com.alvis.exam.domain.other.KeyValue;
 import com.alvis.exam.domain.Question;
 import com.alvis.exam.domain.TextContent;
 import com.alvis.exam.domain.enums.QuestionStatusEnum;
@@ -20,7 +20,6 @@ import com.alvis.exam.viewmodel.admin.question.QuestionEditRequestVM;
 import com.alvis.exam.viewmodel.admin.question.QuestionPageRequestVM;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.apache.commons.lang3.tuple.Pair;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

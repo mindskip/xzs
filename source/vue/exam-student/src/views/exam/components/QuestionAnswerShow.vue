@@ -35,7 +35,7 @@
       </div>
       <div v-else-if="qType==4" >
         <div class="q-title" v-html="question.title"/>
-        <div>
+        <div v-if="answer.contentArray!==null">
           <el-form-item :label="item.prefix" :key="item.prefix"  v-for="item in question.items"  label-width="50px" style="margin-top: 10px;margin-bottom: 10px;">
             <el-input v-model="answer.contentArray[item.prefix-1]"  />
           </el-form-item>

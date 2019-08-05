@@ -30,9 +30,23 @@
             <el-form-item :key="questionItem.itemOrder" :label="questionItem.itemOrder+'.'"
                           v-for="questionItem in titleItem.questionItems"
                           class="exam-question-item"  label-width="50px" :id="'question-'+ questionItem.itemOrder">
-              <QuestionAnswerShow :qType="questionItem.questionType" :question="questionItem"  :answer="answer.answerItems[questionItem.itemOrder-1]"/>
+              <el-row>
+                <QuestionAnswerShow :qType="questionItem.questionType" :question="questionItem"  :answer="answer.answerItems[questionItem.itemOrder-1]"/>
+              </el-row>
+              <el-row v-if="answer.answerItems[questionItem.itemOrder-1].doRight === null">
+                <label style="color: #e6a23c">批改：</label>
+                <el-radio-group v-model="answer.answerItems[questionItem.itemOrder-1].score">
+                  <el-radio  v-for="item in scoreSelect(questionItem.score)"  :key="item"  :label="item" >
+                    {{item}}
+                  </el-radio>
+                </el-radio-group>
+              </el-row>
             </el-form-item>
           </el-card>
+        </el-row>
+        <el-row class="do-align-center">
+          <el-button type="primary" @click="submitForm">提交</el-button>
+          <el-button>取消</el-button>
         </el-row>
       </el-form>
     </el-main>
@@ -73,6 +87,35 @@ export default {
     }
   },
   methods: {
+    submitForm () {
+      let _this = this
+      _this.formLoading = true
+      examPaperAnswerApi.edit(this.answer).then(re => {
+        if (re.code === 1) {
+          _this.$alert('试卷得分：' + re.response + '分', '考试结果', {
+            confirmButtonText: '返回考试记录',
+            callback: action => {
+              _this.$router.push('/record/index')
+            }
+          })
+        } else {
+          _this.$message.error(re.message)
+        }
+        _this.formLoading = false
+      }).catch(e => {
+        _this.formLoading = false
+      })
+    },
+    scoreSelect (score) {
+      let array = []
+      for (let i = 0; i <= parseInt(score); i++) {
+        array.push(i.toString())
+      }
+      if (score.indexOf('.') !== -1) {
+        array.push(score)
+      }
+      return array
+    },
     formatSeconds (theTime) {
       return formatSeconds(theTime)
     },

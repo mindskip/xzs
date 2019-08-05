@@ -142,6 +142,8 @@ export default {
           _this.$message.error(re.message)
         }
         _this.formLoading = false
+      }).catch(e => {
+        _this.formLoading = false
       })
     }
   },
@@ -153,17 +155,6 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  .do-align-center {
-    text-align: center;
-    margin-top: 40px;
-
-    .el-form-item__content {
-      margin-left: 0px !important;
-    }
-  }
-</style>
 
 <style lang="scss" scoped>
   .align-center {

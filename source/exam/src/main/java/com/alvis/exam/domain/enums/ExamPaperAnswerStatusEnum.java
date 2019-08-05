@@ -1,5 +1,8 @@
 package com.alvis.exam.domain.enums;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum ExamPaperAnswerStatusEnum {
 
     WaitJudge(1, "待判分"),
@@ -30,5 +33,17 @@ public enum ExamPaperAnswerStatusEnum {
         this.name = name;
     }
 
+
+    private static final Map<Integer, ExamPaperAnswerStatusEnum> keyMap = new HashMap<>();
+
+    static {
+        for (ExamPaperAnswerStatusEnum item : ExamPaperAnswerStatusEnum.values()) {
+            keyMap.put(item.getCode(), item);
+        }
+    }
+
+    public static ExamPaperAnswerStatusEnum fromCode(Integer code) {
+        return keyMap.get(code);
+    }
 
 }

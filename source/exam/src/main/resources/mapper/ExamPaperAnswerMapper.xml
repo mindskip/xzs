@@ -233,7 +233,7 @@
   </select>
 
 
-  <select id="selectCountByDate"  resultType="com.alvis.exam.domain.KeyValue">
+  <select id="selectCountByDate"  resultType="com.alvis.exam.domain.other.KeyValue">
 		SELECT create_time as name,COUNT(create_time) as value from
 		        (
 				  SELECT to_char(create_time,'YYYY-mm-dd') as create_time from t_exam_paper_answer

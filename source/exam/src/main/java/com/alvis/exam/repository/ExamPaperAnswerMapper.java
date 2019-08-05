@@ -1,7 +1,8 @@
 package com.alvis.exam.repository;
 
 import com.alvis.exam.domain.ExamPaperAnswer;
-import com.alvis.exam.domain.KeyValue;
+import com.alvis.exam.domain.other.ExamPaperAnswerUpdate;
+import com.alvis.exam.domain.other.KeyValue;
 import com.alvis.exam.viewmodel.student.exampaper.ExamPaperAnswerPageVM;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -30,4 +31,5 @@ public interface ExamPaperAnswerMapper extends BaseMapper<ExamPaperAnswer> {
     List<KeyValue> selectCountByDate(@Param("startTime") Date startTime, @Param("endTime") Date endTime);
 
     ExamPaperAnswer getByPidUid(@Param("pid") Integer paperId, @Param("uid") Integer uid);
+
 }

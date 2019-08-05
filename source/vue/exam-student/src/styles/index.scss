@@ -302,3 +302,12 @@ html {
   font-size: 14px;
   padding-right: 5px;
 }
+
+.do-align-center {
+  text-align: center;
+  margin-top: 40px;
+
+  .el-form-item__content {
+    margin-left: 0px !important;
+  }
+}

@@ -1,6 +1,7 @@
 package com.alvis.exam.service;
 
 import com.alvis.exam.domain.ExamPaperQuestionCustomerAnswer;
+import com.alvis.exam.domain.other.ExamPaperAnswerUpdate;
 import com.alvis.exam.viewmodel.student.exam.ExamPaperSubmitItemVM;
 import com.alvis.exam.viewmodel.student.question.answer.QuestionPageStudentRequestVM;
 import com.github.pagehelper.PageInfo;
@@ -32,4 +33,6 @@ public interface ExamPaperQuestionCustomerAnswerService extends BaseService<Exam
     Integer selectAllCount();
 
     List<Integer> selectMothCount();
+
+    int updateScore(List<ExamPaperAnswerUpdate> examPaperAnswerUpdates);
 }

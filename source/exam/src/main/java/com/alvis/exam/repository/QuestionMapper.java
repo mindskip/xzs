@@ -1,6 +1,6 @@
 package com.alvis.exam.repository;
 
-import com.alvis.exam.domain.KeyValue;
+import com.alvis.exam.domain.other.KeyValue;
 import com.alvis.exam.domain.Question;
 import com.alvis.exam.viewmodel.admin.question.QuestionPageRequestVM;
 import org.apache.ibatis.annotations.Mapper;

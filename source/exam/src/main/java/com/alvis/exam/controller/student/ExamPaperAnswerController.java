@@ -3,6 +3,7 @@ package com.alvis.exam.controller.student;
 import com.alvis.exam.base.BaseApiController;
 import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.domain.*;
+import com.alvis.exam.domain.enums.ExamPaperAnswerStatusEnum;
 import com.alvis.exam.event.CalculateExamPaperAnswerCompleteEvent;
 import com.alvis.exam.event.UserEvent;
 import com.alvis.exam.service.ExamPaperAnswerService;
@@ -74,6 +75,28 @@ public class ExamPaperAnswerController extends BaseApiController {
         eventPublisher.publishEvent(new CalculateExamPaperAnswerCompleteEvent(examPaperAnswerInfo));
         eventPublisher.publishEvent(new UserEvent(userEventLog));
         return RestResponse.ok(scoreVm);
+    }
+
+
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public RestResponse<String> edit(@RequestBody @Valid ExamPaperSubmitVM examPaperSubmitVM) {
+        boolean notJudge = examPaperSubmitVM.getAnswerItems().stream().anyMatch(i -> i.getDoRight() == null && i.getScore() == null);
+        if (notJudge) {
+            return RestResponse.fail(2, "有未批改题目");
+        }
+
+        ExamPaperAnswer examPaperAnswer = examPaperAnswerService.selectById(examPaperSubmitVM.getId());
+        ExamPaperAnswerStatusEnum examPaperAnswerStatusEnum = ExamPaperAnswerStatusEnum.fromCode(examPaperAnswer.getStatus());
+        if (examPaperAnswerStatusEnum == ExamPaperAnswerStatusEnum.Complete) {
+            return RestResponse.fail(3, "试卷已完成");
+        }
+        String score = examPaperAnswerService.judge(examPaperSubmitVM);
+        User user = getCurrentUser();
+        UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
+        String content = user.getUserName() + " 批改试卷：" + examPaperAnswer.getPaperName() + " 得分：" + score;
+        userEventLog.setContent(content);
+        eventPublisher.publishEvent(new UserEvent(userEventLog));
+        return RestResponse.ok(score);
     }
 
     @RequestMapping(value = "/read/{id}", method = RequestMethod.POST)

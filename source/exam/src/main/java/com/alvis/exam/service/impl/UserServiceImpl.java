@@ -1,6 +1,6 @@
 package com.alvis.exam.service.impl;
 
-import com.alvis.exam.domain.KeyValue;
+import com.alvis.exam.domain.other.KeyValue;
 import com.alvis.exam.exception.BusinessException;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.event.OnRegistrationCompleteEvent;

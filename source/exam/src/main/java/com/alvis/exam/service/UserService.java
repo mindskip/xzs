@@ -1,6 +1,6 @@
 package com.alvis.exam.service;
 
-import com.alvis.exam.domain.KeyValue;
+import com.alvis.exam.domain.other.KeyValue;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.viewmodel.admin.user.UserPageRequestVM;
 import com.github.pagehelper.PageInfo;

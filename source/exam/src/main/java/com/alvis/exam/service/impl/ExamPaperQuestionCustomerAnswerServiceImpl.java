@@ -1,7 +1,8 @@
 package com.alvis.exam.service.impl;
 
 import com.alvis.exam.domain.ExamPaperQuestionCustomerAnswer;
-import com.alvis.exam.domain.KeyValue;
+import com.alvis.exam.domain.other.ExamPaperAnswerUpdate;
+import com.alvis.exam.domain.other.KeyValue;
 import com.alvis.exam.domain.TextContent;
 import com.alvis.exam.domain.enums.QuestionTypeEnum;
 import com.alvis.exam.repository.ExamPaperQuestionCustomerAnswerMapper;
@@ -56,9 +57,11 @@ public class ExamPaperQuestionCustomerAnswerServiceImpl extends BaseServiceImpl<
     @Override
     public ExamPaperSubmitItemVM examPaperQuestionCustomerAnswerToVM(ExamPaperQuestionCustomerAnswer qa) {
         ExamPaperSubmitItemVM examPaperSubmitItemVM = new ExamPaperSubmitItemVM();
+        examPaperSubmitItemVM.setId(qa.getId());
         examPaperSubmitItemVM.setQuestionId(qa.getQuestionId());
         examPaperSubmitItemVM.setDoRight(qa.getDoRight());
         examPaperSubmitItemVM.setItemOrder(qa.getItemOrder());
+        examPaperSubmitItemVM.setQuestionScore(ExamUtil.scoreToVM(qa.getQuestionScore()));
         setSpecialToVM(examPaperSubmitItemVM, qa);
         return examPaperSubmitItemVM;
     }
@@ -78,6 +81,11 @@ public class ExamPaperQuestionCustomerAnswerServiceImpl extends BaseServiceImpl<
             KeyValue keyValue = mouthCount.stream().filter(kv -> kv.getName().equals(md)).findAny().orElse(null);
             return null == keyValue ? 0 : keyValue.getValue();
         }).collect(Collectors.toList());
+    }
+
+    @Override
+    public int updateScore(List<ExamPaperAnswerUpdate> examPaperAnswerUpdates) {
+        return examPaperQuestionCustomerAnswerMapper.updateScore(examPaperAnswerUpdates);
     }
 
     private void setSpecialToVM(ExamPaperSubmitItemVM examPaperSubmitItemVM, ExamPaperQuestionCustomerAnswer examPaperQuestionCustomerAnswer) {

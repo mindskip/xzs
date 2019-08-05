@@ -5,6 +5,8 @@ import com.alvis.exam.domain.enums.ExamPaperAnswerStatusEnum;
 import com.alvis.exam.domain.enums.ExamPaperTypeEnum;
 import com.alvis.exam.domain.enums.QuestionTypeEnum;
 import com.alvis.exam.domain.exam.ExamPaperTitleItemObject;
+import com.alvis.exam.domain.other.KeyValue;
+import com.alvis.exam.domain.other.ExamPaperAnswerUpdate;
 import com.alvis.exam.repository.*;
 import com.alvis.exam.service.ExamPaperAnswerService;
 import com.alvis.exam.service.ExamPaperQuestionCustomerAnswerService;
@@ -19,9 +21,12 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Service
@@ -83,6 +88,34 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
         examPaperAnswerInfo.setExamPaperAnswer(examPaperAnswer);
         examPaperAnswerInfo.setExamPaperQuestionCustomerAnswers(examPaperQuestionCustomerAnswers);
         return examPaperAnswerInfo;
+    }
+
+    @Override
+    @Transactional
+    public String judge(ExamPaperSubmitVM examPaperSubmitVM) {
+        ExamPaperAnswer examPaperAnswer = examPaperAnswerMapper.selectByPrimaryKey(examPaperSubmitVM.getId());
+        List<ExamPaperSubmitItemVM> judgeItems = examPaperSubmitVM.getAnswerItems().stream().filter(d -> d.getDoRight() == null).collect(Collectors.toList());
+        List<ExamPaperAnswerUpdate> examPaperAnswerUpdates = new ArrayList<>(judgeItems.size());
+        Integer customerScore = examPaperAnswer.getUserScore();
+        Integer questionCorrect = examPaperAnswer.getQuestionCorrect();
+        for (ExamPaperSubmitItemVM d : judgeItems) {
+            ExamPaperAnswerUpdate examPaperAnswerUpdate = new ExamPaperAnswerUpdate();
+            examPaperAnswerUpdate.setId(d.getId());
+            examPaperAnswerUpdate.setCustomerScore(ExamUtil.scoreFromVM(d.getScore()));
+            boolean doRight = examPaperAnswerUpdate.getCustomerScore().equals(ExamUtil.scoreFromVM(d.getQuestionScore()));
+            examPaperAnswerUpdate.setDoRight(doRight);
+            examPaperAnswerUpdates.add(examPaperAnswerUpdate);
+            customerScore += examPaperAnswerUpdate.getCustomerScore();
+            if (examPaperAnswerUpdate.getDoRight()) {
+                ++questionCorrect;
+            }
+        }
+        examPaperAnswer.setUserScore(customerScore);
+        examPaperAnswer.setQuestionCorrect(questionCorrect);
+        examPaperAnswer.setStatus(ExamPaperAnswerStatusEnum.Complete.getCode());
+        examPaperAnswerMapper.updateByPrimaryKeySelective(examPaperAnswer);
+        examPaperQuestionCustomerAnswerService.updateScore(examPaperAnswerUpdates);
+        return ExamUtil.scoreToVM(customerScore);
     }
 
     @Override

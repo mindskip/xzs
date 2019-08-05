@@ -7,6 +7,7 @@ import java.util.List;
 
 @Data
 public class ExamPaperSubmitItemVM {
+    private Integer id;
     @NotNull
     private Integer questionId;
 
@@ -17,4 +18,8 @@ public class ExamPaperSubmitItemVM {
     private Integer itemOrder;
 
     private List<String> contentArray;
+
+    private String score;
+
+    private String questionScore;
 }
