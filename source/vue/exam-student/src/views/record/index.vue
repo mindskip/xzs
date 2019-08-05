@@ -60,6 +60,7 @@
 import { mapState, mapGetters } from 'vuex'
 import Pagination from '@/components/Pagination'
 import examPaperAnswerApi from '@/api/examPaperAnswer'
+import { scrollTo } from '@/utils/scroll-to'
 export default {
   components: { Pagination },
   data () {
@@ -83,6 +84,7 @@ export default {
   },
   created () {
     this.search()
+    scrollTo(0, 800)
   },
   methods: {
     search () {
