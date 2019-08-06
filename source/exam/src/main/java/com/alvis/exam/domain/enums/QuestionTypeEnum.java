@@ -33,11 +33,14 @@ public enum QuestionTypeEnum {
     }
 
     public static boolean needSaveTextContent(Integer code) {
-        if (code.equals(QuestionTypeEnum.GapFilling.getCode()))
-            return true;
-        if (code.equals(QuestionTypeEnum.ShortAnswer.getCode()))
-            return true;
-        return false;
+        QuestionTypeEnum questionTypeEnum = QuestionTypeEnum.fromCode(code);
+        switch (questionTypeEnum) {
+            case GapFilling:
+            case ShortAnswer:
+                return true;
+            default:
+                return false;
+        }
     }
 
     public int getCode() {
