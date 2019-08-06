@@ -5,7 +5,7 @@
  Source Server Type    : PostgreSQL
  Source Server Version : 110004
  Source Host           : 10.103.15.180:5432
- Source Catalog        : exam2
+ Source Catalog        : exam
  Source Schema         : public
 
  Target Server Type    : PostgreSQL
