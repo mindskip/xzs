@@ -11,7 +11,7 @@
     id, question_id, "knowledge_id ", primaryed
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from t_question_knowledge
     where id = #{id,jdbcType=INTEGER}
@@ -20,13 +20,13 @@
     delete from t_question_knowledge
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.alvis.exam.domain.QuestionKnowledge">
-    insert into t_question_knowledge (id, question_id, "knowledge_id ", 
+  <insert id="insert" parameterType="com.alvis.exam.domain.QuestionKnowledge" useGeneratedKeys="true" keyProperty="id">
+    insert into t_question_knowledge (id, question_id, "knowledge_id ",
       primaryed)
-    values (#{id,jdbcType=INTEGER}, #{questionId,jdbcType=INTEGER}, #{knowledgeId,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{questionId,jdbcType=INTEGER}, #{knowledgeId,jdbcType=INTEGER},
       #{primaryed,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.alvis.exam.domain.QuestionKnowledge">
+  <insert id="insertSelective" parameterType="com.alvis.exam.domain.QuestionKnowledge" useGeneratedKeys="true" keyProperty="id">
     insert into t_question_knowledge
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

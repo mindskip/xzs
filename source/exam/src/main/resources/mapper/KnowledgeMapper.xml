@@ -14,11 +14,11 @@
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, level, subject_id, grade_level, lasted, parent_id, create_user, create_time, 
+    id, name, level, subject_id, grade_level, lasted, parent_id, create_user, create_time,
     deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from t_knowledge
     where id = #{id,jdbcType=INTEGER}
@@ -27,17 +27,17 @@
     delete from t_knowledge
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.alvis.exam.domain.Knowledge">
-    insert into t_knowledge (id, name, level, 
-      subject_id, grade_level, lasted, 
-      parent_id, create_user, create_time, 
+  <insert id="insert" parameterType="com.alvis.exam.domain.Knowledge" useGeneratedKeys="true" keyProperty="id">
+    insert into t_knowledge (id, name, level,
+      subject_id, grade_level, lasted,
+      parent_id, create_user, create_time,
       deleted)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, 
-      #{subjectId,jdbcType=INTEGER}, #{gradeLevel,jdbcType=INTEGER}, #{lasted,jdbcType=BIT}, 
-      #{parentId,jdbcType=INTEGER}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER},
+      #{subjectId,jdbcType=INTEGER}, #{gradeLevel,jdbcType=INTEGER}, #{lasted,jdbcType=BIT},
+      #{parentId,jdbcType=INTEGER}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
       #{deleted,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.alvis.exam.domain.Knowledge">
+  <insert id="insertSelective" parameterType="com.alvis.exam.domain.Knowledge" useGeneratedKeys="true" keyProperty="id">
     insert into t_knowledge
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
