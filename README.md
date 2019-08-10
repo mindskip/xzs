@@ -50,9 +50,10 @@
 * echarts 图表统计
 * ueditor 为了支持填空题，做了部分修改
 
+#### 软件架构图
+![](doc/image/frame/1.png)
 
 #### 安装教程
-
 1. redis 安装
 2. fastDfs 安装，[安装教程](https://blog.51cto.com/zhaobotao/2107094)，这里有2点需要注意下：
    1. 单台机器部署 tracker_server 设置为ip地址，不要设置127.0.0.1或者localhost 
@@ -62,33 +63,6 @@
    1. /exam/source/exam为后台代码，建议使用IntelliJ IDEA打开，在application-dev.yml文件中，配置好postgesql、redis、fdfs的服务地址，打开ExamApplication文件编译运行。
    2. /exam/source/vue下为学生端、管理员端的前端代码，建议使用JetBrains WebStorm打开，使用命令：npm run serve即可编译代码
 
-#### 使用说明
-1.学之思管理系统
-
-![](doc/image/admin/1.png)
-![](doc/image/admin/2.png)
-![](doc/image/admin/3.png)
-![](doc/image/admin/4.png)
-![](doc/image/admin/5.png)
-![](doc/image/admin/6.png)
-![](doc/image/admin/7.png)
-![](doc/image/admin/8.png)
-![](doc/image/admin/9.png)
-![](doc/image/admin/10.png)
-![](doc/image/admin/11.png)
-
-2. 学之思考试系统
-
-![](doc/image/student/1.png)
-![](doc/image/student/2.png)
-![](doc/image/student/3.png)
-![](doc/image/student/4.png)
-![](doc/image/student/5.png)
-![](doc/image/student/6.png)
-![](doc/image/student/7.png)
-![](doc/image/student/8.png)
-![](doc/image/student/9.png)
-![](doc/image/student/10.png)
 
 #### 系统优化说明
 
@@ -99,10 +73,25 @@
 3. session使用redis共享，应用可水平扩展
 
 #### 后续更新计划
+* 小程序系统，学生在线做题 
 * 完成扩展训练模块，错题本试卷扩展
 * 新增知识点模块，和题目绑定，方便推题
 * 完成教师系统，统计图，试卷管理，试卷批改，学生管理，班级管理，班级试卷(推送试卷)
-* 小程序系统，学生在线做题 
+
+
+
+#### 系统展示
+
+1. 学之思考试系统
+
+![](doc/image/student/2.png)
+![](doc/image/student/12.png)
+
+
+2.学之思管理系统
+
+![](doc/image/admin/12.png)
+![](doc/image/admin/13.png)
 
 
 #### 联系方式
