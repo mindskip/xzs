@@ -13,4 +13,6 @@ public class BindInfo {
     @NotBlank
     private String password;
 
+    @NotBlank
+    private String code;
 }

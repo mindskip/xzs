@@ -13,7 +13,8 @@ const formPost = function (url, data, success, fail) {
     success(res) {
       if (res.statusCode !== 200 || typeof res.data !== 'object') {
         wx.showModal({
-          content: '网络出错'
+          content: '网络出错',
+          showCancel: false
         });
         return false;
       }
@@ -24,13 +25,15 @@ const formPost = function (url, data, success, fail) {
         return false;
       } else if (res.data.code === 500) {
         wx.showModal({
-          content: res.data.message
+          content: res.data.message,
+          showCancel: false
         });
         return false;
       } else if (res.data.code === 501) {
         wx.showModal({
           title: "提交数据错误",
-          content: res.data.message
+          content: res.data.message,
+          showCancel: false
         });
         return false;
       }
@@ -38,7 +41,8 @@ const formPost = function (url, data, success, fail) {
     },
     fail(res) {
       wx.showModal({
-        content: res.errMsg
+        content: res.errMsg,
+        showCancel: false
       });
     },
     complete(res) {
