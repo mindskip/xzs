@@ -1,2 +1,18 @@
 <!--pages/user/bind/index.wxml-->
-<text>pages/user/bind/index.wxml</text>
+<view class="card-image-container">
+  <image src="/assets/logo2.png" style="width:175px;height:147px"></image>
+</view>
+
+<form bindsubmit='formSubmit'>
+  <i-panel title="用户名">
+    <i-input value="{{ userName }}" name="userName" maxlength="140" autofocus />
+  </i-panel>
+
+  <i-panel title="密码">
+    <i-input value="{{ password }}" name="password" maxlength="140" />
+  </i-panel>
+
+  <view>
+    <button class="i-btn i-btn- i-btn-primary i-btn-square" form-type='submit'>绑定账号</button>
+  </view>
+</form>

@@ -1,5 +1,8 @@
 package com.alvis.exam.configuration.spring.mvc;
 
+import com.alvis.exam.configuration.spring.wx.TokenHandlerInterceptor;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
 
@@ -9,22 +12,17 @@ import org.springframework.web.servlet.config.annotation.*;
  */
 
 @Configuration
+@AllArgsConstructor
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
+
+    private final TokenHandlerInterceptor tokenHandlerInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(tokenHandlerInterceptor)
+                .addPathPatterns("/api/wx/**")
+                .excludePathPatterns("/api/wx/student/user/bind");
         super.addInterceptors(registry);
-    }
-
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addRedirectViewController("/", "index.html");
-    }
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/static/");
     }
 
     @Override

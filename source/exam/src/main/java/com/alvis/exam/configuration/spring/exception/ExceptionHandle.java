@@ -35,4 +35,15 @@ public class ExceptionHandle {
         return new RestResponse<>(SystemCode.ParameterValidError.getCode(), errorMsg);
     }
 
+    @ExceptionHandler(BindException.class)
+    @ResponseBody
+    public RestResponse handler(BindException e) {
+        String errorMsg = e.getBindingResult().getAllErrors().stream().map(file -> {
+            FieldError fieldError = (FieldError) file;
+            return ErrorUtil.parameterErrorFormat(fieldError.getField(), fieldError.getDefaultMessage());
+        }).collect(Collectors.joining());
+        return new RestResponse<>(SystemCode.ParameterValidError.getCode(), errorMsg);
+    }
+
+
 }

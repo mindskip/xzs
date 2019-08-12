@@ -14,15 +14,15 @@ import java.io.IOException;
 /**
  * @author alvis
  */
-class RestUtil {
+public class RestUtil {
     private static final Logger logger = LoggerFactory.getLogger(RestUtil.class);
 
 
-    static void response(HttpServletResponse response, SystemCode systemCode) {
+    public static void response(HttpServletResponse response, SystemCode systemCode) {
         response(response, systemCode.getCode(), systemCode.getMessage());
     }
 
-    static void response(HttpServletResponse response, int systemCode, String msg) {
+    public static void response(HttpServletResponse response, int systemCode, String msg) {
         try {
             RestResponse res = new RestResponse<>(systemCode, msg);
             String resStr = JsonUtil.toJsonStr(res);
