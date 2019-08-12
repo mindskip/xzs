@@ -48,12 +48,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public String pwdEncode(String password) {
-        return RsaUtil.rsaEncode(systemConfig.getPwdPublicKey(), password);
+        return RsaUtil.rsaEncode(systemConfig.getPwdKey().getPublicKey(), password);
     }
 
     @Override
     public String pwdDecode(String encodePwd) {
-        return RsaUtil.rsaDecode(systemConfig.getPwdPrivateKey(), encodePwd);
+        return RsaUtil.rsaDecode(systemConfig.getPwdKey().getPrivateKey(), encodePwd);
     }
 
 

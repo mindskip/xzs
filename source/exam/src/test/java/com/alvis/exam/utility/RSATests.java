@@ -19,8 +19,8 @@ public class RSATests {
     @Test
     public void rsaTest() {
         String pwd = "123456";
-        String encodeStr = RsaUtil.rsaEncode(systemConfig.getPwdPublicKey(), pwd);
-        String decodeStr = RsaUtil.rsaDecode(systemConfig.getPwdPrivateKey(), encodeStr);
+        String encodeStr = RsaUtil.rsaEncode(systemConfig.getPwdKey().getPublicKey(), pwd);
+        String decodeStr = RsaUtil.rsaDecode(systemConfig.getPwdKey().getPrivateKey(), encodeStr);
         Assert.assertEquals(pwd, decodeStr);
     }
 

@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 public class SystemConfig {
     private String fdfsNgix;
-    private String pwdPublicKey;
-    private String pwdPrivateKey;
+    private PasswordKeyConfig pwdKey;
     private List<String> securityIgnoreUrls;
+    private WxConfig wx;
 }
