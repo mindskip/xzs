@@ -20,10 +20,7 @@ import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.RedisSerializationContext;
-import org.springframework.data.redis.serializer.RedisSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.data.redis.serializer.*;
 
 import java.time.Duration;
 
@@ -32,14 +29,15 @@ import java.time.Duration;
 @EnableCaching
 public class CacheConfig extends CachingConfigurerSupport {
 
-/*    @Autowired
-    private CacheProperties cacheProperties;
+/*  @Autowired
+    private CacheProperties cacheProperties;*/
 
-    *//**
+    /**
      * redis序列化修改为ObjectMapper
+     *
      * @return RedisCacheConfiguration
-     *//*
-    @Bean
+     */
+/*    @Bean
     public RedisCacheConfiguration redisCacheConfiguration() {
         Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
         ObjectMapper objectMapper = new ObjectMapper();
@@ -50,6 +48,22 @@ public class CacheConfig extends CachingConfigurerSupport {
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(serializer));
     }*/
 
+
+    /**
+     * spring boot redis默认序列化方式
+     *
+     * @return RedisTemplate
+     */
+    @Bean
+    public RedisTemplate<String, Object> getRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        final RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(redisConnectionFactory);
+        redisTemplate.setKeySerializer(RedisSerializer.string());
+        redisTemplate.setHashKeySerializer(RedisSerializer.string());
+        redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
+        redisTemplate.afterPropertiesSet();
+        return redisTemplate;
+    }
 
     /**
      * spring redis 默认生成key方式,包含::号

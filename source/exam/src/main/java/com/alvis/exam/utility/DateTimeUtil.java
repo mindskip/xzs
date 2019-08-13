@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.*;
 
 /**
@@ -16,10 +17,10 @@ public class DateTimeUtil {
     private static final Logger logger = LoggerFactory.getLogger(DateTimeUtil.class);
     public static final String STANDER_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
-    public static Date addHour(Date date, Integer hour) {
+    public static Date addDuration(Date date, Duration duration) {
         Calendar ca = Calendar.getInstance();
         ca.setTime(date);
-        ca.add(Calendar.HOUR_OF_DAY, hour);
+        ca.add(Calendar.SECOND, (int) duration.getSeconds());
         return ca.getTime();
     }
 

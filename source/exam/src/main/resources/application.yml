@@ -34,7 +34,7 @@ system:
   wx:
     appid: wx143688bee37bad34
     secret: 320e54e556d5722275b75fc3bba6177b
-    token-interval: 24   #hour
+    token-to-live: 12h   #token 过期时间
 
 
 # 分布式文件系统FDFS配置

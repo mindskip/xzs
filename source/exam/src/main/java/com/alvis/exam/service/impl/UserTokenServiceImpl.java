@@ -9,7 +9,8 @@ import com.alvis.exam.service.UserService;
 import com.alvis.exam.service.UserTokenService;
 import com.alvis.exam.utility.DateTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.cache.CacheKeyPrefix;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,14 +25,16 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
     private final UserService userService;
     private final SystemConfig systemConfig;
     private final CacheConfig cacheConfig;
+    private final RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
-    public UserTokenServiceImpl(UserTokenMapper userTokenMapper, UserService userService, SystemConfig systemConfig, CacheConfig cacheConfig) {
+    public UserTokenServiceImpl(UserTokenMapper userTokenMapper, UserService userService, SystemConfig systemConfig, CacheConfig cacheConfig, RedisTemplate<String, Object> redisTemplate) {
         super(userTokenMapper);
         this.userTokenMapper = userTokenMapper;
         this.userService = userService;
         this.systemConfig = systemConfig;
         this.cacheConfig = cacheConfig;
+        this.redisTemplate = redisTemplate;
     }
 
 
@@ -39,7 +42,7 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
     @Transactional
     public UserToken bind(User user) {
         Date startTime = new Date();
-        Date endTime = DateTimeUtil.addHour(startTime, systemConfig.getWx().getTokenInterval());
+        Date endTime = DateTimeUtil.addDuration(startTime, systemConfig.getWx().getTokenToLive());
         UserToken userToken = new UserToken();
         userToken.setToken(UUID.randomUUID().toString());
         userToken.setUserId(user.getId());
@@ -49,8 +52,7 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
         userService.updateByIdFilter(user);
         userTokenMapper.insertSelective(userToken);
         String key = cacheConfig.simpleKeyGenerator(CACHE_NAME, userToken.getToken());
-
-        //redis cache
+        redisTemplate.opsForValue().set(key, userToken, systemConfig.getWx().getTokenToLive());
         return userToken;
     }
 
@@ -60,6 +62,11 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
         return null;
     }
 
+    @Override
+    @Cacheable(value = CACHE_NAME, key = "#token")
+    public UserToken getToken(String token) {
+        return userTokenMapper.getToken(token);
+    }
 
 
 }
