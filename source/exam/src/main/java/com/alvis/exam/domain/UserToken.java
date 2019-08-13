@@ -11,13 +11,13 @@ public class UserToken implements Serializable {
 
     private String token;
 
-    private Date createTime;
-
-    private Date endTime;
-
     private Integer userId;
 
     private String wxOpenId;
+
+    private Date createTime;
+
+    private Date endTime;
 
     public Integer getId() {
         return id;
@@ -35,22 +35,6 @@ public class UserToken implements Serializable {
         this.token = token == null ? null : token.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
     public Integer getUserId() {
         return userId;
     }
@@ -65,5 +49,21 @@ public class UserToken implements Serializable {
 
     public void setWxOpenId(String wxOpenId) {
         this.wxOpenId = wxOpenId == null ? null : wxOpenId.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 }

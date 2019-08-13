@@ -33,11 +33,11 @@ CREATE TABLE "public"."t_user" (
   "role" int4,
   "status" int4,
   "image_path" varchar(255) COLLATE "pg_catalog"."default",
-  "wx_open_id" varchar(255) COLLATE "pg_catalog"."default",
   "create_time" timestamp(6),
   "modify_time" timestamp(6),
   "last_active_time" timestamp(6),
-  "deleted" bool
+  "deleted" bool,
+  "wx_open_id" varchar(255) COLLATE "pg_catalog"."default"
 )
 ;
 COMMENT ON COLUMN "public"."t_user"."user_name" IS '用户名';
@@ -47,14 +47,14 @@ COMMENT ON COLUMN "public"."t_user"."user_level" IS '学生年级(1-12)';
 COMMENT ON COLUMN "public"."t_user"."role" IS '1.学生 2.老师 3.管理员';
 COMMENT ON COLUMN "public"."t_user"."status" IS '1.启用 2禁用';
 COMMENT ON COLUMN "public"."t_user"."image_path" IS '头像地址';
-COMMENT ON COLUMN "public"."t_user"."wx_open_id" IS '微信OpenId';
 COMMENT ON COLUMN "public"."t_user"."deleted" IS '是否删除';
+COMMENT ON COLUMN "public"."t_user"."wx_open_id" IS '微信OpenId';
 
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
-INSERT INTO "public"."t_user" VALUES (1, 'd2d29da2-dcb3-4013-b874-727626236f47', 'student', 'i+/ukCFsMYsIwiSNW1JVXMUCSHe1bugya5u/XagGlja5uEQyBNyeBJCZpQZz0ebdHCQI1NDdgrXYKISyrauwLh3aO9IGRqqjDN+4S8ogAob3Yu85TEmCIaX0OpSkn0sj3+ulfGCC+C+ugVbZlvQ/EjWxio1UdiOf7KXlHHsYMGE=', '学生', 17, 1, NULL, 12, NULL, 1, 1, NULL, '2019-07-16 15:13:02', '2019-07-16 15:13:10', '2019-07-16 15:13:13','f');
-INSERT INTO "public"."t_user" VALUES (2, '52045f5f-a13f-4ccc-93dd-f7ee8270ad4c', 'admin', 'D1AGFL+Gx37t0NPG4d6biYP5Z31cNbwhK5w1lUeiHB2zagqbk8efYfSjYoh1Z/j1dkiRjHU+b0EpwzCh8IGsksJjzD65ci5LsnodQVf4Uj6D3pwoscXGqmkjjpzvSJbx42swwNTA+QoDU8YLo7JhtbUK2X0qCjFGpd+8eJ5BGvk=', '管理员', 30, 1, NULL, NULL, NULL, 3, 1, NULL, '2019-07-16 15:14:12', '2019-07-16 15:14:15', '2019-07-16 15:14:17','f');
+INSERT INTO "public"."t_user" VALUES (1, 'd2d29da2-dcb3-4013-b874-727626236f47', 'student', 'i+/ukCFsMYsIwiSNW1JVXMUCSHe1bugya5u/XagGlja5uEQyBNyeBJCZpQZz0ebdHCQI1NDdgrXYKISyrauwLh3aO9IGRqqjDN+4S8ogAob3Yu85TEmCIaX0OpSkn0sj3+ulfGCC+C+ugVbZlvQ/EjWxio1UdiOf7KXlHHsYMGE=', '学生', 17, 1, NULL, 12, NULL, 1, 1, NULL, '2019-07-16 15:13:02', '2019-07-16 15:13:10', '2019-07-16 15:13:13','f',NULL);
+INSERT INTO "public"."t_user" VALUES (2, '52045f5f-a13f-4ccc-93dd-f7ee8270ad4c', 'admin', 'D1AGFL+Gx37t0NPG4d6biYP5Z31cNbwhK5w1lUeiHB2zagqbk8efYfSjYoh1Z/j1dkiRjHU+b0EpwzCh8IGsksJjzD65ci5LsnodQVf4Uj6D3pwoscXGqmkjjpzvSJbx42swwNTA+QoDU8YLo7JhtbUK2X0qCjFGpd+8eJ5BGvk=', '管理员', 30, 1, NULL, NULL, NULL, 3, 1, NULL, '2019-07-16 15:14:12', '2019-07-16 15:14:15', '2019-07-16 15:14:17','f',NULL);
 
 select setval('t_user_id_seq',(select max(id) from t_user));
 
@@ -324,6 +324,23 @@ COMMENT ON COLUMN "public"."t_user_event_log"."content" IS '内容';
 COMMENT ON COLUMN "public"."t_user_event_log"."create_time" IS '时间';
 
 
+
+
+-- ----------------------------
+-- Table structure for t_user_token
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."t_user_token";
+CREATE TABLE "public"."t_user_token" (
+  "id" serial4 primary key,
+  "token" uuid,
+  "user_id" int4,
+  "wx_open_id" varchar(255) COLLATE "pg_catalog"."default",
+  "create_time" timestamp(6),
+  "end_time" timestamp(6)
+)
+;
+COMMENT ON COLUMN "public"."t_user_token"."user_id" IS '用户Id';
+COMMENT ON COLUMN "public"."t_user_token"."wx_open_id" IS '微信openId';
 
 -- ----------------------------
 -- Table structure for t_message

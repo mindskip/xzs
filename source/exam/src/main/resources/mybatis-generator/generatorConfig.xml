@@ -41,12 +41,14 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
+<!--
 
         <table tableName="t_user" domainObjectName="User" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <columnOverride column="user_uuid"  javaType="java.lang.String"  jdbcType="VARCHAR" />
         </table>
+-->
 
 
 <!--        <table tableName="t_subject" domainObjectName="Subject" enableCountByExample="false"
@@ -128,11 +130,11 @@
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>-->
 
-<!--        <table tableName="t_user_token" domainObjectName="UserToken" enableCountByExample="false"
+        <table tableName="t_user_token" domainObjectName="UserToken" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <columnOverride column="token"  javaType="java.lang.String"  jdbcType="VARCHAR" />
-        </table>-->
+        </table>
 
 
     </context>
