@@ -1,6 +1,7 @@
 package com.alvis.exam.service.impl;
 
 import com.alvis.exam.configuration.property.SystemConfig;
+import com.alvis.exam.configuration.spring.cache.CacheConfig;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.domain.UserToken;
 import com.alvis.exam.repository.UserTokenMapper;
@@ -8,14 +9,12 @@ import com.alvis.exam.service.UserService;
 import com.alvis.exam.service.UserTokenService;
 import com.alvis.exam.utility.DateTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.cache.CacheKeyPrefix;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements UserTokenService {
@@ -24,14 +23,15 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
     private final UserTokenMapper userTokenMapper;
     private final UserService userService;
     private final SystemConfig systemConfig;
-
+    private final CacheConfig cacheConfig;
 
     @Autowired
-    public UserTokenServiceImpl(UserTokenMapper userTokenMapper, UserService userService, SystemConfig systemConfig) {
+    public UserTokenServiceImpl(UserTokenMapper userTokenMapper, UserService userService, SystemConfig systemConfig, CacheConfig cacheConfig) {
         super(userTokenMapper);
         this.userTokenMapper = userTokenMapper;
         this.userService = userService;
         this.systemConfig = systemConfig;
+        this.cacheConfig = cacheConfig;
     }
 
 
@@ -48,6 +48,9 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
         userToken.setEndTime(endTime);
         userService.updateByIdFilter(user);
         userTokenMapper.insertSelective(userToken);
+        String key = cacheConfig.simpleKeyGenerator(CACHE_NAME, userToken.getToken());
+
+        //redis cache
         return userToken;
     }
 
@@ -57,10 +60,6 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
         return null;
     }
 
-    @Override
-    @CacheEvict(value = CACHE_NAME, key = "#token")
-    public UserToken getToken(String token) {
-        return userTokenMapper.getToken(token);
-    }
+
 
 }

@@ -50,8 +50,7 @@ public class UserController extends BaseWXApiController {
         }
         user.setWxOpenId(openid);
         UserToken userToken = userTokenService.bind(user);
-        UserToken cacheToken = userTokenService.getToken(userToken.getToken());
-        return RestResponse.ok(cacheToken.getToken());
+        return RestResponse.ok(userToken.getToken());
     }
 
 

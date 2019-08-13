@@ -78,7 +78,7 @@ spring:
   cache:
     type: redis
     redis:
-      time-to-live: 43200000   #12 hour
+      time-to-live: 12h   #12 hour
 
   #spring mvc
 
