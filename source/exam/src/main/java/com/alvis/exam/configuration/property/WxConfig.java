@@ -6,4 +6,5 @@ import lombok.Data;
 public class WxConfig {
     private String appid;
     private String secret;
+    private Integer tokenInterval;
 }

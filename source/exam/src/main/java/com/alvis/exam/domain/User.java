@@ -41,6 +41,8 @@ public class User implements Serializable {
 
     private Boolean deleted;
 
+    private String wxOpenId;
+
     public Integer getId() {
         return id;
     }
@@ -175,5 +177,13 @@ public class User implements Serializable {
 
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public String getWxOpenId() {
+        return wxOpenId;
+    }
+
+    public void setWxOpenId(String wxOpenId) {
+        this.wxOpenId = wxOpenId == null ? null : wxOpenId.trim();
     }
 }

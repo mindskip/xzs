@@ -21,8 +21,6 @@ Page({
                 showCancel: false
               });
             }
-          }, function() {
-
           })
         } else {
           wx.showModal({

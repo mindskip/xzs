@@ -19,10 +19,11 @@
     <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
     <result column="last_active_time" jdbcType="TIMESTAMP" property="lastActiveTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="wx_open_id" jdbcType="VARCHAR" property="wxOpenId" />
   </resultMap>
   <sql id="Base_Column_List">
     id, user_uuid, user_name, password, real_name, age, sex, birth_day, user_level, phone,
-    role, status, image_path, create_time, modify_time, last_active_time, deleted
+    role, status, image_path, create_time, modify_time, last_active_time, deleted, wx_open_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
@@ -34,21 +35,23 @@
     delete from t_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.alvis.exam.domain.User"   useGeneratedKeys="true" keyProperty="id" >
+  <insert id="insert" parameterType="com.alvis.exam.domain.User"  useGeneratedKeys="true" keyProperty="id" >
     insert into t_user (id, user_uuid, user_name,
       password, real_name, age,
       sex, birth_day, user_level,
       phone, role, status,
       image_path, create_time, modify_time,
-      last_active_time, deleted)
+      last_active_time, deleted, wx_open_id
+      )
     values (#{id,jdbcType=INTEGER}, #{userUuid}::uuid, #{userName,jdbcType=VARCHAR},
       #{password,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
       #{sex,jdbcType=INTEGER}, #{birthDay,jdbcType=TIMESTAMP}, #{userLevel,jdbcType=INTEGER},
       #{phone,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, #{status,jdbcType=INTEGER},
       #{imagePath,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP},
-      #{lastActiveTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT})
+      #{lastActiveTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, #{wxOpenId,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.alvis.exam.domain.User"   useGeneratedKeys="true" keyProperty="id" >
+  <insert id="insertSelective" parameterType="com.alvis.exam.domain.User"  useGeneratedKeys="true" keyProperty="id" >
     insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -101,6 +104,9 @@
       </if>
       <if test="deleted != null">
         deleted,
+      </if>
+      <if test="wxOpenId != null">
+        wx_open_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -155,6 +161,9 @@
       <if test="deleted != null">
         #{deleted,jdbcType=BIT},
       </if>
+      <if test="wxOpenId != null">
+        #{wxOpenId,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.alvis.exam.domain.User">
@@ -208,6 +217,9 @@
       <if test="deleted != null">
         deleted = #{deleted,jdbcType=BIT},
       </if>
+      <if test="wxOpenId != null">
+        wx_open_id = #{wxOpenId,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -228,7 +240,8 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       modify_time = #{modifyTime,jdbcType=TIMESTAMP},
       last_active_time = #{lastActiveTime,jdbcType=TIMESTAMP},
-      deleted = #{deleted,jdbcType=BIT}
+      deleted = #{deleted,jdbcType=BIT},
+      wx_open_id = #{wxOpenId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 

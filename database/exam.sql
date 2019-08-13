@@ -33,6 +33,7 @@ CREATE TABLE "public"."t_user" (
   "role" int4,
   "status" int4,
   "image_path" varchar(255) COLLATE "pg_catalog"."default",
+  "wx_open_id" varchar(255) COLLATE "pg_catalog"."default",
   "create_time" timestamp(6),
   "modify_time" timestamp(6),
   "last_active_time" timestamp(6),
@@ -46,6 +47,7 @@ COMMENT ON COLUMN "public"."t_user"."user_level" IS '学生年级(1-12)';
 COMMENT ON COLUMN "public"."t_user"."role" IS '1.学生 2.老师 3.管理员';
 COMMENT ON COLUMN "public"."t_user"."status" IS '1.启用 2禁用';
 COMMENT ON COLUMN "public"."t_user"."image_path" IS '头像地址';
+COMMENT ON COLUMN "public"."t_user"."wx_open_id" IS '微信OpenId';
 COMMENT ON COLUMN "public"."t_user"."deleted" IS '是否删除';
 
 -- ----------------------------

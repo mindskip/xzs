@@ -1,7 +1,6 @@
 package com.alvis.exam.configuration.spring.security;
 
-import com.alvis.exam.configuration.application.impl.ApplicationContextProvider;
-import com.alvis.exam.configuration.property.SystemConfig;
+import com.alvis.exam.configuration.property.CookieConfig;
 
 import com.alvis.exam.utility.JsonUtil;
 import org.slf4j.LoggerFactory;

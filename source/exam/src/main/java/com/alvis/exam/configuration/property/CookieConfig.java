@@ -1,4 +1,4 @@
-package com.alvis.exam.configuration.spring.security;
+package com.alvis.exam.configuration.property;
 
 public class CookieConfig {
 

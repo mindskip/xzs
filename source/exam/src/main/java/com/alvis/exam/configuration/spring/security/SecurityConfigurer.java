@@ -1,5 +1,6 @@
 package com.alvis.exam.configuration.spring.security;
 
+import com.alvis.exam.configuration.property.CookieConfig;
 import com.alvis.exam.configuration.property.SystemConfig;
 import com.alvis.exam.domain.enums.RoleEnum;
 import lombok.AllArgsConstructor;

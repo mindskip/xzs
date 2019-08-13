@@ -1,6 +1,6 @@
 const Base_API = "http://www.hao123.com:8001"
 
-const formPost = function (url, data, success, fail) {
+const formPost = function (url, data, success) {
   wx.showNavigationBarLoading();
   wx.request({
     url: Base_API + url,
