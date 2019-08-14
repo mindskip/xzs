@@ -23,7 +23,7 @@ public class DashboardController extends BaseApiController {
     private final QuestionService questionService;
     private final ExamPaperAnswerService examPaperAnswerService;
     private final ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService;
-
+    private final UserEventLogService userEventLogService;
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public RestResponse<IndexVM> Index() {
@@ -39,9 +39,9 @@ public class DashboardController extends BaseApiController {
         vm.setDoExamPaperCount(doExamPaperCount);
         vm.setDoQuestionCount(doQuestionCount);
 
-        List<Integer> mothDayDoExamPaperValue = examPaperAnswerService.selectMothCount();
+        List<Integer> mothDayUserActionValue = userEventLogService.selectMothCount();
         List<Integer> mothDayDoExamQuestionValue = examPaperQuestionCustomerAnswerService.selectMothCount();
-        vm.setMothDayDoExamPaperValue(mothDayDoExamPaperValue);
+        vm.setMothDayUserActionValue(mothDayUserActionValue);
         vm.setMothDayDoExamQuestionValue(mothDayDoExamQuestionValue);
 
         vm.setMothDayText(DateTimeUtil.MothDay());

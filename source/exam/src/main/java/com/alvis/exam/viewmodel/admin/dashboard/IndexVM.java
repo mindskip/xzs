@@ -10,7 +10,7 @@ public class IndexVM {
     private Integer questionCount;
     private Integer doExamPaperCount;
     private Integer doQuestionCount;
-    private List<Integer> mothDayDoExamPaperValue;
+    private List<Integer> mothDayUserActionValue;
     private List<Integer> mothDayDoExamQuestionValue;
     private List<String> mothDayText;
 }
