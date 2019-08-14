@@ -18,11 +18,11 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
 
-@Controller("WXStudentUserController")
-@RequestMapping(value = "/api/wx/student/user")
+@Controller("WXStudentAuthController")
+@RequestMapping(value = "/api/wx/student/auth")
 @AllArgsConstructor
 @ResponseBody
-public class UserController extends BaseWXApiController {
+public class AuthController extends BaseWXApiController {
 
     private final SystemConfig systemConfig;
     private final AuthenticationService authenticationService;
@@ -58,9 +58,12 @@ public class UserController extends BaseWXApiController {
     public RestResponse checkBind(@Valid @NotBlank String code) {
         String openid = WxUtil.getOpenId(systemConfig.getWx().getAppid(), systemConfig.getWx().getSecret(), code);
         if (null == openid) {
-            return RestResponse.fail(2, "获取微信OpenId失败");
+            return RestResponse.fail(3, "获取微信OpenId失败");
         }
-        //查询刷新Token
-        return RestResponse.ok();
+        UserToken userToken = userTokenService.checkBind(openid);
+        if (null != userToken) {
+            return RestResponse.ok(userToken.getToken());
+        }
+        return RestResponse.fail(2, "用户未绑定");
     }
 }

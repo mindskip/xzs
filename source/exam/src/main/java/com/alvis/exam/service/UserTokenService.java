@@ -12,7 +12,7 @@ public interface UserTokenService extends BaseService<UserToken> {
 
     UserToken bind(User user);
 
-    UserToken checkBind();
+    UserToken checkBind(String openId);
 
     UserToken getToken(String token);
 }

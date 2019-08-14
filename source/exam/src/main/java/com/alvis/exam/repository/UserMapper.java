@@ -142,4 +142,7 @@ public interface UserMapper extends BaseMapper<User> {
     List<KeyValue> selectByUserName(String userName);
 
     List<User> selectByIds(List<Integer> ids);
+
+
+    User selectByWxOpenId(@Param("wxOpenId") String wxOpenId);
 }

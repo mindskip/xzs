@@ -6,10 +6,10 @@ Page({
   },
   formSubmit: function(e) {
     wx.login({
-      success(res) {
-        if (res.code) {
-          e.detail.value.code = res.code
-          request.formPost('/api/wx/student/user/bind', e.detail.value, function(res) {
+      success(wxres) {
+        if (wxres.code) {
+          e.detail.value.code = wxres.code
+          request.formPost('/api/wx/student/auth/bind', e.detail.value, function(res) {
             if (res.code == 1) {
               wx.setStorageSync('token', res.response)
               wx.reLaunch({

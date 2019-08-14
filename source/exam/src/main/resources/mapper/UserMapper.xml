@@ -402,4 +402,13 @@
   </select>
 
 
+  <select id="selectByWxOpenId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_user
+    where deleted='f' and  wx_open_id = #{wxOpenId}
+    limit 1
+  </select>
+
+
 </mapper>

@@ -21,7 +21,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(tokenHandlerInterceptor)
                 .addPathPatterns("/api/wx/**")
-                .excludePathPatterns("/api/wx/student/user/bind");
+                .excludePathPatterns("/api/wx/student/auth/**");
         super.addInterceptors(registry);
     }
 

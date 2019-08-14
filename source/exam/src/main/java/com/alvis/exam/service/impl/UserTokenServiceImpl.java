@@ -41,6 +41,29 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
     @Override
     @Transactional
     public UserToken bind(User user) {
+        user.setModifyTime(new Date());
+        userService.updateByIdFilter(user);
+        return insertUserToken(user);
+    }
+
+
+    @Override
+    public UserToken checkBind(String openId) {
+        User user = userService.selectByWxOpenId(openId);
+        if (null != user) {
+            return insertUserToken(user);
+        }
+        return null;
+    }
+
+    @Override
+    @Cacheable(value = CACHE_NAME, key = "#token")
+    public UserToken getToken(String token) {
+        return userTokenMapper.getToken(token);
+    }
+
+
+    private UserToken insertUserToken(User user) {
         Date startTime = new Date();
         Date endTime = DateTimeUtil.addDuration(startTime, systemConfig.getWx().getTokenToLive());
         UserToken userToken = new UserToken();
@@ -54,18 +77,6 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
         String key = cacheConfig.simpleKeyGenerator(CACHE_NAME, userToken.getToken());
         redisTemplate.opsForValue().set(key, userToken, systemConfig.getWx().getTokenToLive());
         return userToken;
-    }
-
-
-    @Override
-    public UserToken checkBind() {
-        return null;
-    }
-
-    @Override
-    @Cacheable(value = CACHE_NAME, key = "#token")
-    public UserToken getToken(String token) {
-        return userTokenMapper.getToken(token);
     }
 
 
