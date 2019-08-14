@@ -15,9 +15,9 @@ App({
                 });
               } 
               else if (res.code == 2) {
-                wx.navigateTo({
-                  url: 'pages/user/bind/index',
-                })
+                wx.reLaunch({
+                  url: '/pages/user/bind/index',
+                });
               }else {
                 wx.showModal({
                   content: res.message,

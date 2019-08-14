@@ -20,7 +20,7 @@ const formPost = function (url, data, success) {
       }
       if (res.data.code === 401) {
         wx.reLaunch({
-          url: 'pages/user/bind/index',
+          url: '/pages/user/bind/index',
         });
         return false;
       } else if (res.data.code === 500) {
