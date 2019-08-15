@@ -9,6 +9,6 @@ public class BaseWXApiController {
     protected final static ModelMapper modelMapper = ModelMapperSingle.Instance();
 
     protected User getCurrentUser() {
-        return TokenHandlerInterceptor.userThreadLocal.get();
+        return TokenHandlerInterceptor.getUserThreadLocal().get();
     }
 }
