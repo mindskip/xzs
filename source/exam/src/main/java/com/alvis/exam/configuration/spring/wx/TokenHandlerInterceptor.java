@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 
 public class TokenHandlerInterceptor implements HandlerInterceptor {
-    private static ThreadLocal<User> userThreadLocal = new ThreadLocal<>();
+    private final static ThreadLocal<User> USER_THREAD_LOCAL = new ThreadLocal<>();
     private final UserTokenService userTokenService;
     private final UserService userService;
 
@@ -40,11 +40,11 @@ public class TokenHandlerInterceptor implements HandlerInterceptor {
             return false;
         }
         User user = userService.getUserByUserName(userToken.getUserName());
-        userThreadLocal.set(user);
+        USER_THREAD_LOCAL.set(user);
         return true;
     }
 
     public static ThreadLocal<User> getUserThreadLocal() {
-        return userThreadLocal;
+        return USER_THREAD_LOCAL;
     }
 }
