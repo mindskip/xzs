@@ -21,26 +21,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "/assets/index.png",
-        "selectedIconPath": "/assets/index-select.png"
+        "iconPath": "/assets/tabBar/index.png",
+        "selectedIconPath": "/assets/tabBar/index-select.png"
       },
       {
         "pagePath": "pages/exam/index/index",
         "text": "试卷",
-        "iconPath": "/assets/exam.png",
-        "selectedIconPath": "/assets/exam-select.png"
+        "iconPath": "/assets/tabBar/exam.png",
+        "selectedIconPath": "/assets/tabBar/exam-select.png"
       },
       {
         "pagePath": "pages/record/index",
         "text": "记录",
-        "iconPath": "/assets/record.png",
-        "selectedIconPath": "/assets/record-select.png"
+        "iconPath": "/assets/tabBar/record.png",
+        "selectedIconPath": "/assets/tabBar/record-select.png"
       },
       {
         "pagePath": "pages/my/index/index",
         "text": "我的",
-        "iconPath": "/assets/my.png",
-        "selectedIconPath": "/assets/my-select.png"
+        "iconPath": "/assets/tabBar/my.png",
+        "selectedIconPath": "/assets/tabBar/my-select.png"
       }
     ]
   },

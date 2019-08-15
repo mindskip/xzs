@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
 @Controller("WXStudentDashboardController")
 @RequestMapping(value = "/api/wx/student/dashboard")
 @AllArgsConstructor
+@ResponseBody
 public class DashboardController extends BaseWXApiController {
 
     private final ExamPaperService examPaperService;

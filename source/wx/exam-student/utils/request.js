@@ -1,4 +1,4 @@
-const Base_API = "http://www.hao123.com:8001"
+const Base_API = "http://wx.ualvis.com:8001"
 
 const formPost = function (url, data, success) {
   wx.showNavigationBarLoading();

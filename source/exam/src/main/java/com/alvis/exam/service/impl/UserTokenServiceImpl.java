@@ -72,6 +72,7 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
         userToken.setWxOpenId(user.getWxOpenId());
         userToken.setCreateTime(startTime);
         userToken.setEndTime(endTime);
+        userToken.setUserName(user.getUserName());
         userService.updateByIdFilter(user);
         userTokenMapper.insertSelective(userToken);
         String key = cacheConfig.simpleKeyGenerator(CACHE_NAME, userToken.getToken());

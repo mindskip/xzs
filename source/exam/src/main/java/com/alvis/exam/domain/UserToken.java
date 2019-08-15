@@ -19,6 +19,8 @@ public class UserToken implements Serializable {
 
     private Date endTime;
 
+    private String userName;
+
     public Integer getId() {
         return id;
     }
@@ -65,5 +67,13 @@ public class UserToken implements Serializable {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 }

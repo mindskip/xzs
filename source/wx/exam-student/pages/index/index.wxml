@@ -1,13 +1,30 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view>
+  <view>
+    <swiper indicator-dots="false" autoplay="true" interval="5000" duration="1000">
+      <swiper-item>
+        <image src="/assets/carousel/1.png" class="slide-image" />
+      </swiper-item>
+      <swiper-item>
+        <image src="/assets/carousel/2.png" class="slide-image" />
+      </swiper-item>
+      <swiper-item>
+        <image src="/assets/carousel/3.png" class="slide-image" />
+      </swiper-item>
+      <swiper-item>
+        <image src="/assets/carousel/4.png" class="slide-image" />
+      </swiper-item>
+    </swiper>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <i-panel title="固定试卷">
+    <i-cell-group wx:for="{{fixedPaper}}" data-item="item" wx:key="{{item.id}}">
+      <i-cell title="{{item.name}}" is-link url="/pages/record/index" link-type="reLaunch"></i-cell>
+    </i-cell-group>
+  </i-panel>
+  <i-panel title="时段试卷">
+    <i-cell-group wx:for="{{timeLimitPaper}}" data-item="item" wx:key="{{item.id}}">
+      <i-cell title="{{item.name}}" is-link url="/pages/record/index" label="{{item.startTime}} 至 {{item.endTime}}"></i-cell>
+    </i-cell-group>
+  </i-panel>
+
 </view>

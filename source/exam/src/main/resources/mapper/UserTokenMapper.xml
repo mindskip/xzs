@@ -8,9 +8,10 @@
     <result column="wx_open_id" jdbcType="VARCHAR" property="wxOpenId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, token, user_id, wx_open_id, create_time, end_time
+    id, token, user_id, wx_open_id, create_time, end_time, user_name
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
@@ -24,11 +25,11 @@
   </delete>
   <insert id="insert" parameterType="com.alvis.exam.domain.UserToken"  useGeneratedKeys="true" keyProperty="id">
     insert into t_user_token (id, token, user_id,
-      wx_open_id, create_time, end_time
-      )
-    values (#{id,jdbcType=INTEGER},#{token}::uuid, #{userId,jdbcType=INTEGER},
-      #{wxOpenId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}
-      )
+      wx_open_id, create_time, end_time,
+      user_name)
+    values (#{id,jdbcType=INTEGER}, #{token}::uuid, #{userId,jdbcType=INTEGER},
+      #{wxOpenId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP},
+      #{userName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.alvis.exam.domain.UserToken"  useGeneratedKeys="true" keyProperty="id">
     insert into t_user_token
@@ -51,13 +52,16 @@
       <if test="endTime != null">
         end_time,
       </if>
+      <if test="userName != null">
+        user_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
       <if test="token != null">
-       #{token}::uuid,
+        #{token}::uuid,
       </if>
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
@@ -71,13 +75,16 @@
       <if test="endTime != null">
         #{endTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.alvis.exam.domain.UserToken">
     update t_user_token
     <set>
       <if test="token != null">
-        token =#{token}::uuid,
+        token = #{token}::uuid,
       </if>
       <if test="userId != null">
         user_id = #{userId,jdbcType=INTEGER},
@@ -91,16 +98,20 @@
       <if test="endTime != null">
         end_time = #{endTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.alvis.exam.domain.UserToken">
     update t_user_token
-    set token =#{token}::uuid,
+    set token = #{token}::uuid,
       user_id = #{userId,jdbcType=INTEGER},
       wx_open_id = #{wxOpenId,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      end_time = #{endTime,jdbcType=TIMESTAMP}
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      user_name = #{userName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 
