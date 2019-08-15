@@ -1,14 +1,48 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/user/bind/index"
+    "pages/user/bind/index",
+    "pages/my/index/index",
+    "pages/exam/index/index",
+    "pages/record/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "学之思",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#ff9966",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/index.png",
+        "selectedIconPath": "/assets/index-select.png"
+      },
+      {
+        "pagePath": "pages/exam/index/index",
+        "text": "试卷",
+        "iconPath": "/assets/exam.png",
+        "selectedIconPath": "/assets/exam-select.png"
+      },
+      {
+        "pagePath": "pages/record/index",
+        "text": "记录",
+        "iconPath": "/assets/record.png",
+        "selectedIconPath": "/assets/record-select.png"
+      },
+      {
+        "pagePath": "pages/my/index/index",
+        "text": "我的",
+        "iconPath": "/assets/my.png",
+        "selectedIconPath": "/assets/my-select.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }
