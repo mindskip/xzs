@@ -5,6 +5,9 @@ Page({
     password: '',
   },
   formSubmit: function(e) {
+    wx.showLoading({
+      title: '正在提交',
+    })
     wx.login({
       success(wxres) {
         if (wxres.code) {
