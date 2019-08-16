@@ -15,4 +15,8 @@
   <view>
     <button class="i-btn i-btn- i-btn-primary i-btn-square" form-type='submit'>绑定账号</button>
   </view>
+
+  <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
 </form>
+
+<i-message id="message" />

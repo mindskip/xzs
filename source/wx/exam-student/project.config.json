@@ -48,12 +48,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "bind",
 					"pathName": "pages/user/bind/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/exam/index/index",
+					"pathName": "pages/exam/index/index",
 					"scene": null
 				}
 			]

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+        "i-tabs": "/component/iView/tabs/index",
+        "i-tab": "/component/iView/tab/index"
+  }
 }

@@ -1,2 +1,8 @@
 <!--pages/exam/index/index.wxml-->
-<text>pages/exam/index/index.wxml</text>
+<view>
+  <i-tabs current="{{ current }}" bindchange="handleChange">
+    <i-tab key="tab1" title="选项1"></i-tab>
+    <i-tab key="tab2" title="选项2"></i-tab>
+    <i-tab key="tab3" title="选项3"></i-tab>
+  </i-tabs>
+</view>

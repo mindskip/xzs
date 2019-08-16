@@ -1,36 +1,38 @@
-const request = require('../../../utils/request.js')
+const app = getApp()
 Page({
   data: {
+    spinShow: false,
     userName: '',
     password: '',
   },
   formSubmit: function(e) {
-    wx.showLoading({
-      title: '正在提交',
-    })
+    let _this = this
+    _this.setData({
+      spinShow: true
+    });
     wx.login({
       success(wxres) {
         if (wxres.code) {
           e.detail.value.code = wxres.code
-          request.formPost('/api/wx/student/auth/bind', e.detail.value, function(res) {
+          app.formPost('/api/wx/student/auth/bind', e.detail.value, function(res) {
+            _this.setData({
+              spinShow: false
+            });
             if (res.code == 1) {
               wx.setStorageSync('token', res.response)
               wx.reLaunch({
                 url: '/pages/index/index',
               });
             } else {
-              wx.showModal({
-                content: res.message,
-                showCancel: false
-              });
+              app.message(res.message, 'error')
             }
+          }, function() {
+            _this.setData({
+              spinShow: false
+            });
           })
         } else {
-          wx.showModal({
-            title: "微信登录错误",
-            content: res.errMsg,
-            showCancel: false
-          });
+          app.message(res.errMsg, 'error')
         }
       }
     })

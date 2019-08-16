@@ -5,7 +5,7 @@ Page({
    * Page initial data
    */
   data: {
-
+    current: 'tab1',
   },
 
   /**
@@ -15,6 +15,11 @@ Page({
 
   },
 
+  handleChange({ detail }) {
+    this.setData({
+      current: detail.key
+    });
+  },
   /**
    * Lifecycle function--Called when page is initially rendered
    */

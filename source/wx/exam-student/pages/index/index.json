@@ -2,6 +2,8 @@
   "usingComponents": {
     "i-panel": "/component/iView/panel/index",
     "i-cell-group": "/component/iView/cell-group/index",
-    "i-cell": "/component/iView/cell/index"
+    "i-cell": "/component/iView/cell/index",
+    "i-message": "/component/iView/message/index",
+    "i-spin": "/component/iView/spin/index"
   }
 }
