@@ -18,6 +18,8 @@ public class ExamPaperPageResponseVM {
 
     private Integer subjectId;
 
+    private String subjectName;
+
     private Integer paperType;
 
     private Integer frameTextContentId;

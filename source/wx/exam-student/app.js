@@ -36,7 +36,8 @@ App({
   },
 
   globalData: {
-    Base_API: "http://wx.ualvis.com:8001"
+    baseAPI: "http://wx.ualvis.com:8001",
+    pageSize: 10
   },
   message: function(content, type) {
     $Message({
@@ -48,7 +49,7 @@ App({
     let _this = this
     wx.showNavigationBarLoading();
     wx.request({
-      url: _this.globalData.Base_API + url,
+      url: _this.globalData.baseAPI + url,
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'token': wx.getStorageSync('token')

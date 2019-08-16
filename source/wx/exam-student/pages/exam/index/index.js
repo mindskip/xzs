@@ -6,12 +6,12 @@ Page({
    * Page initial data
    */
   data: {
-    paperType: '1',
+    paperType: 1,
     spinShow: false,
     queryParam: {
-      paperType: '1',
+      paperType: 1,
       pageIndex: 1,
-      pageSize: 10
+      pageSize: app.globalData.pageSize
     },
     tableData: [],
     total: 1
@@ -26,12 +26,13 @@ Page({
   tabChange({
     detail
   }) {
+    let size = app.globalData.pageSize
     this.setData({
       paperType: detail.key,
       queryParam: {
         paperType: detail.key,
         pageIndex: 1,
-        pageSize: 10
+        pageSize: app.globalData.pageSize
       }
     });
     this.search()
@@ -42,33 +43,28 @@ Page({
     const type = detail.type;
     if (type === 'next') {
       this.setData({
-        queryParam: {
-          pageIndex: this.data.queryParam.pageIndex + 1,
-        }
+        ['queryParam.pageIndex']: this.data.queryParam.pageIndex + 1
       });
     } else if (type === 'prev') {
       this.setData({
-        queryParam: {
-          pageIndex: this.data.queryParam.pageIndex - 1,
-        }
+        ['queryParam.pageIndex']: this.data.queryParam.pageIndex - 1
       });
     }
+    this.search()
   },
   search: function() {
     let _this = this
     _this.setData({
-      spinShow: false
+      spinShow: true
     });
-    app.formPost('/api/wx/student/exam/pageList', this.data.queryParam, function (data) {
+    app.formPost('/api/wx/student/exam/pageList', this.data.queryParam, function(data) {
       if (data.code === 1) {
         const re = data.response
         _this.setData({
-          queryParam: {
-            pageIndex: re.pageNum,
-            pageSize: 10
-          },
+          ['queryParam.pageIndex']: re.pageNum,
+          ['queryParam.pageSize']: app.globalData.pageSize,
           tableData: re.list,
-          total: re.pageNum
+          total: re.pages
         });
       }
     }, function() {

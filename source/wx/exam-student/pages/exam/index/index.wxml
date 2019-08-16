@@ -6,7 +6,7 @@
   </i-tabs>
   <view>
     <i-cell-group wx:for="{{tableData}}" data-item="item" wx:key="{{item.id}}">
-      <i-cell title="{{item.name}}" is-link url="/pages/record/index" value="数学"></i-cell>
+      <i-cell title="{{item.name}}" is-link url="/pages/record/index" value="{{item.subjectName}}"></i-cell>
     </i-cell-group>
     <i-page current="{{queryParam.pageIndex}}" total="{{total}}" bind:change="pageChange" i-class="student-page">
       <view slot="prev">上一页</view>
@@ -14,4 +14,5 @@
     </i-page>
     <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
   </view>
+    <i-message id="message" />
 </view>

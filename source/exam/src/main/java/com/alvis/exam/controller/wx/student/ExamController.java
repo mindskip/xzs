@@ -3,9 +3,11 @@ package com.alvis.exam.controller.wx.student;
 import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.controller.wx.BaseWXApiController;
 import com.alvis.exam.domain.ExamPaper;
+import com.alvis.exam.domain.Subject;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.domain.enums.ExamPaperTypeEnum;
 import com.alvis.exam.service.ExamPaperService;
+import com.alvis.exam.service.SubjectService;
 import com.alvis.exam.utility.DateTimeUtil;
 import com.alvis.exam.utility.PageInfoHelper;
 import com.alvis.exam.viewmodel.student.dashboard.IndexVM;
@@ -35,12 +37,15 @@ import java.util.stream.Collectors;
 public class ExamController extends BaseWXApiController {
 
     private final ExamPaperService examPaperService;
+    private final SubjectService subjectService;
 
     @RequestMapping(value = "/pageList", method = RequestMethod.POST)
     public RestResponse<PageInfo<ExamPaperPageResponseVM>> pageList(@Valid ExamPaperPageVM model) {
         PageInfo<ExamPaper> pageInfo = examPaperService.studentPage(model);
         PageInfo<ExamPaperPageResponseVM> page = PageInfoHelper.copyMap(pageInfo, e -> {
             ExamPaperPageResponseVM vm = modelMapper.map(e, ExamPaperPageResponseVM.class);
+            Subject subject = subjectService.selectById(vm.getSubjectId());
+            vm.setSubjectName(subject.getName());
             vm.setCreateTime(DateTimeUtil.dateFormat(e.getCreateTime()));
             return vm;
         });
