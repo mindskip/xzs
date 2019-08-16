@@ -31,10 +31,10 @@ import java.util.stream.Collectors;
 
 
 @Controller("WXStudentExamController")
-@RequestMapping(value = "/api/wx/student/exam")
+@RequestMapping(value = "/api/wx/student/exampaper")
 @AllArgsConstructor
 @ResponseBody
-public class ExamController extends BaseWXApiController {
+public class ExamPaperController extends BaseWXApiController {
 
     private final ExamPaperService examPaperService;
     private final SubjectService subjectService;

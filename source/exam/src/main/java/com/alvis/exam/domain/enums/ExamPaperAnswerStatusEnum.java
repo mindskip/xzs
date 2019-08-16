@@ -5,7 +5,7 @@ import java.util.Map;
 
 public enum ExamPaperAnswerStatusEnum {
 
-    WaitJudge(1, "待判分"),
+    WaitJudge(1, "待批改"),
     Complete(2, "完成");
 
     int code;

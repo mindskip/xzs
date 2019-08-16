@@ -1,3 +1,12 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "i-tabs": "/component/iView/tabs/index",
+    "i-tab": "/component/iView/tab/index",
+    "i-cell-group": "/component/iView/cell-group/index",
+    "i-cell": "/component/iView/cell/index",
+    "i-page": "/component/iView/page/index",
+    "i-button": "/component/iView/button/index",
+    "i-message": "/component/iView/message/index",
+    "i-spin": "/component/iView/spin/index"
+  }
 }

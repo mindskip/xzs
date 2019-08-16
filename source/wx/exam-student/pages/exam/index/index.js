@@ -57,7 +57,7 @@ Page({
     _this.setData({
       spinShow: true
     });
-    app.formPost('/api/wx/student/exam/pageList', this.data.queryParam, function(data) {
+    app.formPost('/api/wx/student/exampaper/pageList', this.data.queryParam, function(data) {
       if (data.code === 1) {
         const re = data.response
         _this.setData({
