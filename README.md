@@ -91,6 +91,10 @@
 
 ![](doc/image/wx/student/1.png)
 ![](doc/image/wx/student/2.png)
+![](doc/image/wx/student/3.png)
+![](doc/image/wx/student/4.png)
+![](doc/image/wx/student/5.png)
+
 
 3.学之思管理系统
 
