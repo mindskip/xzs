@@ -87,7 +87,7 @@
 ![](doc/image/student/2.png)
 ![](doc/image/student/12.png)
 
-2 .小程考试系统  <font color=#FF0000>开发中</font>
+2 .小程考试系统   **_开发中_** 
 
 ![](doc/image/wx/student/1.png)
 ![](doc/image/wx/student/2.png)
