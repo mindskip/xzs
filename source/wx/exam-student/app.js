@@ -37,7 +37,8 @@ App({
 
   globalData: {
     baseAPI: "http://wx.ualvis.com:8001",
-    pageSize: 10
+    pageSize: 10,
+    userInfo: null
   },
   message: function(content, type) {
     $Message({

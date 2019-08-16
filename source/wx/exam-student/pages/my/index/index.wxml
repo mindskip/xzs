@@ -1,4 +1,32 @@
-<view>
-{{info.realName}}
+<view class="userinfo">
+  <block>
+    <open-data type="userAvatarUrl" class="userinfo-avatar"></open-data>
+    <text class="userinfo-nickname">{{info.realName}}</text>
+  </block>
 </view>
+<view>
+  <i-cell-group i-class="my-group-margin">
+    <i-cell title="个人资料" is-link url="/pages/dashboard/index">
+      <i-icon type="mine_fill" slot="icon" size="20" />
+    </i-cell>
+    <i-cell title="消息" is-link url="/pages/dashboard/index">
+      <i-icon type="message_fill" slot="icon" size="20" />
+    </i-cell>
+  </i-cell-group>
+</view>
+
+<view>
+  <i-cell-group i-class="my-group-margin">
+    <i-cell title="设置" is-link url="/pages/dashboard/index">
+      <i-icon type="setup_fill" slot="icon" size="20" />
+    </i-cell>
+    <i-cell title="反馈" is-link url="/pages/dashboard/index">
+      <i-icon type="praise_fill" slot="icon" size="20" />
+    </i-cell>
+    <i-cell title="关于" is-link url="/pages/dashboard/index">
+      <i-icon type="prompt_fill" slot="icon" size="20" />
+    </i-cell>
+  </i-cell-group>
+</view>
+
 <i-message id="message" />
