@@ -136,3 +136,15 @@ page {
     transform: rotate(360deg);
   }
 }
+
+
+
+.student-page{
+  background: white
+}
+
+.student-page button{
+  height: 30px;
+  line-height: 30px;
+  margin-top: 7px;
+}

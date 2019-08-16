@@ -269,7 +269,9 @@
     FROM t_exam_paper
     <where>
        and deleted='f'
-       and subject_id=#{subjectId}
+      <if test="subjectId != null ">
+        and subject_id=#{subjectId}
+      </if>
        and paper_type=#{paperType}
     </where>
   </select>

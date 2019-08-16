@@ -1,8 +1,17 @@
 <!--pages/exam/index/index.wxml-->
 <view>
-  <i-tabs current="{{ current }}" bindchange="handleChange">
-    <i-tab key="tab1" title="选项1"></i-tab>
-    <i-tab key="tab2" title="选项2"></i-tab>
-    <i-tab key="tab3" title="选项3"></i-tab>
+  <i-tabs current="{{ paperType }}" bindchange="tabChange">
+    <i-tab key="1" title="固定试卷" />
+    <i-tab key="4" title="时段试卷" />
   </i-tabs>
+  <view>
+    <i-cell-group wx:for="{{tableData}}" data-item="item" wx:key="{{item.id}}">
+      <i-cell title="{{item.name}}" is-link url="/pages/record/index" value="数学"></i-cell>
+    </i-cell-group>
+    <i-page current="{{queryParam.pageIndex}}" total="{{total}}" bind:change="pageChange" i-class="student-page">
+      <view slot="prev">上一页</view>
+      <view slot="next">下一页</view>
+    </i-page>
+    <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+  </view>
 </view>
