@@ -1,2 +1,4 @@
-<!--pages/my/index/index.wxml-->
-<text>pages/my/index/index.wxml</text>
+<view>
+{{info.realName}}
+</view>
+<i-message id="message" />
