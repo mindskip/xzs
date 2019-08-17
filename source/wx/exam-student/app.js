@@ -46,50 +46,46 @@ App({
       type: type
     });
   },
-  formPost: function(url, data, success, final) {
+  formPost: function(url, data) {
     let _this = this
-    wx.showNavigationBarLoading();
-    wx.request({
-      url: _this.globalData.baseAPI + url,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'token': wx.getStorageSync('token')
-      },
-      method: 'POST',
-      data,
-      success(res) {
-        if (res.statusCode !== 200 || typeof res.data !== 'object') {
-          final && final();
-          _this.message('网络出错', 'error')
+    return new Promise(function(resolve, reject) {
+      wx.showNavigationBarLoading();
+      wx.request({
+        url: _this.globalData.baseAPI + url,
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+          'token': wx.getStorageSync('token')
+        },
+        method: 'POST',
+        data,
+        success(res) {
+          if (res.statusCode !== 200 || typeof res.data !== 'object') {
+            reject('网络出错')
+            return false;
+          }
+          if (res.data.code === 401) {
+            wx.reLaunch({
+              url: '/pages/user/bind/index',
+            });
+            return false;
+          } else if (res.data.code === 500) {
+            reject(res.data.message)
+            return false;
+          } else if (res.data.code === 501) {
+            reject(res.data.message)
+            return false;
+          }
+          resolve(res.data);
+          return true;
+        },
+        fail(res) {
+          reject(res.errMsg)
           return false;
+        },
+        complete(res) {
+          wx.hideNavigationBarLoading();
         }
-        if (res.data.code === 401) {
-          wx.reLaunch({
-            url: '/pages/user/bind/index',
-          });
-          return false;
-        } else if (res.data.code === 500) {
-          final && final();
-          _this.message(res.data.message, 'error')
-          return false;
-        } else if (res.data.code === 501) {
-          final && final();
-          _this.message(res.data.message, 'error')
-          return false;
-        }
-        success && success(res.data);
-        final && final();
-        return true;
-      },
-      fail(res) {
-        final && final();
-        _this.message(res.errMsg, 'error')
-        return false;
-      },
-      complete(res) {
-        wx.hideNavigationBarLoading();
-      }
+      })
     })
   }
-
 })

@@ -14,7 +14,10 @@ Page({
     _this.setData({
       spinShow: true
     });
-    app.formPost('/api/wx/student/dashboard/index', null, function(res) {
+    app.formPost('/api/wx/student/dashboard/index', null).then(res => {
+      _this.setData({
+        spinShow: false
+      });
       if (res.code === 1) {
         _this.setData({
           fixedPaper: res.response.fixedPaper,
@@ -22,10 +25,11 @@ Page({
           pushPaper: res.response.pushPaper
         });
       }
-    }, function() {
+    }).catch(e => {
       _this.setData({
         spinShow: false
       });
+      app.message(e, 'error')
     })
   }
 })

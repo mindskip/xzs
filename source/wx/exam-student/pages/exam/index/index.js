@@ -57,9 +57,12 @@ Page({
     _this.setData({
       spinShow: true
     });
-    app.formPost('/api/wx/student/exampaper/pageList', this.data.queryParam, function(data) {
-      if (data.code === 1) {
-        const re = data.response
+    app.formPost('/api/wx/student/exampaper/pageList', this.data.queryParam).then(res => {
+      _this.setData({
+        spinShow: false
+      });
+      if (res.code === 1) {
+        const re = res.response
         _this.setData({
           ['queryParam.pageIndex']: re.pageNum,
           ['queryParam.pageSize']: app.globalData.pageSize,
@@ -67,10 +70,11 @@ Page({
           total: re.pages
         });
       }
-    }, function() {
+    }).catch(e => {
       _this.setData({
         spinShow: false
       });
+      app.message(e, 'error')
     })
   }
 })

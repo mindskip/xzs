@@ -6,20 +6,20 @@ Page({
   },
 
   onLoad: function(options) {
-    if (app.globalData.userInfo){
+    if (app.globalData.userInfo) {
       this.setData({
         info: app.globalData.userInfo,
       })
-    }else{
+    } else {
       this.loadUserInfo()
     }
   },
-  loadUserInfo(){
+  loadUserInfo() {
     let _this = this
     _this.setData({
       spinShow: true
     });
-    app.formPost('/api/wx/student/user/current', null, function (res) {
+    app.formPost('/api/wx/student/user/current', null).then(res => {
       _this.setData({
         spinShow: false
       });
@@ -28,13 +28,12 @@ Page({
         _this.setData({
           info: res.response
         });
-      } else {
-        app.message(res.message, 'error')
       }
-    }, function () {
+    }).catch(e => {
       _this.setData({
         spinShow: false
       });
+      app.message(e, 'error')
     })
   }
 })
