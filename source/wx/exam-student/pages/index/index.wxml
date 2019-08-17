@@ -20,19 +20,17 @@
     <i-cell-group>
       <i-cell wx:for="{{fixedPaper}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/record/index" link-type="reLaunch"></i-cell>
     </i-cell-group>
-     <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
   </i-panel>
   <i-panel title="时段试卷">
     <i-cell-group>
       <i-cell wx:for="{{timeLimitPaper}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/record/index" label="{{item.startTime}} 至 {{item.endTime}}"></i-cell>
     </i-cell-group>
-     <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
   </i-panel>
   <i-panel title="推送试卷">
     <i-cell-group>
       <i-cell  wx:for="{{pushPaper}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/record/index" link-type="reLaunch"></i-cell>
     </i-cell-group>
-     <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
   </i-panel>
+  <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
   <i-message id="message" />
 </view>

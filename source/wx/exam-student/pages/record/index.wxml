@@ -9,7 +9,7 @@
       <view slot="prev">上一页</view>
       <view slot="next">下一页</view>
     </i-page>
-    <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
   </view>
+  <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
   <i-message id="message" />
 </view>

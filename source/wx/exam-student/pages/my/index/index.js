@@ -20,15 +20,15 @@ Page({
       spinShow: true
     });
     app.formPost('/api/wx/student/user/current', null).then(res => {
-      _this.setData({
-        spinShow: false
-      });
       if (res.code == 1) {
         app.globalData.userInfo = res.response
         _this.setData({
           info: res.response
         });
       }
+      _this.setData({
+        spinShow: false
+      });
     }).catch(e => {
       _this.setData({
         spinShow: false

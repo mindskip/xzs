@@ -29,4 +29,5 @@
   </i-cell-group>
 </view>
 
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
 <i-message id="message" />
