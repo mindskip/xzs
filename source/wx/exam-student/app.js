@@ -2,8 +2,12 @@ const {
   $Message
 } = require('/component/iView/base/index');
 
-//app.js
 App({
+  globalData: {
+    baseAPI: "http://wx.ualvis.com:8001",
+    pageSize: 10,
+    userInfo: null
+  },
   onLaunch: function() {
     let _this = this
     let token = wx.getStorageSync('token')
@@ -33,12 +37,6 @@ App({
         }
       })
     }
-  },
-
-  globalData: {
-    baseAPI: "http://wx.ualvis.com:8001",
-    pageSize: 10,
-    userInfo: null
   },
   message: function(content, type) {
     $Message({
