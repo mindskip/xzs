@@ -64,14 +64,6 @@
    2. /exam/source/vue下为学生端、管理员端的前端代码，建议使用JetBrains WebStorm打开，使用命令：npm run serve即可编译代码
 
 
-#### 系统优化说明
-
-1. 题目试卷等文本信息均存放在t_text_content表中，可换成ElasticSearch来存储，修改TextContentService接口中的实现即可
-
-2. 学生提交的试卷信息均为同步的，提高并发可考虑异步写入，使用Kafka等消息中间件来进行题目结果保存和写入，修改事件监听器CalculateExamPaperAnswerListener中的入库代码即可
-
-3. session使用redis共享，应用可水平扩展
-
 #### 后续更新计划
 * 小程序系统，学生在线做题 
 * 完成扩展训练模块，错题本试卷扩展
