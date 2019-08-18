@@ -1,14 +1,14 @@
 # 学之思考试系统
 ![mit](doc/image/LICENSE/mit.svg)
 #### 介绍
-学之思考试系统是一款基于k12教育的考试平台，小学、初中、高中和不同学科均可以均可以使用，支持各种题型(单选、多选、判断、填空、解答)，里面包含了三大系统：学生系统、教师系统(TODO)、管理员系统、小程序系统。
+学之思考试系统是一款基于k12教育的考试平台，小学、初中、高中和不同学科均可以均可以使用，支持各种题型(单选、多选、判断、填空、解答)，里面包含了三大系统：学生系统、教师系统(TODO)、管理员系统、微信小程序学生端。
 
 演示地址(国外渣服务器，加载慢):  
    1. http://192.243.116.158   考试系统
    2. http://192.243.116.158:81   管理系统
  
 交流群号：
-   1. 530136203，直接进，无需验证
+   QQ群：[![加入QQ群](https://img.shields.io/badge/530136203-blue.svg)](https://jq.qq.com/?_wv=1027&k=5xc9pvX)  点击链接加入群聊【学之思交流群】
 
 
 学生系统模块：
@@ -23,11 +23,14 @@
 
 管理系统模块：
 * 登录： 账号为 admin/123456
-* 主页： 包含了试卷、题目、做卷数、做题数的统计功能，做卷和做题会按当月的每天统计
-* 用户管理： 对不同角色 学生、教师、管理员 的增删改查
+* 主页： 包含了试卷、题目、做卷数、做题数、用户活跃度的统计功能，活跃度和做题数是按月统计
+* 用户管理： 对不同角色 学生、教师、管理员 的增删改查管理功能
 * 卷题管理：
     1. 试卷列表：试卷的增删改查，新增包含选择学科、试卷类型、试卷名称、考试时间，试卷内容包含添加大标题，然后添加题目到此试卷中，组成一套完整的试卷
     2. 题目列表：题目的增删改查，目前题型包含单选题、多选题、判断题、填空题、简单题，支持图片、公式等。
+* 教育管理：对不同年级的学科进行增删改查
+* 消息中心：可以对多个用户进行消息发送，预留：加入班级，推送试卷等消息
+* 日志中心：用户的基本操作进行日志记录，了解用户使用过情况
 
 
 #### 软件架构
@@ -76,25 +79,39 @@
 
 1. 学之思考试系统
 
-![](doc/image/student/2.png)
-![](doc/image/student/12.png)
+<table>
+    <tr>
+        <td><img src="doc/image/student/2.png"/></td>
+        <td><img src="doc/image/student/12.png"/></td>
+    </tr>
+</table>
 
 2 .小程考试系统   **_开发中_** 
 
-![](doc/image/wx/student/1.png)
-![](doc/image/wx/student/2.png)
-![](doc/image/wx/student/3.png)
-![](doc/image/wx/student/4.png)
-![](doc/image/wx/student/5.png)
-
+<table>
+    <tr>
+        <td><img src="doc/image/wx/student/1.png"/></td>
+        <td><img src="doc/image/wx/student/2.png"/></td>
+        <td><img src="doc/image/wx/student/3.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="doc/image/wx/student/4.png"/></td>
+        <td><img src="doc/image/wx/student/5.png"/></td>
+    </tr>
+</table>
 
 3.学之思管理系统
 
-![](doc/image/admin/12.png)
-![](doc/image/admin/13.png)
+<table>
+    <tr>
+        <td><img src="doc/image/admin/12.png"/></td>
+        <td><img src="doc/image/admin/13.png"/></td>
+    </tr>
+</table>
 
 
-#### 联系方式
+#### 学之思交流群
+   QQ群：[![加入QQ群](https://img.shields.io/badge/530136203-blue.svg)](https://jq.qq.com/?_wv=1027&k=5xc9pvX)  点击链接加入群聊【学之思交流群】
 
-    交流QQ群：530136203
+### 喜欢的朋友请start一下，你的start是我后续更新的动力！！
      
