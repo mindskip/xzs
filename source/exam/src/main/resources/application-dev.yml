@@ -1,12 +1,12 @@
 ds:
-  url: jdbc:postgresql://192.168.0.12:5432/exam
+  url: jdbc:postgresql://10.103.15.180:5432/exam
   username: postgres
   password: 123456
 
 redis:
-  host: 192.168.0.12
+  host: 10.103.15.180
 
 fdfs:
-  ngix: http://192.168.0.12:8888
+  ngix: http://10.103.15.180:8888
   tracker-list:
-    - 192.168.0.12:22122
+    - 10.103.15.180:22122
