@@ -21,7 +21,7 @@
     <i-collapse accordion i-class="index-collapse">
       <i-collapse-item i-class="index-collapse-item" title="{{item.title}}" name="{{item.id}}" wx:for="{{taskList}}" data-item="item" wx:key="{{item.id}}">
         <i-cell-group slot="content">
-          <i-cell i-class="index-cell" wx:for="{{item.paperItems}}" data-item="item" wx:key="{{item.examPaperId}}" title="{{item.examPaperName}}" value="{{item.statusStr}}" is-link url="/pages/record/index" link-type="reLaunch">
+          <i-cell  i-class="index-cell" wx:for="{{item.paperItems}}" data-item="item" wx:key="{{item.examPaperId}}" title="{{item.examPaperName}}" value="{{item.statusStr}}" is-link url="{{item.examPaperAnswerId == null?'/pages/exam/index/index':'/pages/record/index'}}" link-type="reLaunch">
           </i-cell>
         </i-cell-group>
       </i-collapse-item>
