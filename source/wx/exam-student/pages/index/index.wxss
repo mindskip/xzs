@@ -18,6 +18,7 @@
 
 .index-collapse-item{
   padding: 8px 15px !important;
+  border:0px !important;
 }
 
 .slide-image {
