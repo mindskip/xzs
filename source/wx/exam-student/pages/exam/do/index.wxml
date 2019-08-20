@@ -25,10 +25,10 @@
             </view>
             <view wx:elif="{{questionItem.questionType === 2}}">
               <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" class="exam-item-left" style="line-height:35px" />
-              <checkbox-group  class="exam-item-left" style="margin-left:10px">
-                <label  wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="radioItem" class="exam-radio-item-label">
-                  <checkbox  color="#2d8cf0" value="{{radioItem.prefix}}" checked="{{radioItem.checked}}" class="exam-item-left" />
-                  <rich-text nodes="{{radioItem.content}}" class="exam-item-left" />
+              <checkbox-group class="exam-item-left" style="margin-left:10px">
+                <label wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="radioItem" class="exam-radio-item-label">
+                  <checkbox color="#2d8cf0" value="{{radioItem.prefix}}" checked="{{radioItem.checked}}" class="exam-item-left" />
+                  <rich-text nodes="{{radioItem.prefix}}. {{radioItem.content}}" class="exam-item-left" />
                 </label>
               </checkbox-group>
             </view>
@@ -41,8 +41,18 @@
                 </label>
               </radio-group>
             </view>
+            <view wx:elif="{{questionItem.questionType === 4}}">
+              <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
+              <view class="exam-input-contain"  wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="inputItem" >
+                <view class="exam-input-contain-label" >{{inputItem.prefix}}</view>
+                <input class="exam-input-contain-content"   maxlength="-1" />
+              </view>
+            </view>
             <view wx:else>
               <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
+              <view class="exam-textarea-contain">
+                <textarea placeholder="答案" maxlength="-1"></textarea>
+              </view>
             </view>
           </i-cell>
         </i-cell-group>

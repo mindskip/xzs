@@ -39,3 +39,31 @@
 .exam-item-left {
   float: left;
 }
+
+.exam-input-contain {
+  margin: 10px 2px !important;
+  border-width: 1px;
+  border-color: #dddee1;
+  border-style: solid;
+  width: 100%;
+  height: 40px;
+}
+
+.exam-input-contain-label {
+  float: left;
+  padding: 0px 15px;
+  line-height: 40px;
+}
+
+.exam-input-contain-content {
+  float: left;
+  height: 40px;
+}
+
+.exam-textarea-contain {
+  margin: 10px 2px !important;
+  border-width: 1px;
+  border-color: #dddee1;
+  border-style: solid;
+  width: 100%;
+}

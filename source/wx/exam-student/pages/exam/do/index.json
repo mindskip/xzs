@@ -8,6 +8,7 @@
     "i-radio": "/component/iView/radio/index",
     "i-row": "/component/iView/row/index",
     "i-col": "/component/iView/col/index",
+    "i-input": "/component/iView/input/index",
     "i-message": "/component/iView/message/index",
     "i-spin": "/component/iView/spin/index"
   }
