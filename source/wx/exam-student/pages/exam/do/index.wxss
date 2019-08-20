@@ -22,14 +22,20 @@
 
 .exam-name-title {
   text-align: center;
+  margin-top: 10px;
+  font-size: 17px;
 }
 
-.exam-radio-item-label{
-   float:left;
-   margin-left: 10px;
-   line-height: 35px;
+.exam-panel-title {
+  margin-top: 30px;
 }
 
-.exam-radio-item{
-  float:left;
+.exam-radio-item-label {
+  float: left;
+  margin-left: 10px;
+  line-height: 35px;
+}
+
+.exam-item-left {
+  float: left;
 }

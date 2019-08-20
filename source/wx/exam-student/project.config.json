@@ -82,7 +82,7 @@
 					"id": 4,
 					"name": "pages/exam/do/index",
 					"pathName": "pages/exam/do/index",
-					"query": "id=16",
+					"query": "id= 17",
 					"scene": null
 				}
 			]
