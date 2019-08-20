@@ -10,6 +10,7 @@ import com.alvis.exam.service.ExamPaperService;
 import com.alvis.exam.service.SubjectService;
 import com.alvis.exam.utility.DateTimeUtil;
 import com.alvis.exam.utility.PageInfoHelper;
+import com.alvis.exam.viewmodel.admin.exam.ExamPaperEditRequestVM;
 import com.alvis.exam.viewmodel.student.dashboard.IndexVM;
 import com.alvis.exam.viewmodel.student.dashboard.PaperFilter;
 import com.alvis.exam.viewmodel.student.dashboard.PaperInfo;
@@ -19,10 +20,7 @@ import com.alvis.exam.viewmodel.student.exam.ExamPaperPageVM;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Date;
@@ -38,6 +36,14 @@ public class ExamPaperController extends BaseWXApiController {
 
     private final ExamPaperService examPaperService;
     private final SubjectService subjectService;
+
+
+    @RequestMapping(value = "/select/{id}", method = RequestMethod.POST)
+    public RestResponse<ExamPaperEditRequestVM> select(@PathVariable Integer id) {
+        ExamPaperEditRequestVM vm = examPaperService.examPaperToVM(id);
+        return RestResponse.ok(vm);
+    }
+
 
     @RequestMapping(value = "/pageList", method = RequestMethod.POST)
     public RestResponse<PageInfo<ExamPaperPageResponseVM>> pageList(@Valid ExamPaperPageVM model) {

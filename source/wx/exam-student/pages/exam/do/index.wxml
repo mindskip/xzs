@@ -1,0 +1,46 @@
+<view class="exam-page">
+  <view class="view-wrap">
+    <i-count-down i-class="exam-count-down" countdown-class="exam-count-down" target="{{targetTime}}" bindcallback="timeOut" clear-timer="{{clearTimer}}"></i-count-down>
+  </view>
+  <view class="view-wrap-hidden">
+  </view>
+
+  <view>
+    <view class="exam-name-title">
+      <h1>{{form.name}}</h1>
+    </view>
+    <form bindsubmit='formSubmit'>
+
+      <i-panel title="{{titleItem.name}}" wx:for="{{form.titleItems}}" wx:for-item="titleItem" wx:key="{{titleItem.name}}">
+        <i-cell-group i-class="exam-cell">
+          <i-cell wx:for="{{titleItem.questionItems}}" wx:key="{{titleItem.id}}" wx:for-item="questionItem">
+            <view>
+              <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
+            </view>
+            <view wx:if="{{questionItem.questionType === 1}}">
+              <radio-group class="radio-group">
+                <label class="radio" wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="radioItem">
+                  <radio value="{{radioItem.prefix}}" checked="{{radioItem.checked}}" />
+                  <rich-text nodes="{{radioItem.content}}" />
+                </label>
+              </radio-group>
+            </view>
+            <view wx:elif="{{questionItem.questionType === 2}}">
+              <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
+            </view>
+            <view wx:else>
+              <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
+            </view>
+          </i-cell>
+        </i-cell-group>
+      </i-panel>
+
+      <view>
+        <button class="i-btn  i-btn-primary i-btn-square" form-type='submit'>提交</button>
+        <button class="i-btn  i-btn-ghost i-btn-square">返回</button>
+      </view>
+      <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+    </form>
+    <i-message id="message" />
+  </view>
+</view>

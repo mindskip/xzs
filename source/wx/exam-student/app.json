@@ -4,6 +4,9 @@
     "pages/user/bind/index",
     "pages/my/index/index",
     "pages/exam/index/index",
+    "pages/exam/do/index",
+    "pages/exam/edit/index",
+    "pages/exam/read/index",
     "pages/record/index"
   ],
   "window": {

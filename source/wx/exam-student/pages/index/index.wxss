@@ -16,9 +16,9 @@
   line-height: 24px;
 }
 
-.index-collapse-item{
+.index-collapse-item {
   padding: 8px 15px !important;
-  border:0px !important;
+  border: 0px !important;
 }
 
 .slide-image {
@@ -27,5 +27,9 @@
 }
 
 .index-cell {
-  padding:5px 15px !important;
+  padding: 5px 15px !important;
+}
+
+p{
+  display: none;
 }
