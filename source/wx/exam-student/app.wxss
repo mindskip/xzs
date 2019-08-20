@@ -33,3 +33,7 @@ page {
   margin: 0px 5px;
   border-bottom: 3px double red;
 }
+
+.ueditor-p {
+  display: inline !important;
+}

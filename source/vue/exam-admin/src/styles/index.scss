@@ -224,6 +224,7 @@ aside {
 
 .q-title {
   margin: 0px 5px;
+
   p {
     display: inline !important;
   }
@@ -240,29 +241,34 @@ aside {
   margin: 5px 10px;
 }
 
-.q-item-contain{
+.q-item-contain {
   display: inline-block;
 }
 
 .q-item-content {
   margin: 5px;
   white-space: normal;
+
   p {
     display: inline !important;
   }
 }
 
-.gapfilling-span{
+.gapfilling-span {
   color: red;
   padding: 0px 30px;
   margin: 0px 5px;
-  border-bottom:3px double red;
+  border-bottom: 3px double red;
 }
 
-.exampaper-item-box{
+.exampaper-item-box {
   margin-top: 20px;
 }
 
-.exampaper-item{
+.exampaper-item {
   margin: 5px 0px;
+}
+
+.ueditor-p {
+  display: inline !important;
 }
