@@ -23,3 +23,13 @@
 .exam-name-title {
   text-align: center;
 }
+
+.exam-radio-item-label{
+   float:left;
+   margin-left: 10px;
+   line-height: 35px;
+}
+
+.exam-radio-item{
+  float:left;
+}

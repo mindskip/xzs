@@ -19,9 +19,9 @@
             </view>
             <view wx:if="{{questionItem.questionType === 1}}">
               <radio-group class="radio-group">
-                <label class="radio" wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="radioItem">
-                  <radio value="{{radioItem.prefix}}" checked="{{radioItem.checked}}" />
-                  <rich-text nodes="{{radioItem.content}}" />
+                <label class="radio" wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="radioItem" class="exam-radio-item-label">
+                  <radio color="#2d8cf0"  value="{{radioItem.prefix}}" checked="{{radioItem.checked}}"  class="exam-radio-item"/>
+                  <rich-text nodes="{{radioItem.content}}" class="exam-radio-item"/>
                 </label>
               </radio-group>
             </view>

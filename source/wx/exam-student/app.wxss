@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import '/component/iView/button/index.wxss';
+@import '/component/iView/radio/index.wxss';
 
 page {
   background: #f7f7f7;
