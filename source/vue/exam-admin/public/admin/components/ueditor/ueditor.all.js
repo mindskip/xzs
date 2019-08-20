@@ -7020,7 +7020,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             //编辑器不能为空内容
 
             if (domUtils.isEmptyNode(me.body)) {
-                me.body.innerHTML = '<p>' + (browser.ie ? '' : '<br/>') + '</p>';
+                me.body.innerHTML = '<p class="ueditor-p">' + (browser.ie ? '' : '<br/>') + '</p>';
             }
             //如果要求focus, 就把光标定位到内容开始
             if (options.focus) {
@@ -7364,10 +7364,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                         domUtils.isCustomeNode(child)
                         )
                     && child === this.body.lastChild) {
-                    this.body.innerHTML = '<p>' + (browser.ie ? '&nbsp;' : '<br/>') + '</p>' + this.body.innerHTML;
+                    this.body.innerHTML = '<p class="ueditor-p">' + (browser.ie ? '&nbsp;' : '<br/>') + '</p>' + this.body.innerHTML;
 
                 } else {
                     var p = me.document.createElement('p');
+                    p.className='ueditor-p';
                     while (child) {
                         while (child && (child.nodeType == 3 || child.nodeType == 1 && dtd.p[child.tagName] && !dtd.$cdata[child.tagName])) {
                             tmpNode = child.nextSibling;
@@ -7381,6 +7382,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                             } else {
                                 child.parentNode.insertBefore(p, child);
                                 p = me.document.createElement('p');
+                                p.className='ueditor-p';
                             }
                         }
                         child = child.nextSibling;
@@ -7819,7 +7821,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             function clear() {
                 var me = this;
                 if (me.document.getElementById('initContent')) {
-                    me.body.innerHTML = '<p>' + (ie ? '' : '<br/>') + '</p>';
+                    me.body.innerHTML = '<p class="ueditor-p">' + (ie ? '' : '<br/>') + '</p>';
                     me.removeListener('firstBeforeExecCommand focus', clear);
                     setTimeout(function () {
                         me.focus();
@@ -8475,7 +8477,7 @@ var filterWord = UE.filterWord = function () {
                 //去掉多余的属性
                 .replace( /v:\w+=(["']?)[^'"]+\1/g, '' )
                 .replace( /<(!|script[^>]*>.*?<\/script(?=[>\s])|\/?(\?xml(:\w+)?|xml|meta|link|style|\w+:\w+)(?=[\s\/>]))[^>]*>/gi, "" )
-                .replace( /<p [^>]*class="?MsoHeading"?[^>]*>(.*?)<\/p>/gi, "<p><strong>$1</strong></p>" )
+                .replace( /<p [^>]*class="?MsoHeading"?[^>]*>(.*?)<\/p>/gi, "<p class='ueditor-p'><strong>$1</strong></p>" )
                 //去掉多余的属性
                 .replace( /\s+(class|lang|align)\s*=\s*(['"]?)([\w-]+)\2/ig, function(str,name,marks,val){
                     //保留list的标示
@@ -10084,6 +10086,7 @@ UE.plugins['defaultfilter'] = function () {
                             break;
                         }
                         var tmpNode, p = UE.uNode.createElement('p');
+                        p.className='ueditor-p';
                         while (tmpNode = node.firstChild()) {
                             if (tmpNode.type == 'text' || !UE.dom.dtd.$block[tmpNode.tagName]) {
                                 p.appendChild(tmpNode);
@@ -10091,6 +10094,7 @@ UE.plugins['defaultfilter'] = function () {
                                 if (p.firstChild()) {
                                     node.parentNode.insertBefore(p, node);
                                     p = UE.uNode.createElement('p');
+                                    p.className='ueditor-p';
                                 } else {
                                     node.parentNode.insertBefore(tmpNode, node);
                                 }
@@ -10276,7 +10280,7 @@ UE.commands['inserthtml'] = {
                 if(domUtils.isBoundaryNode(tmpNode,'firstChild') ){
                     tmpNode = range.endContainer;
                     if(range.endOffset == (tmpNode.nodeType == 3 ? tmpNode.nodeValue.length : tmpNode.childNodes.length) && domUtils.isBoundaryNode(tmpNode,'lastChild')){
-                        me.body.innerHTML = '<p>'+(browser.ie ? '' : '<br/>')+'</p>';
+                        me.body.innerHTML = '<p class="ueditor-p">'+(browser.ie ? '' : '<br/>')+'</p>';
                         range.setStart(me.body.firstChild,0).collapse(true)
 
                     }
@@ -10355,6 +10359,7 @@ UE.commands['inserthtml'] = {
             while ( child = div.firstChild ) {
                 if(hadBreak){
                     var p = me.document.createElement('p');
+                    p.className='ueditor-p';
                     while(child && (child.nodeType == 3 || !dtd.$block[child.tagName])){
                         nextNode = child.nextSibling;
                         p.appendChild(child);
@@ -10672,6 +10677,7 @@ UE.plugins['autotypeset'] = function(){
                                     pN = pN.parentNode;
                                 }
                                 var pNode = me.document.createElement('p');
+                                pNode.className='ueditor-p';
                                 domUtils.setAttributes(pNode,{
 
                                     style:'text-align:center'
@@ -11271,6 +11277,7 @@ UE.plugins['justify']=function(){
                         current = common;
                     } else {
                         var p = range.document.createElement('p');
+                        p.className='ueditor-p';
                         domUtils.setStyles(p, utils.isString(style) ? {'text-align':style} : style);
                         var frag = tmpRange.extractContents();
                         p.appendChild(frag);
@@ -12989,6 +12996,7 @@ UE.plugins['horizontal'] = function(){
                         if(tmp.nodeType == 1 && tmp.tagName == 'HR'){
                             if(me.options.enterTag == 'p'){
                                 tmp = me.document.createElement('p');
+                                tmp.className='ueditor-p';
                                 range.insertNode(tmp);
                                 range.setStart(tmp,0).setCursor();
 
@@ -13748,6 +13756,7 @@ UE.plugins['insertcode'] = function() {
         var start = rng.startContainer;
         if(domUtils.isTagNode(start,'pre') && rng.collapsed && domUtils.isStartInblock(rng)){
             var p = me.document.createElement('p');
+            p.className='ueditor-p';
             domUtils.fillNode(me.document,p);
             start.parentNode.insertBefore(p,start);
             domUtils.remove(start);
@@ -13787,7 +13796,7 @@ UE.commands['cleardoc'] = {
             me.body.innerHTML = "<br/>";
             range.setStart(me.body,0).setCursor();
         }else{
-            me.body.innerHTML = "<p>"+(ie ? "" : "<br/>")+"</p>";
+            me.body.innerHTML = "<p class='ueditor-p'>"+(ie ? "" : "<br/>")+"</p>";
             range.setStart(me.body.firstChild,0).setCursor(false,true);
         }
         setTimeout(function(){
@@ -14096,7 +14105,7 @@ UE.plugins['pagebreak'] = function () {
 
                 if(!nextNode){
                     var p = me.document.createElement('p');
-
+                    p.className='ueditor-p';
                     hr.parentNode.appendChild(p);
                     domUtils.fillNode(me.document,p);
                     range.setStart(p,0).collapse(true);
@@ -14712,13 +14721,14 @@ UE.plugins['paste'] = function () {
                 for (var i = 0, bi; bi = brs[i++];) {
                     var pN = bi.parentNode;
                     if (pN.tagName == 'DIV' && pN.childNodes.length == 1) {
-                        pN.innerHTML = '<p><br/></p>';
+                        pN.innerHTML = '<p class="ueditor-p"><br/></p>';
                         domUtils.remove(pN);
                     }
                 }
                 var divs = div.querySelectorAll('#baidu_pastebin');
                 for (var i = 0, di; di = divs[i++];) {
                     var tmpP = me.document.createElement('p');
+                    tmpP.className='ueditor-p';
                     di.parentNode.insertBefore(tmpP, di);
                     while (di.firstChild) {
                         tmpP.appendChild(di.firstChild);
@@ -14938,6 +14948,7 @@ UE.plugins['pasteplain'] = function(){
                 'br':{$:{}},
                 div: function (node) {
                     var tmpNode, p = UE.uNode.createElement('p');
+                    p.className='ueditor-p';
                     while (tmpNode = node.firstChild()) {
                         if (tmpNode.type == 'text' || !UE.dom.dtd.$block[tmpNode.tagName]) {
                             p.appendChild(tmpNode);
@@ -14945,6 +14956,7 @@ UE.plugins['pasteplain'] = function(){
                             if (p.firstChild()) {
                                 node.parentNode.insertBefore(p, node);
                                 p = UE.uNode.createElement('p');
+                                p.className='ueditor-p';
                             } else {
                                 node.parentNode.insertBefore(tmpNode, node);
                             }
@@ -15153,6 +15165,7 @@ UE.plugins['list'] = function () {
                                 rng.select(true);
                             }else{
                                 var tmpNode = me.document.createElement('p');
+                                tmpNode.className='ueditor-p';
                                 domUtils.fillNode(me.document,tmpNode);
                                 pn.parentNode.insertBefore(tmpNode,pn);
                                 domUtils.remove(pn);
@@ -15245,6 +15258,7 @@ UE.plugins['list'] = function () {
     me.addInputRule(function(root){
         utils.each(root.getNodesByTagName('li'),function(li){
             var tmpP = UE.uNode.createElement('p');
+            tmpP.className='ueditor-p';
             for(var i= 0,ci;ci=li.children[i];){
                 if(ci.type == 'text' || dtd.p[ci.tagName]){
                     tmpP.appendChild(ci);
@@ -15252,6 +15266,7 @@ UE.plugins['list'] = function () {
                     if(tmpP.firstChild()){
                         li.insertBefore(tmpP,ci);
                         tmpP = UE.uNode.createElement('p');
+                        tmpP.className='ueditor-p';
                         i = i + 2;
                     }else{
                         i++;
@@ -15540,7 +15555,7 @@ UE.plugins['list'] = function () {
                             pre = li.previousSibling;
                             next = li.nextSibling;
                             p = me.document.createElement('p');
-
+                            p.className='ueditor-p';
                             domUtils.fillNode(me.document, p);
                             parentList = li.parentNode;
                             if (pre && next) {
@@ -15605,6 +15620,7 @@ UE.plugins['list'] = function () {
 
                             if (!domUtils.isBlockElm(li.firstChild)) {
                                 p = me.document.createElement('p');
+                                p.className='ueditor-p';
                                 li.parentNode.insertBefore(p, li);
                                 while (li.firstChild) {
                                     p.appendChild(li.firstChild);
@@ -15621,7 +15637,7 @@ UE.plugins['list'] = function () {
                         var first = li.firstChild;
                         if (!first || !domUtils.isBlockElm(first)) {
                             var p = me.document.createElement('p');
-
+                            p.className='ueditor-p';
                             !li.firstChild && domUtils.fillNode(me.document, p);
                             while (li.firstChild) {
 
@@ -15641,7 +15657,7 @@ UE.plugins['list'] = function () {
 
                         if (!first) {
                             p = me.document.createElement('p');
-
+                            p.className='ueditor-p';
                             domUtils.fillNode(me.document, p);
                             nextLi.appendChild(p);
                             first = p;
@@ -15655,7 +15671,7 @@ UE.plugins['list'] = function () {
                         domUtils.remove(span);
                         var pre = nextLi.previousSibling;
                         if (pre && domUtils.isEmptyBlock(pre)) {
-                            pre.innerHTML = '<p></p>';
+                            pre.innerHTML = '<p class="ueditor-p"></p>';
                             domUtils.fillNode(me.document, pre.firstChild);
                         }
 
@@ -15725,6 +15741,7 @@ UE.plugins['list'] = function () {
                         } else {
                             if (domUtils.isEmptyNode(li)) {
                                 var p = me.document.createElement('p');
+                                p.className='ueditor-p';
                                 pre.appendChild(p);
                                 range.setStart(p, 0).setCursor();
 //                                    range.setEnd(pre, pre.childNodes.length).shrinkBoundary().collapse().select(true);
@@ -16002,6 +16019,7 @@ UE.plugins['list'] = function () {
                             start = start.nextSibling;
                             if (!domUtils.isBlockElm(tmp.firstChild)) {
                                 var p = me.document.createElement('p');
+                                p.className='ueditor-p';
                                 while (tmp.firstChild) {
                                     p.appendChild(tmp.firstChild);
                                 }
@@ -16013,6 +16031,7 @@ UE.plugins['list'] = function () {
                         startParent.insertBefore(tmp, end);
                         if (!domUtils.isBlockElm(end.firstChild)) {
                             p = me.document.createElement('p');
+                            p.className='ueditor-p';
                             while (end.firstChild) {
                                 p.appendChild(end.firstChild);
                             }
@@ -16077,6 +16096,7 @@ UE.plugins['list'] = function () {
                                 }
                                 if (!hasBlock) {
                                     var tmpP = me.document.createElement('p');
+                                    tmpP.className='ueditor-p';
                                     tmpP.appendChild(tmpfrag);
                                     frag.appendChild(tmpP);
                                 } else {
@@ -16115,6 +16135,7 @@ UE.plugins['list'] = function () {
                                 }
                                 if (!hasBlock) {
                                     tmpP = me.document.createElement('p');
+                                    tmpP.className='ueditor-p';
                                     tmpP.appendChild(tmpfrag);
                                     frag.appendChild(tmpP);
                                 } else {
@@ -16200,6 +16221,7 @@ UE.plugins['list'] = function () {
                         li.appendChild(tmpRange.extractContents());
                         if(domUtils.isEmptyNode(li)){
                             var tmpNode = range.document.createElement('p');
+                            tmpNode.className='ueditor-p';
                             while(li.firstChild){
                                 tmpNode.appendChild(li.firstChild)
                             }
@@ -16455,11 +16477,11 @@ UE.plugins['list'] = function () {
                     //重置getContent，源码模式下取值也能是最新的数据
                     oldGetContent = me.getContent;
                     me.getContent = function (){
-                        return sourceEditor.getContent() || '<p>' + (browser.ie ? '' : '<br/>')+'</p>';
+                        return sourceEditor.getContent() || '<p class="ueditor-p">' + (browser.ie ? '' : '<br/>')+'</p>';
                     };
                 } else {
                     me.iframe.style.cssText = bakCssText;
-                    var cont = sourceEditor.getContent() || '<p>' + (browser.ie ? '' : '<br/>')+'</p>';
+                    var cont = sourceEditor.getContent() || '<p class="ueditor-p">' + (browser.ie ? '' : '<br/>')+'</p>';
                     //处理掉block节点前后的空格,有可能会误命中，暂时不考虑
                     cont = cont.replace(new RegExp('[\\r\\t\\n ]*<\/?(\\w+)\\s*(?:[^>]*)>','g'), function(a,b){
                         if(b && !dtd.$inlineWithA[b.toLowerCase()]){
@@ -16478,7 +16500,7 @@ UE.plugins['list'] = function () {
                     var first = me.body.firstChild;
                     //trace:1106 都删除空了，下边会报错，所以补充一个p占位
                     if(!first){
-                        me.body.innerHTML = '<p>'+(browser.ie?'':'<br/>')+'</p>';
+                        me.body.innerHTML = '<p class="ueditor-p">'+(browser.ie?'':'<br/>')+'</p>';
                         first = me.body.firstChild;
                     }
 
@@ -16592,7 +16614,7 @@ UE.plugins['enterkey'] = function() {
                     if (browser.gecko) {
                         var h = domUtils.findParentByTagName(start, [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6','blockquote','caption','table'], true);
                         if (!h) {
-                            me.document.execCommand('formatBlock', false, '<p>');
+                            me.document.execCommand('formatBlock', false, '<p class="ueditor-p">');
                             doSave = 1;
                         }
                     } else {
@@ -16603,6 +16625,7 @@ UE.plugins['enterkey'] = function() {
                             div = domUtils.findParentByTagName(tmp, 'div', true);
                             if (div) {
                                 var p = me.document.createElement('p');
+                                p.className='ueditor-p';
                                 while (div.firstChild) {
                                     p.appendChild(div.firstChild);
                                 }
@@ -16663,7 +16686,7 @@ UE.plugins['enterkey'] = function() {
                     //trace:2431
                     if (!start && !browser.opera) {
 
-                        me.document.execCommand('formatBlock', false, '<p>');
+                        me.document.execCommand('formatBlock', false, '<p class="ueditor-p">');
 
                         if (browser.gecko) {
                             range = me.selection.getRange();
@@ -16783,7 +16806,7 @@ UE.plugins['keystrokes'] = function() {
                     tmpNode = rng.endContainer;
                     if(rng.endOffset == (tmpNode.nodeType == 3 ? tmpNode.nodeValue.length : tmpNode.childNodes.length) && domUtils.isBoundaryNode(tmpNode,'lastChild')){
                         me.fireEvent('saveScene');
-                        me.body.innerHTML = '<p>'+(browser.ie ? '' : '<br/>')+'</p>';
+                        me.body.innerHTML = '<p class="ueditor-p">'+(browser.ie ? '' : '<br/>')+'</p>';
                         rng.setStart(me.body.firstChild,0).setCursor(false,true);
                         me._selectionChange();
                         return;
@@ -23161,6 +23184,7 @@ UE.plugins['customstyle'] = function() {
                     //trace:1732 删掉自定义标签，要有p来回填站位
                     if(dtd.$block[node.tagName]){
                         var fillNode = me.document.createElement('p');
+                        fillNode.className='ueditor-p';
                         domUtils.moveChild(node, fillNode);
                         node.parentNode.insertBefore(fillNode, node);
                         domUtils.remove(node);
@@ -23184,6 +23208,7 @@ UE.plugins['customstyle'] = function() {
                                     )
                                 if (dtd.$block[tagName]) {
                                     var fillNode = me.document.createElement('p');
+                                    fillNode.className='ueditor-p';
                                     domUtils.moveChild(ni, fillNode);
                                     ni.parentNode.insertBefore(fillNode, ni);
                                 }
@@ -23211,6 +23236,7 @@ UE.plugins['customstyle'] = function() {
                             return node.getAttribute('label') == obj.label;
                         }, true);
                         var pNode = me.document.createElement('p');
+                        pNode.className='ueditor-p';
                         domUtils.insertAfter(node, pNode);
                         domUtils.fillNode(me.document, pNode);
                         range.setStart(pNode, 0).setCursor();
@@ -23252,6 +23278,7 @@ UE.plugins['customstyle'] = function() {
                 }, true);
                 if (node && dtd.$block[node.tagName] && domUtils.isEmptyNode(node)) {
                         var p = me.document.createElement('p');
+                        p.className='ueditor-p';
                         domUtils.insertAfter(node, p);
                         domUtils.fillNode(me.document, p);
                         domUtils.remove(node);
@@ -23510,6 +23537,7 @@ UE.commands['insertparagraph'] = {
         }
         if(tmpNode){
             var p = me.document.createElement('p');
+            p.className='ueditor-p';
             if(front){
                 tmpNode.parentNode.insertBefore(p,tmpNode)
             }else{
@@ -23866,7 +23894,7 @@ UE.plugin.register('autoupload', function (){
                 }
             };
         } else {
-            loadingHtml = '<p>' +
+            loadingHtml = '<p class="ueditor-p">' +
                 '<img class="loadingclass" id="' + loadingId + '" src="' +
                 me.options.themePath + me.options.theme +
                 '/images/spacer.gif" title="' + (me.getLang('autoupload.loading') || '') + '" >' +
@@ -24114,7 +24142,7 @@ UE.plugin.register('autosave', function (){
             'drafts':{
                 execCommand:function (cmd, name) {
                     if ( saveKey ) {
-                        me.body.innerHTML = me.getPreferences( saveKey ) || '<p>'+domUtils.fillHtml+'</p>';
+                        me.body.innerHTML = me.getPreferences( saveKey ) || '<p class="ueditor-p">'+domUtils.fillHtml+'</p>';
                         me.focus(true);
                     }
                 },
