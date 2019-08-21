@@ -63,8 +63,10 @@ Page({
   formSubmit: function(e) {
     let _this = this
     clearInterval(this.data.timer)
- 
- 
+    wx.showLoading({
+      title: '提交中',
+      mask: true
+    })
     e.detail.value.id = this.data.paperId
     e.detail.value.doTime = this.data.doTime
     console.log(e.detail.value)
