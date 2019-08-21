@@ -1,6 +1,6 @@
 <view class="exam-page">
   <view class="view-wrap">
-    <i-count-down i-class="exam-count-down" countdown-class="exam-count-down" target="{{targetTime}}" bindcallback="timeOut" clear-timer="{{clearTimer}}"></i-count-down>
+    <view class="exam-count-down">{{remainTimeStr}}</view>
   </view>
   <view class="view-wrap-hidden">
   </view>
@@ -16,7 +16,7 @@
 
             <view wx:if="{{questionItem.questionType === 1}}">
               <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
-              <radio-group class="radio-group">
+              <radio-group class="radio-group" name="{{questionItem.itemOrder}}_{{questionItem.id}}_{{questionItem.questionType}}">
                 <label class="radio" wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="radioItem" class="exam-radio-item-label">
                   <radio color="#2d8cf0" value="{{radioItem.prefix}}" checked="{{radioItem.checked}}" class="exam-item-left" />
                   <rich-text nodes="{{radioItem.prefix}}. {{radioItem.content}}" class="exam-item-left" />
@@ -25,7 +25,7 @@
             </view>
             <view wx:elif="{{questionItem.questionType === 2}}">
               <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" class="exam-item-left" style="line-height:35px" />
-              <checkbox-group class="exam-item-left" style="margin-left:10px">
+              <checkbox-group class="exam-item-left" style="margin-left:10px" name="{{questionItem.itemOrder}}_{{questionItem.id}}_{{questionItem.questionType}}">
                 <label wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="radioItem" class="exam-radio-item-label">
                   <checkbox color="#2d8cf0" value="{{radioItem.prefix}}" checked="{{radioItem.checked}}" class="exam-item-left" />
                   <rich-text nodes="{{radioItem.prefix}}. {{radioItem.content}}" class="exam-item-left" />
@@ -34,7 +34,7 @@
             </view>
             <view wx:elif="{{questionItem.questionType === 3}}">
               <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" class="exam-item-left" style="line-height:35px" />
-              <radio-group class="radio-group" class="exam-item-left" style="margin-left:10px">
+              <radio-group class="radio-group" class="exam-item-left" style="margin-left:10px" name="{{questionItem.itemOrder}}_{{questionItem.id}}_{{questionItem.questionType}}">
                 <label class="radio" wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="radioItem" class="exam-radio-item-label">
                   <radio color="#2d8cf0" value="{{radioItem.prefix}}" checked="{{radioItem.checked}}" class="exam-item-left" />
                   <rich-text nodes="{{radioItem.content}}" class="exam-item-left" />
@@ -43,15 +43,15 @@
             </view>
             <view wx:elif="{{questionItem.questionType === 4}}">
               <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
-              <view class="exam-input-contain"  wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="inputItem" >
-                <view class="exam-input-contain-label" >{{inputItem.prefix}}</view>
-                <input class="exam-input-contain-content"   maxlength="-1" />
+              <view class="exam-input-contain" wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="inputItem">
+                <view class="exam-input-contain-label">{{inputItem.prefix}}</view>
+                <input class="exam-input-contain-content" maxlength="-1" name="{{questionItem.itemOrder}}_{{questionItem.id}}_{{questionItem.questionType}}" />
               </view>
             </view>
             <view wx:else>
               <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
               <view class="exam-textarea-contain">
-                <textarea placeholder="答案" maxlength="-1"></textarea>
+                <textarea placeholder="答案" maxlength="-1" name="{{questionItem.itemOrder}}_{{questionItem.id}}_{{questionItem.questionType}}"></textarea>
               </view>
             </view>
           </i-cell>
@@ -61,8 +61,8 @@
       <view>
         <button class="i-btn  i-btn-primary i-btn-square" form-type='submit'>提交</button>
       </view>
-      <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
     </form>
+    <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
     <i-message id="message" />
   </view>
 </view>

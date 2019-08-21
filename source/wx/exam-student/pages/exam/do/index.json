@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "i-count-down": "/component/iView/count-down/index",
     "i-panel": "/component/iView/panel/index",
     "i-cell-group": "/component/iView/cell-group/index",
     "i-cell": "/component/iView/cell/index",
