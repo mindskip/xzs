@@ -60,7 +60,6 @@
 
       <view>
         <button class="i-btn  i-btn-primary i-btn-square" form-type='submit'>提交</button>
-        <button class="i-btn  i-btn-ghost i-btn-square">返回</button>
       </view>
       <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
     </form>
