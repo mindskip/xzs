@@ -107,5 +107,5 @@
 #### 学之思交流群
    QQ群：[![加入QQ群](https://img.shields.io/badge/530136203-blue.svg)](https://jq.qq.com/?_wv=1027&k=5xc9pvX)  点击链接加入群聊【学之思交流群】
 
-### 喜欢的朋友请start一下，你的start是我后续更新的动力！！
+### 喜欢的朋友请star一下，你的star是我后续更新的动力！！
      
