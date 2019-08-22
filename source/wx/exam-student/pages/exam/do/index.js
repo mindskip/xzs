@@ -69,7 +69,7 @@ Page({
     })
     e.detail.value.id = this.data.paperId
     e.detail.value.doTime = this.data.doTime
-    app.formPost('/api/wx/student/auth/bind', e.detail.value)
+    app.formPost('/api/wx/student/exampaper/answer/answerSubmit', e.detail.value)
       .then(res => {
         if (res.response.code === 1) {
 

@@ -2,10 +2,12 @@ package com.alvis.exam.controller.wx.student;
 
 import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.controller.wx.BaseWXApiController;
-import com.alvis.exam.domain.ExamPaper;
-import com.alvis.exam.domain.ExamPaperAnswer;
-import com.alvis.exam.domain.Subject;
+import com.alvis.exam.domain.*;
 import com.alvis.exam.domain.enums.ExamPaperAnswerStatusEnum;
+import com.alvis.exam.domain.enums.ExamPaperTypeEnum;
+import com.alvis.exam.domain.enums.QuestionTypeEnum;
+import com.alvis.exam.event.CalculateExamPaperAnswerCompleteEvent;
+import com.alvis.exam.event.UserEvent;
 import com.alvis.exam.service.ExamPaperAnswerService;
 import com.alvis.exam.service.ExamPaperService;
 import com.alvis.exam.service.SubjectService;
@@ -14,17 +16,23 @@ import com.alvis.exam.utility.ExamUtil;
 import com.alvis.exam.utility.PageInfoHelper;
 import com.alvis.exam.viewmodel.student.exam.ExamPaperPageResponseVM;
 import com.alvis.exam.viewmodel.student.exam.ExamPaperPageVM;
+import com.alvis.exam.viewmodel.student.exam.ExamPaperSubmitItemVM;
+import com.alvis.exam.viewmodel.student.exam.ExamPaperSubmitVM;
 import com.alvis.exam.viewmodel.student.exampaper.ExamPaperAnswerPageResponseVM;
 import com.alvis.exam.viewmodel.student.exampaper.ExamPaperAnswerPageVM;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Controller("WXStudentExamPaperAnswerController")
@@ -35,6 +43,7 @@ public class ExamPaperAnswerController extends BaseWXApiController {
 
     private final ExamPaperAnswerService examPaperAnswerService;
     private final SubjectService subjectService;
+    private final ApplicationEventPublisher eventPublisher;
 
     @RequestMapping(value = "/pageList", method = RequestMethod.POST)
     public RestResponse<PageInfo<ExamPaperAnswerPageResponseVM>> pageList(@Valid ExamPaperAnswerPageVM model) {
@@ -54,4 +63,60 @@ public class ExamPaperAnswerController extends BaseWXApiController {
         });
         return RestResponse.ok(page);
     }
+
+
+    @RequestMapping(value = "/answerSubmit", method = RequestMethod.POST)
+    public RestResponse<String> answerSubmit(HttpServletRequest request) {
+        ExamPaperSubmitVM examPaperSubmitVM = requestToExamPaperSubmitVM(request);
+        User user = getCurrentUser();
+        ExamPaperAnswerInfo examPaperAnswerInfo = examPaperAnswerService.calculateExamPaperAnswer(examPaperSubmitVM, user);
+        if (null == examPaperAnswerInfo) {
+            return RestResponse.fail(2, "试卷不能重复做");
+        }
+        ExamPaperAnswer examPaperAnswer = examPaperAnswerInfo.getExamPaperAnswer();
+        Integer userScore = examPaperAnswer.getUserScore();
+        String scoreVm = ExamUtil.scoreToVM(userScore);
+        UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
+        String content = user.getUserName() + " 提交试卷：" + examPaperAnswerInfo.getExamPaper().getName()
+                + " 得分：" + scoreVm
+                + " 耗时：" + ExamUtil.secondToVM(examPaperAnswer.getDoTime());
+        userEventLog.setContent(content);
+        eventPublisher.publishEvent(new CalculateExamPaperAnswerCompleteEvent(examPaperAnswerInfo));
+        eventPublisher.publishEvent(new UserEvent(userEventLog));
+        return RestResponse.ok(scoreVm);
+    }
+
+    private ExamPaperSubmitVM requestToExamPaperSubmitVM(HttpServletRequest request) {
+        ExamPaperSubmitVM examPaperSubmitVM = new ExamPaperSubmitVM();
+        examPaperSubmitVM.setId(Integer.parseInt(request.getParameter("id")));
+        examPaperSubmitVM.setDoTime(Integer.parseInt(request.getParameter("doTime")));
+        List<String> parameterNames = Collections.list(request.getParameterNames()).stream()
+                .filter(n -> n.contains("_"))
+                .collect(Collectors.toList());
+        //题目答案按序号分组
+        Map<String, List<String>> questionGroup = parameterNames.stream().collect(Collectors.groupingBy(p -> p.substring(0, p.indexOf("_"))));
+        List<ExamPaperSubmitItemVM> answerItems = new ArrayList<>();
+        questionGroup.forEach((k, v) -> {
+            ExamPaperSubmitItemVM examPaperSubmitItemVM = new ExamPaperSubmitItemVM();
+            String p = v.get(0);
+            String[] keys = p.split("_");
+            examPaperSubmitItemVM.setId(Integer.parseInt(keys[1]));
+            examPaperSubmitItemVM.setItemOrder(Integer.parseInt(keys[0]));
+            QuestionTypeEnum typeEnum = QuestionTypeEnum.fromCode(Integer.parseInt(keys[2]));
+            if (v.size() == 1) {
+                String content = request.getParameter(p);
+                examPaperSubmitItemVM.setContent(content);
+                if (typeEnum == QuestionTypeEnum.MultipleChoice) {
+                    examPaperSubmitItemVM.setContentArray(Arrays.asList(content.split(",")));
+                }
+            } else {  //多个空 填空题
+
+
+            }
+            answerItems.add(examPaperSubmitItemVM);
+        });
+        examPaperSubmitVM.setAnswerItems(answerItems);
+        return examPaperSubmitVM;
+    }
+
 }

@@ -1,6 +1,7 @@
 const {
   $Message
 } = require('/component/iView/base/index');
+const mtjwxsdk = require('./utils/mtj-wx-sdk.js');
 
 App({
   globalData: {

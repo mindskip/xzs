@@ -43,9 +43,9 @@
             </view>
             <view wx:elif="{{questionItem.questionType === 4}}">
               <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
-              <view class="exam-input-contain" wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="inputItem">
+              <view class="exam-input-contain" wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="inputItem" wx:for-index="idx">
                 <view class="exam-input-contain-label">{{inputItem.prefix}}</view>
-                <input class="exam-input-contain-content" maxlength="-1" name="{{questionItem.itemOrder}}_{{questionItem.id}}_{{questionItem.questionType}}" />
+                <input class="exam-input-contain-content" maxlength="-1" name="{{questionItem.itemOrder}}_{{questionItem.id}}_{{questionItem.questionType}}_{{idx}}" />
               </view>
             </view>
             <view wx:else>
