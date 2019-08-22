@@ -18,7 +18,7 @@ App({
           if (wxres.code) {
             _this.formPost('/api/wx/student/auth/checkBind', {
               "code": wxres.code
-            }, function(res) {
+            }).then(res => {
               if (res.code == 1) {
                 wx.setStorageSync('token', res.response)
                 wx.reLaunch({
@@ -31,6 +31,8 @@ App({
               } else {
                 _this.message(res.message, 'error')
               }
+            }).catch(e => {
+              _this.message(e, 'error')
             })
           } else {
             _this.message(res.errMsg, 'error')
