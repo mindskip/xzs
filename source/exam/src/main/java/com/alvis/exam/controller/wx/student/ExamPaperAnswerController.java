@@ -100,7 +100,7 @@ public class ExamPaperAnswerController extends BaseWXApiController {
             ExamPaperSubmitItemVM examPaperSubmitItemVM = new ExamPaperSubmitItemVM();
             String p = v.get(0);
             String[] keys = p.split("_");
-            examPaperSubmitItemVM.setId(Integer.parseInt(keys[1]));
+            examPaperSubmitItemVM.setQuestionId(Integer.parseInt(keys[1]));
             examPaperSubmitItemVM.setItemOrder(Integer.parseInt(keys[0]));
             QuestionTypeEnum typeEnum = QuestionTypeEnum.fromCode(Integer.parseInt(keys[2]));
             if (v.size() == 1) {
@@ -110,13 +110,15 @@ public class ExamPaperAnswerController extends BaseWXApiController {
                     examPaperSubmitItemVM.setContentArray(Arrays.asList(content.split(",")));
                 }
             } else {  //多个空 填空题
-
-
+                List<String> answers = v.stream().sorted(Comparator.comparingInt(ExamUtil::lastNum)).map(inputKey -> request.getParameter(inputKey)).collect(Collectors.toList());
+                examPaperSubmitItemVM.setContentArray(answers);
             }
             answerItems.add(examPaperSubmitItemVM);
         });
         examPaperSubmitVM.setAnswerItems(answerItems);
         return examPaperSubmitVM;
     }
+
+
 
 }

@@ -63,6 +63,10 @@
       </view>
     </form>
     <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+
+    <i-modal title="考试结果" visible="{{modalShow}}"  bind:ok="returnRecord" bind:cancel="returnRecord">
+      <view>得分：{{result}}</view>
+    </i-modal>
     <i-message id="message" />
   </view>
 </view>

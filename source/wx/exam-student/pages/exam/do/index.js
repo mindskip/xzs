@@ -11,7 +11,9 @@ Page({
     timer: null,
     doTime: 0,
     remainTime: 0,
-    remainTimeStr: ''
+    remainTimeStr: '',
+    modalShow: false,
+    result: 0
   },
   onLoad: function(options) {
     let paperId = options.id
@@ -60,6 +62,11 @@ Page({
   onUnload() {
     clearInterval(this.data.timer)
   },
+  returnRecord() {
+    wx.reLaunch({
+      url: '/pages/record/index',
+    });
+  },
   formSubmit: function(e) {
     let _this = this
     clearInterval(this.data.timer)
@@ -71,8 +78,11 @@ Page({
     e.detail.value.doTime = this.data.doTime
     app.formPost('/api/wx/student/exampaper/answer/answerSubmit', e.detail.value)
       .then(res => {
-        if (res.response.code === 1) {
-
+        if (res.code === 1) {
+          _this.setData({
+            modalShow: true,
+            result: res.response
+          });
         } else {
           app.message(res.response, 'error')
         }

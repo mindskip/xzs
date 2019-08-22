@@ -53,4 +53,11 @@ public class ExamUtil {
     public static List<String> contentToArray(String contentArray) {
         return Arrays.asList(contentArray.split(ANSWER_SPLIT));
     }
+
+    private static final String FORM_ANSWER_SPLIT = "_";
+
+    public static Integer lastNum(String str) {
+        Integer start = str.lastIndexOf(FORM_ANSWER_SPLIT);
+        return Integer.parseInt(str.substring(start + 1));
+    }
 }
