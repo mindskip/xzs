@@ -4,7 +4,7 @@ const {
 
 App({
   globalData: {
-    baseAPI: "http://wx.ualvis.com:8001",
+    baseAPI: "http://wx.alvisu.com:8001",
     pageSize: 10,
     userInfo: null
   },
