@@ -67,3 +67,10 @@
   border-style: solid;
   width: 100%;
 }
+
+.exam-timeout-title{
+  font-size: 16px;
+  color: red;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

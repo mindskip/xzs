@@ -13,7 +13,8 @@ Page({
     remainTime: 0,
     remainTimeStr: '',
     modalShow: false,
-    result: 0
+    result: 0,
+    timeOutShow: false
   },
   onLoad: function(options) {
     let paperId = options.id
@@ -46,7 +47,7 @@ Page({
     let timer = setInterval(function() {
       let remainTime = _this.data.remainTime
       if (remainTime <= 0) {
-        //_this.submitForm()
+        _this.timeOut()
       } else {
         _this.setData({
           remainTime: remainTime - 1,
@@ -67,9 +68,17 @@ Page({
       url: '/pages/record/index',
     });
   },
+  timeOut() {
+    clearInterval(this.data.timer)
+    this.setData({
+      timeOutShow: true
+    });
+  },
   formSubmit: function(e) {
     let _this = this
-    clearInterval(this.data.timer)
+    if (this.data.timer) {
+      clearInterval(this.data.timer)
+    }
     wx.showLoading({
       title: '提交中',
       mask: true

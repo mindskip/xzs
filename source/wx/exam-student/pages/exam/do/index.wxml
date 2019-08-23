@@ -61,12 +61,20 @@
       <view>
         <button class="i-btn  i-btn-primary i-btn-square" form-type='submit'>提交</button>
       </view>
-    </form>
-    <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
 
-    <i-modal title="考试结果" visible="{{modalShow}}"  bind:ok="returnRecord" bind:cancel="returnRecord">
+      <i-action-sheet visible="true" visible="{{timeOutShow}}" mask-closable="{{ false }}">
+        <view slot="header" style="padding: 16px">
+          <view class="exam-timeout-title">考试试卷结束，请提交试卷！</view>
+          <button class="i-btn  i-btn-primary i-btn-square" form-type='submit'>提交</button>
+        </view>
+      </i-action-sheet>
+    </form>
+
+    <i-modal title="考试结果" visible="{{modalShow}}" bind:ok="returnRecord" bind:cancel="returnRecord">
       <view>得分：{{result}}</view>
     </i-modal>
+
+    <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
     <i-message id="message" />
   </view>
 </view>
