@@ -6,7 +6,7 @@
 </view>
 <view>
   <i-cell-group i-class="my-group-margin">
-    <i-cell title="个人资料" is-link url="/pages/dashboard/index">
+    <i-cell title="个人资料" is-link url="/pages/user/info/index">
       <i-icon type="mine_fill" slot="icon" size="20" />
     </i-cell>
        <i-cell title="个人动态" is-link url="/pages/dashboard/index">
