@@ -1,0 +1,36 @@
+<!--pages/user/info/index.wxml-->
+
+<form bindsubmit='formSubmit'>
+  <i-panel title="真实姓名">
+    <i-input value="{{ realName }}" name="realName" maxlength="-1" autofocus />
+  </i-panel>
+  <i-panel title="年龄">
+    <i-input value="{{ age }}" name="age" maxlength="-1" />
+  </i-panel>
+  <i-panel title="性别">
+      <i-radio-group current="{{ sexVal }}" bindchange="handleSexChange">
+          <i-radio wx:for="{{ sexItems }}" position="{{ position }}" wx:key="{{item.key}}" value="{{item.value}}">
+          </i-radio>
+      </i-radio-group>
+  </i-panel>
+  <i-panel title="出生日期">
+      <picker class="weui-btn" mode="date" value="{{birthDay}}" bindchange="bindDateChange">
+          <i-input value="{{ birthDay }}" name="birthDay" maxlength="-1"/>
+      </picker>
+  </i-panel>
+  <i-panel title="手机">
+      <i-input value="{{ phone }}" name="phone" maxlength="-1" />
+   </i-panel>
+  <i-panel title="年级">
+      <picker class="weui-btn" mode="selector" range="{{ levelItems }}" range-key="{{'value'}}" value="{{levelIndex}}" bindchange="bindLevelChange">
+          <i-input value="{{levelItems[levelIndex].value}}" maxlength="-1"/>
+      </picker>
+  </i-panel>
+  <view>
+    <button class="i-btn i-btn- i-btn-primary i-btn-square" form-type='submit'>保存</button>
+  </view>
+
+  <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+</form>
+
+<i-message id="message" />
