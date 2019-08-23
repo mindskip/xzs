@@ -28,6 +28,12 @@ router.beforeEach(async (to, from, next) => {
     document.title = '\u200E'
   }
   store.commit('router/initRoutes')
+
+  if (to.path) {
+    // eslint-disable-next-line no-undef
+    _hmt.push(['_trackPageview', '/#' + to.fullPath])
+  }
+
   next()
 })
 
