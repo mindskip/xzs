@@ -8,7 +8,9 @@
     "pages/exam/edit/index",
     "pages/exam/read/index",
     "pages/record/index",
-    "pages/user/info/index"
+    "pages/user/info/index",
+    "pages/user/msg/index",
+    "pages/user/msginfo/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

@@ -22,5 +22,7 @@ public interface MessageService {
 
     void read(Integer id);
 
-   Integer unReadCount(Integer userId);
+    Integer unReadCount(Integer userId);
+
+    Message messageDetail(Integer id);
 }

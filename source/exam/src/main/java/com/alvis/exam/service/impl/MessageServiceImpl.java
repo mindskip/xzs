@@ -73,5 +73,10 @@ public class MessageServiceImpl implements MessageService {
         return messageUserMapper.unReadCount(userId);
     }
 
+    @Override
+    public Message messageDetail(Integer id) {
+        MessageUser messageUser = messageUserMapper.selectByPrimaryKey(id);
+        return messageMapper.selectByPrimaryKey(messageUser.getMessageId());
+    }
 
 }

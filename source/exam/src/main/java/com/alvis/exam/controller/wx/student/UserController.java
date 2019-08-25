@@ -81,8 +81,7 @@ public class UserController extends BaseWXApiController {
     }
 
     @RequestMapping(value = "/message/page", method = RequestMethod.POST)
-    public RestResponse<PageInfo<MessageResponseVM>> messagePageList() {
-        MessageRequestVM messageRequestVM = new MessageRequestVM();
+    public RestResponse<PageInfo<MessageResponseVM>> messagePageList(MessageRequestVM messageRequestVM) {
         messageRequestVM.setReceiveUserId(getCurrentUser().getId());
         PageInfo<MessageUser> messageUserPageInfo = messageService.studentPage(messageRequestVM);
         List<Integer> ids = messageUserPageInfo.getList().stream().map(d -> d.getMessageId()).collect(Collectors.toList());
@@ -99,6 +98,13 @@ public class UserController extends BaseWXApiController {
         });
         return RestResponse.ok(page);
     }
+
+    @RequestMapping(value = "/message/detail/{id}", method = RequestMethod.POST)
+    public RestResponse messageDetail(@PathVariable Integer id) {
+        Message message = messageService.messageDetail(id);
+        return RestResponse.ok(message);
+    }
+
 
     @RequestMapping(value = "/message/unreadCount", method = RequestMethod.POST)
     public RestResponse unReadCount() {
