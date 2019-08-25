@@ -329,18 +329,22 @@ COMMENT ON COLUMN "public"."t_user_event_log"."create_time" IS '时间';
 -- ----------------------------
 -- Table structure for t_user_token
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."t_user_token";
 CREATE TABLE "public"."t_user_token" (
   "id" serial4 primary key,
   "token" uuid,
   "user_id" int4,
   "wx_open_id" varchar(255) COLLATE "pg_catalog"."default",
   "create_time" timestamp(6),
-  "end_time" timestamp(6)
+  "end_time" timestamp(6),
+  "user_name" varchar(255) COLLATE "pg_catalog"."default"
 )
 ;
 COMMENT ON COLUMN "public"."t_user_token"."user_id" IS '用户Id';
 COMMENT ON COLUMN "public"."t_user_token"."wx_open_id" IS '微信openId';
+COMMENT ON COLUMN "public"."t_user_token"."user_name" IS '用户名';
+
+
+
 
 -- ----------------------------
 -- Table structure for t_message
