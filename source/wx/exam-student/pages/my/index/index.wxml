@@ -9,10 +9,10 @@
     <i-cell title="个人资料" is-link url="/pages/user/info/index">
       <i-icon type="mine_fill" slot="icon" size="20" />
     </i-cell>
-       <i-cell title="个人动态" is-link url="/pages/dashboard/index">
+       <i-cell title="个人动态" is-link url="/pages/user/log/index">
       <i-icon type="collection_fill" slot="icon" size="20" />
     </i-cell>
-    <i-cell title="消息" is-link url="/pages/user/msg/index">
+    <i-cell title="消息" is-link url="/pages/user/message/list/index">
       <i-icon type="message_fill" slot="icon" size="20" />
     </i-cell>
   </i-cell-group>

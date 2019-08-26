@@ -1,0 +1,21 @@
+/* pages/user/log/index.wxss */
+@import '/component/iView/steps/index.wxss';
+@import '/component/iView/step/index.wxss';
+
+.i-step-ico {
+    background: #fff !important;
+    box-sizing: border-box !important;
+}
+
+.i-step-item-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1c2438;
+}
+
+.i-step-item-content {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 2px;
+    color: #80848f;
+}

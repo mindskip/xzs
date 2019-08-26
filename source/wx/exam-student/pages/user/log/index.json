@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "i-steps": "/component/iView/steps/index",
+    "i-step": "/component/iView/step/index",
+    "i-message": "/component/iView/message/index",
+    "i-spin": "/component/iView/spin/index",
+    "i-panel": "/component/iView/panel/index"
+  }
+}
