@@ -9,8 +9,9 @@
     "pages/exam/read/index",
     "pages/record/index",
     "pages/user/info/index",
-    "pages/user/msg/index",
-    "pages/user/msginfo/index"
+    "pages/user/message/info/index",
+    "pages/user/message/list/index",
+    "pages/user/log/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
