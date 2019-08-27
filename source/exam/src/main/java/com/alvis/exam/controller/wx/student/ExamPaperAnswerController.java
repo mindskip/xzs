@@ -14,20 +14,15 @@ import com.alvis.exam.service.SubjectService;
 import com.alvis.exam.utility.DateTimeUtil;
 import com.alvis.exam.utility.ExamUtil;
 import com.alvis.exam.utility.PageInfoHelper;
-import com.alvis.exam.viewmodel.student.exam.ExamPaperPageResponseVM;
-import com.alvis.exam.viewmodel.student.exam.ExamPaperPageVM;
-import com.alvis.exam.viewmodel.student.exam.ExamPaperSubmitItemVM;
-import com.alvis.exam.viewmodel.student.exam.ExamPaperSubmitVM;
+import com.alvis.exam.viewmodel.admin.exam.ExamPaperEditRequestVM;
+import com.alvis.exam.viewmodel.student.exam.*;
 import com.alvis.exam.viewmodel.student.exampaper.ExamPaperAnswerPageResponseVM;
 import com.alvis.exam.viewmodel.student.exampaper.ExamPaperAnswerPageVM;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -44,6 +39,7 @@ public class ExamPaperAnswerController extends BaseWXApiController {
     private final ExamPaperAnswerService examPaperAnswerService;
     private final SubjectService subjectService;
     private final ApplicationEventPublisher eventPublisher;
+    private final ExamPaperService examPaperService;
 
     @RequestMapping(value = "/pageList", method = RequestMethod.POST)
     public RestResponse<PageInfo<ExamPaperAnswerPageResponseVM>> pageList(@Valid ExamPaperAnswerPageVM model) {
@@ -120,5 +116,14 @@ public class ExamPaperAnswerController extends BaseWXApiController {
     }
 
 
-
+    @PostMapping(value = "/read/{id}")
+    public RestResponse<ExamPaperReadVM> read(@PathVariable Integer id) {
+        ExamPaperAnswer examPaperAnswer = examPaperAnswerService.selectById(id);
+        ExamPaperReadVM vm = new ExamPaperReadVM();
+        ExamPaperEditRequestVM paper = examPaperService.examPaperToVM(examPaperAnswer.getExamPaperId());
+        ExamPaperSubmitVM answer = examPaperAnswerService.examPaperAnswerToVM(examPaperAnswer.getId());
+        vm.setPaper(paper);
+        vm.setAnswer(answer);
+        return RestResponse.ok(vm);
+    }
 }

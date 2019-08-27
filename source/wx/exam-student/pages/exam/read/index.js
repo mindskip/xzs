@@ -1,66 +1,59 @@
-// pages/exam/read/index.js
+import {
+  formatSeconds,
+} from '../../../utils/util.js'
+
+let app = getApp()
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
-
+    spinShow: false,
+    paperId: null,
+    paper: {},
+    answer: {},
+    timer: null,
+    doTime: 0,
+    remainTime: 0,
+    remainTimeStr: '',
+    modalShow: false,
+    result: 0,
+    timeOutShow: false
   },
-
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    let paperId = options.id
+    let _this = this
+    _this.setData({
+      spinShow: true
+    });
+    app.formPost('/api/wx/student/exampaper/answer/read/' + paperId, null)
+        .then(res => {
+          _this.setData({
+            spinShow: false
+          });
+          if (res.code === 1) {
+            _this.setData({
+              paper: res.response.paper,
+              answer: res.response.answer,
+              paperId: paperId,
+            });
+          }
+        }).catch(e => {
+      _this.setData({
+        spinShow: false
+      });
+      app.message(e, 'error')
+    })
   },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
+  onUnload() {
+    clearInterval(this.data.timer)
   },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
+  returnRecord() {
+    wx.reLaunch({
+      url: '/pages/record/index',
+    });
   },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+  timeOut() {
+    clearInterval(this.data.timer)
+    this.setData({
+      timeOutShow: true
+    });
   }
 })

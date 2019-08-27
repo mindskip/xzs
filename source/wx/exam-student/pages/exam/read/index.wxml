@@ -1,2 +1,25 @@
-<!--pages/exam/read/index.wxml-->
-<text>pages/exam/read/index.wxml</text>
+<view class="exam-page">
+    <view class="view-wrap-hidden">
+    </view>
+    <view>
+        <view class="exam-name-title">
+            <h1>{{paper.name}}</h1>
+        </view>
+        <view class="exam-result">
+            <h1 class="">试卷得分: {{paper.score}}</h1>
+            <h1 class="exam-result-detail">试卷耗时: {{paper.suggestTime}}秒</h1>
+        </view>
+        <form bindsubmit='formSubmit'>
+            <i-panel title="{{titleItem.name}}" wx:for="{{paper.titleItems}}" wx:for-item="titleItem"
+                     wx:key="{{titleItem.name}}" i-class="exam-panel-title">
+                <i-cell-group i-class="exam-cell">
+                    <i-cell wx:for="{{titleItem.questionItems}}" wx:key="{{titleItem.id}}" wx:for-item="questionItem">
+                        <e-exam-show qType="{{questionItem.questionType}}" answer="{{answer.answerItems[questionItem.itemOrder-1]}}" question="{{questionItem}}"></e-exam-show>
+                    </i-cell>
+                </i-cell-group>
+            </i-panel>
+        </form>
+        <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+        <i-message id="message"/>
+    </view>
+</view>

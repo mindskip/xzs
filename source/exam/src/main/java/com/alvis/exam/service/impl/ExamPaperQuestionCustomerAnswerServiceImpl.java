@@ -62,6 +62,7 @@ public class ExamPaperQuestionCustomerAnswerServiceImpl extends BaseServiceImpl<
         examPaperSubmitItemVM.setDoRight(qa.getDoRight());
         examPaperSubmitItemVM.setItemOrder(qa.getItemOrder());
         examPaperSubmitItemVM.setQuestionScore(ExamUtil.scoreToVM(qa.getQuestionScore()));
+        examPaperSubmitItemVM.setScore(ExamUtil.scoreToVM(qa.getCustomerScore()));
         setSpecialToVM(examPaperSubmitItemVM, qa);
         return examPaperSubmitItemVM;
     }
