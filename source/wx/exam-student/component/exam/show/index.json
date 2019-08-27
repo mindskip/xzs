@@ -1,4 +1,5 @@
 {
+  "component": true,
   "usingComponents": {
     "i-panel": "/component/iView/panel/index",
     "i-cell-group": "/component/iView/cell-group/index",
@@ -13,6 +14,6 @@
     "i-message": "/component/iView/message/index",
     "i-spin": "/component/iView/spin/index",
     "i-divider": "/component/iView/divider/index",
-    "e-exam-show": "/component/exam/show/index"
+    "i-icon": "/component/iView/icon/index"
   }
 }
