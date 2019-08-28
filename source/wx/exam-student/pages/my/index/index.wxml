@@ -6,13 +6,13 @@
 </view>
 <view>
   <i-cell-group i-class="my-group-margin">
-    <i-cell title="个人资料" is-link url="/pages/user/info/index">
+    <i-cell title="个人资料" is-link url="/pages/my/info/index">
       <i-icon type="mine_fill" slot="icon" size="20" />
     </i-cell>
-       <i-cell title="个人动态" is-link url="/pages/user/log/index">
+       <i-cell title="个人动态" is-link url="/pages/my/log/index">
       <i-icon type="collection_fill" slot="icon" size="20" />
     </i-cell>
-    <i-cell title="消息" is-link url="/pages/user/message/list/index">
+    <i-cell title="消息" is-link url="/pages/my/message/list/index">
       <i-icon type="message_fill" slot="icon" size="20" />
     </i-cell>
   </i-cell-group>

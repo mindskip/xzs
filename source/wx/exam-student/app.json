@@ -2,16 +2,16 @@
   "pages": [
     "pages/index/index",
     "pages/user/bind/index",
-    "pages/my/index/index",
     "pages/exam/index/index",
     "pages/exam/do/index",
     "pages/exam/edit/index",
     "pages/exam/read/index",
     "pages/record/index",
-    "pages/user/info/index",
-    "pages/user/message/info/index",
-    "pages/user/message/list/index",
-    "pages/user/log/index"
+    "pages/my/index/index",
+    "pages/my/info/index",
+    "pages/my/message/info/index",
+    "pages/my/message/list/index",
+    "pages/my/log/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

@@ -1,0 +1,24 @@
+/* pages/user/log/index.wxss */
+@import '/component/iView/steps/index.wxss';
+@import '/component/iView/step/index.wxss';
+
+.i-step-ico {
+  background: #fff !important;
+  box-sizing: border-box !important;
+}
+
+.i-step-item-title {
+  font-size: 12px;
+  font-weight: 400 !important;
+}
+
+.i-step-item-content {
+  font-size: 12px;
+  font-weight: 400 !important;
+}
+
+.user-log-page {
+  background: #fff;
+  padding: 5px;
+  padding-top: 10px;
+}

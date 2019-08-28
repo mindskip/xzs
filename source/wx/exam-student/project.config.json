@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -83,6 +83,27 @@
 					"name": "pages/exam/do/index",
 					"pathName": "pages/exam/do/index",
 					"query": "id=17",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/log/index",
+					"pathName": "pages/my/log/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/message/list/index",
+					"pathName": "pages/my/message/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/message/info/index",
+					"pathName": "pages/my/message/info/index",
+					"query": "id=11",
 					"scene": null
 				}
 			]
