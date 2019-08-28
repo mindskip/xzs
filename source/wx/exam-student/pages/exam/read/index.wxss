@@ -1,1 +1,42 @@
-/* pages/exam/read/index.wxss */
+.exam-page {
+    background: white;
+}
+
+.view-wrap {
+    position: fixed;
+    width: 100%;
+    background: #fff6f6;
+    text-align: center;
+    height: 35px;
+    z-index: 999;
+}
+
+.view-wrap-hidden {
+    height: 15px;
+}
+
+.exam-name-title {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.exam-result {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.exam-result-detail {
+    margin-left: 25px;
+}
+
+.exam-panel-title {
+    margin-top: 20px;
+}
+
+
+
+
+
+

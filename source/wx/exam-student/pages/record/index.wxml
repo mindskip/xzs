@@ -2,7 +2,7 @@
 <view>
   <view>
     <i-cell-group>
-      <i-cell wx:for="{{tableData}}" data-item="item" wx:key="{{item.id}}" title="{{item.paperName}}" is-link url="/pages/record/index" value="{{item.statusStr}}" label="{{item.subjectName}}  对错：{{item.questionCorrect}}/{{item.questionCount}} 时间：{{item.createTime}} "
+      <i-cell wx:for="{{tableData}}" data-item="item" wx:key="{{item.id}}" title="{{item.paperName}}" is-link url="/pages/exam/read/index?id={{item.id}}" value="{{item.statusStr}}" label="{{item.subjectName}}  对错：{{item.questionCorrect}}/{{item.questionCount}} 时间：{{item.createTime}} "
       />
     </i-cell-group>
     <i-page current="{{queryParam.pageIndex}}" total="{{total}}" bind:change="pageChange" i-class="student-page">
