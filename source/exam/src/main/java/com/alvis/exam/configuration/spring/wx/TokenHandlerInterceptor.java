@@ -13,6 +13,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 
 @Component
 
@@ -39,8 +40,16 @@ public class TokenHandlerInterceptor implements HandlerInterceptor {
             RestUtil.response(response, SystemCode.UNAUTHORIZED);
             return false;
         }
+
+        Date now = new Date();
         User user = userService.getUserByUserName(userToken.getUserName());
-        USER_THREAD_LOCAL.set(user);
+        if (now.before(userToken.getEndTime())) {
+            USER_THREAD_LOCAL.set(user);
+        } else {   //refresh token
+            UserToken refreshToken = userTokenService.insertUserToken(user);
+            RestUtil.response(response, SystemCode.AccessTokenError.getCode(), refreshToken.getToken());
+            return false;
+        }
         return true;
     }
 

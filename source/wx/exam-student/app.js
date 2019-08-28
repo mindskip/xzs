@@ -8,10 +8,53 @@ App({
     baseAPI: "http://wx.alvisu.com:8001",
     pageSize: 10,
     userInfo: null,
-    sexEnum: [{ 'key': 1, 'value': '男' }, { 'key': 2, 'value': '女' }],
-    levelEnum: [{ 'key': 1, 'value': '一年级' }, { 'key': 2, 'value': '二年级' }, { 'key': 3, 'value': '三年级' }, { 'key': 4, 'value': '四年级' }, { 'key': 5, 'value': '五年级' }, { 'key': 6, 'value': '六年级' },
-      { 'key': 7, 'value': '初一' }, { 'key': 8, 'value': '初二' }, { 'key': 9, 'value': '初三' },
-      { 'key': 10, 'value': '高一' }, { 'key': 11, 'value': '高二' }, { 'key': 12, 'value': '高三' }],
+    sexEnum: [{
+      'key': 1,
+      'value': '男'
+    }, {
+      'key': 2,
+      'value': '女'
+    }],
+    levelEnum: [{
+        'key': 1,
+        'value': '一年级'
+      }, {
+        'key': 2,
+        'value': '二年级'
+      }, {
+        'key': 3,
+        'value': '三年级'
+      }, {
+        'key': 4,
+        'value': '四年级'
+      }, {
+        'key': 5,
+        'value': '五年级'
+      }, {
+        'key': 6,
+        'value': '六年级'
+      },
+      {
+        'key': 7,
+        'value': '初一'
+      }, {
+        'key': 8,
+        'value': '初二'
+      }, {
+        'key': 9,
+        'value': '初三'
+      },
+      {
+        'key': 10,
+        'value': '高一'
+      }, {
+        'key': 11,
+        'value': '高二'
+      }, {
+        'key': 12,
+        'value': '高三'
+      }
+    ],
   },
   onLaunch: function() {
     let _this = this
@@ -68,7 +111,24 @@ App({
             reject('网络出错')
             return false;
           }
-          if (res.data.code === 401) {
+
+          if (res.data.code === 400) {
+            let token = res.data.message
+            wx.setStorageSync('token', token)
+            wx.request({
+              url: _this.globalData.baseAPI + url,
+              header: {
+                'content-type': 'application/x-www-form-urlencoded',
+                'token': wx.getStorageSync('token')
+              },
+              method: 'POST',
+              data,
+              success(result) {
+                resolve(result.data);
+                return true;
+              }
+            })
+          } else if (res.data.code === 401) {
             wx.reLaunch({
               url: '/pages/user/bind/index',
             });

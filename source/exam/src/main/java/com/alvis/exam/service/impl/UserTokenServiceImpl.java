@@ -62,8 +62,8 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
         return userTokenMapper.getToken(token);
     }
 
-
-    private UserToken insertUserToken(User user) {
+    @Override
+    public UserToken insertUserToken(User user) {
         Date startTime = new Date();
         Date endTime = DateTimeUtil.addDuration(startTime, systemConfig.getWx().getTokenToLive());
         UserToken userToken = new UserToken();

@@ -15,4 +15,6 @@ public interface UserTokenService extends BaseService<UserToken> {
     UserToken checkBind(String openId);
 
     UserToken getToken(String token);
+
+    UserToken insertUserToken(User user);
 }

@@ -75,7 +75,6 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 
     @Override
     public User getUserByUuid(String uuid) {
-
         return userMapper.getUserByUuid(uuid);
     }
 
