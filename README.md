@@ -8,8 +8,8 @@
    2. http://129.28.206.15:81   管理系统
  
  源码地址：
-   1.https://gitee.com/alvis-yu/exam  gitte 主要更新地
-   2.https://github.com/alvis-u/exam  github
+   1. https://gitee.com/alvis-yu/exam  gitte 主要更新地
+   2. https://github.com/alvis-u/exam  github 
 
 学生系统模块：
 * 登录、注册： 注册时要选年级，过滤不同年级的试卷， 账号为student/123456
