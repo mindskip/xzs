@@ -1,12 +1,14 @@
-ds:
-  url: jdbc:postgresql://10.103.15.180:5432/exam2
-  username: postgres
-  password: 123456
+spring:
+  redis:
+    host: localhost
+  datasource:
+    url: jdbc:postgresql://localhost:5432/exam
+    username: postgres
+    password: 123456
 
-redis:
-  host: 10.103.15.180
+system:
+  fdfs-ngix: http://localhost:8888
 
 fdfs:
-  ngix: http://10.103.15.180:8888
   tracker-list:
-    - 10.103.15.180:22122
+    - localhost:22122
