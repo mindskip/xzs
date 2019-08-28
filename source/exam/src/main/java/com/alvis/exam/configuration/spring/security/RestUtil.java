@@ -23,8 +23,13 @@ public class RestUtil {
     }
 
     public static void response(HttpServletResponse response, int systemCode, String msg) {
+        response(response, systemCode, msg, null);
+    }
+
+
+    public static void response(HttpServletResponse response, int systemCode, String msg, Object content) {
         try {
-            RestResponse res = new RestResponse<>(systemCode, msg);
+            RestResponse res = new RestResponse<>(systemCode, msg, content);
             String resStr = JsonUtil.toJsonStr(res);
             response.setContentType("application/json;charset=utf-8");
             response.getWriter().write(resStr);

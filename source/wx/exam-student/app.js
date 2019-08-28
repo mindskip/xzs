@@ -113,7 +113,7 @@ App({
           }
 
           if (res.data.code === 400) {
-            let token = res.data.message
+            let token = res.data.response
             wx.setStorageSync('token', token)
             wx.request({
               url: _this.globalData.baseAPI + url,
@@ -139,9 +139,10 @@ App({
           } else if (res.data.code === 501) {
             reject(res.data.message)
             return false;
+          } else {
+            resolve(res.data);
+            return true;
           }
-          resolve(res.data);
-          return true;
         },
         fail(res) {
           reject(res.errMsg)

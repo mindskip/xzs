@@ -45,12 +45,12 @@ public class TokenHandlerInterceptor implements HandlerInterceptor {
         User user = userService.getUserByUserName(userToken.getUserName());
         if (now.before(userToken.getEndTime())) {
             USER_THREAD_LOCAL.set(user);
+            return true;
         } else {   //refresh token
             UserToken refreshToken = userTokenService.insertUserToken(user);
-            RestUtil.response(response, SystemCode.AccessTokenError.getCode(), refreshToken.getToken());
+            RestUtil.response(response, SystemCode.AccessTokenError.getCode(), SystemCode.AccessTokenError.getMessage(), refreshToken.getToken());
             return false;
         }
-        return true;
     }
 
     public static ThreadLocal<User> getUserThreadLocal() {
