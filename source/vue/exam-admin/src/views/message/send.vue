@@ -72,11 +72,13 @@ export default {
           messageApi.send(this.form).then(data => {
             if (data.code === 1) {
               _this.$message.success(data.message)
-              _this.$router.push('/message/list')
+              _this.$store.dispatch('tagsView/delLastView').then(() => {
+                _this.$router.push('/message/list')
+              })
             } else {
               _this.$message.error(data.message)
+              _this.formLoading = false
             }
-            _this.formLoading = false
           }).catch(e => {
             _this.formLoading = false
           })
