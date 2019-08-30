@@ -21,7 +21,7 @@
     <i-collapse accordion i-class="index-collapse">
       <i-collapse-item i-class="index-collapse-item" title="{{item.title}}" name="{{item.id}}" wx:for="{{taskList}}" data-item="item" wx:key="{{item.id}}">
         <i-cell-group slot="content">
-          <i-cell only-tap-footer  i-class="index-cell" wx:for="{{item.paperItems}}" data-item="item" wx:key="{{item.examPaperId}}" title="{{item.examPaperName}}" value="{{item.statusStr}}" is-link url="{{item.examPaperAnswerId == null?'/pages/exam/do/index':'/pages/exam/read/index'}}" >
+          <i-cell   i-class="index-cell" wx:for="{{item.paperItems}}" data-item="item" wx:key="{{item.examPaperId}}" title="{{item.examPaperName}}" value="{{item.statusStr}}" is-link url="{{item.examPaperAnswerId == null?'/pages/exam/do/index':'/pages/exam/read/index'}}" >
           </i-cell>
         </i-cell-group>
       </i-collapse-item>
@@ -30,17 +30,17 @@
 
   <i-panel title="固定试卷">
     <i-cell-group>
-      <i-cell only-tap-footer wx:for="{{fixedPaper}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/exam/do/index?id={{item.id}}" ></i-cell>
+      <i-cell  wx:for="{{fixedPaper}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/exam/do/index?id={{item.id}}" ></i-cell>
     </i-cell-group>
   </i-panel>
   <i-panel title="时段试卷">
     <i-cell-group>
-      <i-cell only-tap-footer wx:for="{{timeLimitPaper}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/exam/do/index?id={{item.id}}" label="{{item.startTime}} 至 {{item.endTime}}"></i-cell>
+      <i-cell  wx:for="{{timeLimitPaper}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/exam/do/index?id={{item.id}}" label="{{item.startTime}} 至 {{item.endTime}}"></i-cell>
     </i-cell-group>
   </i-panel>
   <i-panel title="推送试卷">
     <i-cell-group>
-      <i-cell only-tap-footer wx:for="{{pushPaper}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/exam/do/index?id={{item.id}}"></i-cell>
+      <i-cell  wx:for="{{pushPaper}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/exam/do/index?id={{item.id}}"></i-cell>
     </i-cell-group>
   </i-panel>
   <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
