@@ -38,5 +38,10 @@ Page({
         }
       }
     })
+  },
+  register: function (e) {
+      wx.navigateTo({
+        url: "../register/index"
+      })
   }
 })

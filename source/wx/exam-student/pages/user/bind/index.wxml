@@ -13,9 +13,11 @@
   </i-panel>
 
   <view>
-    <button class="i-btn i-btn- i-btn-primary i-btn-square" form-type='submit'>绑定账号</button>
+    <button class="i-btn i-btn- i-btn-primary i-btn-square" form-type='submit'>登录</button>
   </view>
-
+  <view>
+    <button class="i-btn i-btn- i-btn-success i-btn-square" bindtap="register">注册</button>
+  </view>
   <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
 </form>
 
