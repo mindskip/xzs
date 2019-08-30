@@ -11,7 +11,8 @@
     "pages/my/info/index",
     "pages/my/message/info/index",
     "pages/my/message/list/index",
-    "pages/my/log/index"
+    "pages/my/log/index",
+    "pages/user/register/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

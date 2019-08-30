@@ -43,6 +43,7 @@ public class UserController extends BaseWXApiController {
     private final UserService userService;
     private final UserEventLogService userEventLogService;
     private final MessageService messageService;
+    private final AuthenticationService authenticationService;
     private final ApplicationEventPublisher eventPublisher;
 
     @RequestMapping(value = "/current", method = RequestMethod.POST)
@@ -52,6 +53,27 @@ public class UserController extends BaseWXApiController {
         return RestResponse.ok(userVm);
     }
 
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public RestResponse register(@Valid UserRegisterVM model) {
+        User existUser = userService.getUserByUserName(model.getUserName());
+        if (null != existUser) {
+            return new RestResponse<>(2, "用户已存在");
+        }
+        User user = modelMapper.map(model, User.class);
+        String encodePwd = authenticationService.pwdEncode(model.getPassword());
+        user.setUserUuid(UUID.randomUUID().toString());
+        user.setPassword(encodePwd);
+        user.setRole(RoleEnum.STUDENT.getCode());
+        user.setStatus(UserStatusEnum.Enable.getCode());
+        user.setLastActiveTime(new Date());
+        user.setCreateTime(new Date());
+        user.setDeleted(false);
+        userService.insertByFilter(user);
+        UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
+        userEventLog.setContent("欢迎 " + user.getUserName() + " 注册来到学之思考试系统");
+        eventPublisher.publishEvent(new UserEvent(userEventLog));
+        return RestResponse.ok();
+    }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public RestResponse update(@Valid UserUpdateVM model) {
