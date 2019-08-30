@@ -109,8 +109,6 @@
                                 <rich-text nodes="正确答案: {{questionItem.correctArray}}"/>
                             </view>
                         </view>
-
-                        <!--                        <e-exam-show qType="{{questionItem.questionType}}" answer="{{answer.answerItems[questionItem.itemOrder-1]}}" question="{{questionItem}}"></e-exam-show>-->
                     </i-cell>
                 </i-cell-group>
             </i-panel>
