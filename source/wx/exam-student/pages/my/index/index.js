@@ -43,7 +43,7 @@ Page({
     });
     app.formPost('/api/wx/student/auth/unBind', null).then(res => {
       if (res.code == 1) {
-        wx.setStorageSync('token', null)
+        wx.setStorageSync('token', '')
         wx.reLaunch({
           url: '/pages/user/bind/index',
         });
