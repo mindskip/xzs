@@ -1,1 +1,3 @@
-/* pages/exam/index/index.wxss */
+.exam-tab-view {
+  margin-top: 42px;
+}

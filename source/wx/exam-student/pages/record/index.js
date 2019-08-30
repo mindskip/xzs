@@ -4,10 +4,10 @@ Page({
   data: {
     spinShow: false,
     loadMoreLoad: false,
-    loadMoreTip: '正在加载',
+    loadMoreTip: '暂无数据',
     queryParam: {
       pageIndex: 1,
-      pageSize: 10
+      pageSize: app.globalData.pageSize
     },
     tableData: [],
     total: 1
