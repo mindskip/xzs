@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -104,6 +104,12 @@
 					"name": "pages/my/message/info/index",
 					"pathName": "pages/my/message/info/index",
 					"query": "id=11",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/record/index",
+					"pathName": "pages/record/index",
 					"scene": null
 				}
 			]
