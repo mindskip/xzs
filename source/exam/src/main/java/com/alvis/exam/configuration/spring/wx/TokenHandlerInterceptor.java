@@ -37,6 +37,17 @@ public class TokenHandlerInterceptor implements HandlerInterceptor {
             RestUtil.response(response, SystemCode.UNAUTHORIZED);
             return false;
         }
+
+        if (StringUtils.isBlank(token)) {
+            RestUtil.response(response, SystemCode.UNAUTHORIZED);
+            return false;
+        }
+
+        if (token.length() != 36) {
+            RestUtil.response(response, SystemCode.UNAUTHORIZED);
+            return false;
+        }
+
         UserToken userToken = userTokenService.getToken(token);
         if (null == userToken) {
             RestUtil.response(response, SystemCode.UNAUTHORIZED);
