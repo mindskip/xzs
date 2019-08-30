@@ -83,13 +83,11 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
     @Override
     @Transactional
     public void unBind(UserToken userToken) {
-        UserToken dbUserToken = userTokenMapper.selectByPrimaryKey(userToken.getId());
-        dbUserToken.setEndTime(new Date());
         User user = userService.selectById(userToken.getUserId());
         user.setModifyTime(new Date());
         user.setWxOpenId(null);
         userService.updateById(user);
-        userTokenMapper.updateByPrimaryKeySelective(dbUserToken);
+        userTokenMapper.deleteByPrimaryKey(userToken.getId());
         String key = cacheConfig.simpleKeyGenerator(CACHE_NAME, userToken.getToken());
         redisTemplate.delete(key);
     }
