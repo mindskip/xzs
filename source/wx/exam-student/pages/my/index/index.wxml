@@ -9,7 +9,7 @@
     <i-cell title="个人资料" is-link url="/pages/my/info/index">
       <i-icon type="mine_fill" slot="icon" size="20" />
     </i-cell>
-       <i-cell title="个人动态" is-link url="/pages/my/log/index">
+    <i-cell title="个人动态" is-link url="/pages/my/log/index">
       <i-icon type="collection_fill" slot="icon" size="20" />
     </i-cell>
     <i-cell title="消息" is-link url="/pages/my/message/list/index">
@@ -34,7 +34,7 @@
 
 <view>
   <i-cell-group i-class="my-group-margin">
-    <i-cell title="退出账号" is-link url="/pages/dashboard/index">
+    <i-cell title="退出账号" bind:click="logOut">
       <i-icon type="flashlight_fill" slot="icon" size="20" />
     </i-cell>
   </i-cell-group>

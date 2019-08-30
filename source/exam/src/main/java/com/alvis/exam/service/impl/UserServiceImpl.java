@@ -67,6 +67,11 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return super.updateByIdFilter(record);
     }
 
+    @Override
+    @CacheEvict(value = CACHE_NAME, key = "#record.userName")
+    public int updateById(User record) {
+        return super.updateById(record);
+    }
 
     @Override
     public User getUserByUserNamePwd(String username, String pwd) {

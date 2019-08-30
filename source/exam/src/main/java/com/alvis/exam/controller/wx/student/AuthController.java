@@ -66,4 +66,12 @@ public class AuthController extends BaseWXApiController {
         }
         return RestResponse.fail(2, "用户未绑定");
     }
+
+
+    @RequestMapping(value = "/unBind", method = RequestMethod.POST)
+    public RestResponse unBind() {
+        UserToken userToken = getUserToken();
+        userTokenService.unBind(userToken);
+        return RestResponse.ok();
+    }
 }

@@ -19,6 +19,8 @@ import java.util.Date;
 
 public class TokenHandlerInterceptor implements HandlerInterceptor {
     private final static ThreadLocal<User> USER_THREAD_LOCAL = new ThreadLocal<>();
+
+    private final static ThreadLocal<UserToken> USER_TOKEN_THREAD_LOCAL = new ThreadLocal<>();
     private final UserTokenService userTokenService;
     private final UserService userService;
 
@@ -45,6 +47,7 @@ public class TokenHandlerInterceptor implements HandlerInterceptor {
         User user = userService.getUserByUserName(userToken.getUserName());
         if (now.before(userToken.getEndTime())) {
             USER_THREAD_LOCAL.set(user);
+            USER_TOKEN_THREAD_LOCAL.set(userToken);
             return true;
         } else {   //refresh token
             UserToken refreshToken = userTokenService.insertUserToken(user);
@@ -55,5 +58,9 @@ public class TokenHandlerInterceptor implements HandlerInterceptor {
 
     public static ThreadLocal<User> getUserThreadLocal() {
         return USER_THREAD_LOCAL;
+    }
+
+    public static ThreadLocal<UserToken> getUserTokenThreadLocal() {
+        return USER_TOKEN_THREAD_LOCAL;
     }
 }
