@@ -78,17 +78,20 @@
     </tr>
 </table>
 
-2 .小程考试系统   **_开发中_** 
+2 .小程考试系统
 
 <table>
     <tr>
         <td><img src="doc/image/wx/student/1.png"/></td>
         <td><img src="doc/image/wx/student/2.png"/></td>
         <td><img src="doc/image/wx/student/3.png"/></td>
+        <td><img src="doc/image/wx/student/4.png"/></td>
     </tr>
     <tr>
-        <td><img src="doc/image/wx/student/4.png"/></td>
         <td><img src="doc/image/wx/student/5.png"/></td>
+        <td><img src="doc/image/wx/student/8.png"/></td>
+        <td><img src="doc/image/wx/student/6.png"/></td>
+        <td><img src="doc/image/wx/student/7.png"/></td>
     </tr>
 </table>
 
