@@ -4,10 +4,10 @@ Page({
     logList: null,
     len: 0
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.search();
   },
-  search: function () {
+  search: function() {
     let _this = this
     _this.setData({
       spinShow: true
@@ -18,8 +18,8 @@ Page({
       });
       if (res.code === 1) {
         _this.setData({
-            logList: res.response,
-            len: res.response.length
+          logList: res.response,
+          len: res.response.length
         });
       }
     }).catch(e => {

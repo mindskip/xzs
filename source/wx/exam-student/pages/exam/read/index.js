@@ -24,23 +24,23 @@ Page({
       spinShow: true
     });
     app.formPost('/api/wx/student/exampaper/answer/read/' + paperId, null)
-        .then(res => {
+      .then(res => {
+        _this.setData({
+          spinShow: false
+        });
+        if (res.code === 1) {
           _this.setData({
-            spinShow: false
+            paper: res.response.paper,
+            answer: res.response.answer,
+            paperId: paperId,
           });
-          if (res.code === 1) {
-            _this.setData({
-              paper: res.response.paper,
-              answer: res.response.answer,
-              paperId: paperId,
-            });
-          }
-        }).catch(e => {
-      _this.setData({
-        spinShow: false
-      });
-      app.message(e, 'error')
-    })
+        }
+      }).catch(e => {
+        _this.setData({
+          spinShow: false
+        });
+        app.message(e, 'error')
+      })
   },
   onUnload() {
     clearInterval(this.data.timer)
