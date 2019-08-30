@@ -65,6 +65,7 @@ const mutations = {
     for (let v of state.visitedViews) {
       if (v.path === view.path) {
         v = Object.assign(v, view)
+        state.currentView = v
         break
       }
     }
@@ -82,13 +83,17 @@ const actions = {
   addCachedView ({ commit }, view) {
     commit('ADD_CACHED_VIEW', view)
   },
-  delLastView ({ dispatch, state }) {
-    let lastView = state.visitedViews[state.visitedViews.length - 1]
-    return new Promise(resolve => {
-      dispatch('delVisitedView', lastView)
-      dispatch('delCachedView', lastView)
-      resolve()
-    })
+  delCurrentView ({ dispatch, state }, _this) {
+    let view = _this.$route
+    for (let v of state.visitedViews) {
+      if (v.path === view.path) {
+        return new Promise(resolve => {
+          dispatch('delVisitedView', v)
+          dispatch('delCachedView', v)
+          resolve()
+        })
+      }
+    }
   },
   delView ({ dispatch, state }, view) {
     return new Promise(resolve => {
@@ -158,8 +163,7 @@ const actions = {
       resolve([...state.cachedViews])
     })
   },
-
-  updateVisitedView ({ commit }, view) {
+  updateVisitedView ({ commit, state }, view) {
     commit('UPDATE_VISITED_VIEW', view)
   }
 }

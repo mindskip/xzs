@@ -169,10 +169,13 @@ export default {
             if (re.code === 1) {
               _this.form = re.response
               _this.$message.success(re.message)
+              _this.delCurrentView(_this).then(() => {
+                _this.$router.push('/exam/question/list')
+              })
             } else {
               _this.$message.error(re.message)
+              this.formLoading = false
             }
-            this.formLoading = false
           }).catch(e => {
             this.formLoading = false
           })
@@ -198,7 +201,8 @@ export default {
     resetForm () {
       this.$refs['form'].resetFields()
     },
-    ...mapActions('exam', { initSubject: 'initSubject' })
+    ...mapActions('exam', { initSubject: 'initSubject' }),
+    ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
   },
   computed: {
     ...mapGetters('enumItem', ['enumFormat']),

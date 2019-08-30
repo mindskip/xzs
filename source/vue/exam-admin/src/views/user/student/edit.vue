@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters, mapState, mapActions } from 'vuex'
 import userApi from '@/api/user'
 
 export default {
@@ -98,10 +98,13 @@ export default {
             if (data.code === 1) {
               _this.form.id = data.response.id
               _this.$message.success(data.message)
+              _this.delCurrentView(_this).then(() => {
+                _this.$router.push('/user/student/list')
+              })
             } else {
               _this.$message.error(data.message)
+              _this.formLoading = false
             }
-            _this.formLoading = false
           }).catch(e => {
             _this.formLoading = false
           })
@@ -112,7 +115,8 @@ export default {
     },
     resetForm () {
       this.$refs['form'].resetFields()
-    }
+    },
+    ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
   },
   computed: {
     ...mapGetters('enumItem', [

@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import userApi from '@/api/user'
 import messageApi from '@/api/message'
 
@@ -72,7 +73,7 @@ export default {
           messageApi.send(this.form).then(data => {
             if (data.code === 1) {
               _this.$message.success(data.message)
-              _this.$store.dispatch('tagsView/delLastView').then(() => {
+              _this.delCurrentView(_this).then(() => {
                 _this.$router.push('/message/list')
               })
             } else {
@@ -91,7 +92,8 @@ export default {
       this.$refs['form'].resetFields()
       this.options = []
       this.form.receiveUserIds = []
-    }
+    },
+    ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
   }
 }
 </script>

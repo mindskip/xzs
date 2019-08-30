@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters, mapState, mapActions } from 'vuex'
 import subjectApi from '@/api/subject'
 
 export default {
@@ -49,22 +49,26 @@ export default {
     submitForm () {
       let _this = this
       this.formLoading = true
-      this.levelName = this.enumFormat(this.levelEnum, this.form.level)
+      this.form.levelName = this.enumFormat(this.levelEnum, this.form.level)
       subjectApi.edit(this.form).then(data => {
         if (data.code === 1) {
           _this.form.id = data.response.id
           _this.$message.success(data.message)
+          _this.delCurrentView(_this).then(() => {
+            _this.$router.push('/education/subject/list')
+          })
         } else {
           _this.$message.error(data.message)
+          _this.formLoading = false
         }
-        _this.formLoading = false
       }).catch(e => {
         _this.formLoading = false
       })
     },
     resetForm () {
       this.$refs['form'].resetFields()
-    }
+    },
+    ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
   },
   computed: {
     ...mapGetters('enumItem', [
