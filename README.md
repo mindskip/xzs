@@ -8,7 +8,7 @@
    2. http://129.28.206.15:81   管理系统
  
  源码地址：
-   1. https://gitee.com/alvis-yu/exam  gitte 主要更新地
+   1. https://gitee.com/alvis-yu/exam  gitte 
    2. https://github.com/alvis-u/exam  github 
 
 学生系统模块：
