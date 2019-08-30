@@ -1,10 +1,6 @@
 // pages/exam/index/index.js
 let app = getApp()
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
     paperType: 1,
     spinShow: false,
@@ -62,14 +58,9 @@ Page({
         ['queryParam.pageIndex']: this.data.queryParam.pageIndex + 1
       });
       this.search(false)
-    } else {
-      this.setData({
-        loadMoreLoad: false,
-        loadMoreTip: '暂无数据'
-      });
     }
   },
-  search: function (override) {
+  search: function(override) {
     let _this = this
     app.formPost('/api/wx/student/exampaper/pageList', this.data.queryParam).then(res => {
       _this.setData({
@@ -83,6 +74,12 @@ Page({
           tableData: override ? re.list : this.data.tableData.concat(re.list),
           total: re.pages
         });
+        if (re.pageNum >= re.pages) {
+          this.setData({
+            loadMoreLoad: false,
+            loadMoreTip: '暂无数据'
+          });
+        }
       }
     }).catch(e => {
       _this.setData({

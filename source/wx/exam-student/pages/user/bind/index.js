@@ -39,9 +39,9 @@ Page({
       }
     })
   },
-  register: function (e) {
-      wx.navigateTo({
-        url: "../register/index"
-      })
+  register: function(e) {
+    wx.navigateTo({
+      url: "../register/index"
+    })
   }
 })

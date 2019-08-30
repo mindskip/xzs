@@ -39,11 +39,6 @@ Page({
         ['queryParam.pageIndex']: this.data.queryParam.pageIndex + 1
       });
       this.search(false)
-    } else {
-      this.setData({
-        loadMoreLoad: false,
-        loadMoreTip: '暂无数据'
-      });
     }
   },
   search: function(override) {
@@ -61,6 +56,12 @@ Page({
             tableData: override ? re.list : this.data.tableData.concat(re.list),
             total: re.pages
           });
+          if (re.pageNum >= re.pages) {
+            this.setData({
+              loadMoreLoad: false,
+              loadMoreTip: '暂无数据'
+            });
+          }
         }
       }).catch(e => {
         _this.setData({
