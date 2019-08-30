@@ -6,7 +6,7 @@
   </i-tabs>
   <view class="exam-tab-view">
     <i-cell-group>
-      <i-cell wx:for="{{tableData}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/exam/do/index?id={{item.id}}" value="{{item.subjectName}}"></i-cell>
+      <i-cell only-tap-footer  wx:for="{{tableData}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/exam/do/index?id={{item.id}}" value="{{item.subjectName}}"></i-cell>
     </i-cell-group>
   </view>
   <i-load-more tip="{{loadMoreTip}}" loading="{{loadMoreLoad}}" />

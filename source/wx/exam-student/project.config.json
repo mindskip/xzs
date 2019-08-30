@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -117,6 +117,13 @@
 					"id": -1,
 					"name": "pages/exam/index/index",
 					"pathName": "pages/exam/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/message/list/index",
+					"pathName": "pages/my/message/list/index",
 					"scene": null
 				}
 			]

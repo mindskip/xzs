@@ -107,6 +107,7 @@ App({
         method: 'POST',
         data,
         success(res) {
+          
           if (res.statusCode !== 200 || typeof res.data !== 'object') {
             reject('网络出错')
             return false;
