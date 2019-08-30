@@ -7,8 +7,8 @@
             <h1>{{paper.name}}</h1>
         </view>
         <view class="exam-result">
-            <h1 class="">试卷得分: {{paper.score}}</h1>
-            <h1 class="exam-result-detail">试卷耗时: {{paper.suggestTime}}秒</h1>
+            <h1 class="">试卷得分: {{answer.score}}</h1>
+            <h1 class="exam-result-detail">试卷耗时: {{answer.doTime}}秒</h1>
         </view>
         <form bindsubmit='formSubmit'>
             <i-panel title="{{titleItem.name}}" wx:for="{{paper.titleItems}}" wx:for-item="titleItem"
