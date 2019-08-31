@@ -73,7 +73,6 @@ spring:
         max-wait: -1 #默认-1 最大连接阻塞等待时间
         max-idle: 8 #最大空闲连接 默认8
         min-idle: 0 #最小空闲连接
-    password: 123456
   cache:
     type: redis
     redis:
