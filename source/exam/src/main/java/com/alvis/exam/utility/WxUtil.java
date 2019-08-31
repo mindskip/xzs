@@ -14,11 +14,11 @@ import java.io.IOException;
 
 public class WxUtil {
     private static final Logger logger = LoggerFactory.getLogger(WxUtil.class);
-    private static String openIdUrl = "https://api.weixin.qq.com/sns/jscode2session?appid={appid}&secret={secret}&js_code={code}&grant_type=authorization_code";
+    private static final String openIdUrl = "https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code";
 
-    public static String getOpenId(String appid, String secret, String code) {
+    public static String getOpenId(String appId, String secret, String code) {
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
-            String requestUrl = openIdUrl.replace("{appid}", appid).replace("{secret}", secret).replace("{code}", code);
+            String requestUrl = String.format(openIdUrl, appId, secret, code);
             HttpGet httpGet = new HttpGet(requestUrl);
             HttpEntity responseEntity = httpClient.execute(httpGet).getEntity();
             if (responseEntity != null) {
