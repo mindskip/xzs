@@ -13,7 +13,7 @@ server:
 logging:
   config: classpath:logback-spring.xml
   file: exam
-  path: logs
+  path: /usr/log/exam/
 
 #mybatis
 mybatis:
