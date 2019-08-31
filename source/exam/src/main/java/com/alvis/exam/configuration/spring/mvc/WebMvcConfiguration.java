@@ -1,10 +1,13 @@
 package com.alvis.exam.configuration.spring.mvc;
 
+import com.alvis.exam.configuration.property.SystemConfig;
 import com.alvis.exam.configuration.spring.wx.TokenHandlerInterceptor;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -16,14 +19,15 @@ import org.springframework.web.servlet.config.annotation.*;
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     private final TokenHandlerInterceptor tokenHandlerInterceptor;
+    private final SystemConfig systemConfig;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        List<String> securityIgnoreUrls = systemConfig.getWx().getSecurityIgnoreUrls();
+        String[] ignores = new String[securityIgnoreUrls.size()];
         registry.addInterceptor(tokenHandlerInterceptor)
                 .addPathPatterns("/api/wx/**")
-                .excludePathPatterns("/api/wx/student/auth/bind")
-                .excludePathPatterns("/api/wx/student/auth/checkBind")
-                .excludePathPatterns("/api/wx/student/user/register");
+                .excludePathPatterns(securityIgnoreUrls.toArray(ignores));
         super.addInterceptors(registry);
     }
 
