@@ -67,6 +67,9 @@ public class DashboardController extends BaseApiController {
     public RestResponse<List<TaskItemVm>> task() {
         User user = getCurrentUser();
         List<TaskExam> taskExams = taskExamService.getByGradeLevel(user.getUserLevel());
+        if (taskExams.size() == 0) {
+            return RestResponse.ok(new ArrayList<>());
+        }
         List<Integer> tIds = taskExams.stream().map(taskExam -> taskExam.getId()).collect(Collectors.toList());
         List<TaskExamCustomerAnswer> taskExamCustomerAnswers = taskExamCustomerAnswerService.selectByTUid(tIds, user.getId());
         List<TaskItemVm> vm = taskExams.stream().map(t -> {
