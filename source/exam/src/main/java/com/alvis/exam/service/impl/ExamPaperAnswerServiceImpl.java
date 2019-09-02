@@ -7,6 +7,7 @@ import com.alvis.exam.domain.enums.QuestionTypeEnum;
 import com.alvis.exam.domain.exam.ExamPaperTitleItemObject;
 import com.alvis.exam.domain.other.KeyValue;
 import com.alvis.exam.domain.other.ExamPaperAnswerUpdate;
+import com.alvis.exam.domain.task.TaskItemAnswerObject;
 import com.alvis.exam.repository.*;
 import com.alvis.exam.service.ExamPaperAnswerService;
 import com.alvis.exam.service.ExamPaperQuestionCustomerAnswerService;
@@ -26,7 +27,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,16 +37,17 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
     private final TextContentService textContentService;
     private final QuestionMapper questionMapper;
     private final ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService;
-
+    private final TaskExamCustomerAnswerMapper taskExamCustomerAnswerMapper;
 
     @Autowired
-    public ExamPaperAnswerServiceImpl(ExamPaperAnswerMapper examPaperAnswerMapper, ExamPaperMapper examPaperMapper, TextContentService textContentService, QuestionMapper questionMapper, ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService) {
+    public ExamPaperAnswerServiceImpl(ExamPaperAnswerMapper examPaperAnswerMapper, ExamPaperMapper examPaperMapper, TextContentService textContentService, QuestionMapper questionMapper, ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService, TaskExamCustomerAnswerMapper taskExamCustomerAnswerMapper) {
         super(examPaperAnswerMapper);
         this.examPaperAnswerMapper = examPaperAnswerMapper;
         this.examPaperMapper = examPaperMapper;
         this.textContentService = textContentService;
         this.questionMapper = questionMapper;
         this.examPaperQuestionCustomerAnswerService = examPaperQuestionCustomerAnswerService;
+        this.taskExamCustomerAnswerMapper = taskExamCustomerAnswerMapper;
     }
 
     @Override
@@ -115,6 +116,25 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
         examPaperAnswer.setStatus(ExamPaperAnswerStatusEnum.Complete.getCode());
         examPaperAnswerMapper.updateByPrimaryKeySelective(examPaperAnswer);
         examPaperQuestionCustomerAnswerService.updateScore(examPaperAnswerUpdates);
+
+        ExamPaperTypeEnum examPaperTypeEnum = ExamPaperTypeEnum.fromCode(examPaperAnswer.getPaperType());
+        switch (examPaperTypeEnum) {
+            case Task:
+                ExamPaper examPaper = examPaperMapper.selectByPrimaryKey(examPaperAnswer.getExamPaperId());
+                Integer taskId = examPaper.getTaskExamId();
+                Integer userId = examPaperAnswer.getCreateUser();
+                TaskExamCustomerAnswer taskExamCustomerAnswer = taskExamCustomerAnswerMapper.getByTUid(taskId, userId);
+                TextContent textContent = textContentService.selectById(taskExamCustomerAnswer.getTextContentId());
+                List<TaskItemAnswerObject> taskItemAnswerObjects = JsonUtil.toJsonListObject(textContent.getContent(), TaskItemAnswerObject.class);
+                taskItemAnswerObjects.stream()
+                        .filter(d -> d.getExamPaperAnswerId() == examPaperAnswer.getId())
+                        .findFirst().ifPresent(taskItemAnswerObject -> taskItemAnswerObject.setStatus(examPaperAnswer.getStatus()));
+                textContentService.jsonConvertUpdate(textContent, taskItemAnswerObjects, null);
+                textContentService.updateByIdFilter(textContent);
+                break;
+            default:
+                break;
+        }
         return ExamUtil.scoreToVM(customerScore);
     }
 

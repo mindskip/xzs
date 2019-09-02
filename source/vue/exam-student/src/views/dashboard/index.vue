@@ -32,10 +32,13 @@
                   </el-tag>
                 </td>
                 <td width="80px">
-                  <router-link target="_blank" :to="{path:'/do',query:{id:paperItem.examPaperId}}" v-if="paperItem.examPaperAnswerId === null">
+                  <router-link target="_blank" :to="{path:'/do',query:{id:paperItem.examPaperId}}" v-if="paperItem.status === null">
                     <el-button  type="text" size="small">开始答题</el-button>
                   </router-link>
-                  <router-link target="_blank" :to="{path:'/read',query:{id:paperItem.examPaperAnswerId}}" v-if="paperItem.examPaperAnswerId !== null">
+                  <router-link target="_blank" :to="{path:'/edit',query:{id:paperItem.examPaperAnswerId}}" v-else-if="paperItem.status === 1">
+                    <el-button  type="text" size="small">批改试卷</el-button>
+                  </router-link>
+                  <router-link target="_blank" :to="{path:'/read',query:{id:paperItem.examPaperAnswerId}}" v-else-if="paperItem.status === 2">
                     <el-button  type="text" size="small">查看试卷</el-button>
                   </router-link>
                 </td>
