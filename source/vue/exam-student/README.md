@@ -69,12 +69,6 @@ server {
 ## Ngix Https config
 ```
 server {
-    listen 80;
-    server_name  student.alvisu.com;
-    return 301 https://$server_name$request_uri;
-}
-
-server {
     listen 85;
     listen 8085 ssl;
     server_name  www.alvisu.com;

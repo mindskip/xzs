@@ -71,12 +71,6 @@ server {
 ## Ngix Https config
 ```
 server {
-    listen 80;
-    server_name  admin.alvisu.com;
-    return 301 https://$server_name$request_uri;
-}
-
-server {
     listen 86;
     listen 8086 ssl;
     server_name  www.alvisu.com;
