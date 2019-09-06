@@ -1,3 +1,8 @@
+server:
+  ssl:
+    key-store: /usr/local/exam/ssl/ssl.jks
+    key-password: Qwer!@#$%
+
 spring:
   redis:
     host: localhost
