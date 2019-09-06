@@ -1,6 +1,7 @@
 spring:
   redis:
     host: 101.132.110.182
+    password: 123456
   datasource:
     url: jdbc:postgresql://101.132.110.182:5432/exam
     username: postgres
@@ -12,3 +13,4 @@ system:
 fdfs:
   tracker-list:
     - 101.132.110.182:22122
+
