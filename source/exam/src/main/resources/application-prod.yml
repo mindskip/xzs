@@ -1,6 +1,6 @@
 server:
   ssl:
-    key-store: /usr/local/exam/ssl/ssl.jks
+    key-store: /usr/local/exam/ssl/tomcat.jks
     key-password: Qwer!@#$%
 
 spring:
