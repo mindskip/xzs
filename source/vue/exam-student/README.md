@@ -64,3 +64,33 @@ server {
     }
 }
 ```
+
+
+## Ngix Https config
+```
+server {
+    listen 80;
+    server_name  student.alvisu.com;
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+    listen 85;
+    listen 8085 ssl;
+    server_name  www.alvisu.com;
+    root         /usr/local/exam/link/exam-student;
+    index        index.html;
+    error_page   500 502 503 504  /50x.html;
+    ssl_certificate /usr/local/exam/ssl/nginx.crt;
+    ssl_certificate_key /usr/local/exam/ssl/nginx.key;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers ALL:!DH:!EXPORT:!RC4:+HIGH:+MEDIUM:!eNULL;
+    ssl_prefer_server_ciphers on;
+    location = /50x.html {
+        root   html;
+    }
+    location /api/ {
+       proxy_pass  https://www.alvisu.com:8001;
+    }
+}
+```
