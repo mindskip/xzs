@@ -41,8 +41,6 @@ public class ExamPaperController extends BaseApiController {
     }
 
 
-
-
     @RequestMapping(value = "/pageList", method = RequestMethod.POST)
     public RestResponse<PageInfo<ExamPaperPageResponseVM>> pageList(@RequestBody @Valid ExamPaperPageVM model) {
         PageInfo<ExamPaper> pageInfo = examPaperService.studentPage(model);

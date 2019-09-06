@@ -10,4 +10,5 @@ public class ExamPaperPageVM extends BasePage {
     @NotNull
     private Integer paperType;
     private Integer subjectId;
+    private Integer levelId;
 }

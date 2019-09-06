@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -70,6 +71,9 @@ public class DashboardController extends BaseWXApiController {
     public RestResponse<List<TaskItemVm>> task() {
         User user = getCurrentUser();
         List<TaskExam> taskExams = taskExamService.getByGradeLevel(user.getUserLevel());
+        if (taskExams.size() == 0) {
+            return RestResponse.ok(new ArrayList<>());
+        }
         List<Integer> tIds = taskExams.stream().map(taskExam -> taskExam.getId()).collect(Collectors.toList());
         List<TaskExamCustomerAnswer> taskExamCustomerAnswers = taskExamCustomerAnswerService.selectByTUid(tIds, user.getId());
         List<TaskItemVm> vm = taskExams.stream().map(t -> {
