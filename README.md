@@ -7,10 +7,15 @@
    1. https://www.alvisu.com       官网
    2. http://student.alvisu.com   学生系统
    3. http://admin.alvisu.com     管理系统
- 
- 源码地址：
-   1. https://gitee.com/alvis-yu/exam  gitte 
-   2. https://github.com/alvis-u/exam  github 
+
+小程序：
+![](doc/image/wx/code/1.jpg)
+
+源码地址：
+   1. https://gitee.com/alvis-yu/exam        gitte   postgresql版本
+   2. https://gitee.com/alvis-yu/exam-mysql  gitte   mysql版本
+   3. https://github.com/alvis-u/exam        github  postgresql版本
+   4. https://github.com/alvis-u/exam-mysql  github  mysql版本
 
 学生系统模块：
 * 登录、注册： 注册时要选年级，过滤不同年级的试卷， 账号为student/123456
@@ -48,7 +53,7 @@
 * spring-boot  2.1.6.RELEASE
 * spring-boot-security 用户登录验证 
 * undertow  web容器 
-* postgresql 优秀的开源数据库
+* postgresql/mysql 优秀的开源数据库
 * redis 缓存，提升系统性能
 * mybatis 数据库中间件
 * hikari 速度最快的数据库连接池
@@ -69,7 +74,7 @@
 2. fastDfs 安装，[安装教程](https://blog.51cto.com/zhaobotao/2107094)，这里有2点需要注意下：
    1. 单台机器部署 tracker_server 设置为ip地址，不要设置127.0.0.1或者localhost 
    2. 先启动ngix,再启动fastDfs服务，不然端口会被占用
-3. postgresql 安装后执行/exam/database下的数据库脚本，创建表初始化数据
+3. postgresql/mysql 安装后执行/exam/database下的数据库脚本，创建表初始化数据
 4. 下载好源码，
    1. /exam/source/exam为后台代码，建议使用IntelliJ IDEA打开，在application-dev.yml文件中，配置好postgesql、redis、fdfs的服务地址，打开ExamApplication文件编译运行。
    2. /exam/source/vue下为学生端、管理员端的前端代码，建议使用JetBrains WebStorm打开，使用命令：npm run serve即可编译代码
