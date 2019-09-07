@@ -90,7 +90,7 @@ export default {
               _this.form.id = data.response.id
               _this.$message.success(data.message)
               _this.delCurrentView(_this).then(() => {
-                _this.$router.push('/user/student/list')
+                _this.$router.push('/user/teacher/list')
               })
             } else {
               _this.$message.error(data.message)
