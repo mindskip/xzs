@@ -7,5 +7,6 @@
     "i-collapse-item": "/component/iView/collapse-item/index",
     "i-message": "/component/iView/message/index",
     "i-spin": "/component/iView/spin/index"
-  }
+  },
+  "enablePullDownRefresh": true
 }

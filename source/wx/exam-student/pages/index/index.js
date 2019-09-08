@@ -11,14 +11,26 @@ Page({
     taskList: []
   },
   onLoad: function() {
-    let _this = this
-    _this.setData({
+    this.setData({
       spinShow: true
     });
+    this.indexLoad()
+  },
+  onPullDownRefresh() {
+    this.setData({
+      spinShow: true
+    });
+    if (!this.loading) {
+      this.indexLoad()
+    }
+  },
+  indexLoad: function() {
+    let _this = this
     app.formPost('/api/wx/student/dashboard/index', null).then(res => {
       _this.setData({
         spinShow: false
       });
+      wx.stopPullDownRefresh()
       if (res.code === 1) {
         _this.setData({
           fixedPaper: res.response.fixedPaper,
@@ -37,6 +49,7 @@ Page({
       _this.setData({
         spinShow: false
       });
+      wx.stopPullDownRefresh()
       if (res.code === 1) {
         _this.setData({
           taskList: res.response,
