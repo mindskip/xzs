@@ -2,7 +2,7 @@
 
 <form bindsubmit='formSubmit'>
   <i-panel title="真实姓名">
-    <i-input value="{{ userInfo.realName }}" name="realName" maxlength="-1" autofocus />
+    <i-input value="{{ userInfo.realName }}" name="realName" maxlength="-1"  />
   </i-panel>
   <i-panel title="年龄">
     <i-input value="{{ userInfo.age }}" name="age" maxlength="-1" />

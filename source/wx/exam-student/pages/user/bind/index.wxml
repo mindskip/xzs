@@ -5,7 +5,7 @@
 
 <form bindsubmit='formSubmit'>
   <i-panel title="用户名">
-    <i-input value="{{ userName }}" name="userName" maxlength="-1" autofocus />
+    <i-input value="{{ userName }}" name="userName" maxlength="-1"  />
   </i-panel>
 
   <i-panel title="密码">
