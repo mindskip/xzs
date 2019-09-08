@@ -55,7 +55,7 @@
             </view>
           </view>
           <view class="exam-clear">
-            <view class="exam-extend-item">
+            <view class="exam-extend-item" style="padding-left:0px">
               结果:
               <text class="question-answer-right question-answer-result" wx:if="{{answer.answerItems[questionItem.itemOrder-1].doRight==true}}">正确</text>
               <text class="question-answer-error question-answer-result" wx:elif="{{answer.answerItems[questionItem.itemOrder-1].doRight==false}}">错误</text>
@@ -63,7 +63,7 @@
             </view>
             <view class="exam-extend-item">得分: {{answer.answerItems[questionItem.itemOrder-1].score}}</view>
             <view class="exam-extend-item">分数: {{questionItem.score}}</view>
-            <view class="exam-extend-item">
+            <view class="exam-extend-item" style="padding-left:0px">
               难度:
               <i-rate value="{{questionItem.difficult}}" i-class="exam-item-rate" />
             </view>
