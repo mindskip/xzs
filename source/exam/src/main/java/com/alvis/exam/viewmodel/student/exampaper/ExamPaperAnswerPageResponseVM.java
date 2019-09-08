@@ -28,7 +28,5 @@ public class ExamPaperAnswerPageResponseVM {
 
     private Integer status;
 
-    private String statusStr;
-
     private String paperName;
 }

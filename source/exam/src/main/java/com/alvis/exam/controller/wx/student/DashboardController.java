@@ -113,7 +113,6 @@ public class DashboardController extends BaseWXApiController {
                                 .ifPresent(a -> {
                                     ivm.setExamPaperAnswerId(a.getExamPaperAnswerId());
                                     ivm.setStatus(a.getStatus());
-                                    ivm.setStatusStr(ExamPaperAnswerStatusEnum.fromCode(a.getStatus()).getName());
                                 });
                     }
                     return ivm;

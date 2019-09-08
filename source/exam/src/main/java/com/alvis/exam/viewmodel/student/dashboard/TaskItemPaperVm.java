@@ -8,5 +8,4 @@ public class TaskItemPaperVm {
     private String examPaperName;
     private Integer examPaperAnswerId;
     private Integer status;
-    private String statusStr;
 }

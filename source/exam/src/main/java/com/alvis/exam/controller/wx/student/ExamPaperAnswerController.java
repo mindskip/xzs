@@ -54,7 +54,6 @@ public class ExamPaperAnswerController extends BaseWXApiController {
             vm.setPaperScore(ExamUtil.scoreToVM(e.getPaperScore()));
             vm.setSubjectName(subject.getName());
             vm.setCreateTime(DateTimeUtil.dateFormat(e.getCreateTime()));
-            vm.setStatusStr(ExamPaperAnswerStatusEnum.fromCode(e.getStatus()).getName());
             return vm;
         });
         return RestResponse.ok(page);

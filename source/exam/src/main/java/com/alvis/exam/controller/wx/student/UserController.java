@@ -76,7 +76,7 @@ public class UserController extends BaseWXApiController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public RestResponse update(@Valid UserUpdateVM model) {
+    public RestResponse<UserResponseVM> update(@Valid UserUpdateVM model) {
         if (StringUtils.isBlank(model.getBirthDay())) {
             model.setBirthDay(null);
         }
@@ -87,7 +87,8 @@ public class UserController extends BaseWXApiController {
         UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
         userEventLog.setContent(user.getUserName() + " 更新了个人资料");
         eventPublisher.publishEvent(new UserEvent(userEventLog));
-        return RestResponse.ok();
+        UserResponseVM userVm = UserResponseVM.from(user);
+        return RestResponse.ok(userVm);
     }
 
     @RequestMapping(value = "/log", method = RequestMethod.POST)
