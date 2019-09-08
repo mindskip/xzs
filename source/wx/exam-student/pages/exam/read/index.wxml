@@ -1,4 +1,4 @@
-<wxs module="filter" src="./exam-fun.wxs"></wxs>
+<wxs module="filter" src="../../../wxs/exam-fun.wxs"></wxs>
 <view class="exam-page">
   <view class="view-wrap-hidden">
   </view>
