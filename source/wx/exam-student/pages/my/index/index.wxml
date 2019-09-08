@@ -20,20 +20,6 @@
 
 <view>
   <i-cell-group i-class="my-group-margin">
-    <i-cell title="设置" is-link url="/pages/dashboard/index">
-      <i-icon type="setup_fill" slot="icon" size="20" />
-    </i-cell>
-    <i-cell title="反馈" is-link url="/pages/dashboard/index">
-      <i-icon type="praise_fill" slot="icon" size="20" />
-    </i-cell>
-    <i-cell title="关于" is-link url="/pages/dashboard/index">
-      <i-icon type="prompt_fill" slot="icon" size="20" />
-    </i-cell>
-  </i-cell-group>
-</view>
-
-<view>
-  <i-cell-group i-class="my-group-margin">
     <i-cell title="退出账号" bind:click="logOut">
       <i-icon type="flashlight_fill" slot="icon" size="20" />
     </i-cell>
