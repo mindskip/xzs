@@ -21,7 +21,7 @@
     <i-collapse accordion i-class="index-collapse">
       <i-collapse-item i-class="index-collapse-item" title="{{item.title}}" name="{{item.id}}" wx:for="{{taskList}}" data-item="item" wx:key="{{item.id}}">
         <i-cell-group slot="content">
-          <i-cell i-class="index-cell" wx:for="{{item.paperItems}}" data-item="item" wx:key="{{item.examPaperId}}" title="{{item.examPaperName}}" value="{{enumItem.format(enumItem.state.exam.examPaperAnswer.statusEnum,item.status)}}" is-link url="{{item.examPaperAnswerId == null?'/pages/exam/do/index?id='+item.id:'/pages/exam/read/index?id='+item.examPaperAnswerId}}">
+          <i-cell i-class="index-cell" wx:for="{{item.paperItems}}" data-item="item" wx:key="{{item.examPaperId}}" title="{{item.examPaperName}}" value="{{enumItem.format(enumItem.state.exam.examPaperAnswer.statusEnum,item.status)}}" is-link url="{{item.examPaperAnswerId == null?'/pages/exam/do/index?id='+item.examPaperId:'/pages/exam/read/index?id='+item.examPaperAnswerId}}">
           </i-cell>
         </i-cell-group>
       </i-collapse-item>
