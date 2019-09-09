@@ -5,3 +5,13 @@
   display: flex;
   justify-content: center;
 }
+
+
+.register-level {
+  font-size: 13px;
+}
+
+.register-level-item {
+  line-height: 45px;
+  margin-left: 25px;
+}

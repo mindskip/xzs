@@ -1,7 +1,7 @@
 <view class="userinfo">
   <block>
     <open-data type="userAvatarUrl" class="userinfo-avatar"></open-data>
-    <text class="userinfo-nickname">{{info.realName}}</text>
+    <text class="userinfo-nickname">{{info.userName}}</text>
   </block>
 </view>
 <view>
