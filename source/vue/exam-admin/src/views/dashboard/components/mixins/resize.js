@@ -29,11 +29,11 @@ export default {
     // https://vuejs.org/v2/style-guide/index.html#Private-property-names-essential
     $_resizeHandler () {
       return debounce(() => {
-        if (this.echartsExampaper) {
-          this.echartsExampaper.resize()
+        if (this.echartsUserAction) {
+          this.echartsUserAction.resize()
         }
         if (this.echartsQuestion) {
-          this.echartsExampaper.resize()
+          this.echartsQuestion.resize()
         }
       }, 100)()
     },
