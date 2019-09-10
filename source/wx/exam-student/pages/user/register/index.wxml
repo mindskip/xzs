@@ -13,8 +13,8 @@
   </i-panel>
   <i-panel title="年级">
     <picker mode="selector" range="{{ enumItem.state.user.levelEnum }}" range-key="{{'value'}}" value="{{levelIndex}}" bindchange="bindLevelChange">
-      <i-input value="{{enumItem.state.user.levelEnum[levelIndex].value}}" />
-      <i-input value="{{enumItem.state.user.levelEnum[levelIndex].key}}" maxlength="-1" name="userLevel" style="display:none" />
+      <view class="i-cell i-input exam-pick-input">{{ enumItem.state.user.levelEnum[levelIndex].value }}</view>
+      <i-input value="{{enumItem.state.user.levelEnum[levelIndex].key}}" maxlength="-1" name="userLevel" class="exam-hidden" />
     </picker>
   </i-panel>
   <view>

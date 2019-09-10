@@ -15,14 +15,13 @@ page {
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
-
-
-.student-page{
-  background: white
 }
 
-.student-page button{
+.student-page {
+  background: white;
+}
+
+.student-page button {
   height: 30px;
   line-height: 30px;
   margin-top: 7px;
@@ -37,4 +36,12 @@ page {
 
 .ueditor-p {
   display: inline !important;
+}
+
+.exam-hidden {
+  display: none;
+}
+
+.exam-pick-input{
+  height: 30px;
 }
