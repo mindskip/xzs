@@ -6,13 +6,7 @@ Page({
   },
 
   onLoad: function(options) {
-    if (app.globalData.userInfo) {
-      this.setData({
-        info: app.globalData.userInfo,
-      })
-    } else {
-      this.loadUserInfo()
-    }
+    this.loadUserInfo()
   },
   loadUserInfo() {
     let _this = this
@@ -21,7 +15,6 @@ Page({
     });
     app.formPost('/api/wx/student/user/current', null).then(res => {
       if (res.code == 1) {
-        app.globalData.userInfo = res.response
         _this.setData({
           info: res.response
         });
