@@ -3,7 +3,8 @@ const app = getApp()
 Page({
   data: {
     userInfo: null,
-    spinShow:false
+    spinShow: false,
+    levelIndex: 0
   },
   onLoad: function(options) {
     this.loadUserInfo()
@@ -16,7 +17,8 @@ Page({
     app.formPost('/api/wx/student/user/current', null).then(res => {
       if (res.code == 1) {
         _this.setData({
-          userInfo: res.response
+          userInfo: res.response,
+          levelIndex: res.response.userLevel-1
         });
       }
       _this.setData({
@@ -27,6 +29,11 @@ Page({
         spinShow: false
       });
       app.message(e, 'error')
+    })
+  },
+  bindLevelChange: function(e) {
+    this.setData({
+      levelIndex: e.detail.value
     })
   },
   bindDateChange(e) {
@@ -46,7 +53,6 @@ Page({
     app.formPost('/api/wx/student/user/update', e.detail.value)
       .then(res => {
         if (res.code == 1) {
-          app.globalData.userInfo = res.response
           wx.reLaunch({
             url: '/pages/my/index/index',
           });

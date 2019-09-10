@@ -2,7 +2,7 @@
 
 <form bindsubmit='formSubmit'>
   <i-panel title="真实姓名">
-    <i-input value="{{ userInfo.realName }}" name="realName" maxlength="-1"  />
+    <i-input value="{{ userInfo.realName }}" name="realName" maxlength="-1" />
   </i-panel>
   <i-panel title="年龄">
     <i-input value="{{ userInfo.age }}" name="age" maxlength="-1" />
@@ -24,12 +24,10 @@
     <i-input value="{{ userInfo.phone }}" name="phone" maxlength="-1" />
   </i-panel>
   <i-panel title="年级">
-    <radio-group class="radio-group my-info-level" name="userLevel">
-      <label class="radio my-info-level-item" wx:for="{{ enumItem.state.user.levelEnum }}" wx:key="{{item.key}}" wx:for-item="radioItem">
-        <radio color="#2d8cf0" value="{{radioItem.key}}" checked="{{radioItem.key===userInfo.userLevel}}" />
-        <text>{{radioItem.value}}</text>
-      </label>
-    </radio-group>
+    <picker mode="selector" range="{{ enumItem.state.user.levelEnum }}" range-key="{{'value'}}" value="{{levelIndex}}" bindchange="bindLevelChange">
+      <i-input value="{{enumItem.state.user.levelEnum[levelIndex].value}}" />
+      <i-input value="{{enumItem.state.user.levelEnum[levelIndex].key}}" maxlength="-1" name="userLevel" style="display:none" />
+    </picker>
   </i-panel>
   <view>
     <button class="i-btn i-btn- i-btn-primary i-btn-square" form-type='submit'>保存</button>

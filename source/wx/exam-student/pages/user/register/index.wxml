@@ -12,12 +12,10 @@
     <i-input value="{{ password }}" name="password" maxlength="-1" />
   </i-panel>
   <i-panel title="年级">
-    <radio-group class="radio-group register-level" name="userLevel">
-      <label class="radio register-level-item" wx:for="{{ enumItem.state.user.levelEnum }}" wx:key="{{item.key}}" wx:for-item="radioItem">
-        <radio color="#2d8cf0" value="{{radioItem.key}}" />
-        <text>{{radioItem.value}}</text>
-      </label>
-    </radio-group>
+    <picker mode="selector" range="{{ enumItem.state.user.levelEnum }}" range-key="{{'value'}}" value="{{levelIndex}}" bindchange="bindLevelChange">
+      <i-input value="{{enumItem.state.user.levelEnum[levelIndex].value}}" />
+      <i-input value="{{enumItem.state.user.levelEnum[levelIndex].key}}" maxlength="-1" name="userLevel" style="display:none" />
+    </picker>
   </i-panel>
   <view>
     <button class="i-btn i-btn- i-btn-primary i-btn-square" form-type='submit'>注册</button>

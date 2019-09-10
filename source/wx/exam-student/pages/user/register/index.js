@@ -1,5 +1,13 @@
 const app = getApp()
 Page({
+  data: {
+    levelIndex: 0
+  },
+  bindLevelChange: function (e) {
+    this.setData({
+      levelIndex: e.detail.value
+    })
+  },
   formSubmit: function(e) {
     let _this = this;
     let form = e.detail.value
