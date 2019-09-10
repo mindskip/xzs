@@ -50,6 +50,7 @@ public class UserController extends BaseWXApiController {
     public RestResponse<UserResponseVM> current() {
         User user = getCurrentUser();
         UserResponseVM userVm = UserResponseVM.from(user);
+        userVm.setBirthDay(DateTimeUtil.dateShortFormat(user.getBirthDay()));
         return RestResponse.ok(userVm);
     }
 
