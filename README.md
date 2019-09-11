@@ -12,10 +12,10 @@
 ![](doc/image/wx/code/1.jpg)
 
 源码地址：
-   1. https://gitee.com/alvis-yu/exam        gitte   postgresql版本
-   2. https://gitee.com/alvis-yu/exam-mysql  gitte   mysql版本
-   3. https://github.com/alvis-u/exam        github  postgresql版本
-   4. https://github.com/alvis-u/exam-mysql  github  mysql版本
+   1. https://gitee.com/alvis-yu/uexam       gitte   postgresql版本
+   2. https://gitee.com/alvis-yu/uexam-mysql  gitte   mysql版本
+   3. https://github.com/alvis-u/uexam        github  postgresql版本
+   4. https://github.com/alvis-u/uexam-mysql  github  mysql版本
 
 学生系统模块：
 * 登录、注册： 注册时要选年级，过滤不同年级的试卷， 账号为student/123456
