@@ -26,4 +26,6 @@ public interface SubjectMapper extends BaseMapper<Subject> {
     List<Subject> allSubject();
 
     List<Subject> page(SubjectPageRequestVM requestVM);
+
+    int fakeDelete(Integer id);
 }

@@ -14,6 +14,8 @@ public class Subject implements Serializable {
 
     private String levelName;
 
+    private Boolean delFlag;
+
     public Integer getId() {
         return id;
     }
@@ -44,5 +46,13 @@ public class Subject implements Serializable {
 
     public void setLevelName(String levelName) {
         this.levelName = levelName == null ? null : levelName.trim();
+    }
+
+    public Boolean getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Boolean delFlag) {
+        this.delFlag = delFlag;
     }
 }

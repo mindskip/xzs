@@ -56,4 +56,9 @@ public class EducationController extends BaseApiController {
         return RestResponse.ok(vm);
     }
 
+    @RequestMapping(value = "/subject/delete/{id}", method = RequestMethod.POST)
+    public RestResponse<Integer> delete(@PathVariable Integer id) {
+        int flag = subjectService.deleteById(id);
+        return RestResponse.ok(flag);
+    }
 }
