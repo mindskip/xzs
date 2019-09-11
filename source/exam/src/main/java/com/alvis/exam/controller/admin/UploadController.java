@@ -51,7 +51,7 @@ public class UploadController extends BaseApiController {
                 UploadResultVM uploadResultVM = new UploadResultVM();
                 uploadResultVM.setOriginal(imgName);
                 uploadResultVM.setName(imgName);
-                uploadResultVM.setUrl(systemConfig.getFdfsNgix() + "/" + filePath);
+                uploadResultVM.setUrl(filePath);
                 uploadResultVM.setSize(multipartFile.getSize());
                 uploadResultVM.setType(imageType);
                 uploadResultVM.setState("SUCCESS");

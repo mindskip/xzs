@@ -12,7 +12,6 @@ import java.util.List;
 @ConfigurationProperties(prefix = "system")
 @Data
 public class SystemConfig {
-    private String fdfsNgix;
     private PasswordKeyConfig pwdKey;
     private List<String> securityIgnoreUrls;
     private WxConfig wx;
