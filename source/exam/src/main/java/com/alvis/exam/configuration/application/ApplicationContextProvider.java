@@ -1,4 +1,4 @@
-package com.alvis.exam.configuration.application.impl;
+package com.alvis.exam.configuration.application;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

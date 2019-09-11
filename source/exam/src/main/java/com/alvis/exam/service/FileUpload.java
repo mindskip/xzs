@@ -1,6 +1,5 @@
 package com.alvis.exam.service;
 
-import com.github.tobato.fastdfs.domain.fdfs.MetaData;
 
 import java.io.InputStream;
 import java.util.Set;

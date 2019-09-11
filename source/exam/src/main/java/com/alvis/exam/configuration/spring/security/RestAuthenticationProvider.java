@@ -1,6 +1,7 @@
 package com.alvis.exam.configuration.spring.security;
 
 
+import com.alvis.exam.context.WebContext;
 import com.alvis.exam.domain.enums.RoleEnum;
 import com.alvis.exam.domain.enums.UserStatusEnum;
 import com.alvis.exam.service.AuthenticationService;
@@ -14,6 +15,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
@@ -31,13 +33,14 @@ import java.util.ArrayList;
 public class RestAuthenticationProvider implements AuthenticationProvider {
 
     private final AuthenticationService authenticationService;
-
     private final UserService userService;
+    private final WebContext webContext;
 
     @Autowired
-    public RestAuthenticationProvider(AuthenticationService authenticationService, UserService userService) {
+    public RestAuthenticationProvider(AuthenticationService authenticationService, UserService userService, WebContext webContext) {
         this.authenticationService = authenticationService;
         this.userService = userService;
+        this.webContext = webContext;
     }
 
     @Override
@@ -60,11 +63,12 @@ public class RestAuthenticationProvider implements AuthenticationProvider {
             throw new LockedException("用户被禁用");
         }
 
+        webContext.setCurrentUser(user);
+
         ArrayList<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(new SimpleGrantedAuthority(RoleEnum.fromCode(user.getRole()).getRoleName()));
 
-        AuthUser authUser = new AuthUser(user.getUserName(), user.getPassword(), grantedAuthorities);
-        authUser.setUser(user);
+        User authUser = new User(user.getUserName(), user.getPassword(), grantedAuthorities);
         return new UsernamePasswordAuthenticationToken(authUser, authUser.getPassword(), authUser.getAuthorities());
     }
 

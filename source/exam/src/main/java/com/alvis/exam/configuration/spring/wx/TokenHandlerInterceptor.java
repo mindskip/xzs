@@ -2,6 +2,7 @@ package com.alvis.exam.configuration.spring.wx;
 
 import com.alvis.exam.base.SystemCode;
 import com.alvis.exam.configuration.spring.security.RestUtil;
+import com.alvis.exam.context.WxContext;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.domain.UserToken;
 import com.alvis.exam.service.UserService;
@@ -16,18 +17,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
 @Component
-
 public class TokenHandlerInterceptor implements HandlerInterceptor {
-    private final static ThreadLocal<User> USER_THREAD_LOCAL = new ThreadLocal<>();
 
-    private final static ThreadLocal<UserToken> USER_TOKEN_THREAD_LOCAL = new ThreadLocal<>();
     private final UserTokenService userTokenService;
     private final UserService userService;
+    private final WxContext wxContext;
 
     @Autowired
-    public TokenHandlerInterceptor(UserTokenService userTokenService, UserService userService) {
+    public TokenHandlerInterceptor(UserTokenService userTokenService, UserService userService, WxContext wxContext) {
         this.userTokenService = userTokenService;
         this.userService = userService;
+        this.wxContext = wxContext;
     }
 
     @Override
@@ -57,21 +57,12 @@ public class TokenHandlerInterceptor implements HandlerInterceptor {
         Date now = new Date();
         User user = userService.getUserByUserName(userToken.getUserName());
         if (now.before(userToken.getEndTime())) {
-            USER_THREAD_LOCAL.set(user);
-            USER_TOKEN_THREAD_LOCAL.set(userToken);
+            wxContext.setContext(user,userToken);
             return true;
         } else {   //refresh token
             UserToken refreshToken = userTokenService.insertUserToken(user);
             RestUtil.response(response, SystemCode.AccessTokenError.getCode(), SystemCode.AccessTokenError.getMessage(), refreshToken.getToken());
             return false;
         }
-    }
-
-    public static ThreadLocal<User> getUserThreadLocal() {
-        return USER_THREAD_LOCAL;
-    }
-
-    public static ThreadLocal<UserToken> getUserTokenThreadLocal() {
-        return USER_TOKEN_THREAD_LOCAL;
     }
 }

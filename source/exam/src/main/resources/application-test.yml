@@ -5,10 +5,3 @@ spring:
     url: jdbc:postgresql://localhost:5432/exam
     username: postgres
     password: 123456
-
-system:
-  fdfs-ngix: http://localhost:8888
-
-fdfs:
-  tracker-list:
-    - localhost:22122

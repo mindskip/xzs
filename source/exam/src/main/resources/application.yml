@@ -38,15 +38,9 @@ system:
       - /api/wx/student/auth/bind
       - /api/wx/student/auth/checkBind
       - /api/wx/student/user/register
-
-
-# 分布式文件系统FDFS配置
-fdfs:
-  so-timeout: 1501
-  connect-timeout: 601
-  thumb-image:             #缩略图生成参数
-    width: 150
-    height: 150
+  qn:
+    access-key: KabOBTPGVll2sSV8d1OIlW8G4_n_cReE7RSsLafA
+    secret-key: mSltk9_9KtCdFetCmxvvCAgsBg8JZHiXMuQeqSJA
 
 
 #mybatis page helper

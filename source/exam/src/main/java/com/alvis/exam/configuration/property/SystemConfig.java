@@ -16,4 +16,5 @@ public class SystemConfig {
     private PasswordKeyConfig pwdKey;
     private List<String> securityIgnoreUrls;
     private WxConfig wx;
+    private QnConfig qn;
 }

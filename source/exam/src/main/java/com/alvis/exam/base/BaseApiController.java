@@ -1,10 +1,11 @@
 package com.alvis.exam.base;
 
 
-import com.alvis.exam.configuration.spring.security.AuthUser;
+import com.alvis.exam.context.WebContext;
 import com.alvis.exam.domain.User;
 import com.alvis.exam.utility.ModelMapperSingle;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
@@ -13,9 +14,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class BaseApiController {
     protected final static String DEFAULT_PAGE_SIZE = "10";
     protected final static ModelMapper modelMapper = ModelMapperSingle.Instance();
+    @Autowired
+    protected WebContext webContext;
 
     protected User getCurrentUser() {
-        AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return authUser.getUser();
+        return webContext.getCurrentUser();
     }
 }

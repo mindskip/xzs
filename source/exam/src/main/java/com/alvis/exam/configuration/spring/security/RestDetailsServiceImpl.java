@@ -1,10 +1,12 @@
 package com.alvis.exam.configuration.spring.security;
 
+import com.alvis.exam.context.WebContext;
 import com.alvis.exam.domain.enums.RoleEnum;
 import com.alvis.exam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,10 +24,12 @@ import java.util.ArrayList;
 public class RestDetailsServiceImpl implements UserDetailsService {
 
     private final UserService userService;
+    private final WebContext webContext;
 
     @Autowired
-    public RestDetailsServiceImpl(UserService userService) {
+    public RestDetailsServiceImpl(UserService userService, WebContext webContext) {
         this.userService = userService;
+        this.webContext = webContext;
     }
 
     @Override
@@ -40,8 +44,8 @@ public class RestDetailsServiceImpl implements UserDetailsService {
         ArrayList<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(new SimpleGrantedAuthority(RoleEnum.fromCode(user.getRole()).getRoleName()));
 
-        AuthUser authUser = new AuthUser(user.getUserName(), user.getPassword(), grantedAuthorities);
-        authUser.setUser(user);
+        webContext.setCurrentUser(user);
+        User authUser = new User(user.getUserName(), user.getPassword(), grantedAuthorities);
         return authUser;
     }
 }
