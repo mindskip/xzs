@@ -67,7 +67,8 @@ CREATE TABLE "public"."t_subject" (
   "name" varchar(255) COLLATE "pg_catalog"."default",
   "level" int4,
   "level_name" varchar(255) COLLATE "pg_catalog"."default",
-  "item_order" int4
+  "item_order" int4,
+  "deleted" bool
 )
 ;
 COMMENT ON COLUMN "public"."t_subject"."name" IS '语文 数学 英语 等';

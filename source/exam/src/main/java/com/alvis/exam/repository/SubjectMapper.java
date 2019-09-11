@@ -3,12 +3,11 @@ package com.alvis.exam.repository;
 import com.alvis.exam.domain.Subject;
 import com.alvis.exam.viewmodel.admin.education.SubjectPageRequestVM;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 @Mapper
-public interface SubjectMapper extends BaseMapper<Subject> {
+public interface SubjectMapper  extends BaseMapper<Subject> {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Subject record);
@@ -26,6 +25,4 @@ public interface SubjectMapper extends BaseMapper<Subject> {
     List<Subject> allSubject();
 
     List<Subject> page(SubjectPageRequestVM requestVM);
-
-    int fakeDelete(Integer id);
 }

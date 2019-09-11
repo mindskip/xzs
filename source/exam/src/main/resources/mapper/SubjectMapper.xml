@@ -7,10 +7,10 @@
     <result column="level" jdbcType="INTEGER" property="level" />
     <result column="level_name" jdbcType="VARCHAR" property="levelName" />
     <result column="item_order" jdbcType="INTEGER" property="itemOrder" />
-    <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, level, level_name, item_order
+    id, name, level, level_name, item_order, deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
@@ -22,13 +22,15 @@
     delete from t_subject
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.alvis.exam.domain.Subject" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.alvis.exam.domain.Subject">
     insert into t_subject (id, name, level,
-      level_name, item_order)
+      level_name, item_order, deleted
+      )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER},
-      #{levelName,jdbcType=VARCHAR}, #{itemOrder,jdbcType=INTEGER})
+      #{levelName,jdbcType=VARCHAR}, #{itemOrder,jdbcType=INTEGER}, #{deleted,jdbcType=BIT}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.alvis.exam.domain.Subject" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.alvis.exam.domain.Subject">
     insert into t_subject
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -45,6 +47,9 @@
       </if>
       <if test="itemOrder != null">
         item_order,
+      </if>
+      <if test="deleted != null">
+        deleted,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -63,6 +68,9 @@
       <if test="itemOrder != null">
         #{itemOrder,jdbcType=INTEGER},
       </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.alvis.exam.domain.Subject">
@@ -80,6 +88,9 @@
       <if test="itemOrder != null">
         item_order = #{itemOrder,jdbcType=INTEGER},
       </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -88,7 +99,8 @@
     set name = #{name,jdbcType=VARCHAR},
       level = #{level,jdbcType=INTEGER},
       level_name = #{levelName,jdbcType=VARCHAR},
-      item_order = #{itemOrder,jdbcType=INTEGER}
+      item_order = #{itemOrder,jdbcType=INTEGER},
+      deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 
@@ -96,7 +108,7 @@
   <select id="getSubjectByLevel" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
-    from t_subject where level= #{level}
+    from t_subject where deleted='f' and level= #{level}
     order by item_order
   </select>
 
@@ -104,7 +116,7 @@
   <select id="allSubject" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
-    from t_subject
+    from t_subject where  deleted='f'
   </select>
 
   <select id="page" resultMap="BaseResultMap" parameterType="com.alvis.exam.viewmodel.admin.education.SubjectPageRequestVM">
@@ -112,7 +124,7 @@
     <include refid="Base_Column_List"/>
     FROM t_subject
     <where>
-      del_flag = 0
+       and deleted='f'
       <if test="id != null ">
         and id= #{id}
       </if>
@@ -122,9 +134,5 @@
     </where>
   </select>
 
-  <update id="fakeDelete" parameterType="java.lang.Integer">
-    update t_subject set del_flag = true
-    where id = #{id,jdbcType=INTEGER}
-  </update>
 
 </mapper>

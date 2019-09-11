@@ -15,6 +15,4 @@ public interface SubjectService extends BaseService<Subject> {
     Integer levelBySubjectId(Integer id);
 
     PageInfo<Subject> page(SubjectPageRequestVM requestVM);
-
-    int fakeDelete(Integer id);
 }

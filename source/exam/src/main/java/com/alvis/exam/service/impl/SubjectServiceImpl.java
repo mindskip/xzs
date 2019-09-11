@@ -59,9 +59,4 @@ public class SubjectServiceImpl extends BaseServiceImpl<Subject> implements Subj
         );
     }
 
-    @Override
-    public int fakeDelete(Integer id) {
-        return subjectMapper.fakeDelete(id);
-    }
-
 }

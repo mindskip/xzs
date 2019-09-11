@@ -24,20 +24,20 @@
 
         <!-- domain -->
         <javaModelGenerator targetPackage="com.alvis.exam.domain"
-                            targetProject="E:\private\exam\source\exam\src\main\java\">
+                            targetProject="E:\private\uexam\source\exam\src\main\java\">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- mapper xml -->
         <sqlMapGenerator targetPackage="mapper"
-                         targetProject="E:\private\exam\source\exam\src\main\resources\">
+                         targetProject="E:\private\uexam\source\exam\src\main\resources\">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!-- repository -->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.alvis.exam.repository"
-                             targetProject="E:\private\exam\source\exam\src\main\java\">
+                             targetProject="E:\private\uexam\source\exam\src\main\java\">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
@@ -130,12 +130,11 @@
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>-->
 
-        <table tableName="t_user_token" domainObjectName="UserToken" enableCountByExample="false"
+<!--        <table tableName="t_user_token" domainObjectName="UserToken" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <columnOverride column="token"  javaType="java.lang.String"  jdbcType="VARCHAR" />
-        </table>
-
+        </table>-->
 
     </context>
 </generatorConfiguration>
