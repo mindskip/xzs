@@ -1,0 +1,26 @@
+package com.alvis.exam.service.impl;
+
+import com.alvis.exam.domain.Classes;
+import com.alvis.exam.repository.ClassesMapper;
+import com.alvis.exam.repository.ClassesUserMapper;
+import com.alvis.exam.service.ClassesService;
+import com.alvis.exam.viewmodel.teacher.classes.ClassesPageRequestVM;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
+public class ClassesServiceImpl implements ClassesService {
+
+    private final ClassesMapper classesMapper;
+    private final ClassesUserMapper classesUserMapper;
+
+    @Override
+    public PageInfo<Classes> page(ClassesPageRequestVM requestVM) {
+        return PageHelper.startPage(requestVM.getPageIndex(), requestVM.getPageSize(), "id desc").doSelectPageInfo(() ->
+                classesMapper.page(requestVM)
+        );
+    }
+}
