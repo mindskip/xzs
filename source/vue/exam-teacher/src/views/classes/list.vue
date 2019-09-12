@@ -11,13 +11,17 @@
 
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
       <el-table-column prop="id" label="Id"  width="100" />
-      <el-table-column prop="title" label="标题" show-overflow-tooltip/>
-      <el-table-column prop="content" label="内容" show-overflow-tooltip />
-      <el-table-column prop="sendUserName" label="发送人"  width="100" />
-      <el-table-column prop="receives" label="接收人"  show-overflow-tooltip />
-      <el-table-column prop="readCount" label="已读数" width="70" />
-      <el-table-column prop="receiveUserCount" label="接收人数" width="100" />
+      <el-table-column prop="name" label="班级名称" show-overflow-tooltip/>
+      <el-table-column prop="classesNumber" label="班级人数" width="100" />
       <el-table-column prop="createTime" label="创建时间" width="160px"/>
+      <el-table-column width="220px" label="操作" align="center">
+        <template slot-scope="{row}">
+          <router-link :to="{path:'/classes/edit', query:{id:row.id}}" class="link-left">
+            <el-button size="mini">编辑</el-button>
+          </router-link>
+          <el-button  disabled size="mini" type="danger" @click="delClasses(row)" class="link-left">删除</el-button>
+        </template>
+      </el-table-column>
     </el-table>
     <pagination v-show="total>0" :total="total" :page.sync="queryParam.pageIndex" :limit.sync="queryParam.pageSize"
                 @pagination="search"/>
@@ -55,6 +59,17 @@ export default {
         this.total = re.total
         this.queryParam.pageIndex = re.pageNum
         this.listLoading = false
+      })
+    },
+    delClasses (row) {
+      let _this = this
+      classesApi.deleteClasses(row.id).then(re => {
+        if (re.code === 1) {
+          _this.search()
+          _this.$message.success(re.message)
+        } else {
+          _this.$message.error(re.message)
+        }
       })
     },
     submitForm () {
