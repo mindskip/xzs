@@ -63,6 +63,7 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
         Date now = new Date();
         ExamPaper examPaper = examPaperMapper.selectByPrimaryKey(examPaperSubmitVM.getId());
         ExamPaperTypeEnum paperTypeEnum = ExamPaperTypeEnum.fromCode(examPaper.getPaperType());
+        //任务试卷只能做一次
         if (paperTypeEnum == ExamPaperTypeEnum.Task) {
             ExamPaperAnswer examPaperAnswer = examPaperAnswerMapper.getByPidUid(examPaperSubmitVM.getId(), user.getId());
             if (null != examPaperAnswer)
@@ -72,6 +73,7 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
         List<ExamPaperTitleItemObject> examPaperTitleItemObjects = JsonUtil.toJsonListObject(frameTextContent, ExamPaperTitleItemObject.class);
         List<Integer> questionIds = examPaperTitleItemObjects.stream().flatMap(t -> t.getQuestionItems().stream().map(q -> q.getId())).collect(Collectors.toList());
         List<Question> questions = questionMapper.selectByIds(questionIds);
+        //将题目结构的转化为题目答案
         List<ExamPaperQuestionCustomerAnswer> examPaperQuestionCustomerAnswers = examPaperTitleItemObjects.stream()
                 .flatMap(t -> t.getQuestionItems().stream()
                         .map(q -> {
@@ -120,6 +122,7 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
         ExamPaperTypeEnum examPaperTypeEnum = ExamPaperTypeEnum.fromCode(examPaperAnswer.getPaperType());
         switch (examPaperTypeEnum) {
             case Task:
+                //任务试卷批改完成后，需要更新任务的状态
                 ExamPaper examPaper = examPaperMapper.selectByPrimaryKey(examPaperAnswer.getExamPaperId());
                 Integer taskId = examPaper.getTaskExamId();
                 Integer userId = examPaperAnswer.getCreateUser();
@@ -171,6 +174,16 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
     }
 
 
+    /**
+     * 用户提交答案的转化存储对象
+     * @param question question
+     * @param customerQuestionAnswer customerQuestionAnswer
+     * @param examPaper examPaper
+     * @param itemOrder itemOrder
+     * @param user user
+     * @param now now
+     * @return ExamPaperQuestionCustomerAnswer
+     */
     private ExamPaperQuestionCustomerAnswer ExamPaperQuestionCustomerAnswerFromVM(Question question, ExamPaperSubmitItemVM customerQuestionAnswer, ExamPaper examPaper, Integer itemOrder, User user, Date now) {
         ExamPaperQuestionCustomerAnswer examPaperQuestionCustomerAnswer = new ExamPaperQuestionCustomerAnswer();
         examPaperQuestionCustomerAnswer.setQuestionId(question.getId());
@@ -190,6 +203,12 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
         return examPaperQuestionCustomerAnswer;
     }
 
+    /**
+     * 判断提交答案是否正确，保留用户提交的答案
+     * @param examPaperQuestionCustomerAnswer examPaperQuestionCustomerAnswer
+     * @param question  question
+     * @param customerQuestionAnswer customerQuestionAnswer
+     */
     private void setSpecialFromVM(ExamPaperQuestionCustomerAnswer examPaperQuestionCustomerAnswer, Question question, ExamPaperSubmitItemVM customerQuestionAnswer) {
         QuestionTypeEnum questionTypeEnum = QuestionTypeEnum.fromCode(examPaperQuestionCustomerAnswer.getQuestionType());
         switch (questionTypeEnum) {
