@@ -18,6 +18,21 @@ public class ClassesServiceImpl implements ClassesService {
     private final ClassesUserMapper classesUserMapper;
 
     @Override
+    public Classes selectById(Integer id) {
+        return classesMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int insertByFilter(Classes record) {
+        return classesMapper.insertSelective(record);
+    }
+
+    @Override
+    public int updateByIdFilter(Classes record) {
+        return classesMapper.updateByPrimaryKeySelective(record);
+    }
+
+    @Override
     public PageInfo<Classes> page(ClassesPageRequestVM requestVM) {
         return PageHelper.startPage(requestVM.getPageIndex(), requestVM.getPageSize(), "id desc").doSelectPageInfo(() ->
                 classesMapper.page(requestVM)
