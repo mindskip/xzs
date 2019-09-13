@@ -58,7 +58,7 @@ public class ExamPaperAnswerController extends BaseApiController {
 
 
     @RequestMapping(value = "/answerSubmit", method = RequestMethod.POST)
-    public RestResponse<String> answerSubmit(@RequestBody @Valid ExamPaperSubmitVM examPaperSubmitVM) {
+    public RestResponse answerSubmit(@RequestBody @Valid ExamPaperSubmitVM examPaperSubmitVM) {
         User user = getCurrentUser();
         ExamPaperAnswerInfo examPaperAnswerInfo = examPaperAnswerService.calculateExamPaperAnswer(examPaperSubmitVM, user);
         if (null == examPaperAnswerInfo) {
@@ -79,7 +79,7 @@ public class ExamPaperAnswerController extends BaseApiController {
 
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public RestResponse<String> edit(@RequestBody @Valid ExamPaperSubmitVM examPaperSubmitVM) {
+    public RestResponse edit(@RequestBody @Valid ExamPaperSubmitVM examPaperSubmitVM) {
         boolean notJudge = examPaperSubmitVM.getAnswerItems().stream().anyMatch(i -> i.getDoRight() == null && i.getScore() == null);
         if (notJudge) {
             return RestResponse.fail(2, "有未批改题目");
