@@ -37,7 +37,7 @@ public class EducationController extends BaseApiController {
     }
 
     @RequestMapping(value = "/subject/edit", method = RequestMethod.POST)
-    public RestResponse<SubjectEditRequestVM> edit(@RequestBody @Valid SubjectEditRequestVM model) {
+    public RestResponse edit(@RequestBody @Valid SubjectEditRequestVM model) {
         Subject subject = modelMapper.map(model, Subject.class);
         if (model.getId() == null) {
             subject.setDeleted(false);
@@ -45,7 +45,7 @@ public class EducationController extends BaseApiController {
         } else {
             subjectService.updateByIdFilter(subject);
         }
-        return RestResponse.ok(model);
+        return RestResponse.ok();
     }
 
     @RequestMapping(value = "/subject/select/{id}", method = RequestMethod.POST)
@@ -56,7 +56,7 @@ public class EducationController extends BaseApiController {
     }
 
     @RequestMapping(value = "/subject/delete/{id}", method = RequestMethod.POST)
-    public RestResponse<Integer> delete(@PathVariable Integer id) {
+    public RestResponse delete(@PathVariable Integer id) {
         Subject subject = subjectService.selectById(id);
         subject.setDeleted(true);
         subjectService.updateByIdFilter(subject);

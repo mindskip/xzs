@@ -45,20 +45,19 @@ public class QuestionController extends BaseApiController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public RestResponse<QuestionEditRequestVM> edit(@RequestBody @Valid QuestionEditRequestVM model) {
+    public RestResponse edit(@RequestBody @Valid QuestionEditRequestVM model) {
         RestResponse validQuestionEditRequestResult = validQuestionEditRequestVM(model);
         if (validQuestionEditRequestResult.getCode() != SystemCode.OK.getCode()) {
             return validQuestionEditRequestResult;
         }
 
-        Question question;
         if (null == model.getId()) {
-            question = questionService.insertFullQuestion(model, getCurrentUser().getId());
+            questionService.insertFullQuestion(model, getCurrentUser().getId());
         } else {
-            question = questionService.updateFullQuestion(model);
+            questionService.updateFullQuestion(model);
         }
-        QuestionEditRequestVM newVM = questionService.getQuestionEditRequestVM(question.getId());
-        return RestResponse.ok(newVM);
+
+        return RestResponse.ok();
     }
 
     @RequestMapping(value = "/select/{id}", method = RequestMethod.POST)

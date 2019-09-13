@@ -37,7 +37,8 @@ public class JsonUtil {
     public static <T> List<T> toJsonListObject(String json, Class<T> valueType) {
         try {
             JavaType getCollectionType = MAPPER.getTypeFactory().constructParametricType(List.class, valueType);
-            return (List<T>) MAPPER.readValue(json, getCollectionType);
+            List<T> list = MAPPER.readValue(json, getCollectionType);
+            return list;
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
         }
@@ -46,7 +47,8 @@ public class JsonUtil {
 
     public static <T> T toJsonObject(InputStream stream, Class<T> valueType) {
         try {
-            return MAPPER.<T>readValue(stream, valueType);
+            T object = MAPPER.<T>readValue(stream, valueType);
+            return object;
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
         }

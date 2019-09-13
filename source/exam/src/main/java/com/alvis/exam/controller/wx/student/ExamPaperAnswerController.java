@@ -117,8 +117,8 @@ public class ExamPaperAnswerController extends BaseWXApiController {
 
     @PostMapping(value = "/read/{id}")
     public RestResponse<ExamPaperReadVM> read(@PathVariable Integer id) {
-        ExamPaperAnswer examPaperAnswer = examPaperAnswerService.selectById(id);
         ExamPaperReadVM vm = new ExamPaperReadVM();
+        ExamPaperAnswer examPaperAnswer = examPaperAnswerService.selectById(id);
         ExamPaperEditRequestVM paper = examPaperService.examPaperToVM(examPaperAnswer.getExamPaperId());
         ExamPaperSubmitVM answer = examPaperAnswerService.examPaperAnswerToVM(examPaperAnswer.getId());
         vm.setPaper(paper);
