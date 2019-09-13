@@ -79,7 +79,7 @@ export default {
       loginForm: {
         userName: 'admin',
         password: '123456',
-        remember: true
+        remember: false
       },
       loginRules: {
         userName: [{ required: true, trigger: 'blur', validator: validateUsername }],
