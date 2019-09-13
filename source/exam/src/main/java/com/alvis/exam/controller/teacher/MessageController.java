@@ -51,7 +51,7 @@ public class MessageController extends BaseApiController {
 
 
     @RequestMapping(value = "/send", method = RequestMethod.POST)
-    public RestResponse<PageInfo<MessageResponseVM>> send(@RequestBody @Valid MessageSendVM model) {
+    public RestResponse send(@RequestBody @Valid MessageSendVM model) {
         User user = getCurrentUser();
         List<User> receiveUser = userService.selectByIds(model.getReceiveUserIds());
         Date now = new Date();

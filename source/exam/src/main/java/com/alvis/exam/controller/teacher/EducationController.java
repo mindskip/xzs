@@ -39,14 +39,14 @@ public class EducationController extends BaseApiController {
     }
 
     @RequestMapping(value = "/subject/edit", method = RequestMethod.POST)
-    public RestResponse<SubjectEditRequestVM> edit(@RequestBody @Valid SubjectEditRequestVM model) {
+    public RestResponse edit(@RequestBody @Valid SubjectEditRequestVM model) {
         Subject subject = modelMapper.map(model, Subject.class);
         if (model.getId() == null) {
             subjectService.insertByFilter(subject);
         } else {
             subjectService.updateByIdFilter(subject);
         }
-        return RestResponse.ok(model);
+        return RestResponse.ok();
     }
 
     @RequestMapping(value = "/subject/select/{id}", method = RequestMethod.POST)

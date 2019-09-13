@@ -3,8 +3,6 @@ package com.alvis.exam.controller.wx.student;
 import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.controller.wx.BaseWXApiController;
 import com.alvis.exam.domain.*;
-import com.alvis.exam.domain.enums.ExamPaperAnswerStatusEnum;
-import com.alvis.exam.domain.enums.ExamPaperTypeEnum;
 import com.alvis.exam.domain.enums.QuestionTypeEnum;
 import com.alvis.exam.event.CalculateExamPaperAnswerCompleteEvent;
 import com.alvis.exam.event.UserEvent;
@@ -61,7 +59,7 @@ public class ExamPaperAnswerController extends BaseWXApiController {
 
 
     @RequestMapping(value = "/answerSubmit", method = RequestMethod.POST)
-    public RestResponse<String> answerSubmit(HttpServletRequest request) {
+    public RestResponse answerSubmit(HttpServletRequest request) {
         ExamPaperSubmitVM examPaperSubmitVM = requestToExamPaperSubmitVM(request);
         User user = getCurrentUser();
         ExamPaperAnswerInfo examPaperAnswerInfo = examPaperAnswerService.calculateExamPaperAnswer(examPaperSubmitVM, user);
@@ -117,8 +115,8 @@ public class ExamPaperAnswerController extends BaseWXApiController {
 
     @PostMapping(value = "/read/{id}")
     public RestResponse<ExamPaperReadVM> read(@PathVariable Integer id) {
-        ExamPaperAnswer examPaperAnswer = examPaperAnswerService.selectById(id);
         ExamPaperReadVM vm = new ExamPaperReadVM();
+        ExamPaperAnswer examPaperAnswer = examPaperAnswerService.selectById(id);
         ExamPaperEditRequestVM paper = examPaperService.examPaperToVM(examPaperAnswer.getExamPaperId());
         ExamPaperSubmitVM answer = examPaperAnswerService.examPaperAnswerToVM(examPaperAnswer.getId());
         vm.setPaper(paper);
