@@ -140,7 +140,7 @@ export default {
       let currentContent = this.richEditor.object[this.richEditor.parameterName]
       this.richEditor.instance.setContent(currentContent)
       // 光标定位到Ueditor
-      this.richEditor.instance.focus()
+      this.richEditor.instance.focus(true)
     },
     inputClick (object, parameterName) {
       this.richEditor.object = object

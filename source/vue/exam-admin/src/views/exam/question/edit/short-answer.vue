@@ -124,6 +124,8 @@ export default {
       this.richEditor.instance = instance
       let currentContent = this.richEditor.object[this.richEditor.parameterName]
       this.richEditor.instance.setContent(currentContent)
+      // 光标定位到Ueditor
+      this.richEditor.instance.focus(true)
     },
     inputClick (object, parameterName) {
       this.richEditor.object = object
@@ -167,14 +169,9 @@ export default {
       this.subjectFilter = this.subjects.filter(data => data.level === this.form.gradeLevel)
     },
     showQuestion () {
-      let _this = this
       this.questionShow.dialog = true
-      this.questionShow.loading = true
-      questionApi.select(this.form.id).then(re => {
-        _this.questionShow.qType = re.response.questionType
-        _this.questionShow.question = re.response
-        _this.questionShow.loading = false
-      })
+      this.questionShow.qType = this.form.questionType
+      this.questionShow.question = this.form
     },
     ...mapActions('exam', { initSubject: 'initSubject' }),
     ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
