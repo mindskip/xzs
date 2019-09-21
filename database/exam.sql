@@ -427,3 +427,44 @@ CREATE TABLE "public"."t_task_exam_customer_answer" (
 )
 ;
 COMMENT ON COLUMN "public"."t_task_exam_customer_answer"."text_content_id" IS '任务完成情况(Json)';
+
+
+
+
+-- ----------------------------
+-- Table structure for t_classes
+-- ----------------------------
+CREATE TABLE "public"."t_classes" (
+  "id" serial4 primary key,
+  "name" varchar(255) COLLATE "pg_catalog"."default",
+  "create_user" int4,
+  "create_time" timestamp(6),
+  "deleted" bool,
+  "create_user_name" varchar(255) COLLATE "pg_catalog"."default",
+  "classes_number" int4
+)
+;
+COMMENT ON COLUMN "public"."t_classes"."create_user" IS '创建人';
+COMMENT ON COLUMN "public"."t_classes"."create_time" IS '创建时间';
+COMMENT ON COLUMN "public"."t_classes"."create_user_name" IS '创建人用户名';
+COMMENT ON COLUMN "public"."t_classes"."classes_number" IS '班级人数';
+
+
+
+-- ----------------------------
+-- Table structure for t_classes_user
+-- ----------------------------
+CREATE TABLE "public"."t_classes_user" (
+  "id" serial4 primary key,
+  "classes_id" int4,
+  "user_id" int4,
+  "create_time" timestamp(6),
+  "deleted" bool
+)
+;
+COMMENT ON COLUMN "public"."t_classes_user"."create_time" IS '加入时间';
+
+-- ----------------------------
+-- Primary Key structure for table t_classes_user
+-- ----------------------------
+ALTER TABLE "public"."t_classes_user" ADD CONSTRAINT "t_classes_user_pkey" PRIMARY KEY ("id");
