@@ -463,8 +463,3 @@ CREATE TABLE "public"."t_classes_user" (
 )
 ;
 COMMENT ON COLUMN "public"."t_classes_user"."create_time" IS '加入时间';
-
--- ----------------------------
--- Primary Key structure for table t_classes_user
--- ----------------------------
-ALTER TABLE "public"."t_classes_user" ADD CONSTRAINT "t_classes_user_pkey" PRIMARY KEY ("id");
