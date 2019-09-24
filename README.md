@@ -7,7 +7,7 @@
 ##### 官网地址：[https://www.alvisu.com](https://www.alvisu.com) | 学生系统地址：[http://student.alvisu.com](http://student.alvisu.com) | 管理系统地址：[http://admin.alvisu.com](http://admin.alvisu.com)
 
 ##### 小程序二维码
-![](doc/image/wx/code/1.jpg)
+![](doc/image/wx/code/2.jpg)
 
 ### 衍生版本源码地址
 ##### gitee ：[postgresql](https://gitee.com/alvis-yu/uexam) | [mysql](https://gitee.com/alvis-yu/uexam-mysql)
