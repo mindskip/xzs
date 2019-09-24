@@ -10,6 +10,7 @@ module.exports = {
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: true,
+  productionSourceMap: false,
   devServer: {
     open: true,
     host: 'localhost',
