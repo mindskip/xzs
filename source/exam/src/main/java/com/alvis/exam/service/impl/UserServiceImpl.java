@@ -50,7 +50,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     }
 
     @Override
-    @Cacheable(value = CACHE_NAME, key = "#username")
+    @Cacheable(value = CACHE_NAME, key = "#username", unless = "#result == null")
     public User getUserByUserName(String username) {
         return userMapper.getUserByUserName(username);
     }

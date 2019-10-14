@@ -57,7 +57,7 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
     }
 
     @Override
-    @Cacheable(value = CACHE_NAME, key = "#token")
+    @Cacheable(value = CACHE_NAME, key = "#token", unless = "#result == null")
     public UserToken getToken(String token) {
         return userTokenMapper.getToken(token);
     }

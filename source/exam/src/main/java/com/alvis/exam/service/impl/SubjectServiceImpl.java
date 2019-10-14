@@ -26,7 +26,7 @@ public class SubjectServiceImpl extends BaseServiceImpl<Subject> implements Subj
     }
 
     @Override
-    @Cacheable(value = CACHE_NAME, key = "#id")
+    @Cacheable(value = CACHE_NAME, key = "#id", unless = "#result == null")
     public Subject selectById(Integer id) {
         return super.selectById(id);
     }

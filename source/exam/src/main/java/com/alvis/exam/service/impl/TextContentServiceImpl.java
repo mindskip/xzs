@@ -27,7 +27,7 @@ public class TextContentServiceImpl extends BaseServiceImpl<TextContent> impleme
     }
 
     @Override
-    @Cacheable(value = CACHE_NAME, key = "#id")
+    @Cacheable(value = CACHE_NAME, key = "#id", unless = "#result == null")
     public TextContent selectById(Integer id) {
         return super.selectById(id);
     }
