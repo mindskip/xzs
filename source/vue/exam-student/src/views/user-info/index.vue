@@ -7,7 +7,9 @@
             <span>个人信息</span>
           </div>
           <el-row style="text-align: center">
-            <el-avatar class="el-dropdown-avatar" :size="100" :src="require('@/assets/avatar.png')"></el-avatar>
+            <el-upload action="/api/student/upload/image"  accept=".jpg,.png" :show-file-list="false"  :on-success="uploadSuccess">
+              <el-avatar class="el-dropdown-avatar" :size="100" :src="form.imagePath === null ? require('@/assets/avatar.png') : form.imagePath"></el-avatar>
+            </el-upload>
           </el-row>
           <el-row class="user-info-userName">
             <label>{{form.userName}}</label>
@@ -88,7 +90,8 @@ export default {
         birthDay: null,
         phone: null,
         userLevel: null,
-        createTime: null
+        createTime: null,
+        imagePath: null
       },
       formLoading: false,
       rules: {
@@ -111,6 +114,13 @@ export default {
     })
   },
   methods: {
+    uploadSuccess (re, file) {
+      if (re.code === 1) {
+        this.form.imagePath = re.response
+      } else {
+        this.$message.error(re.message)
+      }
+    },
     submitForm () {
       let _this = this
       this.$refs.form.validate((valid) => {

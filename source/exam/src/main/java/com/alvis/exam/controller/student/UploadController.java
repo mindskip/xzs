@@ -5,6 +5,7 @@ import com.alvis.exam.base.BaseApiController;
 import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.configuration.property.SystemConfig;
 import com.alvis.exam.service.FileUpload;
+import com.alvis.exam.service.UserService;
 import com.alvis.exam.viewmodel.admin.file.UeditorConfigVM;
 import com.alvis.exam.viewmodel.admin.file.UploadResultVM;
 import lombok.AllArgsConstructor;
@@ -31,6 +32,7 @@ import java.util.Arrays;
 public class UploadController extends BaseApiController {
 
     private final FileUpload fileUpload;
+    private final UserService userService;
 
 
     @RequestMapping("/image")
@@ -42,6 +44,7 @@ public class UploadController extends BaseApiController {
         String imgName = multipartFile.getOriginalFilename();
         try (InputStream inputStream = multipartFile.getInputStream()) {
             String filePath = fileUpload.uploadFile(inputStream, attachSize, imgName);
+            userService.changePicture(getCurrentUser(), filePath);
             return RestResponse.ok(filePath);
         } catch (IOException e) {
             return RestResponse.fail(2, e.getMessage());
