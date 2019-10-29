@@ -4,7 +4,7 @@
       <div class="head-user">
         <el-dropdown trigger="click" placement="bottom">
           <el-badge :is-dot="messageCount!==0" >
-            <el-avatar  class="el-dropdown-avatar" size="medium"  :src="require('@/assets/avatar.png')"></el-avatar>
+            <el-avatar  class="el-dropdown-avatar" size="medium"  :src="userInfo.imagePath === null ? require('@/assets/avatar.png') : userInfo.imagePath"></el-avatar>
           </el-badge>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="$router.push({path:'/user/index'})">个人中心</el-dropdown-item>
@@ -64,16 +64,24 @@
 <script>
 import { mapActions, mapMutations, mapState } from 'vuex'
 import loginApi from '@/api/login'
+import userApi from '@/api/user'
 export default {
   name: 'Layout',
   data () {
     return {
-      defaultUrl: '/index'
+      defaultUrl: '/index',
+      userInfo: {
+        imagePath: null
+      }
     }
   },
   created () {
+    let _this = this
     this.defaultUrl = this.routeSelect(this.$route.path)
     this.getUserMessageInfo()
+    userApi.getCurrentUser().then(re => {
+      _this.userInfo = re.response
+    })
   },
   watch: {
     $route (to, from) {
