@@ -2,8 +2,10 @@ package com.alvis.exam.controller.teacher;
 
 
 import com.alvis.exam.base.BaseApiController;
+import com.alvis.exam.base.RestResponse;
 import com.alvis.exam.configuration.property.SystemConfig;
 import com.alvis.exam.service.FileUpload;
+import com.alvis.exam.service.UserService;
 import com.alvis.exam.viewmodel.admin.file.UeditorConfigVM;
 import com.alvis.exam.viewmodel.admin.file.UploadResultVM;
 import lombok.AllArgsConstructor;
@@ -34,6 +36,7 @@ public class UploadController extends BaseApiController {
     private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
     private static final String IMAGE_UPLOAD = "imgUpload";
     private static final String IMAGE_UPLOAD_FILE = "upFile";
+    private final UserService userService;
 
     @ResponseBody
     @RequestMapping("/configAndUpload")
@@ -77,5 +80,21 @@ public class UploadController extends BaseApiController {
         return null;
     }
 
+
+    @RequestMapping("/image")
+    @ResponseBody
+    public RestResponse questionUploadAndReadExcel(HttpServletRequest request) {
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+        MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
+        long attachSize = multipartFile.getSize();
+        String imgName = multipartFile.getOriginalFilename();
+        try (InputStream inputStream = multipartFile.getInputStream()) {
+            String filePath = fileUpload.uploadFile(inputStream, attachSize, imgName);
+            userService.changePicture(getCurrentUser(), filePath);
+            return RestResponse.ok(filePath);
+        } catch (IOException e) {
+            return RestResponse.fail(2, e.getMessage());
+        }
+    }
 
 }
