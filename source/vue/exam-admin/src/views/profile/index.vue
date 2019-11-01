@@ -40,7 +40,8 @@ export default {
         phone: '',
         lastActiveTime: '',
         createTime: '',
-        role: '1'
+        role: '1',
+        imagePath: null
       }
     }
   },

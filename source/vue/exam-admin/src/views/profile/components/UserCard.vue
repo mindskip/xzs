@@ -6,10 +6,7 @@
 
     <div class="user-profile">
       <div class="box-center">
-        <pan-thumb   :image="require('@/assets/avatar.gif')" :height="'100px'" :width="'100px'" :hoverable="false">
-          <div style="margin-bottom: 10px;">你好</div>
-          {{ userInfo.realName }}
-        </pan-thumb>
+        <img :src="userInfo.imagePath === null ? require('@/assets/avatar.gif') : userInfo.imagePath " height="100px" width="100px" style="border-radius: 50px">
       </div>
       <div class="box-center">
         <div class="user-name text-center">{{ userInfo.userName }}</div>
@@ -33,10 +30,8 @@
 
 <script>
 import { mapGetters, mapState } from 'vuex'
-import PanThumb from '@/components/PanThumb'
 
 export default {
-  components: { PanThumb },
   props: {
     userInfo: {
       type: Object,
@@ -44,7 +39,8 @@ export default {
         return {
           realName: '',
           userName: '',
-          role: ''
+          role: '',
+          imagePath: null
         }
       }
     }
