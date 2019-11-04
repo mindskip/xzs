@@ -37,6 +37,9 @@ public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
         UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
         userEventLog.setContent(user.getUserName() + " 登录了学之思考试系统");
         eventPublisher.publishEvent(new UserEvent(userEventLog));
-        RestUtil.response(response, SystemCode.OK);
+        com.alvis.exam.domain.User newUser = new com.alvis.exam.domain.User();
+        newUser.setUserName(user.getUserName());
+        newUser.setImagePath(user.getImagePath());
+        RestUtil.response(response, SystemCode.OK.getCode(), SystemCode.OK.getMessage(), newUser);
     }
 }
