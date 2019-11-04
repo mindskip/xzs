@@ -81,20 +81,5 @@ public class UploadController extends BaseApiController {
     }
 
 
-    @RequestMapping("/image")
-    @ResponseBody
-    public RestResponse questionUploadAndReadExcel(HttpServletRequest request) {
-        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
-        MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
-        long attachSize = multipartFile.getSize();
-        String imgName = multipartFile.getOriginalFilename();
-        try (InputStream inputStream = multipartFile.getInputStream()) {
-            String filePath = fileUpload.uploadFile(inputStream, attachSize, imgName);
-            userService.changePicture(getCurrentUser(), filePath);
-            return RestResponse.ok(filePath);
-        } catch (IOException e) {
-            return RestResponse.fail(2, e.getMessage());
-        }
-    }
 
 }
