@@ -4,6 +4,7 @@ import userApi from '@/api/user'
 const state = {
   userName: Cookies.get('studentUserName'),
   userInfo: Cookies.get('studentUserInfo'),
+  imagePath: Cookies.get('studentImagePath'),
   messageCount: 0
 }
 
@@ -31,6 +32,10 @@ const mutations = {
     state.userInfo = userInfo
     Cookies.set('studentUserInfo', userInfo, { expires: 30 })
   },
+  setImagePath: (state, imagePath) => {
+    state.imagePath = imagePath
+    Cookies.set('studentImagePath', imagePath, { expires: 30 })
+  },
   setMessageCount: (state, messageCount) => {
     state.messageCount = messageCount
   },
@@ -40,6 +45,7 @@ const mutations = {
   clearLogin (state) {
     Cookies.remove('studentUserName')
     Cookies.remove('studentUserInfo')
+    Cookies.remove('studentImagePath')
   }
 }
 
