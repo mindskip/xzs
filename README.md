@@ -3,6 +3,9 @@
 ### 项目介绍
 学之思在线考试系统是一款 java + vue 的前后端分离的考试系统。主要优点是开发、部署简单快捷,可水平拓展在多台服务器上做负载均衡。考试功能齐全，目前有web端和微信小程序，能覆盖到pc机和手机等设备。
 
+### 2019最受欢迎开源软件投票地址
+投票位置在倒数第二个：[https://www.oschina.net/project/top_cn_2019](https://www.oschina.net/project/top_cn_2019)
+
 ### 演示地址
 ##### 官网地址：[https://www.alvisu.com](https://www.alvisu.com) | 学生系统地址：[http://student.alvisu.com](http://student.alvisu.com) | 管理系统地址：[http://admin.alvisu.com](http://admin.alvisu.com)
 
