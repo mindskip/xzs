@@ -32,4 +32,11 @@ public class WebContext {
             return user;
         }
     }
+
+    /**
+     * 删除当前线程的工作单元，建议放在finally中调用，避免内存泄漏
+     */
+    public  void clean() {
+        USER_THREAD_LOCAL.remove();
+    }
 }
