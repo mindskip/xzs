@@ -4,7 +4,6 @@ import com.alvis.exam.domain.Classes;
 import com.alvis.exam.repository.ClassesMapper;
 import com.alvis.exam.repository.ClassesUserMapper;
 import com.alvis.exam.service.ClassesService;
-import com.alvis.exam.viewmodel.teacher.classes.ClassesPageRequestVM;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
@@ -32,10 +31,4 @@ public class ClassesServiceImpl implements ClassesService {
         return classesMapper.updateByPrimaryKeySelective(record);
     }
 
-    @Override
-    public PageInfo<Classes> page(ClassesPageRequestVM requestVM) {
-        return PageHelper.startPage(requestVM.getPageIndex(), requestVM.getPageSize(), "id desc").doSelectPageInfo(() ->
-                classesMapper.page(requestVM)
-        );
-    }
 }

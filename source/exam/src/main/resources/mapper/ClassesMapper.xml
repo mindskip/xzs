@@ -117,17 +117,4 @@
 
 
 
-  <select id="page" resultMap="BaseResultMap" parameterType="com.alvis.exam.viewmodel.teacher.classes.ClassesPageRequestVM">
-    SELECT
-    <include refid="Base_Column_List"/>
-    FROM t_classes
-    <where>
-      and deleted='f'
-      and create_user=#{createId}
-      <if test="name != null ">
-        and name like concat('%',#{name},'%')
-      </if>
-    </where>
-  </select>
-
 </mapper>

@@ -1,8 +1,7 @@
 spring:
   redis:
-    host: 101.132.110.182
-    password: 123456
+    host: 192.168.0.96
   datasource:
-    url: jdbc:postgresql://101.132.110.182:5432/exam
+    url: jdbc:postgresql://192.168.0.96:5432/exam
     username: postgres
     password: 123456
