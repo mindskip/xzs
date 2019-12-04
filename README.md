@@ -9,6 +9,8 @@
 ### 演示地址
 ##### 官网地址：[https://www.alvisu.com](https://www.alvisu.com) | 学生系统地址：[http://student.alvisu.com](http://student.alvisu.com) | 管理系统地址：[http://admin.alvisu.com](http://admin.alvisu.com)
 
+##### 学生备用系统地址：[http://101.132.110.182:85](http://101.132.110.182:85) | 管理系统备用地址：[http://101.132.110.182:86](http://101.132.110.182:86)
+
 ##### 小程序二维码
 ![](doc/image/wx/code/2.jpg)
 
