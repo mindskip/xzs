@@ -4,15 +4,20 @@
 学之思在线考试系统是一款 java + vue 的前后端分离的考试系统。主要优点是开发、部署简单快捷,可水平拓展在多台服务器上做负载均衡。考试功能齐全，目前有web端和微信小程序，能覆盖到pc机和手机等设备。
 
 ### 授权
-官网：[https://www.alvisu.com](https://www.alvisu.com) 
+官网：[https://www.alvisu.com](https://www.alvisu.com)
+
+授权介绍：[https://www.alvisu.com/buy.html](https://www.alvisu.com/buy.html)
 
 学之思开源考试系统 使用 AGPLv3 开源，请遵守 AGPLv3 的相关条款，或者联系作者获取商业授权(https://www.alvisu.com)
 
-### 演示地址
-#####  学生系统地址：[http://student.alvisu.com](http://student.alvisu.com) | 管理系统地址：[http://admin.alvisu.com](http://admin.alvisu.com)
 
-##### 小程序二维码
-![](doc/image/wx/code/2.jpg)
+### 演示地址
+学之思：[https://www.alvisu.com/uexam.html](https://www.alvisu.com/uexam.html) 
+
+学多多：[https://www.alvisu.com/xdd.html](https://www.alvisu.com/xdd.html) 
+
+思多多：[https://www.alvisu.com/sdd.html](https://www.alvisu.com/sdd.html) 
+
 
 ### 衍生版本源码地址
 ##### gitee ：[postgresql](https://gitee.com/alvis-yu/uexam) | [mysql](https://gitee.com/alvis-yu/uexam-mysql)
