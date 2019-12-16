@@ -3,15 +3,19 @@
 ### 项目介绍
 学之思在线考试系统是一款 java + vue 的前后端分离的考试系统。主要优点是开发、部署简单快捷,可水平拓展在多台服务器上做负载均衡。考试功能齐全，目前有web端和微信小程序，能覆盖到pc机和手机等设备。
 
-### 授权
-官网：[https://www.alvisu.com](https://www.alvisu.com)
+### 开源版使用须知
+允许用于个人学习、毕业设计、教学案例、公益事业;
+
+开源版不适合商用，商用请购买商业版[https://www.alvisu.com/buy.html](https://www.alvisu.com/buy.html);
+
+禁止将本项目的代码和资源进行任何形式的出售，产生的一切任何后果责任由侵权者自负
 
 授权介绍：[https://www.alvisu.com/buy.html](https://www.alvisu.com/buy.html)
 
-学之思开源考试系统 使用 AGPLv3 开源，请遵守 AGPLv3 的相关条款，或者联系作者获取商业授权(https://www.alvisu.com)
-
 
 ### 演示地址
+官网：[https://www.alvisu.com](https://www.alvisu.com)
+
 学之思：[https://www.alvisu.com/uexam.html](https://www.alvisu.com/uexam.html) 
 
 学多多：[https://www.alvisu.com/xdd.html](https://www.alvisu.com/xdd.html) 
