@@ -13,7 +13,6 @@ server:
 logging:
   config: classpath:logback-spring.xml
   file: exam
-  path: /usr/log/exam/
 
 #mybatis
 mybatis:
@@ -73,8 +72,6 @@ spring:
     type: redis
     redis:
       time-to-live: 12h   #12 hour
-
-  #spring mvc
 
 
   #runningtime environment

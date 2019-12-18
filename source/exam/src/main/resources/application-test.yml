@@ -1,3 +1,6 @@
+logging:
+  path: /usr/log/exam/
+
 spring:
   redis:
     host: localhost
