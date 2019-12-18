@@ -79,4 +79,4 @@ spring:
 
   #runningtime environment
   profiles:
-    active:  @env@
+    active:  dev
