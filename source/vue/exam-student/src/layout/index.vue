@@ -25,7 +25,7 @@
         <el-menu-item index="/question/index">错题本</el-menu-item>
       </el-menu>
       <div>
-        <img src="@/assets/logo.png" height="56"/>
+        <a href="/"><img src="@/assets/logo.png" height="56"/></a>
       </div>
     </el-header>
     <el-main class="student-main">
