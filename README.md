@@ -84,7 +84,7 @@
 
 ### 安装教程
 1. redis 安装
-2. postgresql/mysql 安装后执行/exam/database下的数据库脚本，创建表初始化数据
+2. 进群获取到数据库脚本，创建表初始化数据
 3. /uexam/source/exam为后台代码，建议使用IntelliJ IDEA打开，在application-dev.yml文件中，配置好postgesql/mysql、redis的服务地址，打开ExamApplication文件编译运行,默认端口为8001。
 4. /uexam/source/vue/exam-student 是学生系统前端代码，建议使用JetBrains WebStorm打开，先运行安装包命令：【npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/ 】
 【npm install --registry https://registry.npm.taobao.org 】 ，再运行编译启动命令：【npm run serve】 ，默认端口为80
