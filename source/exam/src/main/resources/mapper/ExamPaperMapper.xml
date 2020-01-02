@@ -304,7 +304,7 @@
   <select id="selectCountByDate"  resultType="com.alvis.exam.domain.other.KeyValue">
 		SELECT create_time as name,COUNT(create_time) as value from
 		        (
-				  SELECT to_char(create_time,'YYYY-mm-dd') as create_time from t_exam_paper
+				  SELECT to_char(create_time,'yyyy-mm-dd') as create_time from t_exam_paper
 					WHERE  deleted='f' and create_time  between  #{startTime}  and  #{endTime}
 				) a
 		GROUP BY create_time
