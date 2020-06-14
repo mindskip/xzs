@@ -1,0 +1,10 @@
+<wxs module="enumItem" src="../../../../wxs/enumItem.wxs"></wxs>
+<view>
+  <i-cell-group>
+    <i-cell wx:for="{{tableData}}" data-item="item" label="{{item.content}}" wx:key="{{item.id}}" url="/pages/my/message/info/index?id={{item.id}}" title="{{item.title}}" lable="{{item.content}}" is-link value="{{enumItem.format(enumItem.state.user.message.readText,item.readed)}}"></i-cell>
+  </i-cell-group>
+</view>
+
+<i-load-more tip="{{loadMoreTip}}" loading="{{loadMoreLoad}}" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+<i-message id="message" />

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <properties resource="application-dev.yml"/>
+
+    <context id="generator" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- jdbc -->
+        <jdbcConnection driverClass="org.postgresql.Driver" connectionURL="jdbc:postgresql://101.132.110.182:5432/exam"
+                        userId="postgres" password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- domain -->
+        <javaModelGenerator targetPackage="com.alvis.exam.domain"
+                            targetProject="F:\uexam\source\exam\src\main\java\">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- mapper xml -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="F:\uexam\source\exam\src\main\resources\">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- repository -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.alvis.exam.repository"
+                             targetProject="F:\uexam\source\exam\src\main\java\">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+<!--
+
+        <table tableName="t_user" domainObjectName="User" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <columnOverride column="user_uuid"  javaType="java.lang.String"  jdbcType="VARCHAR" />
+        </table>
+-->
+
+
+<!--        <table tableName="t_subject" domainObjectName="Subject" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+
+
+<!--
+                <table tableName="t_question" domainObjectName="Question" enableCountByExample="false"
+                       enableUpdateByExample="false"
+                       enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+                </table>
+-->
+
+
+
+        <!--
+                <table tableName="t_text_content" domainObjectName="TextContent" enableCountByExample="false"
+                       enableUpdateByExample="false"
+                       enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+                </table>-->
+
+
+<!--
+      <table tableName="t_exam_paper" domainObjectName="ExamPaper" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+-->
+
+<!--             <table tableName="t_exam_paper_answer" domainObjectName="ExamPaperAnswer" enableCountByExample="false"
+                  enableUpdateByExample="false"
+                  enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+           </table>-->
+
+
+<!--        <table tableName="t_exam_paper_question_customer_answer" domainObjectName="ExamPaperQuestionCustomerAnswer" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+
+
+ <!--       <table tableName="t_user_event_log" domainObjectName="UserEventLog" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+
+     <!--   <table tableName="t_message" domainObjectName="Message" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+-->
+
+<!--        <table tableName="t_message_user" domainObjectName="MessageUser" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+
+
+
+<!--        <table tableName="t_task_exam" domainObjectName="TaskExam" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+
+<!--        <table tableName="t_task_exam_customer_answer" domainObjectName="TaskExamCustomerAnswer" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+
+<!--        <table tableName="t_knowledge" domainObjectName="Knowledge" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+
+<!--        <table tableName="t_question_knowledge" domainObjectName="QuestionKnowledge" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+
+<!--        <table tableName="t_user_token" domainObjectName="UserToken" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <columnOverride column="token"  javaType="java.lang.String"  jdbcType="VARCHAR" />
+        </table>-->
+
+
+        <table tableName="t_classes" domainObjectName="Classes" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+
+
+        <table tableName="t_classes_user" domainObjectName="ClassesUser" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+
+    </context>
+</generatorConfiguration>
