@@ -1,0 +1,12 @@
+<wxs module="enumItem" src="../../wxs/enumItem.wxs"></wxs>
+<view>
+  <view>
+    <i-cell-group>
+      <i-cell wx:for="{{tableData}}" data-item="item" wx:key="{{item.id}}" title="{{item.paperName}}" is-link url="/pages/exam/read/index?id={{item.id}}" value="{{enumItem.format(enumItem.state.exam.examPaperAnswer.statusEnum,item.status)}}" label="{{item.subjectName}}  对错：{{item.questionCorrect}}/{{item.questionCount}} 时间：{{item.createTime}} "
+      />
+    </i-cell-group>
+  </view>
+  <i-load-more tip="{{loadMoreTip}}" loading="{{loadMoreLoad}}" />
+  <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+  <i-message id="message" />
+</view>

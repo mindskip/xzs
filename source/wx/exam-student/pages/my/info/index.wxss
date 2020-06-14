@@ -1,0 +1,18 @@
+.my-info-sex {
+  height: 45px;
+  font-size: 13px;
+}
+
+.my-info-sex-item {
+  line-height: 45px;
+  margin-left: 20px;
+}
+
+.my-info-level {
+  font-size: 13px;
+}
+
+.my-info-level-item {
+  line-height: 45px;
+  margin-left: 25px;
+}

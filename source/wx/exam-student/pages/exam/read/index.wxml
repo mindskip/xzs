@@ -1,0 +1,86 @@
+<wxs module="filter" src="../../../wxs/exam-fun.wxs"></wxs>
+<view class="exam-page">
+  <view class="view-wrap-hidden">
+  </view>
+  <view>
+    <view class="exam-name-title">
+      <h1>{{paper.name}}</h1>
+    </view>
+    <view class="exam-result">
+      <h1 class="">试卷得分: {{answer.score}}</h1>
+      <h1 class="exam-result-detail">试卷耗时: {{answer.doTime}}秒</h1>
+    </view>
+
+    <i-panel title="{{titleItem.name}}" wx:for="{{paper.titleItems}}" wx:for-item="titleItem" wx:key="{{titleItem.name}}" i-class="exam-panel-title">
+      <i-cell-group i-class="exam-cell">
+        <i-cell wx:for="{{titleItem.questionItems}}" wx:key="{{titleItem.id}}" wx:for-item="questionItem">
+          <view wx:if="{{questionItem.questionType === 1}}">
+            <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
+            <radio-group class="radio-group">
+              <label class="radio" wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="radioItem" class="exam-radio-item-label">
+                <radio color="#2d8cf0" value="{{radioItem.prefix}}" checked="{{radioItem.prefix == answer.answerItems[questionItem.itemOrder-1].content}}" class="exam-item-left" />
+                <rich-text nodes="{{radioItem.prefix}}. {{radioItem.content}}" class="exam-item-left {{radioItem.prefix == answer.answerItems[questionItem.itemOrder-1].content ? 'item-content-selected' : ''}}" />
+              </label>
+            </radio-group>
+          </view>
+          <view wx:elif="{{questionItem.questionType === 2}}">
+            <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" class="exam-item-left" style="line-height:35px" />
+            <checkbox-group class="exam-item-left" style="margin-left:10px">
+              <label wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="radioItem" class="exam-radio-item-label">
+                <checkbox color="#2d8cf0" value="{{radioItem.prefix}}" checked="{{filter.indexOf(answer.answerItems[questionItem.itemOrder-1].content,radioItem.prefix)}}" class="exam-item-left" />
+                <rich-text nodes="{{radioItem.prefix}}. {{radioItem.content}}" class="exam-item-left {{filter.indexOf(answer.answerItems[questionItem.itemOrder-1].content,radioItem.prefix) ? 'item-content-selected' : ''}}" />
+              </label>
+            </checkbox-group>
+          </view>
+          <view wx:elif="{{questionItem.questionType === 3}}">
+            <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" class="exam-item-left" style="line-height:35px" />
+            <radio-group class="radio-group" class="exam-item-left" style="margin-left:10px">
+              <label class="radio" wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="radioItem" class="exam-radio-item-label">
+                <radio color="#2d8cf0" value="{{radioItem.prefix}}" checked="{{radioItem.prefix == answer.answerItems[questionItem.itemOrder-1].content}}" class="exam-item-left" />
+                <rich-text nodes="{{radioItem.content}}" class="exam-item-left" />
+              </label>
+            </radio-group>
+          </view>
+          <view wx:elif="{{questionItem.questionType === 4}}">
+            <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
+            <view class="exam-input-contain" wx:for="{{questionItem.items}}" wx:key="{{questionItem.prefix}}" wx:for-item="inputItem" wx:for-index="idx">
+              <view class="exam-input-contain-label">{{inputItem.prefix}}</view>
+              <input class="exam-input-contain-content" maxlength="-1" value="{{answer.contentArray[inputItem.prefix-1]}}" />
+            </view>
+          </view>
+          <view wx:else>
+            <rich-text nodes="{{questionItem.itemOrder}}. {{questionItem.title}}" />
+            <view class="exam-textarea-contain">
+              <textarea placeholder="" maxlength="-1">{{answer.answerItems[questionItem.itemOrder-1].content}}</textarea>
+            </view>
+          </view>
+          <view class="exam-clear">
+            <view class="exam-extend-item" style="padding-left:0px">
+              结果:
+              <text class="question-answer-right question-answer-result" wx:if="{{answer.answerItems[questionItem.itemOrder-1].doRight==true}}">正确</text>
+              <text class="question-answer-error question-answer-result" wx:elif="{{answer.answerItems[questionItem.itemOrder-1].doRight==false}}">错误</text>
+              <text class="question-answer-judge question-answer-result" wx:elif="{{answer.answerItems[questionItem.itemOrder-1].doRight===null}}">待批改</text>
+            </view>
+            <view class="exam-extend-item">得分: {{answer.answerItems[questionItem.itemOrder-1].score}}</view>
+            <view class="exam-extend-item">分数: {{questionItem.score}}</view>
+            <view class="exam-extend-item" style="padding-left:0px">
+              难度:
+              <i-rate value="{{questionItem.difficult}}" i-class="exam-item-rate" />
+            </view>
+            <view class="exam-extend-item">
+              <rich-text nodes="解析: {{questionItem.analyze}}" />
+            </view>
+            <view class="exam-extend-item">
+              <rich-text nodes="正确答案: {{questionItem.correct}}" wx:if="{{questionItem.questionType==1||questionItem.questionType==2 ||questionItem.questionType==5}}" />
+              <rich-text nodes="正确答案: {{filter.trueFalseFormatter(questionItem)}}" wx:elif="{{questionItem.questionType==3}}" />
+              <rich-text nodes="正确答案: {{questionItem.correctArray}}" wx:elif="{{questionItem.questionType==4}}" />
+            </view>
+          </view>
+        </i-cell>
+      </i-cell-group>
+    </i-panel>
+
+    <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+    <i-message id="message" />
+  </view>
+</view>

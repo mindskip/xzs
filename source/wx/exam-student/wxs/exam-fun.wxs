@@ -1,0 +1,31 @@
+// 支持es4语法
+var filter = {
+  numberToFixed: function(value) {
+    return value.toFixed(2);
+  },
+  trueFalseFormatter: function(question) {
+    for (var i = 0; i < question.items.length; i++) {
+      if (question.items[i].prefix === question.correct) {
+        return question.items[i].content;
+      }
+    }
+    return '';
+  },
+  indexOf: function(arg1, arg2) {
+    return arg1.toString().indexOf(arg2.toString()) > -1 ? true : false;
+  },
+  numberToArray: function(number) {
+    var array = [];
+    for (var i = 0; i < number; i++) {
+      array.push(i);
+    }
+    return array;
+  },
+}
+// 导出对外暴露的属性
+module.exports = {
+  numberToFixed: filter.numberToFixed,
+  trueFalseFormatter: filter.trueFalseFormatter,
+  indexOf: filter.indexOf,
+  numberToArray: filter.numberToArray,
+}

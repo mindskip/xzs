@@ -1,0 +1,17 @@
+{
+  "usingComponents": {
+    "i-panel": "/component/iView/panel/index",
+    "i-cell-group": "/component/iView/cell-group/index",
+    "i-cell": "/component/iView/cell/index",
+    "i-radio-group": "/component/iView/radio-group/index",
+    "i-radio": "/component/iView/radio/index",
+    "i-row": "/component/iView/row/index",
+    "i-col": "/component/iView/col/index",
+    "i-input": "/component/iView/input/index",
+    "i-action-sheet": "/component/iView/action-sheet/index",
+    "i-modal": "/component/iView/modal/index",
+    "i-message": "/component/iView/message/index",
+    "i-spin": "/component/iView/spin/index",
+    "i-rate": "/component/iView/rate/index"
+  }
+}
