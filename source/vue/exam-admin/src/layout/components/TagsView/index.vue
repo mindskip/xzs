@@ -140,7 +140,9 @@ export default {
       })
     },
     closeOthersTags () {
-      this.$router.push(this.selectedTag)
+      if (this.$route.fullPath !== this.selectedTag.fullPath) {
+        this.$router.push(this.selectedTag)
+      }
       this.$store.dispatch('tagsView/delOthersViews', this.selectedTag).then(() => {
         this.moveToCurrentTag()
       })
