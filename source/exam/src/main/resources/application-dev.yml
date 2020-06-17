@@ -3,8 +3,8 @@ logging:
 
 spring:
   redis:
-    host: 172.20.10.96
+    host: 192.168.0.96
   datasource:
-    url: jdbc:postgresql://172.20.10.96:5432/exam
+    url: jdbc:postgresql://192.168.0.96:5432/exam
     username: postgres
     password: 123456
