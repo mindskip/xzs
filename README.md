@@ -29,7 +29,7 @@
 
  
 ### 大事件
- * 2020/5 商业考试系统思多多正式版发布 地址：[http://www.alvisu.com/sdd.html](http://www.alvisu.com/sdd.html) 
+ * 2020/5 商业Saas思多多智能考试平台正式版发布 地址：[http://www.alvisu.com/sdd.html](http://www.alvisu.com/sdd.html) 
  * 2020/3 考试系统实战教程发布 试听地址：[https://alvis.ke.qq.com/?tuin=a0850a43](https://alvis.ke.qq.com/?tuin=a0850a43)
  * 2020/2 项目累计突破2000 star
  * 2020/1 累计超过150万用户使用
@@ -86,7 +86,7 @@
 * element-ui  最流行的vue组件，采用的最新版
 * vue-element-admin 最新版，对该系统做了大量精简，只保留了部分样式和控件
 * echarts 图表统计
-* ueditor 为了支持填空题，做了部分修改
+* ueditor 填空题扩展插件
 
 微信小程序：
 * iView 主题样式
