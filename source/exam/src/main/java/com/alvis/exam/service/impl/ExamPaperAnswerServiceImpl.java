@@ -130,7 +130,7 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
                 TextContent textContent = textContentService.selectById(taskExamCustomerAnswer.getTextContentId());
                 List<TaskItemAnswerObject> taskItemAnswerObjects = JsonUtil.toJsonListObject(textContent.getContent(), TaskItemAnswerObject.class);
                 taskItemAnswerObjects.stream()
-                        .filter(d -> d.getExamPaperAnswerId() == examPaperAnswer.getId())
+                        .filter(d -> d.getExamPaperAnswerId().equals(examPaperAnswer.getId()))
                         .findFirst().ifPresent(taskItemAnswerObject -> taskItemAnswerObject.setStatus(examPaperAnswer.getStatus()));
                 textContentService.jsonConvertUpdate(textContent, taskItemAnswerObjects, null);
                 textContentService.updateByIdFilter(textContent);
