@@ -5,7 +5,7 @@
 
     <groupId>com.alvis</groupId>
     <artifactId>exam</artifactId>
-    <version>3.0.4</version>
+    <version>3.0.5</version>
     <packaging>jar</packaging>
 
     <name>exam</name>
