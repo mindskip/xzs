@@ -8,6 +8,10 @@
         <tags-view/>
       </div>
       <app-main />
+      <div class="foot-copyright">
+        <span>Copyright © 2020 武汉思维跳跃科技有限公司 版权所有</span><span>|</span>
+        <span>鄂ICP备19021884号-1</span>
+      </div>
       <back-to-top :visibility-height="100" :back-position="0" transition-name="fade" ref="backTop"/>
     </div>
   </div>

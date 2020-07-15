@@ -23,3 +23,10 @@
 .my-group-margin{
   margin-top: 10px;
 }
+
+.copyright{
+  color: #8c8c8c;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}

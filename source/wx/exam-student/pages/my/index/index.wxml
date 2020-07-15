@@ -40,5 +40,7 @@
   </i-cell-group>
 </view>
 
+<view class="copyright">武汉思维跳跃科技有限公司 提供技术支持</view>
+
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
 <i-message id="message" />
