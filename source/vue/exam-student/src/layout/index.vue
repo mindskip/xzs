@@ -34,22 +34,15 @@
     <el-footer height="340" class="student-footer">
       <div class="container">
         <div class="footer-main">
-          <h4>友情链接</h4>
-          <a href="https://spring.io/" target="_blank" class="footer-main-link">Spring</a>
-          <a href="https://cn.vuejs.org/" target="_blank" class="footer-main-link">Vue</a>
-          <a href="https://element.eleme.io/" target="_blank" class="footer-main-link">Element</a>
-          <a href="https://www.postgresql.org/" target="_blank" class="footer-main-link">Postgresql</a>
-          <a href="https://redis.io/" target="_blank" class="footer-main-link">Redis</a>
-          <a href="http://undertow.io/" target="_blank" class="footer-main-link">Undertow</a>
-          <a href="http://nginx.org/" target="_blank" class="footer-main-link">Nginx</a>
+          <h4>产品介绍</h4>
+          <a href="http://www.alvisu.com" target="_blank" class="footer-main-link">思维跳跃科技</a>
+          <a href="http://www.alvisu.com/sdd.html" target="_blank" class="footer-main-link">思多多智能考试平台</a>
+          <a href="http://www.alvisu.com/xdd.html" target="_blank" class="footer-main-link">学多多考试系统</a>
+          <a href="http://www.alvisu.com/uexam.html" target="_blank" class="footer-main-link">学之思考试系统</a>
         </div>
         <div class="footer-main">
-          <h4>博客</h4>
-          <a href="#" target="_blank" class="footer-main-link">在线讨论</a>
-          <a href="https://www.google.com/" target="_blank" class="footer-main-link">Google</a>
-          <a href="https://www.oschina.net/" target="_blank" class="footer-main-link">Oschina</a>
-          <a href="https://www.infoq.cn/" target="_blank" class="footer-main-link">Infoq</a>
-          <a href="https://www.iconfont.cn/" target="_blank" class="footer-main-link">Iconfont</a>
+          <h4>关于我们</h4>
+          <img src="@/assets/4.jpg" style="width: 100px;height: 100px;"/>
         </div>
         <div class="footer-social">
           <p class="footer-social-title">开源社区</p>
@@ -58,6 +51,10 @@
         </div>
       </div>
     </el-footer>
+    <div class="foot-copyright">
+      <span>Copyright © 2020 武汉思维跳跃科技有限公司 版权所有</span><span>|</span>
+      <span>鄂ICP备19021884号-1</span>
+    </div>
   </el-container>
 </template>
 

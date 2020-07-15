@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>exam</name>
-    <description>学之思考试平台</description>
+    <description>武汉思维跳跃科技-学之思考试系统</description>
 
 
     <properties>
@@ -21,7 +21,6 @@
         <postgresql.version>42.2.6</postgresql.version>
         <spring.boot.version>2.1.6.RELEASE</spring.boot.version>
     </properties>
-
 
 
     <parent>
@@ -157,7 +156,6 @@
         </dependency>
 
     </dependencies>
-
 
 
     <build>

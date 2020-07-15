@@ -321,3 +321,33 @@ html {
   height: 300px;
   width: 100%;
 }
+
+
+.account-foot-copyright {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+
+  span {
+    line-height: 20px;
+    text-align: center;
+    color: #666;
+    margin: 0px 5px;
+    font-size: 14px;
+  }
+}
+
+
+.foot-copyright {
+  text-align: center;
+  background-color: #f7fbfd;
+  span {
+    line-height: 20px;
+    text-align: center;
+    color: #666;
+    margin: 0px 5px;
+    font-size: 14px;
+  }
+}

@@ -272,3 +272,36 @@ aside {
 .ueditor-p {
   display: inline !important;
 }
+
+
+.foot-copyright {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+
+  span {
+    line-height: 20px;
+    text-align: center;
+    color: #606266;
+    margin: 0px 5px;
+    font-size: 14px;
+  }
+}
+
+.account-foot-copyright {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+
+  span {
+    line-height: 20px;
+    text-align: center;
+    color: rgb(179, 185, 192);
+    margin: 0px 5px;
+    font-size: 14px;
+  }
+}
