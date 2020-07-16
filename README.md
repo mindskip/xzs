@@ -10,7 +10,7 @@
 
 ### 演示地址
  * 官网：[http://www.alvisu.com](http://www.alvisu.com)
- * 学之思：[http://www.alvisu.com/uexam.html](http://www.alvisu.com/uexam.html) 
+ * 学之思：[http://www.alvisu.com/xzs.html](http://www.alvisu.com/xzs.html) 
  * 学多多：[http://www.alvisu.com/xdd.html](http://www.alvisu.com/xdd.html) 
  * 思多多：[http://www.alvisu.com/sdd.html](http://www.alvisu.com/sdd.html) 
 
@@ -90,7 +90,7 @@
 ### 使用教程
 1. redis 安装
 2. 进群获取到数据库脚本，创建表初始化数据
-3. /uexam/source/exam为后台代码，建议使用IntelliJ IDEA打开，在application-dev.yml文件中，配置好postgesql/mysql、redis的服务地址，打开ExamApplication文件编译运行,默认端口为8000。
+3. /uexam/source/xzs为后台代码，建议使用IntelliJ IDEA打开，在application-dev.yml文件中，配置好postgesql/mysql、redis的服务地址，打开XzsApplication文件编译运行,默认端口为8000。
 4. 学生系统地址：http://localhost:8000/student
 5. 管理端地址：http://localhost:8000/admin
 

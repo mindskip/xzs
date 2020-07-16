@@ -1,0 +1,11 @@
+logging:
+  path: /usr/log/xzs/
+  
+spring:
+  redis:
+    host: localhost
+  datasource:
+    url: jdbc:mysql://101.132.110.182:3306/xzs?useSSL=false&useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&allowMultiQueries=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
