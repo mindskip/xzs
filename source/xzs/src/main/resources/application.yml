@@ -12,7 +12,7 @@ server:
 #logging logback
 logging:
   config: classpath:logback-spring.xml
-  file: exam
+  file: xzs
 
 #mybatis
 mybatis:
