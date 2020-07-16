@@ -1,0 +1,10 @@
+logging:
+  path: ./log/
+
+spring:
+  redis:
+    host: 192.168.0.96
+  datasource:
+    url: jdbc:postgresql://192.168.0.96:5432/xzs
+    username: postgres
+    password: 123456
