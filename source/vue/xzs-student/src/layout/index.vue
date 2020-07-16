@@ -38,7 +38,7 @@
           <a href="http://www.alvisu.com" target="_blank" class="footer-main-link">思维跳跃科技</a>
           <a href="http://www.alvisu.com/sdd.html" target="_blank" class="footer-main-link">思多多智能考试平台</a>
           <a href="http://www.alvisu.com/xdd.html" target="_blank" class="footer-main-link">学多多考试系统</a>
-          <a href="http://www.alvisu.com/uexam.html" target="_blank" class="footer-main-link">学之思考试系统</a>
+          <a href="http://www.alvisu.com/xzs.html" target="_blank" class="footer-main-link">学之思考试系统</a>
         </div>
         <div class="footer-main">
           <h4>关于我们</h4>
