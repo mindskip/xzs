@@ -1,6 +1,6 @@
 package com.mindskip.xzs.utility;
 
-import com.mindskip.xzs.ExamApplicationTests;
+import com.mindskip.xzs.XzsApplicationTests;
 import com.mindskip.xzs.configuration.property.SystemConfig;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ExamApplicationTests.class)
+@SpringBootTest(classes = XzsApplicationTests.class)
 public class RSATests {
 
     @Autowired

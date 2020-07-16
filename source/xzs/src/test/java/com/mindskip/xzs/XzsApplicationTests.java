@@ -9,9 +9,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableConfigurationProperties(value = { SystemConfig.class})
-public class ExamApplicationTests {
+public class XzsApplicationTests {
 
     public static void main(String[] args) {
-        SpringApplication.run(ExamApplicationTests.class, args);
+        SpringApplication.run(XzsApplicationTests.class, args);
     }
 }

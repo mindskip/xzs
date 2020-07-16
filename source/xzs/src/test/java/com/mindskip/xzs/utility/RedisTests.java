@@ -1,6 +1,6 @@
 package com.mindskip.xzs.utility;
 
-import com.mindskip.xzs.ExamApplicationTests;
+import com.mindskip.xzs.XzsApplicationTests;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ExamApplicationTests.class)
+@SpringBootTest(classes = XzsApplicationTests.class)
 public class RedisTests {
 
     private final Logger logger = LoggerFactory.getLogger(RedisTests.class);
