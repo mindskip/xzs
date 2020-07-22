@@ -35,10 +35,10 @@
       <div class="container">
         <div class="footer-main">
           <h4>产品介绍</h4>
-          <a href="http://www.alvisu.com" target="_blank" class="footer-main-link">思维跳跃科技</a>
-          <a href="http://www.alvisu.com/sdd.html" target="_blank" class="footer-main-link">思多多智能考试平台</a>
-          <a href="http://www.alvisu.com/xdd.html" target="_blank" class="footer-main-link">学多多考试系统</a>
-          <a href="http://www.alvisu.com/xzs.html" target="_blank" class="footer-main-link">学之思考试系统</a>
+          <a href="http://www.mindskip.net" target="_blank" class="footer-main-link">思维跳跃科技</a>
+          <a href="http://www.mindskip.net/sdd.html" target="_blank" class="footer-main-link">思多多智能考试平台</a>
+          <a href="http://www.mindskip.net/xdd.html" target="_blank" class="footer-main-link">学多多考试系统</a>
+          <a href="http://www.mindskip.net/xzs.html" target="_blank" class="footer-main-link">学之思考试系统</a>
         </div>
         <div class="footer-main">
           <h4>关于我们</h4>
@@ -46,14 +46,14 @@
         </div>
         <div class="footer-social">
           <p class="footer-social-title">开源社区</p>
-          <a href="https://github.com/alvis-u/exam" target="_blank"> <svg-icon icon-class="social-github" style="width: 32px;height: 32px;" /></a>
-          <a href="https://gitee.com/alvis-yu/exam" target="_blank"><svg-icon icon-class="gitee" style="width: 32px;height: 32px;" /></a>
+          <a href="https://github.com/alvis-u/uexam" target="_blank"> <svg-icon icon-class="social-github" style="width: 32px;height: 32px;" /></a>
+          <a href="https://gitee.com/alvis-yu/uexam" target="_blank"><svg-icon icon-class="gitee" style="width: 32px;height: 32px;" /></a>
         </div>
       </div>
     </el-footer>
     <div class="foot-copyright">
       <span>Copyright © 2020 武汉思维跳跃科技有限公司 版权所有</span><span>|</span>
-      <span>鄂ICP备19021884号-1</span>
+      <span>鄂ICP备20013047号</span>
     </div>
   </el-container>
 </template>
