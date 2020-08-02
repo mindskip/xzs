@@ -52,8 +52,7 @@
       </div>
     </el-footer>
     <div class="foot-copyright">
-      <span>Copyright © 2020 武汉思维跳跃科技有限公司 版权所有</span><span>|</span>
-      <span>鄂ICP备20013047号</span>
+      <span>Copyright © 2020 武汉思维跳跃科技有限公司 版权所有</span>
     </div>
   </el-container>
 </template>
