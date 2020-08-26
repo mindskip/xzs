@@ -21,7 +21,7 @@
 * github - mysql ：[https://github.com/alvis-u/uexam-mysql](https://github.com/alvis-u/uexam-mysql)
 
 ### 学之思交流群(加群获取数据库脚本)
-* 交流四群：`1039666905`
+* 交流五群：`1074095891`
 * QQ：`2693073475`
 * 微信：`alvis-u`
 
