@@ -15,10 +15,10 @@
  * 思多多：[http://www.mindskip.net/sdd.html](http://www.mindskip.net/sdd.html) 
 
 ### 学之思仓库版本地址
-* gitee - postgresql ：[https://gitee.com/alvis-yu/uexam](https://gitee.com/alvis-yu/uexam)
-* github - postgresql ：[https://github.com/alvis-u/uexam](https://github.com/alvis-u/uexam)
-* gitee - mysql ：[https://gitee.com/alvis-yu/uexam-mysql](https://gitee.com/alvis-yu/uexam-mysql)
-* github - mysql ：[https://github.com/alvis-u/uexam-mysql](https://github.com/alvis-u/uexam-mysql)
+* gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
+* github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
+* gitee - mysql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
+* github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
 
 ### 学之思交流群(加群获取数据库脚本)
 * 交流五群：`1074095891`
@@ -27,8 +27,7 @@
 
  
 ### 大事件
- * 2020/5 商业SaaS思多多智能考试平台新版发布 地址：[http://www.mindskip.net/sdd.html](http://www.mindskip.net/sdd.html) 
- * 2020/3 考试系统编程实战教程在腾讯课堂发布 试听地址：[https://alvis.ke.qq.com/?tuin=a0850a43](https://alvis.ke.qq.com/?tuin=a0850a43)
+ * 2020/5 思多多智能考试平台新版发布 地址：[http://www.mindskip.net/sdd.html](http://www.mindskip.net/sdd.html) 
  * 2020/2 项目累计突破2000 star
  * 2020/1 累计超过150万用户使用
  * 2019/12 项目累计突破1000 star
