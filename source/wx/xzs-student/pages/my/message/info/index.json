@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "i-panel": "/component/iView/panel/index",
-    "i-message": "/component/iView/message/index",
-    "i-spin": "/component/iView/spin/index"
-  }
-}
