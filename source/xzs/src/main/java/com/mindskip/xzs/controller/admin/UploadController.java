@@ -95,11 +95,4 @@ public class UploadController extends BaseApiController {
         }
     }
 
-    @RequestMapping("/auth")
-    @ResponseBody
-    public RestResponse auth() {
-        return RestResponse.ok();
-    }
-
-
 }

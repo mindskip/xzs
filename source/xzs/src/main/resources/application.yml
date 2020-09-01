@@ -39,8 +39,8 @@ system:
       - /api/wx/student/auth/checkBind
       - /api/wx/student/user/register
   qn:
-    url: http://image.mindskip.com
-    bucket: xzs
+    url: http://xzs.file.mindskip.net
+    bucket: mindskip
     access-key: KabOBTPGVll2sSV8d1OIlW8G4_n_cReE7RSsLafA
     secret-key: mSltk9_9KtCdFetCmxvvCAgsBg8JZHiXMuQeqSJA
 
