@@ -46,8 +46,8 @@
         </div>
         <div class="footer-social">
           <p class="footer-social-title">开源社区</p>
-          <a href="https://github.com/alvis-u/uexam" target="_blank"> <svg-icon icon-class="social-github" style="width: 32px;height: 32px;" /></a>
-          <a href="https://gitee.com/alvis-yu/uexam" target="_blank"><svg-icon icon-class="gitee" style="width: 32px;height: 32px;" /></a>
+          <a href="https://github.com/mindskip/xzs" target="_blank"> <svg-icon icon-class="social-github" style="width: 32px;height: 32px;" /></a>
+          <a href="https://gitee.com/mindskip/uexam" target="_blank"><svg-icon icon-class="gitee" style="width: 32px;height: 32px;" /></a>
         </div>
       </div>
     </el-footer>

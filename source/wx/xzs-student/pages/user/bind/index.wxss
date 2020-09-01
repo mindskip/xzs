@@ -1,7 +1,0 @@
-/* pages/user/bind/index.wxss */
-
-.card-image-container {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
