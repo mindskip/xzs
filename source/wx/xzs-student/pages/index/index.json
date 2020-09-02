@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "i-panel": "/component/iView/panel/index",
+    "i-cell-group": "/component/iView/cell-group/index",
+    "i-cell": "/component/iView/cell/index",
+    "i-collapse": "/component/iView/collapse/index",
+    "i-collapse-item": "/component/iView/collapse-item/index",
+    "i-message": "/component/iView/message/index",
+    "i-spin": "/component/iView/spin/index"
+  },
+  "enablePullDownRefresh": true
+}

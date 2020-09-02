@@ -1,0 +1,17 @@
+/* pages/user/register/index.wxss */
+
+.card-image-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+
+.register-level {
+  font-size: 13px;
+}
+
+.register-level-item {
+  line-height: 45px;
+  margin-left: 25px;
+}

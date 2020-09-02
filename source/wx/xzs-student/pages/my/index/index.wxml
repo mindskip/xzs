@@ -1,0 +1,46 @@
+<view class="userinfo">
+  <block>
+    <image class="userinfo-avatar" src="{{info.imagePath}}"></image>
+    <text class="userinfo-nickname">{{info.userName}}</text>
+  </block>
+</view>
+<view>
+  <i-cell-group i-class="my-group-margin">
+    <i-cell title="个人资料" is-link url="/pages/my/info/index">
+      <i-icon type="mine_fill" slot="icon" size="20" />
+    </i-cell>
+    <i-cell title="个人动态" is-link url="/pages/my/log/index">
+      <i-icon type="collection_fill" slot="icon" size="20" />
+    </i-cell>
+    <i-cell title="消息" is-link url="/pages/my/message/list/index">
+      <i-icon type="message_fill" slot="icon" size="20" />
+    </i-cell>
+  </i-cell-group>
+</view>
+
+<view>
+  <i-cell-group i-class="my-group-margin">
+    <i-cell title="设置" is-link url="/pages/dashboard/index">
+      <i-icon type="setup_fill" slot="icon" size="20" />
+    </i-cell>
+    <i-cell title="反馈" is-link url="/pages/dashboard/index">
+      <i-icon type="praise_fill" slot="icon" size="20" />
+    </i-cell>
+    <i-cell title="关于" is-link url="/pages/dashboard/index">
+      <i-icon type="prompt_fill" slot="icon" size="20" />
+    </i-cell>
+  </i-cell-group>
+</view>
+
+<view>
+  <i-cell-group i-class="my-group-margin">
+    <i-cell title="退出账号" bind:click="logOut">
+      <i-icon type="flashlight_fill" slot="icon" size="20" />
+    </i-cell>
+  </i-cell-group>
+</view>
+
+<view class="copyright">武汉思维跳跃科技有限公司 提供技术支持</view>
+
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+<i-message id="message" />

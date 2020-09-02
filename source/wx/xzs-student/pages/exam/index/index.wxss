@@ -1,0 +1,7 @@
+.exam-tab-view {
+  margin-top: 42px;
+}
+
+.xzs-load-more {
+  margin-top: 60px !important;
+}

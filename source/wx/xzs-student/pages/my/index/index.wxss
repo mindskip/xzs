@@ -1,0 +1,32 @@
+/**index.wxss**/
+
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #598ce4;
+  height: 100px;
+}
+
+.userinfo-avatar {
+  width: 48px;
+  height: 48px;
+  margin-left: 30px;
+}
+
+.userinfo-nickname {
+  color: white;
+  margin-left: 20px;
+}
+
+
+.my-group-margin{
+  margin-top: 10px;
+}
+
+.copyright{
+  color: #8c8c8c;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}

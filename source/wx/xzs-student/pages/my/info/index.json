@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "i-button": "/component/iView/button/index",
+    "i-panel": "/component/iView/panel/index",
+    "i-input": "/component/iView/input/index",
+    "i-message": "/component/iView/message/index",
+    "i-spin": "/component/iView/spin/index",
+    "i-radio-group": "/component/iView/radio-group/index",
+    "i-radio": "/component/iView/radio/index"
+  }
+}
