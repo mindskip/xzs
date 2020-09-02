@@ -1,0 +1,4 @@
+<span class="countdown-class">
+  {{time}}
+</span>
+

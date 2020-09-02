@@ -1,0 +1,76 @@
+.exam-page {
+  background: white;
+}
+
+.exam-count-down {
+  font-size: 15px;
+  line-height: 35px;
+}
+
+.view-wrap {
+  position: fixed;
+  width: 100%;
+  background: #fff6f6;
+  text-align: center;
+  height: 35px;
+  z-index: 999;
+}
+
+.view-wrap-hidden {
+  height: 35px;
+}
+
+.exam-name-title {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+.exam-panel-title {
+  margin-top: 30px;
+}
+
+.exam-radio-item-label {
+  float: left;
+  margin-left: 10px;
+  line-height: 35px;
+}
+
+.exam-item-left {
+  float: left;
+}
+
+.exam-input-contain {
+  margin: 10px 2px !important;
+  border-width: 1px;
+  border-color: #dddee1;
+  border-style: solid;
+  width: 95%;
+  height: 40px;
+}
+
+.exam-input-contain-label {
+  float: left;
+  padding: 0px 15px;
+  line-height: 40px;
+}
+
+.exam-input-contain-content {
+  float: left;
+  height: 40px;
+}
+
+.exam-textarea-contain {
+  margin: 10px 2px !important;
+  border-width: 1px;
+  border-color: #dddee1;
+  border-style: solid;
+  width: 100%;
+}
+
+.exam-timeout-title{
+  font-size: 16px;
+  color: red;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

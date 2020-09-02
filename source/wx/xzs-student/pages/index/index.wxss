@@ -1,0 +1,35 @@
+/**index.wxss**/
+
+.caption-wrap {
+  background-color: white;
+  margin-top: 15px;
+}
+
+.caption-title {
+  background-color: #f7f7f7;
+  display: block;
+  margin-left: 5px;
+}
+
+.index-collapse {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.index-collapse-item {
+  padding: 8px 15px !important;
+  border: 0px !important;
+}
+
+.slide-image {
+  width: 100%;
+  height: 150px;
+}
+
+.index-cell {
+  padding: 5px 15px !important;
+}
+
+p{
+  display: none;
+}

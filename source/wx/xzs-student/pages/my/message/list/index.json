@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "i-cell-group": "/component/iView/cell-group/index",
+    "i-cell": "/component/iView/cell/index",
+    "i-load-more": "/component/iView/load-more/index",
+    "i-message": "/component/iView/message/index",
+    "i-spin": "/component/iView/spin/index"
+  },
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,43 @@
+<wxs module="enumItem" src="../../wxs/enumItem.wxs"></wxs>
+<view>
+  <view>
+    <swiper indicator-dots="false" autoplay="true" interval="5000" duration="1000">
+      <swiper-item>
+        <image src="/assets/carousel/1.png" class="slide-image" />
+      </swiper-item>
+      <swiper-item>
+        <image src="/assets/carousel/2.png" class="slide-image" />
+      </swiper-item>
+      <swiper-item>
+        <image src="/assets/carousel/3.png" class="slide-image" />
+      </swiper-item>
+      <swiper-item>
+        <image src="/assets/carousel/4.png" class="slide-image" />
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <i-panel title="任务中心">
+    <i-collapse accordion i-class="index-collapse">
+      <i-collapse-item i-class="index-collapse-item" title="{{item.title}}" name="{{item.id}}" wx:for="{{taskList}}" data-item="item" wx:key="{{item.id}}">
+        <i-cell-group slot="content">
+          <i-cell i-class="index-cell" wx:for="{{item.paperItems}}" data-item="item" wx:key="{{item.examPaperId}}" title="{{item.examPaperName}}" value="{{enumItem.format(enumItem.state.exam.examPaperAnswer.statusEnum,item.status)}}" is-link url="{{item.examPaperAnswerId == null?'/pages/exam/do/index?id='+item.examPaperId:'/pages/exam/read/index?id='+item.examPaperAnswerId}}">
+          </i-cell>
+        </i-cell-group>
+      </i-collapse-item>
+    </i-collapse>
+  </i-panel>
+
+  <i-panel title="固定试卷">
+    <i-cell-group>
+      <i-cell wx:for="{{fixedPaper}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/exam/do/index?id={{item.id}}"></i-cell>
+    </i-cell-group>
+  </i-panel>
+  <i-panel title="时段试卷">
+    <i-cell-group>
+      <i-cell wx:for="{{timeLimitPaper}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/exam/do/index?id={{item.id}}" label="{{item.startTime}} 至 {{item.endTime}}"></i-cell>
+    </i-cell-group>
+  </i-panel>
+  <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+  <i-message id="message" />
+</view>

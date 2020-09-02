@@ -1,0 +1,15 @@
+<!--pages/exam/index/index.wxml-->
+<view>
+	<i-tabs current="{{ paperType }}" bindchange="tabChange" fixed="true">
+		<i-tab key="1" title="固定试卷" />
+		<i-tab key="4" title="时段试卷" />
+	</i-tabs>
+	<view class="exam-tab-view">
+		<i-cell-group>
+			<i-cell wx:for="{{tableData}}" data-item="item" wx:key="{{item.id}}" title="{{item.name}}" is-link url="/pages/exam/do/index?id={{item.id}}" value="{{item.subjectName}}"></i-cell>
+		</i-cell-group>
+	</view>
+	<i-load-more tip="{{loadMoreTip}}" loading="{{loadMoreLoad}}" i-class="xzs-load-more" />
+	<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+	<i-message id="message" />
+</view>
