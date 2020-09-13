@@ -10,14 +10,14 @@
 
 ### 演示地址
  * 官网：[http://www.mindskip.net](http://www.mindskip.net)
- * 学之思：[http://www.mindskip.net/xzs.html](http://www.mindskip.net/xzs.html) 
- * 学多多：[http://www.mindskip.net/xdd.html](http://www.mindskip.net/xdd.html) 
- * 思多多：[http://www.mindskip.net/sdd.html](http://www.mindskip.net/sdd.html) 
+ * 学之思考试系统：[http://www.mindskip.net/xzs.html](http://www.mindskip.net/xzs.html) 
+ * 学多多考试系统：[http://www.mindskip.net/xdd.html](http://www.mindskip.net/xdd.html) 
+ * 思多多智能考试平台：[http://www.mindskip.net/sdd.html](http://www.mindskip.net/sdd.html) 
 
 ### 学之思仓库版本地址
 * gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
-* github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 * gitee - mysql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
+* github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 * github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
 
 ### 学之思交流群(加群获取数据库脚本)
@@ -25,17 +25,15 @@
 * QQ：`2693073475`
 * 微信：`alvis-u`
 
- 
 ### 大事件
- * 2020/5 思多多智能考试平台新版发布 地址：[http://www.mindskip.net/sdd.html](http://www.mindskip.net/sdd.html) 
+ * 2020/5 项目累计突破2500 star
  * 2020/2 项目累计突破2000 star
  * 2020/1 累计超过150万用户使用
  * 2019/12 项目累计突破1000 star
  * 2019/11 入围开源中国最受欢迎开源项目
  * 2019/10 累计超过100万学生使用
  * 2019/10 荣获码云最有价值开源项目
-
-
+ 
 ### 学生系统功能
 * 登录、注册： 注册时要选年级，过滤不同年级的试卷， 账号为student/123456
 * 首页： 任务中心、固定试卷、时段试卷、可以能做的一部分试卷
@@ -54,12 +52,12 @@
     1. 试卷列表：试卷的增删改查，新增包含选择学科、试卷类型、试卷名称、考试时间，试卷内容包含添加大标题，然后添加题目到此试卷中，组成一套完整的试卷
     2. 题目列表：题目的增删改查，目前题型包含单选题、多选题、判断题、填空题、简单题，支持图片、公式等。
 * 教育管理：对不同年级的学科进行增删改查
-* 消息中心：可以对多个用户进行消息发送，预留：加入班级，推送试卷等消息
+* 消息中心：可以对多个用户进行消息发送
 * 日志中心：用户的基本操作进行日志记录，了解用户使用过情况
 
-### 小程序学生系统功能：
+### 小程序功能
 * 用户登录登出功能，登录会自动绑定微信账号，登出会解绑
-* 首页包含任务中心、固定试卷、时段试卷、推送试卷模块，和web端保持一致
+* 首页包含任务中心、固定试卷、时段试卷，和web端保持一致
 * 试卷模块，固定试卷和时段试卷的分页查询，下拉加载更多，上拉刷新当前数据
 * 记录模块，考试结果的分页，包含了试卷基本信息
 * 我的模块，包含个人资料的修改，个人动态，消息中心模块
