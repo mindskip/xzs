@@ -6,10 +6,7 @@ import java.util.Map;
 public enum ExamPaperTypeEnum {
 
     Fixed(1, "固定试卷"),
-    Temp(2, "临时时间"),
-    Classes(3, "班级试卷"),
     TimeLimit(4, "时段试卷"),
-    Push(5, "推送试卷"),
     Task(6, "任务试卷");
 
     int code;
