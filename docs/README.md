@@ -20,6 +20,16 @@
 
 思多多智能考试平台：<http://www.mindskip.net/sdd.html>
 
+### 学之思仓库版本地址
+
+gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
+
+gitee - mysql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
+
+github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
+
+github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
+
 ## 运行环境
 
 |  环境   | 版本  |
