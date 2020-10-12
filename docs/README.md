@@ -20,7 +20,7 @@
 
 思多多智能考试平台：<http://www.mindskip.net/sdd.html>
 
-### 学之思仓库版本地址
+## 学之思仓库版本地址
 
 gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
 
