@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
- * @author alvis
+ * @author 武汉思维跳跃科技有限公司
  */
 @Service
 @AllArgsConstructor
