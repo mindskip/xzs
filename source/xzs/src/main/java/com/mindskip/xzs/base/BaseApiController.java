@@ -8,7 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * @author alvis
+ * @author 武汉思维跳跃科技有限公司
  */
 public class BaseApiController {
     protected final static String DEFAULT_PAGE_SIZE = "10";

@@ -5,7 +5,7 @@ import lombok.Data;
 import org.modelmapper.ModelMapper;
 
 /**
- * @author alvis
+ * @author 武汉思维跳跃科技有限公司
  */
 
 @Data

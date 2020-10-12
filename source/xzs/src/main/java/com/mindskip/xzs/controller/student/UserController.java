@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 
 
 /**
- * @author alvis
+ * @author 武汉思维跳跃科技有限公司
  */
 @RestController("StudentUserController")
 @RequestMapping(value = "/api/student/user")

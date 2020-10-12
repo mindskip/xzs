@@ -18,7 +18,7 @@ import java.util.Date;
 /**
  * 用户登出
  *
- * @author alvis
+ * @author 武汉思维跳跃科技有限公司
  */
 @Component
 @AllArgsConstructor

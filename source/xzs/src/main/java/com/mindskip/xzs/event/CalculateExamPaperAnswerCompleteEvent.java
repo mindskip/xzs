@@ -4,7 +4,7 @@ import com.mindskip.xzs.domain.ExamPaperAnswerInfo;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * @author alvis
+ * @author 武汉思维跳跃科技有限公司
  */
 public class CalculateExamPaperAnswerCompleteEvent extends ApplicationEvent {
 

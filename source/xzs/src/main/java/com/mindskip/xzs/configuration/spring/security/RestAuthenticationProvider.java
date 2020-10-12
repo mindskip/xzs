@@ -24,9 +24,8 @@ import java.util.ArrayList;
 /**
  * 登录用户名密码验证
  *
- * @author :  Alvis
+ * @author :  武汉思维跳跃科技有限公司
  * Description :  身份验证
- * Creation Date:  2018-05-02 5:00 PM
  */
 
 @Component

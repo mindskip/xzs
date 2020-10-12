@@ -4,7 +4,7 @@ import com.mindskip.xzs.domain.User;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * @author alvis
+ * @author 武汉思维跳跃科技有限公司
  */
 public class OnRegistrationCompleteEvent extends ApplicationEvent {
 
