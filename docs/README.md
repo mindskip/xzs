@@ -67,3 +67,16 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 3. /uexam/source/xzs为后台代码，建议使用IntelliJ IDEA打开，在application-dev.yml文件中，配置好postgesql/mysql、redis的服务地址，打开XzsApplication文件编译运行,默认端口为8000。
 4. 学生系统地址：<http://localhost:8000/student>
 5. 管理端地址：<http://localhost:8000/admin>
+6. 前端使用webstorm或者vscode，分别打开文件夹打开源代码\source\vue\xzs-student和source\vue\xzs-admin
+7. 执行下面2个命令，安装node_module：
+
+ ```npm
+npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+npm install --registry https://registry.npm.taobao.org  
+ ```
+ 
+8. 执行下面命令，启动前端代码
+
+ ```npm
+npm run serve
+ ```
