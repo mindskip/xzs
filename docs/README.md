@@ -89,3 +89,8 @@ npm install --registry https://registry.npm.taobao.org
  ```npm
 npm run serve
  ```
+
+## 微信小程序启动
+
+* 先下载好微信小程序开发工具
+* 打开工具，导入代码 \source\wx\xzs-student
