@@ -94,3 +94,5 @@ npm run serve
 
 * 先下载好微信小程序开发工具
 * 打开工具，导入代码 \source\wx\xzs-student
+* 修改application.yml文件里的wx配置
+* 启动小程序开发工具
