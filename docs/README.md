@@ -90,9 +90,16 @@ npm install --registry https://registry.npm.taobao.org
 npm run serve
  ```
 
+* 打包命名
+
+ ```npm
+npm run build
+ ```
+
 ## 微信小程序启动
 
-* 先下载好微信小程序开发工具
+* 去腾讯小程序官网注册账号
+* 下载好微信小程序开发工具
 * 打开工具，导入代码 \source\wx\xzs-student
 * 修改application.yml文件里的wx配置
 * 启动小程序开发工具
