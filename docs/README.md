@@ -103,3 +103,19 @@ npm run build
 * 打开工具，导入代码 \source\wx\xzs-student
 * 修改application.yml文件里的wx配置
 * 启动小程序开发工具
+
+## 部署教程
+
+* 分别在\source\vue\xzs-student目录和source\vue\xzs-admin目录，执行前端打包命令
+
+ ```npm
+npm run build
+ ```
+
+* 打包后的目录为student和admin
+* 将文件放到\source\xzs\src\main\resources\static下，然后将java程序打包成jar包
+* 执行下列命令，运行程序
+
+ ```java
+nohup java -Duser.timezone=Asia/Shanghai -jar -Dspring.profiles.active=prod  xzs.jar  > start1.log  2>&1 &
+ ```
