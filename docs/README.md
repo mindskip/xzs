@@ -114,6 +114,7 @@ npm run build
 
 * 打包后的目录为student和admin
 * 将文件放到\source\xzs\src\main\resources\static下，然后将java程序打包成jar包
+* 修改application-prod.yml中的datasource和redis地址
 * 执行下列命令，运行程序
 
  ```java
