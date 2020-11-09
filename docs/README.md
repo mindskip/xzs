@@ -36,35 +36,16 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 |  ----  | ----  |
 | 操作系统  | Windows / Linux |
 | Jdk  | 8 |
-| Redis  | 3.0 |
+| Redis  | 6.0 |
 | PostgreSql / Mysql  | 12.0 / 8.0 |
 
 ## 技术栈列表
-
-### 后台系统
-
-* spring-boot  2.1.6.RELEASE
-* spring-boot-security 用户登录验证
-* undertow  web容器
-* postgresql/mysql 优秀的开源数据库
-* redis 缓存，提升系统性能
-* mybatis 数据库中间件
-* hikari 速度最快的数据库连接池
-* 七牛云存储
-
-### 前台系统
-
-* Vue.js  采用新版，使用了vue-cli3搭建的系统，减少大量配置文件
-* element-ui  最流行的vue组件，采用的最新版
-* vue-element-admin 最新版，对该系统做了大量精简，只保留了部分样式和控件
-* echarts 图表统计
-* ueditor 填空题扩展插件
 
 ## 使用教程
 
 * redis 安装
 * 进群获取到数据库脚本，创建表初始化数据，数据库名称为xzs
-* 安装mysql / postgresql ，导入sql脚本
+* 安装mysql / postgresql ，导入sql脚本。mysql导入xzs-mysql.sql脚本。postgresql导入xzx-postgresql.sql脚本。
 
 ## 后端启动
 
