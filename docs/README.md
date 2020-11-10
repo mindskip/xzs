@@ -20,6 +20,8 @@
 
 思多多智能考试平台：<http://www.mindskip.net/sdd.html>
 
+维多多培训考试系统：<http://www.mindskip.net/wdd.html>
+
 ## 学之思仓库版本地址
 
 gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
@@ -39,13 +41,12 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 | Redis  | 6.0 |
 | PostgreSql / Mysql  | 12.0 / 8.0 |
 
-## 技术栈列表
-
 ## 使用教程
 
 * redis 安装
 * 进群获取到数据库脚本，创建表初始化数据，数据库名称为xzs
-* 安装mysql / postgresql ，导入sql脚本。mysql导入xzs-mysql.sql脚本。postgresql导入xzx-postgresql.sql脚本。
+* 代码分为 mysql / postgresql 2个版本，配合响应的数据库使用
+* 安装mysql / postgresql ，数据库二选一即可 ，导入sql脚本。mysql导入xzs-mysql.sql脚本。postgresql导入xzx-postgresql.sql脚本。
 
 ## 后端启动
 
