@@ -48,7 +48,7 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 * 代码分为 mysql / postgresql 2个版本，配合响应的数据库使用
 * 安装mysql / postgresql ，数据库二选一即可 ，导入sql脚本。mysql导入xzs-mysql.sql脚本。postgresql导入xzx-postgresql.sql脚本。
 
-## 后端启动
+## 后端开发
 
 * /uexam/source/xzs为后台代码，建议使用IntelliJ IDEA打开
 * 打开application-dev.yml文件中，配置好postgesql/mysql、redis的服务地址
@@ -56,7 +56,7 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 * 学生系统地址：<http://localhost:8000/student>
 * 管理端地址：<http://localhost:8000/admin>
 
-## 前端启动
+## 前端开发
 
 * 前端使用webstorm或者vscode，分别打开文件夹打开源代码\source\vue\xzs-student和source\vue\xzs-admin
 * 执行下面2个命令，安装node_module：
@@ -78,12 +78,12 @@ npm run serve
 npm run build
  ```
 
-## 微信小程序启动
+## 微信小程序开发
 
-* 去腾讯小程序官网注册账号
+* 去腾讯小程序官网注册账号，拿到appid和secret信息
 * 下载好微信小程序开发工具
 * 打开工具，导入代码 \source\wx\xzs-student
-* 修改application.yml文件里的wx配置
+* 修改application.yml文件里的wx配置下面的appid和secret
 * 启动小程序开发工具
 
 ## 部署教程
