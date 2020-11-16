@@ -43,7 +43,8 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 
 ## 技术栈列表
 
-* 后台系统：
+### 后台系统
+
 * spring-boot  2.1.6.RELEASE
 * spring-boot-security 用户登录验证 
 * undertow  web容器 
@@ -53,14 +54,16 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 * hikari 速度最快的数据库连接池
 * 七牛云存储 目前10G内免费
 
-* 前台系统：
+### 前台系统
+
 * Vue.js  采用新版，使用了vue-cli3搭建的系统，减少大量配置文件
 * element-ui  最流行的vue组件，采用的最新版
 * vue-element-admin 最新版，对该系统做了大量精简，只保留了部分样式和控件
 * echarts 图表统计
 * ueditor 填空题扩展插件
 
-* 微信小程序：
+### 微信小程序
+
 * iView 主题样式
 
 ## 使用教程
