@@ -111,7 +111,7 @@ npm run build
 * 修改application.yml文件里的wx配置下面的appid和secret
 * 启动小程序开发工具
 
-## 部署教程
+## 部署方式1
 
 * 分别在\source\vue\xzs-student目录和source\vue\xzs-admin目录，执行前端打包命令
 
@@ -127,3 +127,24 @@ npm run build
  ```java
 nohup java -Duser.timezone=Asia/Shanghai -jar -Dspring.profiles.active=prod  xzs.jar  > start1.log  2>&1 &
  ```
+
+## 部署方式2
+
+* 采用前后端分离方式部署，后端启动和部署方式1一样
+* 前端采用nginx来装载静态页面,先创建/usr/local/xzs/web/目录，然后将打包后的student、admin放到此目录下
+* 页面访问端口为8001，注意检查防火墙端口是否打开
+* nginx配置如下
+
+```nginx
+server {
+    listen      8001;
+    server_name xzs;
+    location / {
+        root /usr/local/xzs/web/;
+        index index.html;
+    }
+    location /api/ {
+       proxy_pass  https://localhost:8000;
+    }
+}
+```
