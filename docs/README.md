@@ -111,7 +111,9 @@ npm run build
 * 修改application.yml文件里的wx配置下面的appid和secret
 * 启动小程序开发工具
 
-## 部署方式1(集成部署)
+## 项目部署
+
+### 集成部署
 
 * 分别在\source\vue\xzs-student目录和source\vue\xzs-admin目录，执行前端打包命令
 
@@ -122,21 +124,21 @@ npm run build
 * 打包后的目录为student和admin
 * 将文件放到\source\xzs\src\main\resources\static下，然后将java程序打包成jar包
 * 修改application-prod.yml中的datasource和redis地址
-* 学生端访问地址为：http://ip:8000/student
-* 管理员端访问地址为：http://ip:8000/admin
+* 学生端访问地址为：<http://ip:8000/student>
+* 管理员端访问地址为：<http://ip:8000/admin>
 * 执行下列命令，运行程序
 
  ```java
-nohup java -Duser.timezone=Asia/Shanghai -jar -Dspring.profiles.active=prod  xzs.jar  > start1.log  2>&1 &
+nohup java -Duser.timezone=Asia/Shanghai -jar -Dspring.profiles.active=prod  xzs-3.0.7.jar  > start1.log  2>&1 &
  ```
 
-## 部署方式2(前后端分离部署)
+### 前后端分离部署
 
 * 采用前后端分离方式部署，后端启动和部署方式1一样
 * 前端采用nginx来装载静态页面,先创建/usr/local/xzs/web/目录，然后将打包后的student、admin放到此目录下
 * 页面访问端口为8001，注意检查防火墙端口是否打开
-* 学生端访问地址为：http://ip:8001/student
-* 管理员端访问地址为：http://ip:8001/admin
+* 学生端访问地址为：<http://ip:8001/student>
+* 管理员端访问地址为：<http://ip:8001/admin>
 * nginx配置如下：
 
 ```nginx
@@ -153,13 +155,13 @@ server {
 }
 ```
 
-## 部署方式3(docker部署)
+### docker部署
 
 * 先检查服务器端口、ip转发的是否配置正确，否则无法访问到docker内部
 * docker内部镜像已经安装了java、mysql、redis、nginx,均已配置好，无需其他操作
-* 执行下列docker命令，拉去镜像，启动容器
-* 学生端访问地址为：http://ip:8001/student
-* 管理员端访问地址为：http://ip:8001/admin
+* 执行下列docker命令，拉取镜像，启动容器
+* 学生端访问地址为：<http://ip:8001/student>
+* 管理员端访问地址为：<http://ip:8001/admin>
 
 ```docker
 docker pull  registry.cn-hangzhou.aliyuncs.com/mindskip/xzs:v3.0.6
