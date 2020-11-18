@@ -164,4 +164,4 @@ server {
 ```docker
 docker pull  registry.cn-hangzhou.aliyuncs.com/mindskip/xzs:v3.0.6
 docker run -d --name xzs --privileged -it  -d -p 8001:8001  registry.cn-hangzhou.aliyuncs.com/mindskip/xzs:v3.0.6 /usr/sbin/init
-```docker
+```
