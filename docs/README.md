@@ -2,7 +2,7 @@
 
 ## 项目介绍
 
-学之思在线考试系统是一款 java + vue 的前后端分离的考试系统。主要优点是开发、部署简单快捷、界面设计友好、代码结构清晰。目前支持web端和微信小程序，能覆盖到pc机和手机等设备。
+学之思在线考试系统是一款 java + vue 的前后端分离的考试系统。主要优点是开发、部署简单快捷、界面设计友好、代码结构清晰。支持web端和微信小程序，能覆盖到pc机和手机等设备。 支持多种部署方式：集成部署、前后端分离部署、docker部署。
 
 ## 开源版使用须知
 
@@ -66,14 +66,16 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 
 * iView 主题样式
 
-## 使用教程
+## 项目开发
+
+### 开发说明
 
 * redis 安装
 * 进群获取到数据库脚本，创建表初始化数据，数据库名称为xzs
 * 代码分为 mysql / postgresql 2个版本，配合响应的数据库使用
 * 安装mysql / postgresql ，数据库二选一即可 ，导入sql脚本。mysql导入xzs-mysql.sql脚本。postgresql导入xzx-postgresql.sql脚本。
 
-## 后端开发
+### 后端开发
 
 * /uexam/source/xzs为后台代码，建议使用IntelliJ IDEA打开
 * 打开application-dev.yml文件中，配置好postgesql/mysql、redis的服务地址
@@ -81,7 +83,7 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 * 学生系统地址：<http://localhost:8000/student>
 * 管理端地址：<http://localhost:8000/admin>
 
-## 前端开发
+### 前端开发
 
 * 前端使用webstorm或者vscode，分别打开文件夹打开源代码\source\vue\xzs-student和source\vue\xzs-admin
 * 执行下面2个命令，安装node_module：
@@ -103,7 +105,7 @@ npm run serve
 npm run build
  ```
 
-## 微信小程序开发
+### 微信小程序开发
 
 * 去腾讯小程序官网注册账号，拿到appid和secret信息
 * 下载好微信小程序开发工具
