@@ -105,6 +105,18 @@ export default {
     },
     resetForm () {
       this.$refs['form'].resetFields()
+      this.form = {
+        id: null,
+        userName: '',
+        password: '',
+        realName: '',
+        role: 3,
+        status: 1,
+        age: '',
+        sex: '',
+        birthDay: null,
+        phone: null
+      }
     },
     ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
   },
