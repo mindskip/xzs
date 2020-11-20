@@ -13,10 +13,10 @@
 ### 演示地址
 
 * 官网：[http://www.mindskip.net](http://www.mindskip.net)
-* 学之思考试系统：[http://www.mindskip.net/xzs.html](http://www.mindskip.net/xzs.html) 
-* 学多多考试系统：[http://www.mindskip.net/xdd.html](http://www.mindskip.net/xdd.html) 
-* 思多多智能考试平台：[http://www.mindskip.net/sdd.html](http://www.mindskip.net/sdd.html) 
-* 维多多培训考试系统：[http://www.mindskip.net/wdd.html](http://www.mindskip.net/wdd.html) 
+* 学之思考试系统：[http://www.mindskip.net/xzs.html](http://www.mindskip.net/xzs.html)
+* 思多多智能考试平台：[http://www.mindskip.net/sdd.html](http://www.mindskip.net/sdd.html)
+* 维多多培训考试系统：[http://www.mindskip.net/wdd.html](http://www.mindskip.net/wdd.html)
+* 学多多考试系统：[http://www.mindskip.net/xdd.html](http://www.mindskip.net/xdd.html)
 
 ### 学之思仓库版本地址
 

@@ -73,7 +73,9 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 * redis 安装
 * 进群获取到数据库脚本，创建表初始化数据，数据库名称为xzs
 * 代码分为 mysql / postgresql 2个版本，配合响应的数据库使用
-* 安装mysql / postgresql ，数据库二选一即可 ，导入sql脚本。mysql导入xzs-mysql.sql脚本。postgresql导入xzx-postgresql.sql脚本。
+* 安装mysql / postgresql ，数据库二选一即可 ，导入sql脚本。mysql导入xzs-mysql.sql脚本。postgresql导入xzx-postgresql.sql脚本
+* 学生端默认账号：student / 123456
+* 管理端默认账号：admin / 123456
 
 ### 后端开发
 
