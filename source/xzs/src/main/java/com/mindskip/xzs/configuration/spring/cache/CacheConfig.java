@@ -29,26 +29,6 @@ import java.time.Duration;
 @EnableCaching
 public class CacheConfig extends CachingConfigurerSupport {
 
-/*  @Autowired
-    private CacheProperties cacheProperties;*/
-
-    /**
-     * redis序列化修改为ObjectMapper
-     *
-     * @return RedisCacheConfiguration
-     */
-/*    @Bean
-    public RedisCacheConfiguration redisCacheConfiguration() {
-        Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-        serializer.setObjectMapper(objectMapper);
-        return RedisCacheConfiguration.defaultCacheConfig().entryTtl(cacheProperties.getRedis().getTimeToLive())
-                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(serializer));
-    }*/
-
-
     /**
      * spring boot redis默认序列化方式
      *
