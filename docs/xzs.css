@@ -5,3 +5,33 @@ table th {
 table td {
 	text-align: center;
 }
+
+.head {
+	position: fixed !important;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: calc(100% - 300px);
+	margin: 0px !important;
+	line-height: 58px;
+	padding: 10px 20px;
+	background-color: #f8f8f8;
+}
+
+.head-logo{
+ height: 58px;
+ width: 182px;
+}
+
+.head-link{
+  flex: 1;
+  width: 100%;
+}
+
+.head-link a{
+	margin-left: 25px;
+}
+
+.content{
+	padding-top: 80px !important;
+}

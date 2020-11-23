@@ -10,18 +10,6 @@
 
 禁止将本项目的代码和资源进行任何形式的出售，产生的一切任何后果责任由侵权者自负
 
-## 演示地址
-
-官网：<http://www.mindskip.net>
-
-学之思考试系统：<http://www.mindskip.net/xzs.html>
-
-学多多考试系统：<http://www.mindskip.net/xdd.html>
-
-思多多智能考试平台：<http://www.mindskip.net/sdd.html>
-
-维多多培训考试系统：<http://www.mindskip.net/wdd.html>
-
 ## 学之思仓库版本地址
 
 gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
@@ -58,9 +46,9 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 
 * Vue.js  采用新版，使用了vue-cli3搭建的系统，减少大量配置文件
 * element-ui  最流行的vue组件，采用的最新版
-* vue-element-admin 最新版，对该系统做了大量精简，只保留了部分样式和控件
+* vue-element-admin 优化和扩展版本
 * echarts 图表统计
-* ueditor 填空题扩展插件
+* ueditor 优化版
 
 ### 微信小程序
 
