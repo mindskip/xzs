@@ -20,6 +20,7 @@ public class ErrorController extends BasicErrorController {
 
     private static final String PATH = "/error";
 
+
     public ErrorController() {
         super(new DefaultErrorAttributes(), new ErrorProperties());
     }
