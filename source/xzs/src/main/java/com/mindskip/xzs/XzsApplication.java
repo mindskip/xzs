@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableConfigurationProperties(value = { SystemConfig.class})
 @EnableCaching
 public class XzsApplication {
-
+    //测试yp分支提交代码
     public static void main(String[] args) {
         SpringApplication.run(XzsApplication.class, args);
     }
