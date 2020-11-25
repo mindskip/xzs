@@ -176,6 +176,12 @@ export default {
     },
     resetForm () {
       this.$refs['form'].resetFields()
+      this.form = {
+        id: null,
+        gradeLevel: null,
+        title: '',
+        paperItems: []
+      }
     },
     subjectFormatter (row, column, cellValue, index) {
       return this.subjectEnumFormat(cellValue)
