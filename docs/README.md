@@ -70,8 +70,8 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 * /uexam/source/xzs为后台代码，建议使用IntelliJ IDEA打开
 * 打开application-dev.yml文件中，配置好postgesql/mysql、redis的服务地址
 * 启动后台程序,默认端口为8000。
-* 学生系统地址：<http://localhost:8000/student>
-* 管理端地址：<http://localhost:8000/admin>
+* 学生系统地址：<http://ip:8000/student>
+* 管理端地址：<http://ip:8000/admin>
 
 ### 前端开发
 
