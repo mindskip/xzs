@@ -66,6 +66,12 @@ export default {
     },
     resetForm () {
       this.$refs['form'].resetFields()
+      this.form = {
+        id: null,
+        name: '',
+        level: 1,
+        levelName: ''
+      }
     },
     ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
   },
