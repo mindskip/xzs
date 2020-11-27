@@ -90,8 +90,11 @@ export default {
     },
     resetForm () {
       this.$refs['form'].resetFields()
-      this.options = []
-      this.form.receiveUserIds = []
+      this.form = {
+        title: '',
+        content: '',
+        receiveUserIds: []
+      }
     },
     ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
   }
