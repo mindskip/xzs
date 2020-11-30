@@ -20,7 +20,7 @@ import java.util.UUID;
 @Service
 public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements UserTokenService {
 
-    private final static String CACHE_NAME = "Token";
+    private final static String CACHE_NAME = "xzs:token";
     private final UserTokenMapper userTokenMapper;
     private final UserService userService;
     private final SystemConfig systemConfig;
