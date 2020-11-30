@@ -239,6 +239,16 @@ export default {
     },
     resetForm () {
       this.$refs['form'].resetFields()
+      this.form = {
+        id: null,
+        level: null,
+        subjectId: null,
+        paperType: 1,
+        limitDateTime: [],
+        name: '',
+        suggestTime: null,
+        titleItems: []
+      }
     },
     ...mapActions('exam', { initSubject: 'initSubject' }),
     ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
