@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class SubjectServiceImpl extends BaseServiceImpl<Subject> implements SubjectService {
 
-    private final static String CACHE_NAME = "Subject";
+    private final static String CACHE_NAME = "xzs:subject";
     private final SubjectMapper subjectMapper;
 
     @Autowired
