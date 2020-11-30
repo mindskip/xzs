@@ -26,7 +26,7 @@ import java.util.Map;
 @Service
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService {
 
-    private final static String CACHE_NAME = "User";
+    private final static String CACHE_NAME = "xzs:user";
     private final UserMapper userMapper;
     private final ApplicationEventPublisher eventPublisher;
 
