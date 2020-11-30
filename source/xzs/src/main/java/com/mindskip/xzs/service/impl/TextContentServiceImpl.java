@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @Service
 public class TextContentServiceImpl extends BaseServiceImpl<TextContent> implements TextContentService {
 
-    private final static String CACHE_NAME = "TextContent";
+    private final static String CACHE_NAME = "xzs:textcontent";
     private final TextContentMapper textContentMapper;
 
     @Autowired
