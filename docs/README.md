@@ -44,7 +44,7 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 
 ### 前台系统
 
-* Vue.js  采用新版，使用了vue-cli3搭建的系统，减少大量配置文件
+* Vue.js  采用新版，使用了vue-cli4搭建的系统，减少大量配置文件
 * element-ui  最流行的vue组件，采用的最新版
 * vue-element-admin 优化和扩展版本
 * echarts 图表统计
@@ -60,7 +60,7 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 
 * redis 安装
 * 进群获取到数据库脚本，创建表初始化数据，数据库名称为xzs
-* 代码分为 mysql / postgresql 2个版本，配合响应的数据库使用
+* 代码分为 mysql / postgresql 2个版本，配合相应的数据库使用
 * 安装mysql / postgresql ，数据库二选一即可 ，导入sql脚本。mysql导入xzs-mysql.sql脚本。postgresql导入xzx-postgresql.sql脚本
 * 学生端默认账号：student / 123456
 * 管理端默认账号：admin / 123456
@@ -69,6 +69,7 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 
 * /uexam/source/xzs为后台代码，建议使用IntelliJ IDEA打开
 * 打开application-dev.yml文件中，配置好postgesql/mysql、redis的服务地址
+* 去七牛云官网申请好云存储账号，修改application.yml中的qn相关的配置
 * 启动后台程序,默认端口为8000。
 * 学生系统地址：<http://ip:8000/student>
 * 管理端地址：<http://ip:8000/admin>
