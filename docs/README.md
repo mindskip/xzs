@@ -34,8 +34,8 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 ### 后台系统
 
 * spring-boot  2.1.6.RELEASE
-* spring-boot-security 用户登录验证 
-* undertow  web容器 
+* spring-boot-security 用户登录验证
+* undertow  web容器
 * postgresql/mysql 优秀的开源数据库
 * redis 缓存，提升系统性能
 * mybatis 数据库中间件
