@@ -162,6 +162,18 @@ export default {
     },
     resetForm () {
       this.$refs['form'].resetFields()
+      this.form = {
+        id: null,
+        questionType: 5,
+        gradeLevel: null,
+        subjectId: null,
+        title: '',
+        items: [],
+        analyze: '',
+        correct: '',
+        score: '',
+        difficult: 0
+      }
     },
     levelChange () {
       this.form.subjectId = null
