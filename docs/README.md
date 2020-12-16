@@ -40,15 +40,15 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 * redis 缓存，提升系统性能
 * mybatis 数据库中间件
 * hikari 速度最快的数据库连接池
-* 七牛云存储 目前10G内免费
+* 七牛云存储 分布式文件存储中心
 
 ### 前台系统
 
-* Vue.js  采用新版，使用了vue-cli4搭建的系统，减少大量配置文件
-* element-ui  最流行的vue组件，采用的最新版
-* vue-element-admin 优化和扩展版本
+* vue  采用新版，使用了vue-cli4搭建的系统，减少大量配置文件
+* element-ui  最流行的vue UI框架
+* vue-element-admin 深度定制版
 * echarts 图表统计
-* ueditor 优化版
+* ueditor 深度定制版
 
 ### 微信小程序
 
