@@ -1,4 +1,23 @@
-# 学之思在线考试系统
+<p></p>
+<p></p>
+
+<p align="center">
+<a href="https://www.mindskip.net" target="_blank">
+ <img src="doc/image/logo/1.png" height="80"/>
+<a/>
+</p>
+
+<div align="center">
+
+[![Gitee star](https://gitee.com/mindskip/xzs-mysql/badge/star.svg?theme=gitee)](https://gitee.com/mindskip/xzs-mysql) 
+[![Gitee fork](https://gitee.com/mindskip/xzs-mysql/badge/fork.svg?theme=gitee)](https://gitee.com/mindskip/xzs-mysql)
+[![Github stars](https://img.shields.io/github/stars/mindskip/xzs-mysql?logo=github)](https://github.com/mindskip/xzs-mysql) 
+[![Github forks](https://img.shields.io/github/forks/mindskip/xzs-mysql?logo=github)](https://github.com/mindskip/xzs-mysql) 
+[![Github license](https://img.shields.io/badge/license-AGPL-yellow)](https://gitee.com/mindskip/xzs-mysql/blob/master/LICENSE) 
+
+</div>
+
+# 学之思在线考试系统 - Mysql版
 
 ## 项目介绍
 
@@ -20,7 +39,7 @@
 
 ### 学之思仓库版本地址
 
-* gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
+* gitee - postgresql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
 * gitee - mysql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
 * github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 * github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
@@ -66,10 +85,6 @@
 * 试卷模块，固定试卷和时段试卷的分页查询，下拉加载更多，上拉刷新当前数据
 * 记录模块，考试结果的分页，包含了试卷基本信息
 * 我的模块，包含个人资料的修改，个人动态，消息中心模块
-
-### 软件架构图
-
-![](doc/image/frame/2.png)
 
 ### 系统展示
 
