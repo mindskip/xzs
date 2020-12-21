@@ -1,4 +1,23 @@
-# 学之思在线考试系统
+<p></p>
+<p></p>
+
+<p align="center">
+<a href="https://www.mindskip.net" target="_blank">
+ <img src="doc/image/logo/1.png" height="80"/>
+<a/>
+</p>
+
+<div align="center">
+
+[![Gitee star](https://gitee.com/mindskip/uexam/badge/star.svg?theme=gvp)](https://gitee.com/mindskip/uexam) 
+[![Gitee fork](https://gitee.com/mindskip/uexam/badge/fork.svg?theme=gvp)](https://gitee.com/mindskip/uexam)
+[![Github stars](https://img.shields.io/github/stars/mindskip/xzs?logo=github)](https://github.com/mindskip/xzs) 
+[![Github forks](https://img.shields.io/github/forks/mindskip/xzs?logo=github)](https://github.com/mindskip/xzs) 
+[![Github license](https://img.shields.io/badge/license-AGPL-yellow)](https://gitee.com/mindskip/uexam/blob/master/LICENSE) 
+
+</div>
+
+# 学之思在线考试系统 - Postgresql版
 
 ## 项目介绍
 
@@ -12,11 +31,11 @@
 
 ### 演示地址
 
-* 官网：[http://www.mindskip.net](http://www.mindskip.net)
-* 学之思考试系统：[http://www.mindskip.net/xzs.html](http://www.mindskip.net/xzs.html)
-* 思多多智能考试平台：[http://www.mindskip.net/sdd.html](http://www.mindskip.net/sdd.html)
-* 维多多培训考试系统：[http://www.mindskip.net/wdd.html](http://www.mindskip.net/wdd.html)
-* 学多多考试系统：[http://www.mindskip.net/xdd.html](http://www.mindskip.net/xdd.html)
+* 官网：[https://www.mindskip.net](https://www.mindskip.net)
+* 学之思考试系统：[https://www.mindskip.net/xzs.html](https://www.mindskip.net/xzs.html)
+* 思多多智能考试平台：[https://www.mindskip.net/sdd.html](https://www.mindskip.net/sdd.html)
+* 维多多培训考试系统：[https://www.mindskip.net/wdd.html](https://www.mindskip.net/wdd.html)
+* 学多多考试系统：[https://www.mindskip.net/xdd.html](https://www.mindskip.net/xdd.html)
 
 ### 学之思仓库版本地址
 
@@ -66,10 +85,6 @@
 * 试卷模块，固定试卷和时段试卷的分页查询，下拉加载更多，上拉刷新当前数据
 * 记录模块，考试结果的分页，包含了试卷基本信息
 * 我的模块，包含个人资料的修改，个人动态，消息中心模块
-
-### 软件架构图
-
-![](doc/image/frame/2.png)
 
 ### 系统展示
 
