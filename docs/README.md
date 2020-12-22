@@ -10,13 +10,9 @@
 
 禁止将本项目的代码和资源进行任何形式的出售，产生的一切任何后果责任由侵权者自负
 
-## 学之思仓库版本地址
-
-gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
+## 学之思仓库地址
 
 gitee - mysql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
-
-github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 
 github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
 
@@ -65,7 +61,7 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 * redis 安装
 * 进群获取到数据库脚本，创建表初始化数据，数据库名称为xzs
 * 代码分为 mysql版本，配合相应的数据库使用
-* 安装mysql ，数据库二选一即可 ，导入sql脚本。mysql导入xzs-mysql.sql脚本。
+* 安装mysql ，导入xzs-mysql.sql脚本。
 * 学生端默认账号：student / 123456
 * 管理端默认账号：admin / 123456
 

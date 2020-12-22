@@ -11,7 +11,7 @@ table td {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	width: calc(100% - 300px);
+	width: 100%;
 	margin: 0px !important;
 	line-height: 58px;
 	padding: 10px 20px;
