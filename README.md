@@ -31,11 +31,11 @@
 
 ### 演示地址
 
-* 官网：[http://www.mindskip.net](http://www.mindskip.net)
-* 学之思考试系统：[http://www.mindskip.net/xzs.html](http://www.mindskip.net/xzs.html)
-* 思多多智能考试平台：[http://www.mindskip.net/sdd.html](http://www.mindskip.net/sdd.html)
-* 维多多培训考试系统：[http://www.mindskip.net/wdd.html](http://www.mindskip.net/wdd.html)
-* 学多多考试系统：[http://www.mindskip.net/xdd.html](http://www.mindskip.net/xdd.html)
+* 官网：[https://www.mindskip.net](https://www.mindskip.net)
+* 学之思考试系统：[https://www.mindskip.net/xzs.html](https://www.mindskip.net/xzs.html)
+* 思多多智能考试平台：[https://www.mindskip.net/sdd.html](https://www.mindskip.net/sdd.html)
+* 维多多培训考试系统：[https://www.mindskip.net/wdd.html](https://www.mindskip.net/wdd.html)
+* 学多多考试系统：[https://www.mindskip.net/xdd.html](https://www.mindskip.net/xdd.html)
 
 ### 学之思仓库版本地址
 
@@ -52,7 +52,7 @@
 
 ### 开发部署教程
 
-* [http://mindskip.gitee.io/xzs-mysql](http://mindskip.gitee.io/xzs-mysql)
+* [https://mindskip.gitee.io/xzs-mysql](https://mindskip.gitee.io/xzs-mysql)
 
 ### 学生系统功能
 
