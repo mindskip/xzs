@@ -10,4 +10,7 @@ public class QuestionPageRequestVM extends BasePage {
     private Integer level;
     private Integer subjectId;
     private Integer questionType;
+
+    private Integer industryId;
+    private Integer skillId;
 }

@@ -17,6 +17,10 @@ public class Question implements Serializable {
 
     private Integer subjectId;
 
+    private Integer industryId;
+
+    private Integer skillId;
+
     private Integer score;
 
     private Integer gradeLevel;
@@ -57,6 +61,23 @@ public class Question implements Serializable {
 
     public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
+    }
+
+
+    public Integer getIndustryId() {
+        return industryId;
+    }
+
+    public void setIndustryId(Integer industryId) {
+        this.industryId = industryId;
+    }
+
+    public Integer getSkillId() {
+        return skillId;
+    }
+
+    public void setSkillId(Integer skillId) {
+        this.skillId = skillId;
     }
 
     public Integer getScore() {
