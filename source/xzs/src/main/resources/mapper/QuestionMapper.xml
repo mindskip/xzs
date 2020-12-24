@@ -5,6 +5,8 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="question_type" jdbcType="INTEGER" property="questionType" />
     <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
+    <result column="industry_id" jdbcType="INTEGER" property="industryId" />
+    <result column="skill_id" jdbcType="INTEGER" property="skillId" />
     <result column="score" jdbcType="INTEGER" property="score" />
     <result column="grade_level" jdbcType="INTEGER" property="gradeLevel" />
     <result column="difficult" jdbcType="INTEGER" property="difficult" />
@@ -16,7 +18,7 @@
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, question_type, subject_id, score, grade_level, difficult, correct, info_text_content_id,
+    id, question_type, subject_id, industry_id, skill_id, score, grade_level, difficult, correct, info_text_content_id,
     create_user, status, create_time, deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -52,6 +54,12 @@
       </if>
       <if test="subjectId != null">
         subject_id,
+      </if>
+      <if test="industryId != null">
+        industry_id,
+      </if>
+      <if test="skillId != null">
+        skill_id,
       </if>
       <if test="score != null">
         score,
@@ -91,6 +99,12 @@
       <if test="subjectId != null">
         #{subjectId,jdbcType=INTEGER},
       </if>
+      <if test="industryId != null">
+        #{industryId,jdbcType=INTEGER},
+      </if>
+      <if test="skillId != null">
+        #{skillId,jdbcType=INTEGER},
+      </if>
       <if test="score != null">
         #{score,jdbcType=INTEGER},
       </if>
@@ -128,6 +142,12 @@
       </if>
       <if test="subjectId != null">
         subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="industryId != null">
+        industry_id = #{industryId,jdbcType=INTEGER},
+      </if>
+      <if test="skillId != null">
+        skill_id = #{skillId,jdbcType=INTEGER},
       </if>
       <if test="score != null">
         score = #{score,jdbcType=INTEGER},
@@ -195,6 +215,12 @@
       </if>
       <if test="questionType != null ">
         and question_type= #{questionType}
+      </if>
+      <if test="industryId != null ">
+        and industry_id= #{industryId}
+      </if>
+      <if test="skillId != null ">
+        and skill_id= #{skillId}
       </if>
     </where>
   </select>

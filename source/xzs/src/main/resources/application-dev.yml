@@ -3,9 +3,9 @@ logging:
 
 spring:
   redis:
-    host: 192.168.0.96
+    host: localhost
   datasource:
-    url: jdbc:mysql://192.168.0.96:3306/xzs?useSSL=false&useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&allowMultiQueries=true
+    url: jdbc:mysql://localhost:3306/xzs?useSSL=false&useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&allowMultiQueries=true
     username: root
-    password: 123456
+    password: lanfoo
     driver-class-name: com.mysql.cj.jdbc.Driver
