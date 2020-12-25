@@ -118,7 +118,7 @@ export default {
         birthDay: null,
         phone: null
       }
-      this.form = lastId
+      this.form.id = lastId
     },
     ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
   },
