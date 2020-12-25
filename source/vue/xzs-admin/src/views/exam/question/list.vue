@@ -4,13 +4,13 @@
       <el-form-item label="题目ID：">
         <el-input v-model="queryParam.id" clearable></el-input>
       </el-form-item>
-      <el-form-item label="年级：">
-        <el-select v-model="queryParam.level" placeholder="年级"  @change="levelChange" clearable>
+      <el-form-item label="industry：">
+        <el-select v-model="queryParam.industry" placeholder="industry"  @change="levelChange" clearable>
           <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="学科：">
-        <el-select v-model="queryParam.subjectId" clearable>
+      <el-form-item label="skill：">
+        <el-select v-model="queryParam.skill" clearable>
           <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id"
                      :label="item.name+' ( '+item.levelName+' )'"></el-option>
         </el-select>
@@ -32,10 +32,10 @@
     </el-form>
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
       <el-table-column prop="id" label="Id" width="90px"/>
-      <el-table-column prop="subjectId" label="学科" :formatter="subjectFormatter" width="120px"/>
+      <el-table-column prop="skill" label="skill" :formatter="subjectFormatter" width="120px"/>
       <el-table-column prop="questionType" label="题型" :formatter="questionTypeFormatter" width="70px"/>
       <el-table-column prop="shortTitle" label="题干" show-overflow-tooltip/>
-      <el-table-column prop="score" label="分数" width="60px"/>
+      <!-- <el-table-column prop="score" label="分数" width="60px"/> -->
       <el-table-column prop="difficult" label="难度" width="60px"/>
       <el-table-column prop="createTime" label="创建时间" width="160px"/>
       <el-table-column label="操作" align="center" width="220px">
@@ -67,13 +67,13 @@ export default {
       queryParam: {
         id: null,
         questionType: null,
-        level: null,
-        subjectId: null,
+        skill: null,
+        industry: null,
         pageIndex: 1,
         pageSize: 10
       },
       subjectFilter: null,
-      listLoading: true,
+      listLoading: false,
       tableData: [],
       total: 0,
       questionShow: {
