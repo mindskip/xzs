@@ -1,13 +1,13 @@
 <template>
   <div class="app-container">
     <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
-      <el-form-item label="年级：" prop="gradeLevel" required>
-        <el-select v-model="form.gradeLevel"   placeholder="年级"  @change="levelChange">
+      <el-form-item label="industry：" prop="industry" required>
+        <el-select v-model="form.industry"   placeholder="industry"  @change="levelChange">
           <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="学科：" prop="subjectId" required>
-        <el-select v-model="form.subjectId" placeholder="学科" >
+      <el-form-item label="skill：" prop="skill" required>
+        <el-select v-model="form.skill" placeholder="skill" >
           <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id" :label="item.name+' ( '+item.levelName+' )'"></el-option>
         </el-select>
       </el-form-item>
@@ -20,9 +20,9 @@
       <el-form-item label="解析：" prop="analyze" required>
         <el-input v-model="form.analyze"  @focus="inputClick(form,'analyze')" />
       </el-form-item>
-      <el-form-item label="分数：" prop="score" required>
+      <!-- <el-form-item label="分数：" prop="score" required>
         <el-input-number v-model="form.score" :precision="1" :step="1" :max="100"></el-input-number>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="难度：" required>
         <el-rate v-model="form.difficult" class="question-item-rate"></el-rate>
       </el-form-item>
@@ -60,8 +60,8 @@ export default {
       form: {
         id: null,
         questionType: 5,
-        gradeLevel: null,
-        subjectId: null,
+        industry: null,
+        skill: null,
         title: '',
         items: [],
         analyze: '',

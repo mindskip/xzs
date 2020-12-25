@@ -16,8 +16,9 @@
 
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
       <el-table-column prop="id" label="Id" />
-      <el-table-column prop="name" label="学科"/>
-      <el-table-column prop="levelName" label="年级" />
+      <el-table-column prop="skill" label="skill"/>
+      <el-table-column prop="industry" label="industry"/>
+      <!-- <el-table-column prop="levelName" label="年级" /> -->
       <el-table-column width="220px" label="操作" align="center">
         <template slot-scope="{row}">
           <router-link :to="{path:'/education/subject/edit', query:{id:row.id}}" class="link-left">
