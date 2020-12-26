@@ -22,6 +22,7 @@ table td {
 .head-logo {
     height: 58px;
     width: 182px;
+    line-height: 78px;
 }
 
 .head-link {
