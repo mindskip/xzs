@@ -184,6 +184,19 @@ const constantRoutes = [
         name: 'EducationSubjectEditPage',
         meta: { title: 'skill编辑', noCache: true, activeMenu: '/education/subject/list' },
         hidden: true
+      },
+      {
+        path: 'industry/list',
+        component: () => import('@/views/education/industry/list'),
+        name: 'EducationIndustryPage',
+        meta: { title: 'industry列表', noCache: true }
+      },
+      {
+        path: 'industry/edit',
+        component: () => import('@/views/education/industry/edit'),
+        name: 'EducationIndustryEditPage',
+        meta: { title: 'industry编辑', noCache: true, activeMenu: '/education/industry/list' },
+        hidden: true
       }
     ]
   },
