@@ -34,7 +34,7 @@
   <script>
   import { mapGetters, mapState } from 'vuex'
   import Pagination from '@/components/Pagination'
-  import subjectApi from '@/api/subject'
+  import industryApi from '@/api/industry'
   
   export default {
     components: { Pagination },
@@ -56,7 +56,7 @@
     methods: {
       search () {
         this.listLoading = true
-        subjectApi.pageList(this.queryParam).then(data => {
+        industryApi.pageList(this.queryParam).then(data => {
           const re = data.response
           this.tableData = re.list
           this.total = re.total
@@ -70,7 +70,7 @@
       },
       delSubject (row) {
         let _this = this
-        subjectApi.deleteSubject(row.id).then(re => {
+        industryApi.deleteSubject(row.id).then(re => {
           if (re.code === 1) {
             _this.search()
             _this.$message.success(re.message)
