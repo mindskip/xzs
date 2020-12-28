@@ -12,7 +12,7 @@
       <el-form-item label="skill：">
         <el-select v-model="queryParam.skill" clearable>
           <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id"
-                     :label="item.name+' ( '+item.levelName+' )'"></el-option>
+                     :label="item.name"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="题型：">
