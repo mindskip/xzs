@@ -1,11 +1,11 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParam" ref="queryForm" :inline="true">
-      <!--<el-form-item label="年级：">
+      <el-form-item label="年级：">
         <el-select v-model="queryParam.level" placeholder="年级" clearable="">
           <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
-      </el-form-item>-->
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm">查询</el-button>
         <router-link :to="{path:'/education/subject/edit'}" class="link-left">
@@ -16,9 +16,8 @@
 
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
       <el-table-column prop="id" label="Id" />
-      <el-table-column prop="name" label="skill"/>
-      <!-- <el-table-column prop="industry" label="industry"/> -->
-      <!-- <el-table-column prop="levelName" label="年级" /> -->
+      <el-table-column prop="name" label="学科"/>
+      <el-table-column prop="levelName" label="年级" />
       <el-table-column width="220px" label="操作" align="center">
         <template slot-scope="{row}">
           <router-link :to="{path:'/education/subject/edit', query:{id:row.id}}" class="link-left">

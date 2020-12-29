@@ -7,7 +7,6 @@ table td {
 }
 
 .head {
-    position: fixed !important;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -22,6 +21,7 @@ table td {
 .head-logo {
     height: 58px;
     width: 182px;
+    line-height: 78px;
 }
 
 .head-link {

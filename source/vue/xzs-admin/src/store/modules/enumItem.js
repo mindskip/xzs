@@ -18,7 +18,7 @@ const state = {
       typeEnum: [{ key: 1, value: '单选题' }, { key: 2, value: '多选题' }, { key: 3, value: '判断题' }, { key: 4, value: '填空题' }, { key: 5, value: '简答题' }],
       editUrlEnum: [{ key: 1, value: '/exam/question/edit/singleChoice', name: '单选题' },
         { key: 2, value: '/exam/question/edit/multipleChoice', name: '多选题' },
-        { key: 3, value: '/exam/question/edit/trueFaltagsViewse', name: '判断题' },
+        { key: 3, value: '/exam/question/edit/trueFalse', name: '判断题' },
         { key: 4, value: '/exam/question/edit/gapFilling', name: '填空题' },
         { key: 5, value: '/exam/question/edit/shortAnswer', name: '简答题' }]
     }
@@ -33,9 +33,7 @@ const getters = {
 }
 
 // actions
-const actions = {
-
-}
+const actions = {}
 
 // mutations
 const mutations = {}
