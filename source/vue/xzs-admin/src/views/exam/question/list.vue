@@ -6,7 +6,7 @@
       </el-form-item>
       <el-form-item label="industry：">
         <el-select v-model="queryParam.industry" placeholder="industry"  @change="levelChange" clearable>
-          <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
+          <el-option v-for="item in industryFilter" :key="item.id" :value="item.id" :label="item.name"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="skill：">
@@ -59,6 +59,7 @@ import { mapGetters, mapState, mapActions } from 'vuex'
 import Pagination from '@/components/Pagination'
 import QuestionShow from './components/Show'
 import questionApi from '@/api/question'
+import industryApi from '@/api/industry'
 
 export default {
   components: { Pagination, QuestionShow },
@@ -73,6 +74,7 @@ export default {
         pageSize: 10
       },
       subjectFilter: null,
+      industryFilter: null,
       listLoading: false,
       tableData: [],
       total: 0,
@@ -87,6 +89,13 @@ export default {
   created () {
     this.initSubject()
     this.search()
+    let _this = this
+        this.initSubject(function () {
+          _this.subjectFilter = _this.subjects
+        })
+    industryApi.list().then(re => {
+                    this.industryFilter=re.response;
+                  })
   },
   methods: {
     submitForm () {

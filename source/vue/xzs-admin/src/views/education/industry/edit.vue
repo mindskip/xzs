@@ -1,6 +1,6 @@
 <template>
     <div class="app-container">
-  
+
       <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading">
         <el-form-item label="industry：" required>
           <el-input v-model="form.name"></el-input>
@@ -17,11 +17,11 @@
       </el-form>
     </div>
   </template>
-  
+
   <script>
   import { mapGetters, mapState, mapActions } from 'vuex'
-  import subjectApi from '@/api/subject'
-  
+  import industryApi from '@/api/industry'
+
   export default {
     data () {
       return {
@@ -39,7 +39,7 @@
       let _this = this
       if (id && parseInt(id) !== 0) {
         _this.formLoading = true
-        subjectApi.select(id).then(re => {
+        industryApi.select(id).then(re => {
           _this.form = re.response
           _this.formLoading = false
         })
@@ -50,7 +50,7 @@
         let _this = this
         this.formLoading = true
         this.form.levelName = this.enumFormat(this.levelEnum, this.form.level)
-        subjectApi.edit(this.form).then(data => {
+        industryApi.edit(this.form).then(data => {
           if (data.code === 1) {
             _this.$message.success(data.message)
             _this.delCurrentView(_this).then(() => {
@@ -85,4 +85,3 @@
     }
   }
   </script>
-  

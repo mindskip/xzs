@@ -1,14 +1,14 @@
 <template>
   <div class="app-container">
     <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
-      <el-form-item label="industry：" prop="industry" required>
-        <el-select v-model="form.industry"   placeholder="industry"  @change="levelChange">
-          <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
+      <el-form-item label="industry：" prop="industryId" required>
+        <el-select v-model="form.industryId"   placeholder="industry"  @change="levelChange">
+          <el-option v-for="item in industryFilter" :key="item.id" :value="item.id" :label="item.name"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="skill：" prop="skill" required>
-        <el-select v-model="form.skill" placeholder="skill" >
-          <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id" :label="item.name+' ( '+item.levelName+' )'"></el-option>
+      <el-form-item label="skill：" prop="skillId" required>
+        <el-select v-model="form.skillId" placeholder="skill" >
+          <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id" :label="item.name"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="题干：" prop="title" required>
@@ -50,6 +50,7 @@ import QuestionShow from '../components/Show'
 import Ueditor from '@/components/Ueditor'
 import { mapGetters, mapState, mapActions } from 'vuex'
 import questionApi from '@/api/question'
+import industryApi from '@/api/industry'
 
 export default {
   components: {
@@ -60,16 +61,17 @@ export default {
       form: {
         id: null,
         questionType: 5,
-        industry: null,
-        skill: null,
+        industryId: null,
+        skillId: null,
         title: '',
         items: [],
         analyze: '',
         correct: '',
-        score: '',
+        score: '0',
         difficult: 0
       },
       subjectFilter: null,
+      industryFilter: null,
       formLoading: false,
       rules: {
         gradeLevel: [
@@ -118,6 +120,10 @@ export default {
         _this.formLoading = false
       })
     }
+    industryApi.list().then(re => {
+                this.industryFilter=re.response;
+              })
+
   },
   methods: {
     editorReady (instance) {
@@ -178,6 +184,8 @@ export default {
     levelChange () {
       this.form.subjectId = null
       this.subjectFilter = this.subjects.filter(data => data.level === this.form.gradeLevel)
+      console.log(this.subjectFilter);
+
     },
     showQuestion () {
       this.questionShow.dialog = true
