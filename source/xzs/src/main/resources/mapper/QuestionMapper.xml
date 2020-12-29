@@ -209,7 +209,7 @@
     <include refid="Page_Column_List"/>
     FROM t_question AS q LEFT JOIN t_industry AS i ON q.industry_id = i.id LEFT JOIN t_skill AS s ON s.id = q.skill_id
     <where>
-        and q.deleted=0
+       q.deleted=0
       <if test="id != null ">
         and q.id= #{id}
       </if>
@@ -231,6 +231,33 @@
     </where>
   </select>
 
+  <select id="selectQuestionsByQuestionsNumber"
+          parameterType="com.mindskip.xzs.viewmodel.student.exam.ExaminationProductionVM"
+  resultMap="BaseResultMap"
+  >
+    select
+    <include refid="Base_Column_List"/>
+    from t_question
+    <where>
+      q.deleted=0
+      <if test="difficult != null">
+        and difficult = #{difficult}
+      </if>
+      <if test="industryId != null">
+        and industry_id= #{industryId}
+      </if>
+      <if test="skillIds != null">
+        and skill_id in
+        <foreach collection="skillIds" item="skillId" open="(" separator=","
+                 close=")">
+          #{skillId}
+        </foreach>
+      </if>
+    </where>
+    group by skill_id
+    limit #{questionNumber}
+
+  </select>
 
 
   <select id="selectByIds" resultMap="BaseResultMap" >
