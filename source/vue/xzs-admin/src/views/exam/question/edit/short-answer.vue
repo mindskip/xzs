@@ -1,14 +1,14 @@
 <template>
   <div class="app-container">
     <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
-      <el-form-item label="industry：" prop="industryId" required>
-        <el-select v-model="form.industryId"   placeholder="industry"  @change="levelChange">
-          <el-option v-for="item in industryFilter" :key="item.id" :value="item.id" :label="item.name"></el-option>
+      <el-form-item label="年级：" prop="gradeLevel" required>
+        <el-select v-model="form.gradeLevel"   placeholder="年级"  @change="levelChange">
+          <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="skill：" prop="skillId" required>
-        <el-select v-model="form.skillId" placeholder="skill" >
-          <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id" :label="item.name"></el-option>
+      <el-form-item label="学科：" prop="subjectId" required>
+        <el-select v-model="form.subjectId" placeholder="学科" >
+          <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id" :label="item.name+' ( '+item.levelName+' )'"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="题干：" prop="title" required>
@@ -20,9 +20,9 @@
       <el-form-item label="解析：" prop="analyze" required>
         <el-input v-model="form.analyze"  @focus="inputClick(form,'analyze')" />
       </el-form-item>
-      <!-- <el-form-item label="分数：" prop="score" required>
+      <el-form-item label="分数：" prop="score" required>
         <el-input-number v-model="form.score" :precision="1" :step="1" :max="100"></el-input-number>
-      </el-form-item> -->
+      </el-form-item>
       <el-form-item label="难度：" required>
         <el-rate v-model="form.difficult" class="question-item-rate"></el-rate>
       </el-form-item>
@@ -50,7 +50,6 @@ import QuestionShow from '../components/Show'
 import Ueditor from '@/components/Ueditor'
 import { mapGetters, mapState, mapActions } from 'vuex'
 import questionApi from '@/api/question'
-import industryApi from '@/api/industry'
 
 export default {
   components: {
@@ -61,17 +60,16 @@ export default {
       form: {
         id: null,
         questionType: 5,
-        industryId: null,
-        skillId: null,
+        gradeLevel: null,
+        subjectId: null,
         title: '',
         items: [],
         analyze: '',
         correct: '',
-        score: '0',
+        score: '',
         difficult: 0
       },
       subjectFilter: null,
-      industryFilter: null,
       formLoading: false,
       rules: {
         gradeLevel: [
@@ -120,10 +118,6 @@ export default {
         _this.formLoading = false
       })
     }
-    industryApi.list().then(re => {
-                this.industryFilter=re.response;
-              })
-
   },
   methods: {
     editorReady (instance) {
@@ -168,24 +162,10 @@ export default {
     },
     resetForm () {
       this.$refs['form'].resetFields()
-      this.form = {
-        id: null,
-        questionType: 5,
-        gradeLevel: null,
-        subjectId: null,
-        title: '',
-        items: [],
-        analyze: '',
-        correct: '',
-        score: '',
-        difficult: 0
-      }
     },
     levelChange () {
       this.form.subjectId = null
       this.subjectFilter = this.subjects.filter(data => data.level === this.form.gradeLevel)
-      console.log(this.subjectFilter);
-
     },
     showQuestion () {
       this.questionShow.dialog = true

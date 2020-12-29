@@ -209,19 +209,6 @@ export default {
     },
     resetForm () {
       this.$refs['form'].resetFields()
-      this.form = {
-        id: null,
-        questionType: 4,
-        gradeLevel: null,
-        subjectId: null,
-        title: '',
-        items: [
-        ],
-        analyze: '',
-        correct: '',
-        score: '',
-        difficult: 0
-      }
     },
     ...mapActions('exam', { initSubject: 'initSubject' }),
     ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })

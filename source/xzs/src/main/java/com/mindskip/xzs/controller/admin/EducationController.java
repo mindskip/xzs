@@ -4,7 +4,6 @@ package com.mindskip.xzs.controller.admin;
 import com.mindskip.xzs.base.BaseApiController;
 import com.mindskip.xzs.base.RestResponse;
 import com.mindskip.xzs.domain.Subject;
-import com.mindskip.xzs.service.IndustryService;
 import com.mindskip.xzs.service.SubjectService;
 import com.mindskip.xzs.utility.PageInfoHelper;
 import com.mindskip.xzs.viewmodel.admin.education.SubjectEditRequestVM;

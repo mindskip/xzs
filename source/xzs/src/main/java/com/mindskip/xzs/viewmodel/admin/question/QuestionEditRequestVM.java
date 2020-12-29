@@ -13,13 +13,8 @@ public class QuestionEditRequestVM {
     private Integer id;
     @NotNull
     private Integer questionType;
-
     @NotNull
-    private Integer industryId;
-
-    @NotNull
-    private Integer skillId;
-
+    private Integer subjectId;
     @NotBlank
     private String title;
 

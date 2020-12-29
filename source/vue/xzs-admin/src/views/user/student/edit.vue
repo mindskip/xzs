@@ -20,7 +20,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="出生日期：">
-        <el-date-picker v-model="form.birthDay" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" />
+        <el-date-picker v-model="form.birthDay" type="date" placeholder="选择日期" />
       </el-form-item>
       <el-form-item label="手机：">
         <el-input v-model="form.phone"></el-input>
