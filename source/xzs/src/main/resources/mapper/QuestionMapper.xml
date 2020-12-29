@@ -6,7 +6,9 @@
     <result column="question_type" jdbcType="INTEGER" property="questionType" />
     <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
     <result column="industry_id" jdbcType="INTEGER" property="industryId" />
+    <result column="industry_name" jdbcType="VARCHAR" property="industryName" />
     <result column="skill_id" jdbcType="INTEGER" property="skillId" />
+    <result column="skill_name" jdbcType="VARCHAR" property="skillName" />
     <result column="score" jdbcType="INTEGER" property="score" />
     <result column="grade_level" jdbcType="INTEGER" property="gradeLevel" />
     <result column="difficult" jdbcType="INTEGER" property="difficult" />
@@ -20,6 +22,10 @@
   <sql id="Base_Column_List">
     id, question_type, subject_id, industry_id, skill_id, score, grade_level, difficult, correct, info_text_content_id,
     create_user, status, create_time, deleted
+  </sql>
+  <sql id="Page_Column_List">
+    q.id, q.question_type, q.subject_id, q.industry_id, i.name AS industry_name, q.skill_id, s.name AS skill_name, q.score, q.grade_level, q.difficult, q.correct, q.info_text_content_id,
+    q.create_user, q.status, q.create_time, q.deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
@@ -200,27 +206,27 @@
 
   <select id="page" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.admin.question.QuestionPageRequestVM">
     SELECT
-    <include refid="Base_Column_List"/>
-    FROM t_question
+    <include refid="Page_Column_List"/>
+    FROM t_question AS q LEFT JOIN t_industry AS i ON q.industry_id = i.id LEFT JOIN t_skill AS s ON s.id = q.skill_id
     <where>
-        and deleted=0
+        and q.deleted=0
       <if test="id != null ">
-        and id= #{id}
+        and q.id= #{id}
       </if>
       <if test="level != null ">
-        and grade_level= #{level}
+        and q.grade_level= #{level}
       </if>
       <if test="subjectId != null ">
-        and subject_id= #{subjectId}
+        and q.subject_id= #{subjectId}
       </if>
       <if test="questionType != null ">
-        and question_type= #{questionType}
+        and q.question_type= #{questionType}
       </if>
       <if test="industryId != null ">
-        and industry_id= #{industryId}
+        and q.industry_id= #{industryId}
       </if>
       <if test="skillId != null ">
-        and skill_id= #{skillId}
+        and q.skill_id= #{skillId}
       </if>
     </where>
   </select>
