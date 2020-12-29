@@ -237,7 +237,7 @@
   >
     select
     <include refid="Base_Column_List"/>
-    from t_question
+    from <foreach collection=""t_question
     <where>
       q.deleted=0
       <if test="difficult != null">
@@ -254,7 +254,7 @@
         </foreach>
       </if>
     </where>
-    group by skill_id
+
     limit #{questionNumber}
 
   </select>
