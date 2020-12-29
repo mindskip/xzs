@@ -18,7 +18,11 @@ public class QuestionResponseVM extends BaseVM {
 
     private Integer industryId;
 
+    private String industryName;
+
     private Integer skillId;
+
+    private String skillName;
 
     private Integer createUser;
 

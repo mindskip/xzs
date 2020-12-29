@@ -19,7 +19,11 @@ public class Question implements Serializable {
 
     private Integer industryId;
 
+    private String industryName;
+
     private Integer skillId;
+
+    private String skillName;
 
     private Integer score;
 
@@ -63,6 +67,21 @@ public class Question implements Serializable {
         this.subjectId = subjectId;
     }
 
+    public String getIndustryName() {
+        return industryName;
+    }
+
+    public void setIndustryName(String industryName) {
+        this.industryName = industryName;
+    }
+
+    public String getSkillName() {
+        return skillName;
+    }
+
+    public void setSkillName(String skillName) {
+        this.skillName = skillName;
+    }
 
     public Integer getIndustryId() {
         return industryId;
