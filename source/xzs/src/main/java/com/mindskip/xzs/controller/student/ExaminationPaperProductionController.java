@@ -18,7 +18,7 @@ public class ExaminationPaperProductionController extends BaseApiController {
 
     private final ExaminationPaperProductionService examinationPaperProductionService;
 
-    @RequestMapping(value = "/production", method = RequestMethod.GET)
+    @RequestMapping(value = "/production", method = RequestMethod.POST)
     public RestResponse paperProduction(@RequestBody @Valid ExaminationProductionVM examinationProductionVM){
         List<Question> questionList = examinationPaperProductionService.generation(examinationProductionVM);
         return RestResponse.ok(questionList);
