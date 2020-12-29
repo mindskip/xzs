@@ -237,9 +237,9 @@
   >
     select
     <include refid="Base_Column_List"/>
-    from <foreach collection=""t_question
+    from t_question
     <where>
-      q.deleted=0
+      deleted=0
       <if test="difficult != null">
         and difficult = #{difficult}
       </if>
