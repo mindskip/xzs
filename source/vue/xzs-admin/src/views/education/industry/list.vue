@@ -1,11 +1,11 @@
 <template>
     <div class="app-container">
       <el-form :model="queryParam" ref="queryForm" :inline="true">
-        <el-form-item label="年级：">
+        <!--<el-form-item label="年级：">
           <el-select v-model="queryParam.level" placeholder="年级" clearable="">
             <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
           </el-select>
-        </el-form-item>
+        </el-form-item>-->
         <el-form-item>
           <el-button type="primary" @click="submitForm">查询</el-button>
           <router-link :to="{path:'/education/industry/edit'}" class="link-left">
@@ -13,7 +13,7 @@
           </router-link>
         </el-form-item>
       </el-form>
-  
+
       <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
         <el-table-column prop="id" label="Id" />
         <el-table-column prop="name" label="industry"/>
@@ -30,12 +30,12 @@
                   @pagination="search"/>
     </div>
   </template>
-  
+
   <script>
   import { mapGetters, mapState } from 'vuex'
   import Pagination from '@/components/Pagination'
   import industryApi from '@/api/industry'
-  
+
   export default {
     components: { Pagination },
     data () {
@@ -90,4 +90,3 @@
     }
   }
   </script>
-  

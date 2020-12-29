@@ -1,11 +1,11 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParam" ref="queryForm" :inline="true">
-      <el-form-item label="年级：">
+      <!--<el-form-item label="年级：">
         <el-select v-model="queryParam.level" placeholder="年级" clearable="">
           <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
-      </el-form-item>
+      </el-form-item>-->
       <el-form-item>
         <el-button type="primary" @click="submitForm">查询</el-button>
         <router-link :to="{path:'/education/subject/edit'}" class="link-left">

@@ -286,4 +286,23 @@ CREATE TABLE `t_user_token`  (
 -- Records of t_user_token
 -- ----------------------------
 
+-- ----------------------------
+-- Table structure for t_text_content
+-- ----------------------------
+DROP TABLE IF EXISTS `t_skill`;
+CREATE TABLE `t_skill`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of t_skill
+-- ----------------------------
+
+INSERT INTO `t_skill` VALUES (3, 'python');
+INSERT INTO `t_skill` VALUES (4, 'vue');
+INSERT INTO `t_skill` VALUES (5, 'angular');
+
+
 SET FOREIGN_KEY_CHECKS = 1;
