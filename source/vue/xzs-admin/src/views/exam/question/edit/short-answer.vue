@@ -113,6 +113,7 @@ export default {
     this.initSubject(function () {
       _this.subjectFilter = _this.subjects
     })
+    this.subjectFilter = this.subjects.filter(data => data.level === this.form.gradeLevel)
     if (id && parseInt(id) !== 0) {
       _this.formLoading = true
       questionApi.select(id).then(re => {
@@ -177,13 +178,13 @@ export default {
         items: [],
         analyze: '',
         correct: '',
-        score: '',
+        score: '0',
         difficult: 0
       }
     },
     levelChange () {
       this.form.subjectId = null
-      this.subjectFilter = this.subjects.filter(data => data.level === this.form.gradeLevel)
+      //this.subjectFilter = this.subjects.filter(data => data.level === this.form.gradeLevel)
       console.log(this.subjectFilter);
 
     },
