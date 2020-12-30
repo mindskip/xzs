@@ -256,6 +256,15 @@
   </select>
 
 
+  <select id="selectAllSkills"
+          resultMap="BaseResultMap">
+    select id as skill_id,name as skill_name from t_skill
+  </select>
+  <select id="selectAllIndustry"
+          resultMap="BaseResultMap">
+    select id as industry_id,name as industry_name from t_industry
+  </select>
+
   <select id="selectByIds" resultMap="BaseResultMap" >
     SELECT
     <include refid="Base_Column_List"/>

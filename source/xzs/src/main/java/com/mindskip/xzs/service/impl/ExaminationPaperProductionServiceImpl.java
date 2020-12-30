@@ -67,4 +67,12 @@ public class ExaminationPaperProductionServiceImpl extends BaseServiceImpl<Quest
         examinationProductionVM.setEachList(eachList);
         return questionMapper.selectQuestionsByQuestionsNumber(examinationProductionVM.getEachList());
     }
+
+
+    public List<Question> paper(){
+        List<Question> questions1 = questionMapper.selectAllSkills();
+        List<Question> questions2 = questionMapper.selectAllIndustry();
+        questions1.addAll(questions2);
+        return questions1;
+    }
 }

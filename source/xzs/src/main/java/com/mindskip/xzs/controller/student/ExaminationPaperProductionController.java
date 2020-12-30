@@ -12,15 +12,24 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController("ExaminationPaperProductionController")
-@RequestMapping(value = "/api/student/examination/paper")
+@RequestMapping(value = "/api/student/examination")
 @AllArgsConstructor
 public class ExaminationPaperProductionController extends BaseApiController {
 
     private final ExaminationPaperProductionService examinationPaperProductionService;
 
-    @RequestMapping(value = "/production", method = RequestMethod.POST)
+    @RequestMapping(value = "/paper", method = RequestMethod.GET)
+    public RestResponse paper(){
+        List<Question> paper = examinationPaperProductionService.paper();
+        return RestResponse.ok(paper);
+    }
+
+    @RequestMapping(value = "/paper/production", method = RequestMethod.POST)
     public RestResponse paperProduction(@RequestBody @Valid ExaminationProductionVM examinationProductionVM){
         List<Question> questionList = examinationPaperProductionService.generation(examinationProductionVM);
         return RestResponse.ok(questionList);
     }
+
+
+
 }
