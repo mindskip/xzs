@@ -10,13 +10,9 @@
 
 禁止将本项目的代码和资源进行任何形式的出售，产生的一切任何后果责任由侵权者自负
 
-## 学之思仓库版本地址
-
-gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
+## 学之思仓库地址
 
 gitee - mysql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
-
-github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 
 github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
 
@@ -27,32 +23,36 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 | 操作系统  | Windows / Linux |
 | Jdk  | 8 |
 | Redis  | 6.0 |
-| PostgreSql / Mysql  | 12.0 / 8.0 |
+| Mysql  | 8.0 |
 
 ## 技术栈列表
 
 ### 后台系统
 
 * spring-boot  2.1.6.RELEASE
-* spring-boot-security 用户登录验证 
-* undertow  web容器 
-* postgresql/mysql 优秀的开源数据库
+* spring-boot-security 用户登录验证
+* undertow  web容器
+* mysql 最流行的开源数据库
 * redis 缓存，提升系统性能
 * mybatis 数据库中间件
 * hikari 速度最快的数据库连接池
-* 七牛云存储 目前10G内免费
+* 七牛云存储 分布式文件存储中心
 
 ### 前台系统
 
-* Vue.js  采用新版，使用了vue-cli3搭建的系统，减少大量配置文件
-* element-ui  最流行的vue组件，采用的最新版
-* vue-element-admin 优化和扩展版本
+* vue  采用新版，使用了vue-cli4搭建的系统，减少大量配置文件
+* element-ui  最流行的vue UI框架
+* vue-element-admin 深度定制版
 * echarts 图表统计
-* ueditor 优化版
+* ueditor 深度定制版
 
 ### 微信小程序
 
 * iView 主题样式
+
+## 架构图
+
+![架构图](https://gitee.com/mindskip/xzs-mysql/raw/master/doc/image/frame/1.png)
 
 ## 项目开发
 
@@ -60,8 +60,8 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 
 * redis 安装
 * 进群获取到数据库脚本，创建表初始化数据，数据库名称为xzs
-* 代码分为 mysql / postgresql 2个版本，配合响应的数据库使用
-* 安装mysql / postgresql ，数据库二选一即可 ，导入sql脚本。mysql导入xzs-mysql.sql脚本。postgresql导入xzx-postgresql.sql脚本
+* 代码分为 mysql版本，配合相应的数据库使用
+* 安装mysql ，导入xzs-mysql.sql脚本。
 * 学生端默认账号：student / 123456
 * 管理端默认账号：admin / 123456
 
@@ -69,9 +69,10 @@ github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/min
 
 * /uexam/source/xzs为后台代码，建议使用IntelliJ IDEA打开
 * 打开application-dev.yml文件中，配置好postgesql/mysql、redis的服务地址
+* 去七牛云官网申请好云存储账号，修改application.yml中的qn相关的配置
 * 启动后台程序,默认端口为8000。
-* 学生系统地址：<http://localhost:8000/student>
-* 管理端地址：<http://localhost:8000/admin>
+* 学生系统地址：<http://ip:8000/student>
+* 管理端地址：<http://ip:8000/admin>
 
 ### 前端开发
 

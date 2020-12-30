@@ -1,37 +1,39 @@
 table th {
-	min-width: 200px;
+    min-width: 200px;
 }
 
 table td {
-	text-align: center;
+    text-align: center;
 }
 
 .head {
-	position: fixed !important;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	width: calc(100% - 300px);
-	margin: 0px !important;
-	line-height: 58px;
-	padding: 10px 20px;
-	background-color: #f8f8f8;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0px !important;
+    line-height: 58px;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    flex-wrap: wrap;
 }
 
-.head-logo{
- height: 58px;
- width: 182px;
+.head-logo {
+    height: 58px;
+    width: 182px;
+    line-height: 78px;
 }
 
-.head-link{
-  flex: 1;
-  width: 100%;
+.head-link {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
-.head-link a{
-	margin-left: 25px;
+.head-link a {
+    margin-left: 25px;
 }
 
-.content{
-	padding-top: 80px !important;
+.content {
+    padding-top: 80px !important;
 }
