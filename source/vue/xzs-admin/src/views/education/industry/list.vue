@@ -19,7 +19,7 @@
         <el-table-column prop="name" label="industry"/>
         <el-table-column width="220px" label="操作" align="center">
           <template slot-scope="{row}">
-            <router-link :to="{path:'/education/subject/edit', query:{id:row.id}}" class="link-left">
+            <router-link :to="{path:'/education/industry/edit', query:{id:row.id}}" class="link-left">
               <el-button size="mini">编辑</el-button>
             </router-link>
             <el-button   size="mini" type="danger" @click="delSubject(row)" class="link-left">删除</el-button>
