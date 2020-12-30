@@ -86,7 +86,8 @@ const constantRoutes = [
         path: 'paper/list',
         component: () => import('@/views/exam/paper/list'),
         name: 'ExamPaperPageList',
-        meta: { title: '试卷列表', noCache: true }
+        meta: { title: '试卷列表', noCache: true },
+        hidden: true
       },
       {
         path: 'paper/edit',
@@ -138,30 +139,30 @@ const constantRoutes = [
       }
     ]
   },
-  {
-    path: '/task',
-    component: Layout,
-    name: 'TaskPage',
-    meta: {
-      title: '任务管理',
-      icon: 'task'
-    },
-    alwaysShow: true,
-    children: [
-      {
-        path: 'list',
-        component: () => import('@/views/task/list'),
-        name: 'TaskListPage',
-        meta: { title: '任务列表', noCache: true }
-      },
-      {
-        path: 'edit',
-        component: () => import('@/views/task/edit'),
-        name: 'TaskEditPage',
-        meta: { title: '任务创建', noCache: true }
-      }
-    ]
-  },
+  // {
+  //   path: '/task',
+  //   component: Layout,
+  //   name: 'TaskPage',
+  //   meta: {
+  //     title: '任务管理',
+  //     icon: 'task'
+  //   },
+  //   alwaysShow: true,
+  //   children: [
+  //     {
+  //       path: 'list',
+  //       component: () => import('@/views/task/list'),
+  //       name: 'TaskListPage',
+  //       meta: { title: '任务列表', noCache: true }
+  //     },
+  //     {
+  //       path: 'edit',
+  //       component: () => import('@/views/task/edit'),
+  //       name: 'TaskEditPage',
+  //       meta: { title: '任务创建', noCache: true }
+  //     }
+  //   ]
+  // },
   {
     path: '/education',
     component: Layout,
@@ -200,30 +201,30 @@ const constantRoutes = [
       }
     ]
   },
-  {
-    path: '/message',
-    component: Layout,
-    name: 'MessagePage',
-    meta: {
-      title: '消息中心',
-      icon: 'message'
-    },
-    alwaysShow: true,
-    children: [
-      {
-        path: 'list',
-        component: () => import('@/views/message/list'),
-        name: 'MessageListPage',
-        meta: { title: '消息列表', noCache: true }
-      },
-      {
-        path: 'send',
-        component: () => import('@/views/message/send'),
-        name: 'MessageSendPage',
-        meta: { title: '消息发送', noCache: true }
-      }
-    ]
-  },
+  // {
+  //   path: '/message',
+  //   component: Layout,
+  //   name: 'MessagePage',
+  //   meta: {
+  //     title: '消息中心',
+  //     icon: 'message'
+  //   },
+  //   alwaysShow: true,
+  //   children: [
+  //     {
+  //       path: 'list',
+  //       component: () => import('@/views/message/list'),
+  //       name: 'MessageListPage',
+  //       meta: { title: '消息列表', noCache: true }
+  //     },
+  //     {
+  //       path: 'send',
+  //       component: () => import('@/views/message/send'),
+  //       name: 'MessageSendPage',
+  //       meta: { title: '消息发送', noCache: true }
+  //     }
+  //   ]
+  // },
   {
     path: '/log',
     component: Layout,

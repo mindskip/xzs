@@ -372,3 +372,5 @@ CREATE TABLE `t_user_token`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+(SELECT * FROM t_question WHERE skill_id = 1 LIMIT 2) UNION (SELECT * FROM t_question WHERE skill_id = 11 LIMIT 2)  ;
