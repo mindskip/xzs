@@ -9,4 +9,5 @@ public interface ExaminationPaperProductionService extends BaseService<Question>
 
 
     List<Question> generation(ExaminationProductionVM examinationProductionVM);
+    List<Question> paper();
 }

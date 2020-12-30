@@ -33,4 +33,8 @@ public interface QuestionMapper extends BaseMapper<Question> {
     List<KeyValue> selectCountByDate(@Param("startTime") Date startTime, @Param("endTime") Date endTime);
 
     List<Question> selectQuestionsByQuestionsNumber(@Param("eachList") List<EachPaperProductionVM> eachList);
+
+    List<Question> selectAllSkills();
+
+    List<Question> selectAllIndustry();
 }
