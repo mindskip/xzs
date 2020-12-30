@@ -1,11 +1,15 @@
 package com.mindskip.xzs.domain;
 
+import lombok.AllArgsConstructor;
+
 import java.io.Serializable;
 
 /**
  * t_industry
- * @author 
+ *
+ * @author
  */
+@AllArgsConstructor
 public class Skill implements Serializable {
     private Integer id;
 
