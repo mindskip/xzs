@@ -232,30 +232,26 @@
   </select>
 
   <select id="selectQuestionsByQuestionsNumber"
-          parameterType="com.mindskip.xzs.viewmodel.student.exam.ExaminationProductionVM"
-  resultMap="BaseResultMap"
-  >
-    select
-    <include refid="Base_Column_List"/>
-    from t_question
-    <where>
-      deleted=0
-      <if test="difficult != null">
-        and difficult = #{difficult}
-      </if>
-      <if test="industryId != null">
-        and industry_id= #{industryId}
-      </if>
-      <if test="skillIds != null">
-        and skill_id in
-        <foreach collection="skillIds" item="skillId" open="(" separator=","
-                 close=")">
-          #{skillId}
-        </foreach>
-      </if>
-    </where>
-
-    limit #{questionNumber}
+          resultMap="BaseResultMap">
+    <foreach collection="eachList" item="each" separator="union">
+      (select q.skill_id, q.industry_id, i.name as industry_name, s.name as skill_name
+      , t.content ,q.difficult ,q.question_type  from t_industry i
+      join t_question q on i.id = q.industry_id
+      join t_skill s on s.id = q.skill_id
+      join t_text_content t on t.id = q.info_text_content_id
+      <where>
+        <if test="each.difficult != null">
+          and q.difficult = #{each.difficult}
+        </if>
+        <if test="each.industryId != null">
+          and i.id = #{each.industryId}
+        </if>
+        <if test="each.skillId != null">
+          and s.id = #{each.skillId}
+        </if>
+      </where>
+      limit #{each.eachNumber} )
+    </foreach>
 
   </select>
 

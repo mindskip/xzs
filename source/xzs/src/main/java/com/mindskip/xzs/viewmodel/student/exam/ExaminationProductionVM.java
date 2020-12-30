@@ -12,7 +12,11 @@ public class ExaminationProductionVM extends BasePage {
     private int questionNumber;
 
     private Integer difficult;
-    private List<Integer> skillIds;
     private Integer industryId;
 
+    private List<Integer> skillIds;
+    private List<Integer> eachNumber;
+
+
+    private List<EachPaperProductionVM> eachList;
 }
