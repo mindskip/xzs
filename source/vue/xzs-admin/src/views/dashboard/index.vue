@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     <el-row :gutter="40" class="panel-group">
-      <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+      <!--<el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
         <div class="card-panel">
           <div class="card-panel-icon-wrapper icon-people">
             <svg-icon icon-class="exam" class-name="card-panel-icon"/>
@@ -13,7 +13,7 @@
             <count-to :start-val="0" :end-val="examPaperCount" :duration="2600" class="card-panel-num" v-loading="loading"/>
           </div>
         </div>
-      </el-col>
+      </el-col>-->
       <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
         <div class="card-panel" >
           <div class="card-panel-icon-wrapper icon-message">
@@ -27,6 +27,7 @@
           </div>
         </div>
       </el-col>
+      <!--
       <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
         <div class="card-panel">
           <div class="card-panel-icon-wrapper icon-shopping">
@@ -53,6 +54,7 @@
           </div>
         </div>
       </el-col>
+      -->
     </el-row>
     <el-row class="echarts-line">
       <div id="echarts-moth-user" style="width: 100%;height:400px;" v-loading="loading"/>
