@@ -1,4 +1,23 @@
-# 学之思在线考试系统
+<p></p>
+<p></p>
+
+<p align="center">
+<a href="https://www.mindskip.net" target="_blank">
+ <img src="doc/image/logo/1.png" height="80"/>
+<a/>
+</p>
+
+<div align="center">
+
+[![Gitee star](https://gitee.com/mindskip/xzs-mysql/badge/star.svg?theme=gitee)](https://gitee.com/mindskip/xzs-mysql)
+[![Gitee fork](https://gitee.com/mindskip/xzs-mysql/badge/fork.svg?theme=gitee)](https://gitee.com/mindskip/xzs-mysql)
+[![Github stars](https://img.shields.io/github/stars/mindskip/xzs-mysql?logo=github)](https://github.com/mindskip/xzs-mysql)
+[![Github forks](https://img.shields.io/github/forks/mindskip/xzs-mysql?logo=github)](https://github.com/mindskip/xzs-mysql)
+[![Github license](https://img.shields.io/badge/license-AGPL-yellow)](https://gitee.com/mindskip/xzs-mysql/blob/master/LICENSE)
+
+</div>
+
+# 学之思在线考试系统 - Mysql版
 
 ## 项目介绍
 
@@ -12,28 +31,28 @@
 
 ### 演示地址
 
-* 官网：[http://www.mindskip.net](http://www.mindskip.net)
-* 学之思考试系统：[http://www.mindskip.net/xzs.html](http://www.mindskip.net/xzs.html)
-* 思多多智能考试平台：[http://www.mindskip.net/sdd.html](http://www.mindskip.net/sdd.html)
-* 维多多培训考试系统：[http://www.mindskip.net/wdd.html](http://www.mindskip.net/wdd.html)
-* 学多多考试系统：[http://www.mindskip.net/xdd.html](http://www.mindskip.net/xdd.html)
+* 官网：[https://www.mindskip.net](https://www.mindskip.net)
+* 学之思考试系统：[https://www.mindskip.net/xzs.html](https://www.mindskip.net/xzs.html)
+* 思多多智能考试平台：[https://www.mindskip.net/sdd.html](https://www.mindskip.net/sdd.html)
+* 维多多培训考试系统：[https://www.mindskip.net/wdd.html](https://www.mindskip.net/wdd.html)
+* 学多多考试系统：[https://www.mindskip.net/xdd.html](https://www.mindskip.net/xdd.html)
 
 ### 学之思仓库版本地址
 
-* gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
+* gitee - postgresql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
 * gitee - mysql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
 * github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 * github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
 
 ### 学之思交流群(加群获取数据库脚本)
 
-* 交流六群：`593529956`
+* QQ交流群六：`593529956`
 * QQ：`2693073475`
 * 微信：`alvis-u`
 
 ### 开发部署教程
 
-* [http://mindskip.gitee.io/uexam/](http://mindskip.gitee.io/uexam/)
+* [https://mindskip.gitee.io/xzs-mysql](https://mindskip.gitee.io/xzs-mysql)
 
 ### 学生系统功能
 
@@ -50,7 +69,7 @@
 
 * 登录： 账号为： admin/123456
 * 主页： 包含了试卷、题目、做卷数、做题数、用户活跃度的统计功能，活跃度和做题数是按月统计
-* 用户管理： 对不同角色 学生、教师、管理员 的增删改查管理功能
+* 用户管理： 对不同角色 学生、管理员 的增删改查管理功能
 * 卷题管理：
     1. 试卷列表：试卷的增删改查，新增包含选择学科、试卷类型、试卷名称、考试时间，试卷内容包含添加大标题，然后添加题目到此试卷中，组成一套完整的试卷
     2. 题目列表：题目的增删改查，目前题型包含单选题、多选题、判断题、填空题、简单题，支持图片、公式等。
@@ -63,13 +82,9 @@
 
 * 用户登录登出功能，登录会自动绑定微信账号，登出会解绑
 * 首页包含任务中心、固定试卷、时段试卷，和web端保持一致
-* 试卷模块，固定试卷和时段试卷的分页查询，下拉加载更多，上拉刷新当前数据
-* 记录模块，考试结果的分页，包含了试卷基本信息
-* 我的模块，包含个人资料的修改，个人动态，消息中心模块
-
-### 软件架构图
-
-![](doc/image/frame/2.png)
+* 试卷模块：固定试卷和时段试卷的分页查询，下拉加载更多，上拉刷新当前数据
+* 记录模块：考试结果的分页，包含了试卷基本信息
+* 我的模块：包含个人资料的修改，个人动态，消息中心模块
 
 ### 系统展示
 
