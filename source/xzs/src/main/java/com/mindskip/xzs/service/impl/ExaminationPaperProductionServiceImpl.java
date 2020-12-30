@@ -1,6 +1,9 @@
 package com.mindskip.xzs.service.impl;
 
+import com.mindskip.xzs.domain.AllSkillAndIndustry;
+import com.mindskip.xzs.domain.Industry;
 import com.mindskip.xzs.domain.Question;
+import com.mindskip.xzs.domain.Skill;
 import com.mindskip.xzs.repository.BaseMapper;
 import com.mindskip.xzs.repository.QuestionMapper;
 import com.mindskip.xzs.service.ExaminationPaperProductionService;
@@ -69,10 +72,29 @@ public class ExaminationPaperProductionServiceImpl extends BaseServiceImpl<Quest
     }
 
 
-    public List<Question> paper(){
+    public AllSkillAndIndustry paper() {
         List<Question> questions1 = questionMapper.selectAllSkills();
         List<Question> questions2 = questionMapper.selectAllIndustry();
-        questions1.addAll(questions2);
-        return questions1;
+
+
+        List<Skill> skillList = new ArrayList<>();
+        for (Question question : questions1) {
+            Integer skillId = question.getSkillId();
+            String skillName = question.getSkillName();
+            Skill skill = new Skill(skillId, skillName);
+
+            skillList.add(skill);
+        }
+        ArrayList<Industry> industries = new ArrayList<>();
+        for (Question question : questions2) {
+            Integer industryId = question.getIndustryId();
+            String industryName = question.getIndustryName();
+            Industry industry = new Industry(industryId, industryName);
+
+            industries.add(industry);
+        }
+
+
+        return new AllSkillAndIndustry(skillList, industries);
     }
 }
