@@ -175,6 +175,7 @@ export default {
       })
     },
     resetForm () {
+      let lastId = this.form.id
       this.$refs['form'].resetFields()
       this.form = {
         id: null,
@@ -182,6 +183,7 @@ export default {
         title: '',
         paperItems: []
       }
+      this.form.id = lastId
     },
     subjectFormatter (row, column, cellValue, index) {
       return this.subjectEnumFormat(cellValue)
