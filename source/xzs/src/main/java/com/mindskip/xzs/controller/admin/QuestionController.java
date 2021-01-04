@@ -14,8 +14,6 @@ import com.mindskip.xzs.viewmodel.admin.question.QuestionEditRequestVM;
 import com.mindskip.xzs.viewmodel.admin.question.QuestionPageRequestVM;
 import com.mindskip.xzs.viewmodel.admin.question.QuestionResponseVM;
 import com.github.pagehelper.PageInfo;
-import com.mindskip.xzs.utility.*;
-import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,11 +21,15 @@ import javax.validation.Valid;
 
 @RestController("AdminQuestionController")
 @RequestMapping(value = "/api/admin/question")
-@AllArgsConstructor
 public class QuestionController extends BaseApiController {
 
     private final QuestionService questionService;
     private final TextContentService textContentService;
+
+    public QuestionController(QuestionService questionService, TextContentService textContentService) {
+        this.questionService = questionService;
+        this.textContentService = textContentService;
+    }
 
     @RequestMapping(value = "/page", method = RequestMethod.POST)
     public RestResponse<PageInfo<QuestionResponseVM>> pageList(@RequestBody QuestionPageRequestVM model) {
