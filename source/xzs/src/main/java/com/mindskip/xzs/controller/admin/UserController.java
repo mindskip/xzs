@@ -13,8 +13,6 @@ import com.mindskip.xzs.utility.DateTimeUtil;
 import com.mindskip.xzs.viewmodel.admin.user.*;
 import com.mindskip.xzs.utility.PageInfoHelper;
 import com.github.pagehelper.PageInfo;
-import com.mindskip.xzs.viewmodel.admin.user.*;
-import lombok.AllArgsConstructor;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -30,12 +28,17 @@ import java.util.UUID;
  */
 @RestController("AdminUserController")
 @RequestMapping(value = "/api/admin/user")
-@AllArgsConstructor
 public class UserController extends BaseApiController {
 
     private final UserService userService;
     private final UserEventLogService userEventLogService;
     private final AuthenticationService authenticationService;
+
+    public UserController(UserService userService, UserEventLogService userEventLogService, AuthenticationService authenticationService) {
+        this.userService = userService;
+        this.userEventLogService = userEventLogService;
+        this.authenticationService = authenticationService;
+    }
 
 
     @RequestMapping(value = "/page/list", method = RequestMethod.POST)

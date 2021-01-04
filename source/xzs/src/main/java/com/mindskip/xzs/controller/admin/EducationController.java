@@ -10,7 +10,6 @@ import com.mindskip.xzs.viewmodel.admin.education.SubjectEditRequestVM;
 import com.mindskip.xzs.viewmodel.admin.education.SubjectPageRequestVM;
 import com.mindskip.xzs.viewmodel.admin.education.SubjectResponseVM;
 import com.github.pagehelper.PageInfo;
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,10 +17,13 @@ import java.util.List;
 
 @RestController("AdminEducationController")
 @RequestMapping(value = "/api/admin/education")
-@AllArgsConstructor
 public class EducationController extends BaseApiController {
 
     private final SubjectService subjectService;
+
+    public EducationController(SubjectService subjectService) {
+        this.subjectService = subjectService;
+    }
 
     @RequestMapping(value = "/subject/list", method = RequestMethod.POST)
     public RestResponse<List<Subject>> list() {
