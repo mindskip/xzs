@@ -10,17 +10,19 @@ import com.mindskip.xzs.viewmodel.admin.exam.ExamPaperPageRequestVM;
 import com.mindskip.xzs.viewmodel.admin.exam.ExamPaperEditRequestVM;
 import com.mindskip.xzs.viewmodel.admin.exam.ExamResponseVM;
 import com.github.pagehelper.PageInfo;
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController("AdminExamPaperController")
 @RequestMapping(value = "/api/admin/exam/paper")
-@AllArgsConstructor
 public class ExamPaperController extends BaseApiController {
 
     private final ExamPaperService examPaperService;
+
+    public ExamPaperController(ExamPaperService examPaperService) {
+        this.examPaperService = examPaperService;
+    }
 
     @RequestMapping(value = "/page", method = RequestMethod.POST)
     public RestResponse<PageInfo<ExamResponseVM>> pageList(@RequestBody ExamPaperPageRequestVM model) {
