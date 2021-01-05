@@ -11,7 +11,6 @@ import com.mindskip.xzs.viewmodel.admin.exam.ExamPaperEditRequestVM;
 import com.mindskip.xzs.viewmodel.student.exam.ExamPaperPageResponseVM;
 import com.mindskip.xzs.viewmodel.student.exam.ExamPaperPageVM;
 import com.github.pagehelper.PageInfo;
-import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +18,17 @@ import javax.validation.Valid;
 
 @RestController("StudentExamPaperController")
 @RequestMapping(value = "/api/student/exam/paper")
-@AllArgsConstructor
 public class ExamPaperController extends BaseApiController {
 
     private final ExamPaperService examPaperService;
     private final ExamPaperAnswerService examPaperAnswerService;
     private final ApplicationEventPublisher eventPublisher;
+
+    public ExamPaperController(ExamPaperService examPaperService, ExamPaperAnswerService examPaperAnswerService, ApplicationEventPublisher eventPublisher) {
+        this.examPaperService = examPaperService;
+        this.examPaperAnswerService = examPaperAnswerService;
+        this.eventPublisher = eventPublisher;
+    }
 
 
     @RequestMapping(value = "/select/{id}", method = RequestMethod.POST)

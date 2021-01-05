@@ -20,18 +20,23 @@ import com.mindskip.xzs.viewmodel.student.question.answer.QuestionAnswerVM;
 import com.mindskip.xzs.viewmodel.student.question.answer.QuestionPageStudentRequestVM;
 import com.mindskip.xzs.viewmodel.student.question.answer.QuestionPageStudentResponseVM;
 import com.github.pagehelper.PageInfo;
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController("StudentQuestionAnswerController")
 @RequestMapping(value = "/api/student/question/answer")
-@AllArgsConstructor
 public class QuestionAnswerController extends BaseApiController {
 
     private final ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService;
     private final QuestionService questionService;
     private final TextContentService textContentService;
     private final SubjectService subjectService;
+
+    public QuestionAnswerController(ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService, QuestionService questionService, TextContentService textContentService, SubjectService subjectService) {
+        this.examPaperQuestionCustomerAnswerService = examPaperQuestionCustomerAnswerService;
+        this.questionService = questionService;
+        this.textContentService = textContentService;
+        this.subjectService = subjectService;
+    }
 
     @RequestMapping(value = "/page", method = RequestMethod.POST)
     public RestResponse<PageInfo<QuestionPageStudentResponseVM>> pageList(@RequestBody QuestionPageStudentRequestVM model) {
