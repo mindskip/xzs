@@ -17,8 +17,6 @@ import com.mindskip.xzs.utility.DateTimeUtil;
 import com.mindskip.xzs.utility.PageInfoHelper;
 import com.mindskip.xzs.viewmodel.student.user.*;
 import com.github.pagehelper.PageInfo;
-import com.mindskip.xzs.viewmodel.student.user.*;
-import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +33,6 @@ import java.util.stream.Collectors;
  */
 @RestController("StudentUserController")
 @RequestMapping(value = "/api/student/user")
-@AllArgsConstructor
 public class UserController extends BaseApiController {
 
     private final UserService userService;
@@ -43,6 +40,14 @@ public class UserController extends BaseApiController {
     private final MessageService messageService;
     private final AuthenticationService authenticationService;
     private final ApplicationEventPublisher eventPublisher;
+
+    public UserController(UserService userService, UserEventLogService userEventLogService, MessageService messageService, AuthenticationService authenticationService, ApplicationEventPublisher eventPublisher) {
+        this.userService = userService;
+        this.userEventLogService = userEventLogService;
+        this.messageService = messageService;
+        this.authenticationService = authenticationService;
+        this.eventPublisher = eventPublisher;
+    }
 
     @RequestMapping(value = "/current", method = RequestMethod.POST)
     public RestResponse<UserResponseVM> current() {
