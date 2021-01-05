@@ -18,8 +18,6 @@ import com.mindskip.xzs.viewmodel.student.exam.ExamPaperSubmitVM;
 import com.mindskip.xzs.viewmodel.student.exampaper.ExamPaperAnswerPageResponseVM;
 import com.mindskip.xzs.viewmodel.student.exampaper.ExamPaperAnswerPageVM;
 import com.github.pagehelper.PageInfo;
-import com.mindskip.xzs.domain.*;
-import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,13 +26,19 @@ import java.util.Date;
 
 @RestController("StudentExamPaperAnswerController")
 @RequestMapping(value = "/api/student/exampaper/answer")
-@AllArgsConstructor
 public class ExamPaperAnswerController extends BaseApiController {
 
     private final ExamPaperAnswerService examPaperAnswerService;
     private final ExamPaperService examPaperService;
     private final SubjectService subjectService;
     private final ApplicationEventPublisher eventPublisher;
+
+    public ExamPaperAnswerController(ExamPaperAnswerService examPaperAnswerService, ExamPaperService examPaperService, SubjectService subjectService, ApplicationEventPublisher eventPublisher) {
+        this.examPaperAnswerService = examPaperAnswerService;
+        this.examPaperService = examPaperService;
+        this.subjectService = subjectService;
+        this.eventPublisher = eventPublisher;
+    }
 
 
     @RequestMapping(value = "/pageList", method = RequestMethod.POST)
