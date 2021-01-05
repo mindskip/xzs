@@ -374,3 +374,45 @@ CREATE TABLE `t_user_token`  (
 SET FOREIGN_KEY_CHECKS = 1;
 
 (SELECT * FROM t_question WHERE skill_id = 1 LIMIT 2) UNION (SELECT * FROM t_question WHERE skill_id = 11 LIMIT 2)  ;
+
+
+SELECT
+  q.skill_id,
+  q.industry_id,
+  i. NAME AS industry_name,
+  s. NAME AS skill_name,
+  t.content,
+  q.difficult,
+  q.question_type
+FROM
+  t_question q
+  JOIN (
+         SELECT
+           r1.id
+         FROM
+           t_question AS r1
+           JOIN (
+                  SELECT
+                    (
+                      RAND() * (
+                        SELECT
+                          MAX(id)-7
+                        FROM
+                          t_question
+                      )
+                    ) AS row_id
+                ) AS r2
+             JOIN t_industry i ON i.id = r1.industry_id
+             JOIN t_skill s ON s.id = r1.skill_id
+             JOIN t_text_content t ON t.id = r1.info_text_content_id
+         WHERE
+           r1.deleted=0 AND
+           r1.id >= r2.row_id
+           AND r1.skill_id = 10
+         ORDER BY
+           r1.id ASC
+         LIMIT 7
+       ) AS rows ON (rows.id = q.id)
+    JOIN t_industry i ON i.id = q.industry_id
+    JOIN t_skill s ON s.id = q.skill_id
+    JOIN t_text_content t ON t.id = q.info_text_content_id;

@@ -234,23 +234,55 @@
   <select id="selectQuestionsByQuestionsNumber"
           resultMap="BaseResultMap">
     <foreach collection="eachList" item="each" separator="union">
-      (select q.skill_id, q.industry_id, i.name as industry_name, s.name as skill_name
-      , t.content ,q.difficult ,q.question_type  from t_industry i
-      join t_question q on i.id = q.industry_id
-      join t_skill s on s.id = q.skill_id
-      join t_text_content t on t.id = q.info_text_content_id
-      <where>
-        <if test="each.difficult != null">
-          and q.difficult = #{each.difficult}
-        </if>
-        <if test="each.industryId != null">
-          and i.id = #{each.industryId}
-        </if>
-        <if test="each.skillId != null">
-          and s.id = #{each.skillId}
-        </if>
-      </where>
-      limit #{each.eachNumber} )
+      (SELECT
+        q.skill_id,
+        q.industry_id,
+        i. NAME AS industry_name,
+        s. NAME AS skill_name,
+        t.content,
+        q.difficult,
+        q.question_type
+      FROM
+        t_question q
+      JOIN (
+        SELECT
+          r1.id
+        FROM
+          t_question AS r1
+        JOIN (
+        SELECT
+          (
+            RAND() * (
+            SELECT
+              MAX(id)-#{each.eachNumber}
+            FROM
+              t_question
+            )
+          ) AS row_id
+        ) AS r2
+        JOIN t_industry i ON i.id = r1.industry_id
+        JOIN t_skill s ON s.id = r1.skill_id
+        JOIN t_text_content t ON t.id = r1.info_text_content_id
+        <where>
+          r1.deleted=0 AND
+          r1.id >= r2.row_id
+          <if test="each.difficult != null">
+            and q.difficult = #{each.difficult}
+          </if>
+          <if test="each.industryId != null">
+            and i.id = #{each.industryId}
+          </if>
+          <if test="each.skillId != null">
+            and s.id = #{each.skillId}
+          </if>
+        </where>
+        ORDER BY
+        r1.id ASC
+        LIMIT #{each.eachNumber}
+      ) AS rows ON (rows.id = q.id)
+      JOIN t_industry i ON i.id = q.industry_id
+      JOIN t_skill s ON s.id = q.skill_id
+      JOIN t_text_content t ON t.id = q.info_text_content_id)
     </foreach>
 
   </select>
