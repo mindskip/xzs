@@ -13,9 +13,6 @@ import com.mindskip.xzs.service.*;
 import com.mindskip.xzs.utility.DateTimeUtil;
 import com.mindskip.xzs.utility.JsonUtil;
 import com.mindskip.xzs.viewmodel.student.dashboard.*;
-import com.mindskip.xzs.service.*;
-import com.mindskip.xzs.viewmodel.student.dashboard.*;
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +24,6 @@ import java.util.stream.Collectors;
 
 @RestController("StudentDashboardController")
 @RequestMapping(value = "/api/student/dashboard")
-@AllArgsConstructor
 public class DashboardController extends BaseApiController {
 
     private final UserService userService;
@@ -36,6 +32,15 @@ public class DashboardController extends BaseApiController {
     private final TaskExamService taskExamService;
     private final TaskExamCustomerAnswerService taskExamCustomerAnswerService;
     private final TextContentService textContentService;
+
+    public DashboardController(UserService userService, ExamPaperService examPaperService, QuestionService questionService, TaskExamService taskExamService, TaskExamCustomerAnswerService taskExamCustomerAnswerService, TextContentService textContentService) {
+        this.userService = userService;
+        this.examPaperService = examPaperService;
+        this.questionService = questionService;
+        this.taskExamService = taskExamService;
+        this.taskExamCustomerAnswerService = taskExamCustomerAnswerService;
+        this.textContentService = textContentService;
+    }
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public RestResponse<IndexVM> index() {
