@@ -5,20 +5,23 @@ import com.mindskip.xzs.domain.User;
 import com.mindskip.xzs.service.AuthenticationService;
 import com.mindskip.xzs.service.UserService;
 import com.mindskip.xzs.utility.RsaUtil;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * @author 武汉思维跳跃科技有限公司
  */
 @Service
-@AllArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-
     private final UserService userService;
-
     private final SystemConfig systemConfig;
+
+    @Autowired
+    public AuthenticationServiceImpl(UserService userService, SystemConfig systemConfig) {
+        this.userService = userService;
+        this.systemConfig = systemConfig;
+    }
 
 
     /**

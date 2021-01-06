@@ -5,6 +5,7 @@ import com.mindskip.xzs.base.RestResponse;
 import com.mindskip.xzs.service.*;
 import com.mindskip.xzs.utility.DateTimeUtil;
 import com.mindskip.xzs.viewmodel.admin.dashboard.IndexVM;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,7 @@ public class DashboardController extends BaseApiController {
     private final ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService;
     private final UserEventLogService userEventLogService;
 
+    @Autowired
     public DashboardController(ExamPaperService examPaperService, QuestionService questionService, ExamPaperAnswerService examPaperAnswerService, ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService, UserEventLogService userEventLogService) {
         this.examPaperService = examPaperService;
         this.questionService = questionService;

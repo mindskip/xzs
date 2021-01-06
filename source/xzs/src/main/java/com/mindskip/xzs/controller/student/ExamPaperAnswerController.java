@@ -18,6 +18,7 @@ import com.mindskip.xzs.viewmodel.student.exam.ExamPaperSubmitVM;
 import com.mindskip.xzs.viewmodel.student.exampaper.ExamPaperAnswerPageResponseVM;
 import com.mindskip.xzs.viewmodel.student.exampaper.ExamPaperAnswerPageVM;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,7 @@ public class ExamPaperAnswerController extends BaseApiController {
     private final SubjectService subjectService;
     private final ApplicationEventPublisher eventPublisher;
 
+    @Autowired
     public ExamPaperAnswerController(ExamPaperAnswerService examPaperAnswerService, ExamPaperService examPaperService, SubjectService subjectService, ApplicationEventPublisher eventPublisher) {
         this.examPaperAnswerService = examPaperAnswerService;
         this.examPaperService = examPaperService;
