@@ -11,6 +11,7 @@ import com.mindskip.xzs.viewmodel.admin.task.TaskPageRequestVM;
 import com.mindskip.xzs.viewmodel.admin.task.TaskPageResponseVM;
 import com.mindskip.xzs.viewmodel.admin.task.TaskRequestVM;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,6 +22,7 @@ public class TaskController extends BaseApiController {
 
     private final TaskExamService taskExamService;
 
+    @Autowired
     public TaskController(TaskExamService taskExamService) {
         this.taskExamService = taskExamService;
     }
