@@ -11,6 +11,7 @@ import com.mindskip.xzs.viewmodel.admin.file.UploadResultVM;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -34,6 +35,7 @@ public class UploadController extends BaseApiController {
     private static final String IMAGE_UPLOAD_FILE = "upFile";
     private final UserService userService;
 
+    @Autowired
     public UploadController(FileUpload fileUpload, SystemConfig systemConfig, UserService userService) {
         this.fileUpload = fileUpload;
         this.systemConfig = systemConfig;

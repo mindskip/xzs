@@ -18,6 +18,7 @@ import com.mindskip.xzs.utility.PageInfoHelper;
 import com.mindskip.xzs.viewmodel.student.user.*;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +42,7 @@ public class UserController extends BaseApiController {
     private final AuthenticationService authenticationService;
     private final ApplicationEventPublisher eventPublisher;
 
+    @Autowired
     public UserController(UserService userService, UserEventLogService userEventLogService, MessageService messageService, AuthenticationService authenticationService, ApplicationEventPublisher eventPublisher) {
         this.userService = userService;
         this.userEventLogService = userEventLogService;
