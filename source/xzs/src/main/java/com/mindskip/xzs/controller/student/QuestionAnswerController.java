@@ -20,6 +20,7 @@ import com.mindskip.xzs.viewmodel.student.question.answer.QuestionAnswerVM;
 import com.mindskip.xzs.viewmodel.student.question.answer.QuestionPageStudentRequestVM;
 import com.mindskip.xzs.viewmodel.student.question.answer.QuestionPageStudentResponseVM;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController("StudentQuestionAnswerController")
@@ -31,6 +32,7 @@ public class QuestionAnswerController extends BaseApiController {
     private final TextContentService textContentService;
     private final SubjectService subjectService;
 
+    @Autowired
     public QuestionAnswerController(ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService, QuestionService questionService, TextContentService textContentService, SubjectService subjectService) {
         this.examPaperQuestionCustomerAnswerService = examPaperQuestionCustomerAnswerService;
         this.questionService = questionService;

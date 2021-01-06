@@ -8,6 +8,7 @@ import com.mindskip.xzs.domain.User;
 import com.mindskip.xzs.service.SubjectService;
 import com.mindskip.xzs.viewmodel.student.education.SubjectEditRequestVM;
 import com.mindskip.xzs.viewmodel.student.education.SubjectVM;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class EducationController extends BaseApiController {
 
     private final SubjectService subjectService;
 
+    @Autowired
     public EducationController(SubjectService subjectService) {
         this.subjectService = subjectService;
     }
