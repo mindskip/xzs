@@ -10,6 +10,7 @@ import com.mindskip.xzs.viewmodel.admin.education.SubjectEditRequestVM;
 import com.mindskip.xzs.viewmodel.admin.education.SubjectPageRequestVM;
 import com.mindskip.xzs.viewmodel.admin.education.SubjectResponseVM;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,6 +22,7 @@ public class EducationController extends BaseApiController {
 
     private final SubjectService subjectService;
 
+    @Autowired
     public EducationController(SubjectService subjectService) {
         this.subjectService = subjectService;
     }
