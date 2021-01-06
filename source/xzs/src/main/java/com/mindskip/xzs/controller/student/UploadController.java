@@ -6,6 +6,7 @@ import com.mindskip.xzs.base.RestResponse;
 import com.mindskip.xzs.service.FileUpload;
 import com.mindskip.xzs.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,7 @@ public class UploadController extends BaseApiController {
     private final FileUpload fileUpload;
     private final UserService userService;
 
+    @Autowired
     public UploadController(FileUpload fileUpload, UserService userService) {
         this.fileUpload = fileUpload;
         this.userService = userService;
