@@ -10,6 +10,7 @@ import com.mindskip.xzs.viewmodel.admin.exam.ExamPaperPageRequestVM;
 import com.mindskip.xzs.viewmodel.admin.exam.ExamPaperEditRequestVM;
 import com.mindskip.xzs.viewmodel.admin.exam.ExamResponseVM;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,6 +21,7 @@ public class ExamPaperController extends BaseApiController {
 
     private final ExamPaperService examPaperService;
 
+    @Autowired
     public ExamPaperController(ExamPaperService examPaperService) {
         this.examPaperService = examPaperService;
     }
