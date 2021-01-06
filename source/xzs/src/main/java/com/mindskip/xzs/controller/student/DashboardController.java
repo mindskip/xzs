@@ -13,6 +13,7 @@ import com.mindskip.xzs.service.*;
 import com.mindskip.xzs.utility.DateTimeUtil;
 import com.mindskip.xzs.utility.JsonUtil;
 import com.mindskip.xzs.viewmodel.student.dashboard.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,6 +34,7 @@ public class DashboardController extends BaseApiController {
     private final TaskExamCustomerAnswerService taskExamCustomerAnswerService;
     private final TextContentService textContentService;
 
+    @Autowired
     public DashboardController(UserService userService, ExamPaperService examPaperService, QuestionService questionService, TaskExamService taskExamService, TaskExamCustomerAnswerService taskExamCustomerAnswerService, TextContentService textContentService) {
         this.userService = userService;
         this.examPaperService = examPaperService;
