@@ -7,9 +7,9 @@
           </el-select>
         </el-form-item>-->
         <el-form-item>
-          <el-button type="primary" @click="submitForm">查询</el-button>
+          <el-button type="primary" @click="submitForm">Search</el-button>
           <router-link :to="{path:'/education/industry/edit'}" class="link-left">
-            <el-button type="primary">添加</el-button>
+            <el-button type="primary">Add</el-button>
           </router-link>
         </el-form-item>
       </el-form>
@@ -17,12 +17,12 @@
       <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
         <el-table-column prop="id" label="Id" />
         <el-table-column prop="name" label="industry"/>
-        <el-table-column width="220px" label="操作" align="center">
+        <el-table-column width="220px" label="Operation" align="center">
           <template slot-scope="{row}">
             <router-link :to="{path:'/education/industry/edit', query:{id:row.id}}" class="link-left">
-              <el-button size="mini">编辑</el-button>
+              <el-button size="mini">Edit</el-button>
             </router-link>
-            <el-button   size="mini" type="danger" @click="delSubject(row)" class="link-left">删除</el-button>
+            <el-button   size="mini" type="danger" @click="delSubject(row)" class="link-left">Delete</el-button>
           </template>
         </el-table-column>
       </el-table>

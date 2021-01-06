@@ -2,7 +2,7 @@
   <div class="app-container">
 
     <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading">
-      <el-form-item label="skill：" required>
+      <el-form-item label="Skill：" required>
         <el-input v-model="form.name"></el-input>
       </el-form-item>
       <!-- <el-form-item label="年级：" required>
@@ -11,8 +11,8 @@
         </el-select>
       </el-form-item> -->
       <el-form-item>
-        <el-button type="primary" @click="submitForm">提交</el-button>
-        <el-button @click="resetForm">重置</el-button>
+        <el-button type="primary" @click="submitForm">Submit</el-button>
+        <el-button @click="resetForm">Reset</el-button>
       </el-form-item>
     </el-form>
   </div>

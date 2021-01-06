@@ -1,44 +1,44 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParam" ref="queryForm" :inline="true">
-      <el-form-item label="用户名：">
+      <el-form-item label="Username：">
         <el-input v-model="queryParam.userName"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm">查询</el-button>
+        <el-button type="primary" @click="submitForm">Search</el-button>
         <router-link :to="{path:'/user/student/edit'}" class="link-left">
-          <el-button type="primary">添加</el-button>
+          <el-button type="primary">Add</el-button>
         </router-link>
       </el-form-item>
     </el-form>
 
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
-      <el-table-column prop="id" label="Id" />
-      <el-table-column prop="userName" label="用户名"/>
-      <el-table-column prop="realName" label="真实姓名" />
+      <el-table-column prop="id" label="ID" />
+      <el-table-column prop="userName" label="Username"/>
+      <el-table-column prop="realName" label="Name" />
       <!--<el-table-column prop="userLevel" label="学级"  :formatter="levelFormatter"/>-->
-      <el-table-column prop="sex" label="性别" width="60px;" :formatter="sexFormatter"/>
-      <el-table-column prop="phone" label="手机号"/>
-      <el-table-column prop="createTime" label="创建时间" width="160px"/>
-      <el-table-column label="状态" prop="status" width="70px">
+      <el-table-column prop="sex" label="Gender" width="100px;" :formatter="sexFormatter"/>
+      <el-table-column prop="phone" label="Phone Number"/>
+      <el-table-column prop="createTime" label="Create Time" width="160px"/>
+      <el-table-column label="Status" prop="status" width="70px">
         <template slot-scope="{row}">
           <el-tag :type="statusTagFormatter(row.status)">
             {{ statusFormatter(row.status) }}
           </el-tag>
         </template>
       </el-table-column>
-      <el-table-column width="270px" label="操作" align="center">
+      <el-table-column width="270px" label="Operation" align="center">
         <template slot-scope="{row}">
           <el-button size="mini"  @click="changeStatus(row)" class="link-left">
             {{ statusBtnFormatter(row.status) }}
           </el-button>
           <router-link :to="{path:'/user/student/edit', query:{id:row.id}}" class="link-left">
-            <el-button size="mini" >编辑</el-button>
+            <el-button size="mini" >Edit</el-button>
           </router-link>
           <router-link :to="{path:'/log/user/list', query:{userId:row.id}}" class="link-left">
-            <el-button size="mini" >日志</el-button>
+            <el-button size="mini" >Logs</el-button>
           </router-link>
-          <el-button  size="mini" type="danger" @click="deleteUser(row)" class="link-left">删除</el-button>
+          <el-button  size="mini" type="danger" @click="deleteUser(row)" class="link-left">Delete</el-button>
         </template>
       </el-table-column>
     </el-table>

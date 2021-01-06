@@ -1,42 +1,42 @@
 <template>
   <div class="app-container">
     <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
-      <el-form-item label="industry：" prop="industryId" required>
-        <el-select v-model="form.industryId"   placeholder="industry"  @change="levelChange">
+      <el-form-item label="Industry：" prop="industryId" required>
+        <el-select v-model="form.industryId"   placeholder="Industry"  @change="levelChange">
           <el-option v-for="item in industryFilter" :key="item.id" :value="item.id" :label="item.name"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="skill：" prop="skillId" required>
-        <el-select v-model="form.skillId" placeholder="skill" >
+      <el-form-item label="Skill：" prop="skillId" required>
+        <el-select v-model="form.skillId" placeholder="Skill" >
           <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id" :label="item.name"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="题干：" prop="title" required>
+      <el-form-item label="Question：" prop="title" required>
         <el-input v-model="form.title"   @focus="inputClick(form,'title')" />
       </el-form-item>
-      <el-form-item label="答案：" prop="correct" required>
+      <el-form-item label="Answer：" prop="correct" required>
         <el-input v-model="form.correct"   @focus="inputClick(form,'correct')" />
       </el-form-item>
-      <el-form-item label="解析：" prop="analyze" required>
+      <el-form-item label="Analysis：" prop="analyze" required>
         <el-input v-model="form.analyze"  @focus="inputClick(form,'analyze')" />
       </el-form-item>
       <!-- <el-form-item label="分数：" prop="score" required>
         <el-input-number v-model="form.score" :precision="1" :step="1" :max="100"></el-input-number>
       </el-form-item> -->
-      <el-form-item label="难度：" required>
+      <el-form-item label="Difficulty：" required>
         <el-rate v-model="form.difficult" class="question-item-rate"></el-rate>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm">提交</el-button>
-        <el-button @click="resetForm">重置</el-button>
-        <el-button type="success" @click="showQuestion">预览</el-button>
+        <el-button type="primary" @click="submitForm">Submit</el-button>
+        <el-button @click="resetForm">Reset</el-button>
+        <el-button type="success" @click="showQuestion">Preview</el-button>
       </el-form-item>
     </el-form>
     <el-dialog  :visible.sync="richEditor.dialogVisible"  append-to-body :close-on-click-modal="false" style="width: 100%;height: 100%"   :show-close="false" center>
       <Ueditor @ready="editorReady"/>
       <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="editorConfirm">确 定</el-button>
-        <el-button @click="richEditor.dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="editorConfirm">Confirm</el-button>
+        <el-button @click="richEditor.dialogVisible = false">Cancel</el-button>
       </span>
     </el-dialog>
     <el-dialog :visible.sync="questionShow.dialog" style="width: 100%;height: 100%">
@@ -75,22 +75,22 @@ export default {
       formLoading: false,
       rules: {
         gradeLevel: [
-          { required: true, message: '请选择年级', trigger: 'change' }
+          { required: true, message: 'Please select grade', trigger: 'change' }
         ],
         subjectId: [
-          { required: true, message: '请选择学科', trigger: 'change' }
+          { required: true, message: 'Please select subject', trigger: 'change' }
         ],
         title: [
-          { required: true, message: '请输入题干', trigger: 'blur' }
+          { required: true, message: 'Please enter the question stem', trigger: 'blur' }
         ],
         correct: [
-          { required: true, message: '请输入答案', trigger: 'blur' }
+          { required: true, message: 'Please enter the answer', trigger: 'blur' }
         ],
         analyze: [
-          { required: true, message: '请输入解析', trigger: 'blur' }
+          { required: true, message: 'Please enter parse', trigger: 'blur' }
         ],
         score: [
-          { required: true, message: '请输入分数', trigger: 'blur' }
+          { required: true, message: 'Please enter the score', trigger: 'blur' }
         ]
       },
       richEditor: {

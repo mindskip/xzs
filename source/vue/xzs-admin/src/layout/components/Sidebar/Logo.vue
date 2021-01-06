@@ -24,7 +24,7 @@ export default {
   },
   data () {
     return {
-      title: 'TEKSystem管理系统'
+      title: 'TEKsystems Admin'
     }
   }
 }
