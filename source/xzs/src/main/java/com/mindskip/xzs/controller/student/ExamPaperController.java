@@ -11,6 +11,7 @@ import com.mindskip.xzs.viewmodel.admin.exam.ExamPaperEditRequestVM;
 import com.mindskip.xzs.viewmodel.student.exam.ExamPaperPageResponseVM;
 import com.mindskip.xzs.viewmodel.student.exam.ExamPaperPageVM;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,7 @@ public class ExamPaperController extends BaseApiController {
     private final ExamPaperAnswerService examPaperAnswerService;
     private final ApplicationEventPublisher eventPublisher;
 
+    @Autowired
     public ExamPaperController(ExamPaperService examPaperService, ExamPaperAnswerService examPaperAnswerService, ApplicationEventPublisher eventPublisher) {
         this.examPaperService = examPaperService;
         this.examPaperAnswerService = examPaperAnswerService;

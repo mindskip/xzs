@@ -14,15 +14,21 @@ import com.qiniu.util.Auth;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 
 @Service
-@AllArgsConstructor
 public class FileUploadImpl implements FileUpload {
     private final Logger logger = LoggerFactory.getLogger(FileUpload.class);
     private final SystemConfig systemConfig;
+
+
+    @Autowired
+    public FileUploadImpl(SystemConfig systemConfig) {
+        this.systemConfig = systemConfig;
+    }
 
     @Override
     public String uploadFile(InputStream inputStream, long size, String extName) {
