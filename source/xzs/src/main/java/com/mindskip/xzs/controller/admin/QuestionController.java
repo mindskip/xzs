@@ -15,6 +15,7 @@ import com.mindskip.xzs.viewmodel.admin.question.QuestionPageRequestVM;
 import com.mindskip.xzs.viewmodel.admin.question.QuestionResponseVM;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -26,6 +27,7 @@ public class QuestionController extends BaseApiController {
     private final QuestionService questionService;
     private final TextContentService textContentService;
 
+    @Autowired
     public QuestionController(QuestionService questionService, TextContentService textContentService) {
         this.questionService = questionService;
         this.textContentService = textContentService;
