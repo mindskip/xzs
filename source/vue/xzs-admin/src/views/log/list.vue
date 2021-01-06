@@ -1,23 +1,23 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParam" ref="queryForm" :inline="true">
-      <el-form-item label="用户Id：">
+      <el-form-item label="User Id：">
         <el-input v-model="queryParam.userId"></el-input>
       </el-form-item>
-      <el-form-item label="用户名：">
+      <el-form-item label="Username: ">
         <el-input v-model="queryParam.userName"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm">查询</el-button>
+        <el-button type="primary" @click="submitForm">Search</el-button>
       </el-form-item>
     </el-form>
 
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
-      <el-table-column prop="id" label="Id" width="100" />
-      <el-table-column prop="userName" label="用户名" width="150" />
-      <el-table-column prop="realName" label="真实姓名" width="150" />
-      <el-table-column prop="content" label="动态" />
-      <el-table-column prop="createTime" label="创建时间" width="160px"/>
+      <el-table-column prop="Id" label="Id" width="100" />
+      <el-table-column prop="userName" label="Username" width="150" />
+      <el-table-column prop="realName" label="Name" width="150" />
+      <el-table-column prop="content" label="Activity" />
+      <el-table-column prop="createTime" label="Create Time" width="160px"/>
     </el-table>
     <pagination v-show="total>0" :total="total" :page.sync="queryParam.pageIndex" :limit.sync="queryParam.pageSize"
                 @pagination="search"/>

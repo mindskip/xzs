@@ -21,7 +21,7 @@ const constantRoutes = [
     name: 'Login',
     hidden: true,
     component: () => import('@/views/login/index'),
-    meta: { title: '登录' }
+    meta: { title: 'Login' }
   },
   {
     path: '/',
@@ -32,7 +32,7 @@ const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: '主页', icon: 'home', affix: true }
+        meta: { title: 'Home', icon: 'home', affix: true }
       }
     ]
   },
@@ -41,7 +41,7 @@ const constantRoutes = [
     component: Layout,
     name: 'UserPage',
     meta: {
-      title: '用户管理',
+      title: 'User Management',
       icon: 'users'
     },
     children: [
@@ -49,26 +49,26 @@ const constantRoutes = [
         path: 'student/list',
         component: () => import('@/views/user/student/list'),
         name: 'UserStudentPageList',
-        meta: { title: '招聘专员列表', noCache: true }
+        meta: { title: 'Recruiter List', noCache: true }
       },
       {
         path: 'student/edit',
         component: () => import('@/views/user/student/edit'),
         name: 'UserStudentEdit',
-        meta: { title: '学生编辑', noCache: true, activeMenu: '/user/student/list' },
+        meta: { title: 'Students edit', noCache: true, activeMenu: '/user/student/list' },
         hidden: true
       },
       {
         path: 'admin/list',
         component: () => import('@/views/user/admin/list'),
         name: 'UserAdminPageList',
-        meta: { title: '管理员列表', noCache: true }
+        meta: { title: 'Admin List', noCache: true }
       },
       {
         path: 'admin/edit',
         component: () => import('@/views/user/admin/edit'),
         name: 'UserAdminEdit',
-        meta: { title: '管理员编辑', noCache: true, activeMenu: '/user/admin/list' },
+        meta: { title: 'Admin edit', noCache: true, activeMenu: '/user/admin/list' },
         hidden: true
       }
     ]
@@ -78,7 +78,7 @@ const constantRoutes = [
     component: Layout,
     name: 'ExamPage',
     meta: {
-      title: '卷题管理',
+      title: 'Paper management',
       icon: 'exam'
     },
     children: [
@@ -100,7 +100,7 @@ const constantRoutes = [
         path: 'question/list',
         component: () => import('@/views/exam/question/list'),
         name: 'ExamQuestionPageList',
-        meta: { title: '题目列表', noCache: true }
+        meta: { title: 'Question List', noCache: true }
       },
       {
         path: 'question/edit/singleChoice',
@@ -168,7 +168,7 @@ const constantRoutes = [
     component: Layout,
     name: 'EducationPage',
     meta: {
-      title: '教育管理',
+      title: 'Configuration',
       icon: 'education'
     },
     alwaysShow: true,
@@ -177,26 +177,26 @@ const constantRoutes = [
         path: 'industry/list',
         component: () => import('@/views/education/industry/list'),
         name: 'EducationIndustryPage',
-        meta: { title: 'industry列表', noCache: true }
+        meta: { title: 'Industry', noCache: true }
       },
       {
         path: 'industry/edit',
         component: () => import('@/views/education/industry/edit'),
         name: 'EducationIndustryEditPage',
-        meta: { title: 'industry编辑', noCache: true, activeMenu: '/education/industry/list' },
+        meta: { title: 'Industry edit', noCache: true, activeMenu: '/education/industry/list' },
         hidden: true
       },
       {
         path: 'subject/list',
         component: () => import('@/views/education/subject/list'),
         name: 'EducationSubjectPage',
-        meta: { title: 'skill列表', noCache: true }
+        meta: { title: 'Skill', noCache: true }
       },
       {
         path: 'subject/edit',
         component: () => import('@/views/education/subject/edit'),
         name: 'EducationSubjectEditPage',
-        meta: { title: 'skill编辑', noCache: true, activeMenu: '/education/subject/list' },
+        meta: { title: 'Skill edit', noCache: true, activeMenu: '/education/subject/list' },
         hidden: true
       }
     ]
@@ -230,7 +230,7 @@ const constantRoutes = [
     component: Layout,
     name: 'LogPage',
     meta: {
-      title: '日志中心',
+      title: 'Activity Logs',
       icon: 'log'
     },
     alwaysShow: true,
@@ -239,7 +239,7 @@ const constantRoutes = [
         path: 'user/list',
         component: () => import('@/views/log/list'),
         name: 'LogUserPage',
-        meta: { title: '用户日志', noCache: true }
+        meta: { title: 'User Activities', noCache: true }
       }
     ]
   },

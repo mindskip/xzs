@@ -21,7 +21,7 @@
           </div>
           <div class="card-panel-description">
             <div class="card-panel-text">
-              题目总数
+              Question Count
             </div>
             <count-to :start-val="0" :end-val="questionCount" :duration="3000" class="card-panel-num" v-loading="loading"/>
           </div>
@@ -98,8 +98,8 @@ export default {
       _this.questionCount = response.questionCount
       _this.doExamPaperCount = response.doExamPaperCount
       _this.doQuestionCount = response.doQuestionCount
-      _this.echartsUserAction.setOption(this.option('用户活跃度', '{b}日{c}度', response.mothDayText, response.mothDayUserActionValue))
-      _this.echartsQuestion.setOption(this.option('题目月数量', '{b}日{c}题', response.mothDayText, response.mothDayDoExamQuestionValue))
+      _this.echartsUserAction.setOption(this.option('User Activity', '{b}day{c}°', response.mothDayText, response.mothDayUserActionValue))
+      _this.echartsQuestion.setOption(this.option('Monthly Question Count', '{b}day{c}topic', response.mothDayText, response.mothDayDoExamQuestionValue))
       this.loading = false
     })
   },

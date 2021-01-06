@@ -2,37 +2,37 @@
   <div class="app-container">
 
     <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
-      <el-form-item label="用户名："  prop="userName" required>
+      <el-form-item label="User name："  prop="userName" required>
         <el-input v-model="form.userName"></el-input>
       </el-form-item>
-      <el-form-item label="密码：" required>
+      <el-form-item label="Password：" required>
         <el-input v-model="form.password"></el-input>
       </el-form-item>
-      <el-form-item label="真实姓名：" prop="realName"   required>
+      <el-form-item label="Name: " prop="realName"   required>
         <el-input v-model="form.realName"></el-input>
       </el-form-item>
-      <el-form-item label="年龄：">
+      <el-form-item label="Age：">
         <el-input v-model="form.age"></el-input>
       </el-form-item>
-      <el-form-item label="性别：">
-        <el-select v-model="form.sex" placeholder="性别" clearable>
+      <el-form-item label="gender：">
+        <el-select v-model="form.sex" placeholder="Gender" clearable>
           <el-option v-for="item in sexEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="出生日期：">
-        <el-date-picker v-model="form.birthDay" value-format="yyyy-MM-dd" type="date" placeholder="选择日期"/>
+      <el-form-item label="BirthDay：">
+        <el-date-picker v-model="form.birthDay" value-format="yyyy-MM-dd" type="date" placeholder="Option date"/>
       </el-form-item>
-      <el-form-item label="手机：">
+      <el-form-item label="Phone：">
         <el-input v-model="form.phone"></el-input>
       </el-form-item>
-      <el-form-item label="状态：" required>
-        <el-select v-model="form.status" placeholder="状态">
+      <el-form-item label="Status：" required>
+        <el-select v-model="form.status" placeholder="Status">
           <el-option v-for="item in statusEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm">提交</el-button>
-        <el-button @click="resetForm">重置</el-button>
+        <el-button type="primary" @click="submitForm">Submit</el-button>
+        <el-button @click="resetForm">Reset</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -60,10 +60,10 @@ export default {
       formLoading: false,
       rules: {
         userName: [
-          { required: true, message: '请输入用户名', trigger: 'blur' }
+          { required: true, message: 'Please enter the user name', trigger: 'blur' }
         ],
         realName: [
-          { required: true, message: '请输入真实姓名', trigger: 'blur' }
+          { required: true, message: 'Please enter your real name', trigger: 'blur' }
         ]
       }
     }
