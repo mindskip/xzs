@@ -16,8 +16,7 @@ import com.mindskip.xzs.service.TextContentService;
 import com.mindskip.xzs.utility.DateTimeUtil;
 import com.mindskip.xzs.utility.JsonUtil;
 import com.mindskip.xzs.viewmodel.student.dashboard.*;
-import com.mindskip.xzs.viewmodel.student.dashboard.*;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,7 +30,6 @@ import java.util.stream.Collectors;
 
 @Controller("WXStudentDashboardController")
 @RequestMapping(value = "/api/wx/student/dashboard")
-@AllArgsConstructor
 @ResponseBody
 public class DashboardController extends BaseWXApiController {
 
@@ -39,6 +37,14 @@ public class DashboardController extends BaseWXApiController {
     private final TextContentService textContentService;
     private final TaskExamService taskExamService;
     private final TaskExamCustomerAnswerService taskExamCustomerAnswerService;
+
+    @Autowired
+    public DashboardController(ExamPaperService examPaperService, TextContentService textContentService, TaskExamService taskExamService, TaskExamCustomerAnswerService taskExamCustomerAnswerService) {
+        this.examPaperService = examPaperService;
+        this.textContentService = textContentService;
+        this.taskExamService = taskExamService;
+        this.taskExamCustomerAnswerService = taskExamCustomerAnswerService;
+    }
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public RestResponse<IndexVM> index() {
