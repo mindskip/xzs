@@ -5,7 +5,6 @@ import com.mindskip.xzs.base.BaseApiController;
 import com.mindskip.xzs.base.RestResponse;
 import com.mindskip.xzs.service.FileUpload;
 import com.mindskip.xzs.service.UserService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,7 +17,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-@Slf4j
 @RequestMapping("/api/student/upload")
 @RestController("StudentUploadController")
 public class UploadController extends BaseApiController {

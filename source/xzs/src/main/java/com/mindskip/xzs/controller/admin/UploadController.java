@@ -8,7 +8,6 @@ import com.mindskip.xzs.service.FileUpload;
 import com.mindskip.xzs.service.UserService;
 import com.mindskip.xzs.viewmodel.admin.file.UeditorConfigVM;
 import com.mindskip.xzs.viewmodel.admin.file.UploadResultVM;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,6 @@ import java.io.InputStream;
 import java.util.Arrays;
 
 
-@Slf4j
 @RequestMapping("/api/admin/upload")
 @RestController("AdminUploadController")
 public class UploadController extends BaseApiController {

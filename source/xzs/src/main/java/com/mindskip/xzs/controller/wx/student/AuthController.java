@@ -11,7 +11,7 @@ import com.mindskip.xzs.service.UserTokenService;
 import com.mindskip.xzs.utility.WxUtil;
 import com.mindskip.xzs.viewmodel.wx.student.user.BindInfo;
 import com.mindskip.xzs.domain.User;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +21,6 @@ import javax.validation.constraints.NotBlank;
 
 @Controller("WXStudentAuthController")
 @RequestMapping(value = "/api/wx/student/auth")
-@AllArgsConstructor
 @ResponseBody
 public class AuthController extends BaseWXApiController {
 
@@ -29,6 +28,14 @@ public class AuthController extends BaseWXApiController {
     private final AuthenticationService authenticationService;
     private final UserService userService;
     private final UserTokenService userTokenService;
+
+    @Autowired
+    public AuthController(SystemConfig systemConfig, AuthenticationService authenticationService, UserService userService, UserTokenService userTokenService) {
+        this.systemConfig = systemConfig;
+        this.authenticationService = authenticationService;
+        this.userService = userService;
+        this.userTokenService = userTokenService;
+    }
 
     @RequestMapping(value = "/bind", method = RequestMethod.POST)
     public RestResponse bind(@Valid BindInfo model) {
