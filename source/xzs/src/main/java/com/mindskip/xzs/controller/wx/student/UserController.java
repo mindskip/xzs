@@ -17,9 +17,8 @@ import com.mindskip.xzs.utility.DateTimeUtil;
 import com.mindskip.xzs.utility.PageInfoHelper;
 import com.mindskip.xzs.viewmodel.student.user.*;
 import com.github.pagehelper.PageInfo;
-import com.mindskip.xzs.viewmodel.student.user.*;
-import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +35,6 @@ import java.util.stream.Collectors;
  */
 @Controller("WXStudentUserController")
 @RequestMapping(value = "/api/wx/student/user")
-@AllArgsConstructor
 @ResponseBody
 public class UserController extends BaseWXApiController {
 
@@ -45,6 +43,15 @@ public class UserController extends BaseWXApiController {
     private final MessageService messageService;
     private final AuthenticationService authenticationService;
     private final ApplicationEventPublisher eventPublisher;
+
+    @Autowired
+    public UserController(UserService userService, UserEventLogService userEventLogService, MessageService messageService, AuthenticationService authenticationService, ApplicationEventPublisher eventPublisher) {
+        this.userService = userService;
+        this.userEventLogService = userEventLogService;
+        this.messageService = messageService;
+        this.authenticationService = authenticationService;
+        this.eventPublisher = eventPublisher;
+    }
 
     @RequestMapping(value = "/current", method = RequestMethod.POST)
     public RestResponse<UserResponseVM> current() {
