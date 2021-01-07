@@ -13,15 +13,13 @@ import com.mindskip.xzs.utility.DateTimeUtil;
 import com.mindskip.xzs.utility.ExamUtil;
 import com.mindskip.xzs.utility.PageInfoHelper;
 import com.mindskip.xzs.viewmodel.admin.exam.ExamPaperEditRequestVM;
-import com.mindskip.xzs.viewmodel.student.exam.*;
 import com.mindskip.xzs.viewmodel.student.exam.ExamPaperReadVM;
 import com.mindskip.xzs.viewmodel.student.exam.ExamPaperSubmitItemVM;
 import com.mindskip.xzs.viewmodel.student.exampaper.ExamPaperAnswerPageResponseVM;
 import com.mindskip.xzs.viewmodel.student.exampaper.ExamPaperAnswerPageVM;
 import com.github.pagehelper.PageInfo;
-import com.mindskip.xzs.domain.*;
 import com.mindskip.xzs.viewmodel.student.exam.ExamPaperSubmitVM;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +32,6 @@ import java.util.stream.Collectors;
 
 @Controller("WXStudentExamPaperAnswerController")
 @RequestMapping(value = "/api/wx/student/exampaper/answer")
-@AllArgsConstructor
 @ResponseBody
 public class ExamPaperAnswerController extends BaseWXApiController {
 
@@ -42,6 +39,14 @@ public class ExamPaperAnswerController extends BaseWXApiController {
     private final SubjectService subjectService;
     private final ApplicationEventPublisher eventPublisher;
     private final ExamPaperService examPaperService;
+
+    @Autowired
+    public ExamPaperAnswerController(ExamPaperAnswerService examPaperAnswerService, SubjectService subjectService, ApplicationEventPublisher eventPublisher, ExamPaperService examPaperService) {
+        this.examPaperAnswerService = examPaperAnswerService;
+        this.subjectService = subjectService;
+        this.eventPublisher = eventPublisher;
+        this.examPaperService = examPaperService;
+    }
 
     @RequestMapping(value = "/pageList", method = RequestMethod.POST)
     public RestResponse<PageInfo<ExamPaperAnswerPageResponseVM>> pageList(@Valid ExamPaperAnswerPageVM model) {
