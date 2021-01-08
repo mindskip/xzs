@@ -195,6 +195,7 @@ export default {
       this.questionShow.question = this.form
     },
     resetForm () {
+      let lastId = this.form.id
       this.$refs['form'].resetFields()
       this.form = {
         id: null,
@@ -214,6 +215,7 @@ export default {
         score: '',
         difficult: 0
       }
+      this.form.id = lastId
     },
     ...mapActions('exam', { initSubject: 'initSubject' }),
     ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
