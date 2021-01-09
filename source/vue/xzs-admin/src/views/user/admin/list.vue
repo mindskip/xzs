@@ -13,7 +13,7 @@
     </el-form>
 
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
-      <el-table-column prop="id" label="Id" />
+      <el-table-column prop="id" label="ID" />
       <el-table-column prop="userName" label="Username"/>
       <el-table-column prop="realName" label="Name" />
       <el-table-column prop="sex" label="Gender" width="100px;" :formatter="sexFormatter"/>

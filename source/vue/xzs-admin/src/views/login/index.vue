@@ -3,7 +3,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">TEKSystemsQuestion Bank Admin Portal</h3>
+        <h3 class="title">TEKSystems Question Bank Admin Portal</h3>
       </div>
 
       <el-form-item prop="userName">
@@ -66,7 +66,7 @@ export default {
   data () {
     const validateUsername = (rule, value, callback) => {
       if (value.length < 5) {
-        callback(new Error('The user name cannot be less than 5 characters.'))
+        callback(new Error('The username can not be less than 5 characters.'))
       } else {
         callback()
       }

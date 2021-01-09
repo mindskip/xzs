@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
 
-    <el-form :model="form" ref="form" label-width="100px" v-loading="formLoading" :rules="rules">
+    <el-form :model="form" ref="form" label-width="120px" v-loading="formLoading" :rules="rules">
       <el-form-item label="User name："  prop="userName" required>
         <el-input v-model="form.userName"></el-input>
       </el-form-item>

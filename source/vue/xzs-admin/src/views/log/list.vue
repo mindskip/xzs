@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParam" ref="queryForm" :inline="true">
-      <el-form-item label="User Id：">
+      <el-form-item label="User ID：">
         <el-input v-model="queryParam.userId"></el-input>
       </el-form-item>
       <el-form-item label="Username: ">
@@ -13,7 +13,7 @@
     </el-form>
 
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
-      <el-table-column prop="Id" label="Id" width="100" />
+      <el-table-column prop="Id" label="ID" width="100" />
       <el-table-column prop="userName" label="Username" width="150" />
       <el-table-column prop="realName" label="Name" width="150" />
       <el-table-column prop="content" label="Activity" />

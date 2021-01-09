@@ -6,7 +6,7 @@ const request = function (loadtip, query) {
   if (loadtip) {
     loading = vue.prototype.$loading({
       lock: false,
-      text: '正在加载中…',
+      text: 'Loading…',
       spinner: 'el-icon-loading',
       background: 'rgba(0, 0, 0, 0.5)'
     })

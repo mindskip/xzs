@@ -15,8 +15,8 @@
       </el-form>
 
       <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
-        <el-table-column prop="id" label="Id" />
-        <el-table-column prop="name" label="industry"/>
+        <el-table-column prop="id" label="ID" />
+        <el-table-column prop="name" label="Industry"/>
         <el-table-column width="220px" label="Operation" align="center">
           <template slot-scope="{row}">
             <router-link :to="{path:'/education/industry/edit', query:{id:row.id}}" class="link-left">

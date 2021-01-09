@@ -55,7 +55,7 @@ const constantRoutes = [
         path: 'student/edit',
         component: () => import('@/views/user/student/edit'),
         name: 'UserStudentEdit',
-        meta: { title: 'Students edit', noCache: true, activeMenu: '/user/student/list' },
+        meta: { title: 'Recruiter edit', noCache: true, activeMenu: '/user/student/list' },
         hidden: true
       },
       {
@@ -134,7 +134,7 @@ const constantRoutes = [
         path: 'question/edit/shortAnswer',
         component: () => import('@/views/exam/question/edit/short-answer'),
         name: 'shortAnswerPage',
-        meta: { title: '简答题编辑', noCache: true, activeMenu: '/exam/question/list' },
+        meta: { title: 'Question edit', noCache: true, activeMenu: '/exam/question/list' },
         hidden: true
       }
     ]
