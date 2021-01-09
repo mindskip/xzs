@@ -31,9 +31,9 @@
       </el-form-item>
     </el-form>
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
-      <el-table-column prop="id" label="Id" width="90px"/>
-      <el-table-column prop="industryName" label="industry" width="120px"/>
-      <el-table-column prop="skillName" label="skill" width="120px"/>
+      <el-table-column prop="id" label="ID" width="90px"/>
+      <el-table-column prop="industryName" label="Industry" width="120px"/>
+      <el-table-column prop="skillName" label="Skill" width="120px"/>
       <!-- <el-table-column prop="questionType" label="题型" :formatter="questionTypeFormatter" width="70px"/> -->
       <el-table-column prop="shortTitle" label="Question" show-overflow-tooltip/>
       <!-- <el-table-column prop="score" label="分数" width="60px"/> -->

@@ -81,7 +81,7 @@ export default {
           { required: true, message: 'Please select subject', trigger: 'change' }
         ],
         title: [
-          { required: true, message: 'Please enter the question stem', trigger: 'blur' }
+          { required: true, message: 'Please enter the question', trigger: 'blur' }
         ],
         correct: [
           { required: true, message: 'Please enter the answer', trigger: 'blur' }
