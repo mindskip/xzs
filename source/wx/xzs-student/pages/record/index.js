@@ -4,7 +4,7 @@ Page({
   data: {
     spinShow: false,
     loadMoreLoad: false,
-    loadMoreTip: '暂无数据',
+    loadMoreTip: 'No data',
     queryParam: {
       pageIndex: 1,
       pageSize: app.globalData.pageSize
@@ -59,7 +59,7 @@ Page({
           if (re.pageNum >= re.pages) {
             this.setData({
               loadMoreLoad: false,
-              loadMoreTip: '暂无数据'
+              loadMoreTip: 'No data'
             });
           }
         }
