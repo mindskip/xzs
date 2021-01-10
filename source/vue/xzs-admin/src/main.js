@@ -13,8 +13,8 @@ import 'nprogress/nprogress.css' // progress bar style
 import locale from 'element-ui/lib/locale/lang/en'
 
 Vue.use(Element, {
+  locale,
   size: 'medium', // set element-ui default size
-  locale
 })
 
 Vue.config.productionTip = false
