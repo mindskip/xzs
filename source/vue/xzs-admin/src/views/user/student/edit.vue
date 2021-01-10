@@ -5,7 +5,7 @@
       <el-form-item label="Username："  prop="userName" required>
         <el-input v-model="form.userName"></el-input>
       </el-form-item>
-      <el-form-item label="Password："  required>
+      <el-form-item label="Password：" prop="password" required>
         <el-input v-model="form.password"></el-input>
       </el-form-item>
       <el-form-item label="Name：" prop="realName" required>
@@ -66,13 +66,16 @@ export default {
       formLoading: false,
       rules: {
         userName: [
-          { required: true, message: '请输入用户名', trigger: 'blur' }
+          { required: true, message: 'Please enter a username', trigger: 'blur' }
         ],
         realName: [
-          { required: true, message: '请输入真实姓名', trigger: 'blur' }
+          { required: true, message: 'Please enter a real name', trigger: 'blur' }
         ],
         userLevel: [
-          { required: true, message: '请选择年级', trigger: 'change' }
+          { required: true, message: 'Please select grade', trigger: 'change' }
+        ],
+        password: [
+          { required: true, message: 'Please enter a password', trigger: 'blur' }
         ]
       }
     }
