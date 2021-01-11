@@ -3,7 +3,7 @@ package com.mindskip.xzs.configuration.spring.security;
 import com.mindskip.xzs.configuration.property.CookieConfig;
 import com.mindskip.xzs.configuration.property.SystemConfig;
 import com.mindskip.xzs.domain.enums.RoleEnum;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -27,7 +27,6 @@ import java.util.List;
 public class SecurityConfigurer {
 
     @Configuration
-    @AllArgsConstructor
     public static class FormLoginWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
         private final SystemConfig systemConfig;
@@ -38,6 +37,18 @@ public class SecurityConfigurer {
         private final RestAuthenticationFailureHandler restAuthenticationFailureHandler;
         private final RestLogoutSuccessHandler restLogoutSuccessHandler;
         private final RestAccessDeniedHandler restAccessDeniedHandler;
+
+        @Autowired
+        public FormLoginWebSecurityConfigurerAdapter(SystemConfig systemConfig, LoginAuthenticationEntryPoint restAuthenticationEntryPoint, RestAuthenticationProvider restAuthenticationProvider, RestDetailsServiceImpl formDetailsService, RestAuthenticationSuccessHandler restAuthenticationSuccessHandler, RestAuthenticationFailureHandler restAuthenticationFailureHandler, RestLogoutSuccessHandler restLogoutSuccessHandler, RestAccessDeniedHandler restAccessDeniedHandler) {
+            this.systemConfig = systemConfig;
+            this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
+            this.restAuthenticationProvider = restAuthenticationProvider;
+            this.formDetailsService = formDetailsService;
+            this.restAuthenticationSuccessHandler = restAuthenticationSuccessHandler;
+            this.restAuthenticationFailureHandler = restAuthenticationFailureHandler;
+            this.restLogoutSuccessHandler = restLogoutSuccessHandler;
+            this.restAccessDeniedHandler = restAccessDeniedHandler;
+        }
 
         /**
          * @param http http
