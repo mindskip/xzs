@@ -4,7 +4,7 @@ import com.mindskip.xzs.base.SystemCode;
 import com.mindskip.xzs.domain.UserEventLog;
 import com.mindskip.xzs.event.UserEvent;
 import com.mindskip.xzs.service.UserService;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -23,11 +23,16 @@ import java.util.Date;
  * @author 武汉思维跳跃科技有限公司
  */
 @Component
-@AllArgsConstructor
 public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
     private final ApplicationEventPublisher eventPublisher;
     private final UserService userService;
+
+    @Autowired
+    public RestAuthenticationSuccessHandler(ApplicationEventPublisher eventPublisher, UserService userService) {
+        this.eventPublisher = eventPublisher;
+        this.userService = userService;
+    }
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
