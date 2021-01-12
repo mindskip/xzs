@@ -122,7 +122,7 @@ npm run build
 * 执行下列命令，运行程序
 
  ```java
-nohup java -Duser.timezone=Asia/Shanghai -jar -Dspring.profiles.active=prod  xzs-3.0.7.jar  > start1.log  2>&1 &
+nohup java -Duser.timezone=Asia/Shanghai -jar -Dspring.profiles.active=prod  xzs-3.1.0.jar  > start1.log  2>&1 &
  ```
 
 ### 前后端分离部署
@@ -143,7 +143,7 @@ server {
         index index.html;
     }
     location /api/ {
-       proxy_pass  https://localhost:8000;
+       proxy_pass  http://localhost:8000;
     }
 }
 ```
