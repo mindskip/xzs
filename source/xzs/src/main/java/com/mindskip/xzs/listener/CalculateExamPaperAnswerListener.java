@@ -1,7 +1,6 @@
 package com.mindskip.xzs.listener;
 
 import com.mindskip.xzs.domain.*;
-import com.mindskip.xzs.domain.*;
 import com.mindskip.xzs.domain.enums.ExamPaperTypeEnum;
 import com.mindskip.xzs.domain.enums.QuestionTypeEnum;
 import com.mindskip.xzs.event.CalculateExamPaperAnswerCompleteEvent;
@@ -9,7 +8,7 @@ import com.mindskip.xzs.service.ExamPaperAnswerService;
 import com.mindskip.xzs.service.ExamPaperQuestionCustomerAnswerService;
 import com.mindskip.xzs.service.TaskExamCustomerAnswerService;
 import com.mindskip.xzs.service.TextContentService;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,14 +21,20 @@ import java.util.List;
  * @author 武汉思维跳跃科技有限公司
  */
 @Component
-@AllArgsConstructor
 public class CalculateExamPaperAnswerListener implements ApplicationListener<CalculateExamPaperAnswerCompleteEvent> {
-
 
     private final ExamPaperAnswerService examPaperAnswerService;
     private final ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService;
     private final TextContentService textContentService;
     private final TaskExamCustomerAnswerService examCustomerAnswerService;
+
+    @Autowired
+    public CalculateExamPaperAnswerListener(ExamPaperAnswerService examPaperAnswerService, ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService, TextContentService textContentService, TaskExamCustomerAnswerService examCustomerAnswerService) {
+        this.examPaperAnswerService = examPaperAnswerService;
+        this.examPaperQuestionCustomerAnswerService = examPaperQuestionCustomerAnswerService;
+        this.textContentService = textContentService;
+        this.examCustomerAnswerService = examCustomerAnswerService;
+    }
 
     @Override
     @Transactional
