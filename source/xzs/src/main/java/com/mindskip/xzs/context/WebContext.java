@@ -2,17 +2,21 @@ package com.mindskip.xzs.context;
 
 import com.mindskip.xzs.domain.User;
 import com.mindskip.xzs.service.UserService;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
 @Component
-@AllArgsConstructor
 public class WebContext {
     private static final String USER_ATTRIBUTES = "USER_ATTRIBUTES";
     private final UserService userService;
+
+    @Autowired
+    public WebContext(UserService userService) {
+        this.userService = userService;
+    }
 
 
     public void setCurrentUser(User user) {
