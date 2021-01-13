@@ -1,6 +1,7 @@
 package com.mindskip.xzs.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -9,6 +10,7 @@ import java.io.Serializable;
  *
  * @author
  */
+@NoArgsConstructor
 @AllArgsConstructor
 public class Industry implements Serializable {
     private Integer id;
