@@ -68,7 +68,7 @@ export default {
     return {
       queryParam: {
         id: null,
-        questionType: '1',
+        questionType: '5',
         skill: null,
         industry: null,
         pageIndex: 1,
