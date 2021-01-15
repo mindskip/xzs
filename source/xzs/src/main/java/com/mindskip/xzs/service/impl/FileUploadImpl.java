@@ -11,7 +11,6 @@ import com.qiniu.storage.Region;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
-import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,6 @@ import java.io.InputStream;
 public class FileUploadImpl implements FileUpload {
     private final Logger logger = LoggerFactory.getLogger(FileUpload.class);
     private final SystemConfig systemConfig;
-
 
     @Autowired
     public FileUploadImpl(SystemConfig systemConfig) {

@@ -1,6 +1,8 @@
 package com.mindskip.xzs.service.impl;
 
 import com.mindskip.xzs.domain.*;
+import com.mindskip.xzs.domain.ExamPaper;
+import com.mindskip.xzs.domain.Question;
 import com.mindskip.xzs.domain.TextContent;
 import com.mindskip.xzs.domain.enums.ExamPaperTypeEnum;
 import com.mindskip.xzs.domain.exam.ExamPaperQuestionItemObject;
@@ -26,8 +28,6 @@ import com.mindskip.xzs.viewmodel.student.dashboard.PaperInfo;
 import com.mindskip.xzs.viewmodel.student.exam.ExamPaperPageVM;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.mindskip.xzs.domain.ExamPaper;
-import com.mindskip.xzs.domain.Question;
 import com.mindskip.xzs.domain.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

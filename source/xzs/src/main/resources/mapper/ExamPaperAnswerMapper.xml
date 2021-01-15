@@ -236,7 +236,7 @@
   <select id="selectCountByDate"  resultType="com.mindskip.xzs.domain.other.KeyValue">
 		SELECT create_time as name,COUNT(create_time) as value from
 		        (
-				  SELECT DATE_FORMAT(create_time,'%Y-%m-%d') as create_time from t_exam_paper_answer
+				  SELECT to_char(create_time,'yyyy-mm-dd') as create_time from t_exam_paper_answer
 					WHERE  create_time  between  #{startTime}  and  #{endTime}
 				) a
 		GROUP BY create_time

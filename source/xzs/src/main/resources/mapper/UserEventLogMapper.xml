@@ -22,7 +22,7 @@
     delete from t_user_event_log
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.UserEventLog" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.mindskip.xzs.domain.UserEventLog" useGeneratedKeys="true" keyProperty="id" >
     insert into t_user_event_log (id, user_id, user_name,
       real_name, content, create_time
       )
@@ -30,7 +30,7 @@
       #{realName,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.UserEventLog" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.UserEventLog" useGeneratedKeys="true" keyProperty="id" >
     insert into t_user_event_log
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -136,7 +136,7 @@
   <select id="selectCountByDate"  resultType="com.mindskip.xzs.domain.other.KeyValue">
 		SELECT create_time as name,COUNT(create_time) as value from
 		        (
-				  SELECT DATE_FORMAT(create_time,'%Y-%m-%d') as create_time from t_user_event_log
+				  SELECT to_char(create_time,'yyyy-mm-dd') as create_time from t_user_event_log
 					WHERE  create_time  between  #{startTime}  and  #{endTime}
 				) a
 		GROUP BY create_time

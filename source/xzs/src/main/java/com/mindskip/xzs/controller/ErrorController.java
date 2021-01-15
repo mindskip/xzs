@@ -15,10 +15,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 全局异常处理
+ */
 @RestController
 public class ErrorController extends BasicErrorController {
 
     private static final String PATH = "/error";
+
 
     public ErrorController() {
         super(new DefaultErrorAttributes(), new ErrorProperties());

@@ -21,13 +21,13 @@
     delete from t_task_exam_customer_answer
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.TaskExamCustomerAnswer" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.mindskip.xzs.domain.TaskExamCustomerAnswer" useGeneratedKeys="true" keyProperty="id" >
     insert into t_task_exam_customer_answer (id, task_exam_id, create_user,
       create_time, text_content_id)
     values (#{id,jdbcType=INTEGER}, #{taskExamId,jdbcType=INTEGER}, #{createUser,jdbcType=INTEGER},
       #{createTime,jdbcType=TIMESTAMP}, #{textContentId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.TaskExamCustomerAnswer" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.TaskExamCustomerAnswer" useGeneratedKeys="true" keyProperty="id" >
     insert into t_task_exam_customer_answer
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

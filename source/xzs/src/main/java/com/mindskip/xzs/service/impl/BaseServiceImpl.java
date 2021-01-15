@@ -2,7 +2,6 @@ package com.mindskip.xzs.service.impl;
 
 import com.mindskip.xzs.repository.BaseMapper;
 import com.mindskip.xzs.service.BaseService;
-import lombok.AllArgsConstructor;
 
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
@@ -11,6 +10,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
     public BaseServiceImpl(BaseMapper<T> baseMapper) {
         this.baseMapper = baseMapper;
     }
+
 
     @Override
     public int deleteById(Integer id) {

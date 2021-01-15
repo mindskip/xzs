@@ -13,7 +13,7 @@
     id, name, level, level_name, item_order, deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from t_subject
     where id = #{id,jdbcType=INTEGER}
@@ -22,15 +22,15 @@
     delete from t_subject
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.Subject" useGeneratedKeys="true" keyProperty="id">
-    insert into t_subject (id, name, level, 
+  <insert id="insert" parameterType="com.mindskip.xzs.domain.Subject">
+    insert into t_subject (id, name, level,
       level_name, item_order, deleted
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER},
       #{levelName,jdbcType=VARCHAR}, #{itemOrder,jdbcType=INTEGER}, #{deleted,jdbcType=BIT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.Subject" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.Subject">
     insert into t_subject
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -108,7 +108,7 @@
   <select id="getSubjectByLevel" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
-    from t_subject where level= #{level}
+    from t_subject where deleted='f' and level= #{level}
     order by item_order
   </select>
 
@@ -116,7 +116,7 @@
   <select id="allSubject" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
-    from t_subject
+    from t_subject where  deleted='f'
   </select>
 
   <select id="page" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.admin.education.SubjectPageRequestVM">
@@ -124,7 +124,7 @@
     <include refid="Base_Column_List"/>
     FROM t_subject
     <where>
-        and deleted=0
+       and deleted='f'
       <if test="id != null ">
         and id= #{id}
       </if>
@@ -133,5 +133,6 @@
       </if>
     </where>
   </select>
+
 
 </mapper>
