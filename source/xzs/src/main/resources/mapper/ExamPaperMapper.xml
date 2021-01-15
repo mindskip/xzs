@@ -231,7 +231,7 @@
     <include refid="Base_Column_List"/>
     FROM t_exam_paper
     <where>
-        and deleted=0
+        and deleted='f'
       <if test="id != null ">
         and id= #{id}
       </if>
@@ -256,7 +256,7 @@
     <include refid="Base_Column_List"/>
     FROM t_exam_paper
     <where>
-      and deleted=0
+      and deleted='f'
       and task_exam_id is null
       and grade_level= #{level}
       and paper_type=#{paperType}
@@ -268,7 +268,7 @@
     <include refid="Base_Column_List"/>
     FROM t_exam_paper
     <where>
-       and deleted=0
+       and deleted='f'
       <if test="subjectId != null ">
         and subject_id=#{subjectId}
       </if>
@@ -284,7 +284,7 @@
     SELECT id,name,limit_start_time,limit_end_time
     FROM t_exam_paper
     <where>
-      and deleted=0
+      and deleted='f'
       and paper_type= #{examPaperType}
       and grade_level=#{gradeLevel}
       <if test="examPaperType == 3 ">
@@ -298,14 +298,14 @@
 
 
   <select id="selectAllCount"  resultType="java.lang.Integer">
-		SELECT count(*) from t_exam_paper where deleted=0
+		SELECT count(*) from t_exam_paper where deleted='f'
 	</select>
 
   <select id="selectCountByDate"  resultType="com.mindskip.xzs.domain.other.KeyValue">
 		SELECT create_time as name,COUNT(create_time) as value from
 		        (
-				  SELECT DATE_FORMAT(create_time,'%Y-%m-%d') as create_time from t_exam_paper
-					WHERE  deleted=0  and create_time  between  #{startTime}  and  #{endTime}
+				  SELECT to_char(create_time,'yyyy-mm-dd') as create_time from t_exam_paper
+					WHERE  deleted='f' and create_time  between  #{startTime}  and  #{endTime}
 				) a
 		GROUP BY create_time
 	</select>

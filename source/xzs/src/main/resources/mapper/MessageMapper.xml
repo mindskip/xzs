@@ -26,7 +26,7 @@
     delete from t_message
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.Message" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.mindskip.xzs.domain.Message" useGeneratedKeys="true" keyProperty="id" >
     insert into t_message (id, title, content,
       create_time, send_user_id, send_user_name,
       send_real_name, receive_user_count, read_count
@@ -36,7 +36,7 @@
       #{sendRealName,jdbcType=VARCHAR}, #{receiveUserCount,jdbcType=INTEGER}, #{readCount,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.Message" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.Message" useGeneratedKeys="true" keyProperty="id" >
     insert into t_message
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -166,7 +166,7 @@
 
   <update id="readAdd" parameterType="java.lang.Integer">
       UPDATE t_message SET read_count = read_count + 1
-      WHERE id= #{id} and read_count = (SELECT m.read_count from ( SELECT read_count FROM t_message WHERE id = #{id} ) m)
+      WHERE id= #{id} and read_count = ( SELECT read_count from t_message WHERE id= #{id} )
   </update>
 
 </mapper>

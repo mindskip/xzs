@@ -25,7 +25,7 @@
     delete from t_message_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.MessageUser" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.mindskip.xzs.domain.MessageUser" useGeneratedKeys="true" keyProperty="id" >
     insert into t_message_user (id, message_id, receive_user_id,
       receive_user_name, receive_real_name, readed,
       create_time, read_time)
@@ -33,7 +33,7 @@
       #{receiveUserName,jdbcType=VARCHAR}, #{receiveRealName,jdbcType=VARCHAR}, #{readed,jdbcType=BIT},
       #{createTime,jdbcType=TIMESTAMP}, #{readTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.MessageUser" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.MessageUser" useGeneratedKeys="true" keyProperty="id" >
     insert into t_message_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -88,7 +88,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mindskip.xzs.domain.MessageUser" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.mindskip.xzs.domain.MessageUser">
     update t_message_user
     <set>
       <if test="messageId != null">

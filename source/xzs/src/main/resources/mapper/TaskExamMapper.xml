@@ -25,7 +25,7 @@
     delete from t_task_exam
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.TaskExam" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.mindskip.xzs.domain.TaskExam" useGeneratedKeys="true" keyProperty="id" >
     insert into t_task_exam (id, title, grade_level,
       frame_text_content_id, create_user, create_time,
       deleted, create_user_name)
@@ -33,7 +33,7 @@
       #{frameTextContentId,jdbcType=INTEGER}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
       #{deleted,jdbcType=BIT}, #{createUserName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.TaskExam" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.TaskExam" useGeneratedKeys="true" keyProperty="id" >
     insert into t_task_exam
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -139,7 +139,7 @@
     <include refid="Base_Column_List" />
     from t_task_exam
     <where>
-        and deleted=0
+        and deleted='f'
       <if test="gradeLevel != null">
         and grade_level = #{gradeLevel}
       </if>
@@ -151,7 +151,7 @@
     select
     <include refid="Base_Column_List" />
     from t_task_exam
-    where deleted=0
+    where deleted='f'
     and grade_level = #{gradeLevel,jdbcType=INTEGER}
   </select>
 

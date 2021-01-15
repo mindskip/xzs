@@ -9,15 +9,15 @@
 
 <div align="center">
 
-[![Gitee star](https://gitee.com/mindskip/xzs-mysql/badge/star.svg?theme=gitee)](https://gitee.com/mindskip/xzs-mysql)
-[![Gitee fork](https://gitee.com/mindskip/xzs-mysql/badge/fork.svg?theme=gitee)](https://gitee.com/mindskip/xzs-mysql)
-[![Github stars](https://img.shields.io/github/stars/mindskip/xzs-mysql?logo=github)](https://github.com/mindskip/xzs-mysql)
-[![Github forks](https://img.shields.io/github/forks/mindskip/xzs-mysql?logo=github)](https://github.com/mindskip/xzs-mysql)
-[![Github license](https://img.shields.io/badge/license-AGPL-yellow)](https://gitee.com/mindskip/xzs-mysql/blob/master/LICENSE)
+[![Gitee star](https://gitee.com/mindskip/uexam/badge/star.svg?theme=gvp)](https://gitee.com/mindskip/uexam) 
+[![Gitee fork](https://gitee.com/mindskip/uexam/badge/fork.svg?theme=gvp)](https://gitee.com/mindskip/uexam)
+[![Github stars](https://img.shields.io/github/stars/mindskip/xzs?logo=github)](https://github.com/mindskip/xzs) 
+[![Github forks](https://img.shields.io/github/forks/mindskip/xzs?logo=github)](https://github.com/mindskip/xzs) 
+[![Github license](https://img.shields.io/badge/license-AGPL-yellow)](https://gitee.com/mindskip/uexam/blob/master/LICENSE) 
 
 </div>
 
-# 学之思在线考试系统 - Mysql版
+# 学之思在线考试系统 - Postgresql版
 
 ## 项目介绍
 
@@ -39,7 +39,7 @@
 
 ### 学之思仓库版本地址
 
-* gitee - postgresql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
+* gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
 * gitee - mysql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
 * github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 * github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
@@ -52,7 +52,7 @@
 
 ### 开发部署教程
 
-* [https://mindskip.gitee.io/xzs-mysql](https://mindskip.gitee.io/xzs-mysql)
+* [https://mindskip.gitee.io/uexam/](https://mindskip.gitee.io/uexam/)
 
 ### 学生系统功能
 
@@ -82,9 +82,9 @@
 
 * 用户登录登出功能，登录会自动绑定微信账号，登出会解绑
 * 首页包含任务中心、固定试卷、时段试卷，和web端保持一致
-* 试卷模块：固定试卷和时段试卷的分页查询，下拉加载更多，上拉刷新当前数据
-* 记录模块：考试结果的分页，包含了试卷基本信息
-* 我的模块：包含个人资料的修改、个人动态、消息中心模块
+* 试卷模块，固定试卷和时段试卷的分页查询，下拉加载更多，上拉刷新当前数据
+* 记录模块，考试结果的分页，包含了试卷基本信息
+* 我的模块，包含个人资料的修改，个人动态，消息中心模块
 
 ### 系统展示
 

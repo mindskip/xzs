@@ -27,7 +27,7 @@
     insert into t_user_token (id, token, user_id,
       wx_open_id, create_time, end_time,
       user_name)
-    values (#{id,jdbcType=INTEGER}, #{token,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER},
+    values (#{id,jdbcType=INTEGER}, #{token}::uuid, #{userId,jdbcType=INTEGER},
       #{wxOpenId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP},
       #{userName,jdbcType=VARCHAR})
   </insert>
@@ -61,7 +61,7 @@
         #{id,jdbcType=INTEGER},
       </if>
       <if test="token != null">
-        #{token,jdbcType=VARCHAR},
+        #{token}::uuid,
       </if>
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
@@ -84,7 +84,7 @@
     update t_user_token
     <set>
       <if test="token != null">
-        token = #{token,jdbcType=VARCHAR},
+        token = #{token}::uuid,
       </if>
       <if test="userId != null">
         user_id = #{userId,jdbcType=INTEGER},
@@ -106,7 +106,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mindskip.xzs.domain.UserToken">
     update t_user_token
-    set token = #{token,jdbcType=VARCHAR},
+    set token = #{token}::uuid,
       user_id = #{userId,jdbcType=INTEGER},
       wx_open_id = #{wxOpenId,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -123,7 +123,7 @@
     select
     <include refid="Base_Column_List" />
     from t_user_token
-    where token = #{token,jdbcType=VARCHAR}
+    where token =  #{token}::uuid
     order by id desc
     limit 1
   </select>

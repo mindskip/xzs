@@ -1,6 +1,7 @@
 package com.mindskip.xzs.service.impl;
 
 import com.mindskip.xzs.domain.*;
+import com.mindskip.xzs.domain.*;
 import com.mindskip.xzs.domain.enums.ExamPaperAnswerStatusEnum;
 import com.mindskip.xzs.domain.enums.ExamPaperTypeEnum;
 import com.mindskip.xzs.domain.enums.QuestionTypeEnum;
@@ -11,7 +12,6 @@ import com.mindskip.xzs.domain.task.TaskItemAnswerObject;
 import com.mindskip.xzs.repository.*;
 import com.mindskip.xzs.repository.ExamPaperAnswerMapper;
 import com.mindskip.xzs.repository.ExamPaperMapper;
-import com.mindskip.xzs.repository.QuestionMapper;
 import com.mindskip.xzs.repository.TaskExamCustomerAnswerMapper;
 import com.mindskip.xzs.service.ExamPaperAnswerService;
 import com.mindskip.xzs.service.ExamPaperQuestionCustomerAnswerService;
@@ -24,7 +24,7 @@ import com.mindskip.xzs.viewmodel.student.exam.ExamPaperSubmitVM;
 import com.mindskip.xzs.viewmodel.student.exampaper.ExamPaperAnswerPageVM;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.mindskip.xzs.domain.*;
+import com.mindskip.xzs.repository.QuestionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -181,13 +181,12 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
 
     /**
      * 用户提交答案的转化存储对象
-     *
-     * @param question               question
+     * @param question question
      * @param customerQuestionAnswer customerQuestionAnswer
-     * @param examPaper              examPaper
-     * @param itemOrder              itemOrder
-     * @param user                   user
-     * @param now                    now
+     * @param examPaper examPaper
+     * @param itemOrder itemOrder
+     * @param user user
+     * @param now now
      * @return ExamPaperQuestionCustomerAnswer
      */
     private ExamPaperQuestionCustomerAnswer ExamPaperQuestionCustomerAnswerFromVM(Question question, ExamPaperSubmitItemVM customerQuestionAnswer, ExamPaper examPaper, Integer itemOrder, User user, Date now) {
@@ -211,10 +210,9 @@ public class ExamPaperAnswerServiceImpl extends BaseServiceImpl<ExamPaperAnswer>
 
     /**
      * 判断提交答案是否正确，保留用户提交的答案
-     *
      * @param examPaperQuestionCustomerAnswer examPaperQuestionCustomerAnswer
-     * @param question                        question
-     * @param customerQuestionAnswer          customerQuestionAnswer
+     * @param question  question
+     * @param customerQuestionAnswer customerQuestionAnswer
      */
     private void setSpecialFromVM(ExamPaperQuestionCustomerAnswer examPaperQuestionCustomerAnswer, Question question, ExamPaperSubmitItemVM customerQuestionAnswer) {
         QuestionTypeEnum questionTypeEnum = QuestionTypeEnum.fromCode(examPaperQuestionCustomerAnswer.getQuestionType());

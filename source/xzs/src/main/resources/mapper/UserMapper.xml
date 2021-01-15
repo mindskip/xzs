@@ -35,7 +35,7 @@
     delete from t_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.User" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.mindskip.xzs.domain.User" useGeneratedKeys="true" keyProperty="id" >
     insert into t_user (id, user_uuid, user_name,
       password, real_name, age,
       sex, birth_day, user_level,
@@ -43,7 +43,7 @@
       image_path, create_time, modify_time,
       last_active_time, deleted, wx_open_id
       )
-    values (#{id,jdbcType=INTEGER}, #{userUuid,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR},
+    values (#{id,jdbcType=INTEGER}, #{userUuid}::uuid, #{userName,jdbcType=VARCHAR},
       #{password,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
       #{sex,jdbcType=INTEGER}, #{birthDay,jdbcType=TIMESTAMP}, #{userLevel,jdbcType=INTEGER},
       #{phone,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, #{status,jdbcType=INTEGER},
@@ -51,7 +51,7 @@
       #{lastActiveTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, #{wxOpenId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.User" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.User" useGeneratedKeys="true" keyProperty="id" >
     insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -114,7 +114,7 @@
         #{id,jdbcType=INTEGER},
       </if>
       <if test="userUuid != null">
-        #{userUuid,jdbcType=VARCHAR},
+        #{userUuid}::uuid,
       </if>
       <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
@@ -170,7 +170,7 @@
     update t_user
     <set>
       <if test="userUuid != null">
-        user_uuid = #{userUuid,jdbcType=VARCHAR},
+        user_uuid = #{userUuid}::uuid,
       </if>
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
@@ -225,7 +225,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mindskip.xzs.domain.User">
     update t_user
-    set user_uuid = #{userUuid,jdbcType=VARCHAR},
+    set user_uuid = #{userUuid}::uuid,
       user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       real_name = #{realName,jdbcType=VARCHAR},
@@ -250,7 +250,7 @@
   <select id="getAllUser" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
-    from t_user where deleted=0
+    from t_user where deleted='f'
   </select>
 
   <select id="getUserById" resultMap="BaseResultMap">
@@ -264,21 +264,21 @@
     select
     <include refid="Base_Column_List"/>
     from t_user
-    where deleted=0  and user_name=#{value} limit 1
+    where deleted='f' and user_name=#{value} limit 1
   </select>
 
   <select id="getUserByUserNamePwd" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
     from t_user
-    where deleted=0  and user_name=#{username} and password=#{pwd} limit 1
+    where deleted='f' and user_name=#{username} and password=#{pwd} limit 1
   </select>
 
   <select id="getUserByUuid" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
     from t_user
-    where deleted=0  and user_uuid=#{value,jdbcType=VARCHAR}
+    where deleted='f' and user_uuid=#{value}::uuid
   </select>
 
 
@@ -287,7 +287,7 @@
     <include refid="Base_Column_List"/>
     FROM t_user
     <where>
-        and deleted=0
+        and deleted='f'
       <if test="name != null and name != ''">
         and  real_name like concat('%',#{name},'%')
       </if>
@@ -303,7 +303,7 @@
   <select id="userPageCount" resultType="java.lang.Integer">
     select count(*) from t_user
     <where>
-        and deleted=0
+        and deleted='f'
       <if test="name != null and name != ''">
         and real_name like concat('%', #{name}, '%')
       </if>
@@ -316,7 +316,7 @@
     <include refid="Base_Column_List"/>
     FROM t_user
     <where>
-        and deleted=0
+        and deleted='f'
       <if test="userName != null and userName != ''">
         and user_name like concat('%',#{userName},'%')
       </if>
@@ -333,7 +333,7 @@
 		insert into t_user
 		(user_uuid,user_name,password,real_name,age, last_active_time)
 		values
-		(#{userUuid,jdbcType=VARCHAR},#{userName},#{password},#{realName},#{age},#{lastActiveTime})
+		(#{userUuid}::uuid,#{userName},#{password},#{realName},#{age},#{lastActiveTime})
 	</insert>
 
   <insert id="insertUsers" parameterType="java.util.List"
@@ -343,7 +343,7 @@
     values
     <foreach collection="list" item="item" index="index"
              separator=",">
-      (#{item.userUuid},#{item.userName},#{item.password},#{item.realName},#{item.age},
+      (#{item.userUuid}::uuid,#{item.userName},#{item.password},#{item.realName},#{item.age},
       #{item.lastActiveTime})
     </foreach>
   </insert>
@@ -378,14 +378,14 @@
   </delete>
 
   <select id="selectAllCount"  resultType="java.lang.Integer">
-		SELECT count(*) from t_user where deleted=0
+		SELECT count(*) from t_user where deleted='f'
   </select>
 
 
   <select id="selectByUserName"  resultType="com.mindskip.xzs.domain.other.KeyValue">
 		SELECT  id as value,user_name as name
 		from t_user
-		where deleted=0  and user_name like concat('%',#{value},'%')
+		where deleted='f' and user_name like concat('%',#{value},'%')
 		limit 5
   </select>
 
@@ -406,7 +406,7 @@
     select
     <include refid="Base_Column_List" />
     from t_user
-    where deleted=0  and  wx_open_id = #{wxOpenId}
+    where deleted='f' and  wx_open_id = #{wxOpenId}
     limit 1
   </select>
 

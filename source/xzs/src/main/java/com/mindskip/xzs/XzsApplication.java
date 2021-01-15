@@ -8,6 +8,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
+ * 学之思应用启动
  * @author 武汉思维跳跃科技有限公司
  */
 @SpringBootApplication
@@ -15,7 +16,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableConfigurationProperties(value = { SystemConfig.class})
 @EnableCaching
 public class XzsApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(XzsApplication.class, args);
     }
