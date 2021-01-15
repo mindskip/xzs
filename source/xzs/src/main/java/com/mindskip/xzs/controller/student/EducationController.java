@@ -8,7 +8,7 @@ import com.mindskip.xzs.domain.User;
 import com.mindskip.xzs.service.SubjectService;
 import com.mindskip.xzs.viewmodel.student.education.SubjectEditRequestVM;
 import com.mindskip.xzs.viewmodel.student.education.SubjectVM;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,10 +16,14 @@ import java.util.stream.Collectors;
 
 @RestController("StudentEducationController")
 @RequestMapping(value = "/api/student/education")
-@AllArgsConstructor
 public class EducationController extends BaseApiController {
 
     private final SubjectService subjectService;
+
+    @Autowired
+    public EducationController(SubjectService subjectService) {
+        this.subjectService = subjectService;
+    }
 
     @RequestMapping(value = "/subject/list", method = RequestMethod.POST)
     public RestResponse<List<SubjectVM>> list() {

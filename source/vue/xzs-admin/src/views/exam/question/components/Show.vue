@@ -30,9 +30,7 @@
       <div class="q-title" v-html="question.title"/>
     </div>
     <div v-else-if="qType==5" v-loading="qLoading">
-      Question：<div class="q-title" v-html="question.title"/>
-      Answer：  <div class="q-title" v-html="question.correct"/>
-      Analysis：<div class="q-title" v-html="question.analyze"/>
+      <div class="q-title" v-html="question.title"/>
     </div>
     <div v-else>
     </div>

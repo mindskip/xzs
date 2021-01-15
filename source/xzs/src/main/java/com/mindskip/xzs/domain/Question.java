@@ -17,14 +17,6 @@ public class Question implements Serializable {
 
     private Integer subjectId;
 
-    private Integer industryId;
-
-    private String industryName;
-
-    private Integer skillId;
-
-    private String skillName;
-
     private Integer score;
 
     private Integer gradeLevel;
@@ -43,22 +35,12 @@ public class Question implements Serializable {
 
     private Boolean deleted;
 
-    private String content;
-
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public Integer getQuestionType() {
@@ -75,38 +57,6 @@ public class Question implements Serializable {
 
     public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
-    }
-
-    public String getIndustryName() {
-        return industryName;
-    }
-
-    public void setIndustryName(String industryName) {
-        this.industryName = industryName;
-    }
-
-    public String getSkillName() {
-        return skillName;
-    }
-
-    public void setSkillName(String skillName) {
-        this.skillName = skillName;
-    }
-
-    public Integer getIndustryId() {
-        return industryId;
-    }
-
-    public void setIndustryId(Integer industryId) {
-        this.industryId = industryId;
-    }
-
-    public Integer getSkillId() {
-        return skillId;
-    }
-
-    public void setSkillId(Integer skillId) {
-        this.skillId = skillId;
     }
 
     public Integer getScore() {

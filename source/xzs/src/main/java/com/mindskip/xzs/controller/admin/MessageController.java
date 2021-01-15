@@ -14,7 +14,7 @@ import com.mindskip.xzs.viewmodel.admin.message.MessagePageRequestVM;
 import com.mindskip.xzs.viewmodel.admin.message.MessageResponseVM;
 import com.mindskip.xzs.viewmodel.admin.message.MessageSendVM;
 import com.github.pagehelper.PageInfo;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,11 +27,16 @@ import java.util.stream.Collectors;
 
 @RestController("AdminMessageController")
 @RequestMapping(value = "/api/admin/message")
-@AllArgsConstructor
 public class MessageController extends BaseApiController {
 
     private final MessageService messageService;
     private final UserService userService;
+
+    @Autowired
+    public MessageController(MessageService messageService, UserService userService) {
+        this.messageService = messageService;
+        this.userService = userService;
+    }
 
     @RequestMapping(value = "/page", method = RequestMethod.POST)
     public RestResponse<PageInfo<MessageResponseVM>> pageList(@RequestBody MessagePageRequestVM model) {

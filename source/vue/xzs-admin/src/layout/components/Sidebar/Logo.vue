@@ -24,7 +24,7 @@ export default {
   },
   data () {
     return {
-      title: 'TEKsystems Admin'
+      title: '学之思管理系统'
     }
   }
 }

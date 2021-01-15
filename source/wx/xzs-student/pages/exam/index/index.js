@@ -5,7 +5,7 @@ Page({
     paperType: 1,
     spinShow: false,
     loadMoreLoad: false,
-    loadMoreTip: 'No data',
+    loadMoreTip: '暂无数据',
     queryParam: {
       paperType: 1,
       pageIndex: 1,
@@ -77,7 +77,7 @@ Page({
         if (re.pageNum >= re.pages) {
           this.setData({
             loadMoreLoad: false,
-            loadMoreTip: 'No data'
+            loadMoreTip: '暂无数据'
           });
         }
       }
