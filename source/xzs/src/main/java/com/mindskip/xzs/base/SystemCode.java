@@ -7,32 +7,32 @@ public enum SystemCode {
     /**
      * OK
      */
-    OK(1, "Success"),
+    OK(1, "成功"),
     /**
      * AccessTokenError
      */
-    AccessTokenError(400, "User login token is invalid"),
+    AccessTokenError(400, "用户登录令牌失效"),
     /**
      * UNAUTHORIZED
      */
-    UNAUTHORIZED(401, "User is not logged in"),
+    UNAUTHORIZED(401, "用户未登录"),
     /**
      * UNAUTHORIZED
      */
-    AuthError(402, "Wrong user name or password"),
+    AuthError(402, "用户名或密码错误"),
     /**
      * InnerError
      */
-    InnerError(500, "Internal System Error"),
+    InnerError(500, "系统内部错误"),
     /**
      * ParameterValidError
      */
-    ParameterValidError(501, "Parameter validation error"),
+    ParameterValidError(501, "参数验证错误"),
 
     /**
      * AccessDenied
      */
-    AccessDenied(502,"User does not have permission to access");
+    AccessDenied(502,"用户没有权限访问");
 
     int code;
     String message;

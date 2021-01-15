@@ -1,49 +1,48 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParam" ref="queryForm" :inline="true">
-      <el-form-item label="Question ID：">
+      <el-form-item label="题目ID：">
         <el-input v-model="queryParam.id" clearable></el-input>
       </el-form-item>
-      <el-form-item label="Industry：">
-        <el-select v-model="queryParam.industry" placeholder="Industry"  @change="levelChange" clearable>
-          <el-option v-for="item in industryFilter" :key="item.id" :value="item.id" :label="item.name"></el-option>
+      <el-form-item label="年级：">
+        <el-select v-model="queryParam.level" placeholder="年级"  @change="levelChange" clearable>
+          <el-option v-for="item in levelEnum" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="Skill：">
-        <el-select v-model="queryParam.skill" clearable placeholder="Skill">
+      <el-form-item label="学科：">
+        <el-select v-model="queryParam.subjectId" clearable>
           <el-option v-for="item in subjectFilter" :key="item.id" :value="item.id"
-                     :label="item.name"></el-option>
+                     :label="item.name+' ( '+item.levelName+' )'"></el-option>
         </el-select>
       </el-form-item>
-      <!-- <el-form-item label="题型：">
+      <el-form-item label="题型：">
         <el-select v-model="queryParam.questionType" clearable>
           <el-option v-for="item in questionType" :key="item.key" :value="item.key" :label="item.value"></el-option>
         </el-select>
-      </el-form-item> -->
+      </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm">Search</el-button>
+        <el-button type="primary" @click="submitForm">查询</el-button>
         <el-popover placement="bottom" trigger="click">
-          <!--<el-button type="warning" size="mini" v-for="item in editUrlEnum" :key="item.key"
+          <el-button type="warning" size="mini" v-for="item in editUrlEnum" :key="item.key"
                      @click="$router.push({path:item.value})">{{item.name}}
-          </el-button> -->
-        <el-button slot="reference" type="primary" class="link-left" @click="$router.push('/exam/question/edit/shortAnswer')">Add</el-button>
+          </el-button>
+          <el-button slot="reference" type="primary" class="link-left">添加</el-button>
         </el-popover>
       </el-form-item>
     </el-form>
     <el-table v-loading="listLoading" :data="tableData" border fit highlight-current-row style="width: 100%">
-      <el-table-column prop="id" label="ID" width="90px"/>
-      <el-table-column prop="industryName" label="Industry" width="120px"/>
-      <el-table-column prop="skillName" label="Skill" width="120px"/>
-      <!-- <el-table-column prop="questionType" label="题型" :formatter="questionTypeFormatter" width="70px"/> -->
-      <el-table-column prop="shortTitle" label="Question" show-overflow-tooltip/>
-      <!-- <el-table-column prop="score" label="分数" width="60px"/> -->
-      <el-table-column prop="difficult" label="Difficulty" width="100px"/>
-      <el-table-column prop="createTime" label="Create Time" width="160px"/>
-      <el-table-column label="Operation" align="center" width="220px">
+      <el-table-column prop="id" label="Id" width="90px"/>
+      <el-table-column prop="subjectId" label="学科" :formatter="subjectFormatter" width="120px"/>
+      <el-table-column prop="questionType" label="题型" :formatter="questionTypeFormatter" width="70px"/>
+      <el-table-column prop="shortTitle" label="题干" show-overflow-tooltip/>
+      <el-table-column prop="score" label="分数" width="60px"/>
+      <el-table-column prop="difficult" label="难度" width="60px"/>
+      <el-table-column prop="createTime" label="创建时间" width="160px"/>
+      <el-table-column label="操作" align="center" width="220px">
         <template slot-scope="{row}">
-          <el-button size="mini"   @click="showQuestion(row)">Preview</el-button>
-          <el-button size="mini"  @click="editQuestion(row)">Edit</el-button>
-          <el-button size="mini"  type="danger" @click="deleteQuestion(row)" class="link-left">Delete</el-button>
+          <el-button size="mini"   @click="showQuestion(row)">预览</el-button>
+          <el-button size="mini"  @click="editQuestion(row)">编辑</el-button>
+          <el-button size="mini"  type="danger" @click="deleteQuestion(row)" class="link-left">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -60,7 +59,6 @@ import { mapGetters, mapState, mapActions } from 'vuex'
 import Pagination from '@/components/Pagination'
 import QuestionShow from './components/Show'
 import questionApi from '@/api/question'
-import industryApi from '@/api/industry'
 
 export default {
   components: { Pagination, QuestionShow },
@@ -68,15 +66,14 @@ export default {
     return {
       queryParam: {
         id: null,
-        questionType: '5',
-        skill: null,
-        industry: null,
+        questionType: null,
+        level: null,
+        subjectId: null,
         pageIndex: 1,
         pageSize: 10
       },
       subjectFilter: null,
-      industryFilter: null,
-      listLoading: false,
+      listLoading: true,
       tableData: [],
       total: 0,
       questionShow: {
@@ -90,13 +87,6 @@ export default {
   created () {
     this.initSubject()
     this.search()
-    let _this = this
-        this.initSubject(function () {
-          _this.subjectFilter = _this.subjects
-        })
-    industryApi.list().then(re => {
-                    this.industryFilter=re.response;
-                  })
   },
   methods: {
     submitForm () {

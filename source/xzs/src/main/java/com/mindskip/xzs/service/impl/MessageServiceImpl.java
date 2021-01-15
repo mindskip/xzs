@@ -10,6 +10,7 @@ import com.mindskip.xzs.viewmodel.student.user.MessageRequestVM;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,11 +18,16 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class MessageServiceImpl implements MessageService {
 
     private final MessageMapper messageMapper;
     private final MessageUserMapper messageUserMapper;
+
+    @Autowired
+    public MessageServiceImpl(MessageMapper messageMapper, MessageUserMapper messageUserMapper) {
+        this.messageMapper = messageMapper;
+        this.messageUserMapper = messageUserMapper;
+    }
 
     @Override
     public List<Message> selectMessageByIds(List<Integer> ids) {

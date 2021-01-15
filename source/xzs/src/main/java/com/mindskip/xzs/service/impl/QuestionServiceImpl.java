@@ -57,7 +57,7 @@ public class QuestionServiceImpl extends BaseServiceImpl<Question> implements Qu
     @Transactional
     public Question insertFullQuestion(QuestionEditRequestVM model, Integer userId) {
         Date now = new Date();
-//        Integer gradeLevel = subjectService.levelBySubjectId(model.getSubjectId());
+        Integer gradeLevel = subjectService.levelBySubjectId(model.getSubjectId());
 
         //题干、解析、选项等 插入
         TextContent infoTextContent = new TextContent();
@@ -66,10 +66,8 @@ public class QuestionServiceImpl extends BaseServiceImpl<Question> implements Qu
         textContentService.insertByFilter(infoTextContent);
 
         Question question = new Question();
-//        question.setSubjectId(model.getSubjectId());
-        question.setIndustryId(model.getIndustryId());
-        question.setSkillId(model.getSkillId());
-//        question.setGradeLevel(gradeLevel);
+        question.setSubjectId(model.getSubjectId());
+        question.setGradeLevel(gradeLevel);
         question.setCreateTime(now);
         question.setQuestionType(model.getQuestionType());
         question.setStatus(QuestionStatusEnum.OK.getCode());
@@ -86,12 +84,10 @@ public class QuestionServiceImpl extends BaseServiceImpl<Question> implements Qu
     @Override
     @Transactional
     public Question updateFullQuestion(QuestionEditRequestVM model) {
-//        Integer gradeLevel = subjectService.levelBySubjectId(model.getSubjectId());
+        Integer gradeLevel = subjectService.levelBySubjectId(model.getSubjectId());
         Question question = questionMapper.selectByPrimaryKey(model.getId());
-//        question.setSubjectId(model.getSubjectId());
-        question.setIndustryId(model.getIndustryId());
-        question.setSkillId(model.getSkillId());
-//        question.setGradeLevel(gradeLevel);
+        question.setSubjectId(model.getSubjectId());
+        question.setGradeLevel(gradeLevel);
         question.setScore(ExamUtil.scoreFromVM(model.getScore()));
         question.setDifficult(model.getDifficult());
         question.setCorrectFromVM(model.getCorrect(), model.getCorrectArray());

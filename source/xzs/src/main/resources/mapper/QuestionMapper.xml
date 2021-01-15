@@ -5,10 +5,6 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="question_type" jdbcType="INTEGER" property="questionType" />
     <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
-    <result column="industry_id" jdbcType="INTEGER" property="industryId" />
-    <result column="industry_name" jdbcType="VARCHAR" property="industryName" />
-    <result column="skill_id" jdbcType="INTEGER" property="skillId" />
-    <result column="skill_name" jdbcType="VARCHAR" property="skillName" />
     <result column="score" jdbcType="INTEGER" property="score" />
     <result column="grade_level" jdbcType="INTEGER" property="gradeLevel" />
     <result column="difficult" jdbcType="INTEGER" property="difficult" />
@@ -20,12 +16,8 @@
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, question_type, subject_id, industry_id, skill_id, score, grade_level, difficult, correct, info_text_content_id,
+    id, question_type, subject_id, score, grade_level, difficult, correct, info_text_content_id,
     create_user, status, create_time, deleted
-  </sql>
-  <sql id="Page_Column_List">
-    q.id, q.question_type, q.subject_id, q.industry_id, i.name AS industry_name, q.skill_id, s.name AS skill_name, q.score, q.grade_level, q.difficult, q.correct, q.info_text_content_id,
-    q.create_user, q.status, q.create_time, q.deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
@@ -60,12 +52,6 @@
       </if>
       <if test="subjectId != null">
         subject_id,
-      </if>
-      <if test="industryId != null">
-        industry_id,
-      </if>
-      <if test="skillId != null">
-        skill_id,
       </if>
       <if test="score != null">
         score,
@@ -105,12 +91,6 @@
       <if test="subjectId != null">
         #{subjectId,jdbcType=INTEGER},
       </if>
-      <if test="industryId != null">
-        #{industryId,jdbcType=INTEGER},
-      </if>
-      <if test="skillId != null">
-        #{skillId,jdbcType=INTEGER},
-      </if>
       <if test="score != null">
         #{score,jdbcType=INTEGER},
       </if>
@@ -148,12 +128,6 @@
       </if>
       <if test="subjectId != null">
         subject_id = #{subjectId,jdbcType=INTEGER},
-      </if>
-      <if test="industryId != null">
-        industry_id = #{industryId,jdbcType=INTEGER},
-      </if>
-      <if test="skillId != null">
-        skill_id = #{skillId,jdbcType=INTEGER},
       </if>
       <if test="score != null">
         score = #{score,jdbcType=INTEGER},
@@ -206,89 +180,26 @@
 
   <select id="page" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.admin.question.QuestionPageRequestVM">
     SELECT
-    <include refid="Page_Column_List"/>
-    FROM t_question AS q LEFT JOIN t_industry AS i ON q.industry_id = i.id LEFT JOIN t_skill AS s ON s.id = q.skill_id
+    <include refid="Base_Column_List"/>
+    FROM t_question
     <where>
-       q.deleted=0
+        and deleted=0
       <if test="id != null ">
-        and q.id= #{id}
+        and id= #{id}
       </if>
       <if test="level != null ">
-        and q.grade_level= #{level}
+        and grade_level= #{level}
       </if>
       <if test="subjectId != null ">
-        and q.subject_id= #{subjectId}
+        and subject_id= #{subjectId}
       </if>
       <if test="questionType != null ">
-        and q.question_type= #{questionType}
-      </if>
-      <if test="industryId != null ">
-        and q.industry_id= #{industryId}
-      </if>
-      <if test="skillId != null ">
-        and q.skill_id= #{skillId}
+        and question_type= #{questionType}
       </if>
     </where>
   </select>
 
-  <select id="selectQuestionsByQuestionsNumber"
-          resultMap="BaseResultMap">
-    <foreach collection="eachList" item="each" separator="union">
-      (
-        SELECT
-            q.skill_id,
-            q.industry_id,
-            i. NAME AS industry_name,
-            s. NAME AS skill_name,
-            t.content,
-            q.difficult,
-            q.question_type
-        FROM
-          t_question AS q
-        JOIN (
-        SELECT
-          (
-            RAND() * (
-            SELECT
-              MAX(id)
-            FROM
-              t_question
-            )
-          ) AS row_id
-        ) AS r2
-        JOIN t_industry i ON i.id = q.industry_id
-        JOIN t_skill s ON s.id = q.skill_id
-        JOIN t_text_content t ON t.id = q.info_text_content_id
-        <where>
-          q.deleted=0 AND
-          q.id >= r2.row_id
-          <if test="each.difficult != null">
-            and q.difficult = #{each.difficult}
-          </if>
-          <if test="each.industryId != null">
-            and i.id = #{each.industryId}
-          </if>
-          <if test="each.skillId != null">
-            and s.id = #{each.skillId}
-          </if>
-        </where>
-        ORDER BY
-        q.id ASC
-        LIMIT #{each.eachNumber}
-      )
-    </foreach>
 
-  </select>
-
-
-  <select id="selectAllSkills"
-          resultMap="BaseResultMap">
-    select id as skill_id,name as skill_name from t_skill
-  </select>
-  <select id="selectAllIndustry"
-          resultMap="BaseResultMap">
-    select id as industry_id,name as industry_name from t_industry
-  </select>
 
   <select id="selectByIds" resultMap="BaseResultMap" >
     SELECT

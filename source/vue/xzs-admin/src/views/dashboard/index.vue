@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     <el-row :gutter="40" class="panel-group">
-      <!--<el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+      <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
         <div class="card-panel">
           <div class="card-panel-icon-wrapper icon-people">
             <svg-icon icon-class="exam" class-name="card-panel-icon"/>
@@ -13,7 +13,7 @@
             <count-to :start-val="0" :end-val="examPaperCount" :duration="2600" class="card-panel-num" v-loading="loading"/>
           </div>
         </div>
-      </el-col>-->
+      </el-col>
       <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
         <div class="card-panel" >
           <div class="card-panel-icon-wrapper icon-message">
@@ -21,13 +21,12 @@
           </div>
           <div class="card-panel-description">
             <div class="card-panel-text">
-              Question Count
+              题目总数
             </div>
             <count-to :start-val="0" :end-val="questionCount" :duration="3000" class="card-panel-num" v-loading="loading"/>
           </div>
         </div>
       </el-col>
-      <!--
       <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
         <div class="card-panel">
           <div class="card-panel-icon-wrapper icon-shopping">
@@ -54,7 +53,6 @@
           </div>
         </div>
       </el-col>
-      -->
     </el-row>
     <el-row class="echarts-line">
       <div id="echarts-moth-user" style="width: 100%;height:400px;" v-loading="loading"/>
@@ -98,8 +96,8 @@ export default {
       _this.questionCount = response.questionCount
       _this.doExamPaperCount = response.doExamPaperCount
       _this.doQuestionCount = response.doQuestionCount
-      _this.echartsUserAction.setOption(this.option('User Activity', '{b}day{c}°', response.mothDayText, response.mothDayUserActionValue))
-      _this.echartsQuestion.setOption(this.option('Monthly Question Count', '{b}day{c}topic', response.mothDayText, response.mothDayDoExamQuestionValue))
+      _this.echartsUserAction.setOption(this.option('用户活跃度', '{b}日{c}度', response.mothDayText, response.mothDayUserActionValue))
+      _this.echartsQuestion.setOption(this.option('题目月数量', '{b}日{c}题', response.mothDayText, response.mothDayDoExamQuestionValue))
       this.loading = false
     })
   },

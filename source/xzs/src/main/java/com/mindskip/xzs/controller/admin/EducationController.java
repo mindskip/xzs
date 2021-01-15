@@ -4,14 +4,13 @@ package com.mindskip.xzs.controller.admin;
 import com.mindskip.xzs.base.BaseApiController;
 import com.mindskip.xzs.base.RestResponse;
 import com.mindskip.xzs.domain.Subject;
-import com.mindskip.xzs.service.IndustryService;
 import com.mindskip.xzs.service.SubjectService;
 import com.mindskip.xzs.utility.PageInfoHelper;
 import com.mindskip.xzs.viewmodel.admin.education.SubjectEditRequestVM;
 import com.mindskip.xzs.viewmodel.admin.education.SubjectPageRequestVM;
 import com.mindskip.xzs.viewmodel.admin.education.SubjectResponseVM;
 import com.github.pagehelper.PageInfo;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -19,10 +18,14 @@ import java.util.List;
 
 @RestController("AdminEducationController")
 @RequestMapping(value = "/api/admin/education")
-@AllArgsConstructor
 public class EducationController extends BaseApiController {
 
     private final SubjectService subjectService;
+
+    @Autowired
+    public EducationController(SubjectService subjectService) {
+        this.subjectService = subjectService;
+    }
 
     @RequestMapping(value = "/subject/list", method = RequestMethod.POST)
     public RestResponse<List<Subject>> list() {
