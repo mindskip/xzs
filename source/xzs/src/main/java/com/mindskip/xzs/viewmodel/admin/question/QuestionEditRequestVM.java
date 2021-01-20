@@ -1,13 +1,13 @@
 package com.mindskip.xzs.viewmodel.admin.question;
 
-import lombok.Data;
+
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 
-@Data
+
 public class QuestionEditRequestVM {
 
     private Integer id;
@@ -35,4 +35,100 @@ public class QuestionEditRequestVM {
     private Integer difficult;
 
     private Integer itemOrder;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getQuestionType() {
+        return questionType;
+    }
+
+    public void setQuestionType(Integer questionType) {
+        this.questionType = questionType;
+    }
+
+    public Integer getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(Integer subjectId) {
+        this.subjectId = subjectId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getGradeLevel() {
+        return gradeLevel;
+    }
+
+    public void setGradeLevel(Integer gradeLevel) {
+        this.gradeLevel = gradeLevel;
+    }
+
+    public List<QuestionEditItemVM> getItems() {
+        return items;
+    }
+
+    public void setItems(List<QuestionEditItemVM> items) {
+        this.items = items;
+    }
+
+    public String getAnalyze() {
+        return analyze;
+    }
+
+    public void setAnalyze(String analyze) {
+        this.analyze = analyze;
+    }
+
+    public List<String> getCorrectArray() {
+        return correctArray;
+    }
+
+    public void setCorrectArray(List<String> correctArray) {
+        this.correctArray = correctArray;
+    }
+
+    public String getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(String correct) {
+        this.correct = correct;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    public Integer getDifficult() {
+        return difficult;
+    }
+
+    public void setDifficult(Integer difficult) {
+        this.difficult = difficult;
+    }
+
+    public Integer getItemOrder() {
+        return itemOrder;
+    }
+
+    public void setItemOrder(Integer itemOrder) {
+        this.itemOrder = itemOrder;
+    }
 }
