@@ -1,12 +1,12 @@
 package com.mindskip.xzs.viewmodel.admin.education;
 
 import com.mindskip.xzs.viewmodel.BaseVM;
-import lombok.Data;
+
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@Data
+
 public class SubjectEditRequestVM extends BaseVM {
 
     private Integer id;
@@ -20,4 +20,35 @@ public class SubjectEditRequestVM extends BaseVM {
     @NotBlank
     private String levelName;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    public String getLevelName() {
+        return levelName;
+    }
+
+    public void setLevelName(String levelName) {
+        this.levelName = levelName;
+    }
 }
