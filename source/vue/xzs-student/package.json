@@ -22,8 +22,8 @@
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",
     "vue": "^2.6.10",
-    "vue-router": "^3.5.0",
-    "vuex": "^3.6.0"
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.11",
