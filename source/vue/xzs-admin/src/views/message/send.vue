@@ -89,12 +89,14 @@ export default {
       })
     },
     resetForm () {
+      let lastId = this.form.id
       this.$refs['form'].resetFields()
       this.form = {
         title: '',
         content: '',
         receiveUserIds: []
       }
+      this.form.id = lastId
     },
     ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
   }
