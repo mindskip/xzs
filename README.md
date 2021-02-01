@@ -52,7 +52,7 @@
 
 ### 开发部署教程
 
-* [https://mindskip.gitee.io/uexam/](https://mindskip.gitee.io/uexam/)
+* [https://www.mindskip.net:888](https://www.mindskip.net:888)
 
 ### 学生系统功能
 
