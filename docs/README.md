@@ -157,6 +157,6 @@ server {
 * 管理员端访问地址为：<http://ip:8001/admin>
 
 ```docker
-docker pull  registry.cn-hangzhou.aliyuncs.com/mindskip/xzs:v3.0.6
-docker run -d --name xzs --privileged -it  -d -p 8001:8001  registry.cn-hangzhou.aliyuncs.com/mindskip/xzs:v3.0.6 /usr/sbin/init
+docker pull  registry.cn-hangzhou.aliyuncs.com/mindskip/xzs:v3.2.0
+docker run -d --name xzs --privileged -it  -d -p 8001:8001 -v /etc/localtime:/etc/localtime:ro  registry.cn-hangzhou.aliyuncs.com/mindskip/xzs:v3.2.0 /usr/sbin/init
 ```
