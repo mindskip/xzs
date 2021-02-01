@@ -28,6 +28,8 @@ public class ExamPaperAnswerPageResponseVM {
 
     private String paperName;
 
+    private String userName;
+
     public Integer getId() {
         return id;
     }
@@ -130,5 +132,13 @@ public class ExamPaperAnswerPageResponseVM {
 
     public void setPaperName(String paperName) {
         this.paperName = paperName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

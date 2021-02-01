@@ -251,4 +251,16 @@
     limit 1
   </select>
 
+  <select id="adminPage" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.admin.paper.ExamPaperAnswerPageRequestVM">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM t_exam_paper_answer
+    <where>
+      and status = #{status}
+      <if test="subjectId != null">
+        and subject_id = #{subjectId}
+      </if>
+    </where>
+  </select>
+
 </mapper>
