@@ -104,6 +104,7 @@ export default {
       })
     },
     resetForm () {
+      let lastId = this.form.id
       this.$refs['form'].resetFields()
       this.form = {
         id: null,
@@ -117,6 +118,7 @@ export default {
         birthDay: null,
         phone: null
       }
+      this.form.id = lastId
     },
     ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
   },
