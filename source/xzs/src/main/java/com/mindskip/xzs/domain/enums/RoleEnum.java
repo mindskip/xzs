@@ -7,7 +7,6 @@ import java.util.Map;
 public enum RoleEnum {
 
     STUDENT(1, "STUDENT"),
-    TEACHER(2, "TEACHER"),
     ADMIN(3, "ADMIN");
 
     int code;
