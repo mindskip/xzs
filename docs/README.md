@@ -54,6 +54,28 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 
 ![架构图](https://gitee.com/mindskip/uexam/raw/master/doc/image/frame/1.png)
 
+## 数据库设计
+
+### 试卷表：t_exam_paper
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  |int  |  |
+| name  |varchar  | 试卷名称 |
+| subject_id  |int  | 学科 |
+| paper_type  |int  | 试卷类型( 1固定试卷  4.时段试卷 6.任务试卷) |
+| grade_level  |int  | 年级 |
+| score  |int  | 试卷总分(千分制) |
+| question_count  |int  | 题目数量 |
+| suggest_time  |int  | 建议时长(分钟) |
+| limit_start_time  |datetime  | 时段试卷 开始时间 |
+| limit_end_time  |datetime  | 时段试卷 结束时间 |
+| frame_text_content_id  |int  | 试卷框架 内容为JSON |
+| create_user  |int  |  |
+| create_time  |datetime  | |
+| deleted  | bit  | |
+| task_exam_id  | int  |  |
+
 ## 项目开发
 
 ### 开发说明
