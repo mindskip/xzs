@@ -56,24 +56,44 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 
 ## 数据库设计
 
-### 试卷表：t_exam_paper
+### 试卷表 t_exam_paper
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  | int |  |
+| name  | varchar | 试卷名称 |
+| subject_id  | int | 学科 |
+| paper_type  | int  | 试卷类型( 1固定试卷  4.时段试卷 6.任务试卷) |
+| grade_level  | int  | 年级 |
+| score  | int  | 试卷总分(千分制) |
+| question_count  | int  | 题目数量 |
+| suggest_time  | int  | 建议时长(分钟) |
+| limit_start_time  | datetime  | 时段试卷 开始时间 |
+| limit_end_time  | datetime  | 时段试卷 结束时间 |
+| frame_text_content_id  | int  | 试卷框架 内容为JSON |
+| create_user  | int  |  |
+| create_time  | datetime  | |
+| deleted  | bit  | |
+| task_exam_id  | int  |  |
+
+### 试卷答案表 t_exam_paper_answer
 
 |  字段名   | 类型  | 注释  |
 |  ----  | ----  | ----  |
 | id  |int  |  |
-| name  |varchar  | 试卷名称 |
-| subject_id  |int  | 学科 |
-| paper_type  |int  | 试卷类型( 1固定试卷  4.时段试卷 6.任务试卷) |
-| grade_level  |int  | 年级 |
-| score  |int  | 试卷总分(千分制) |
-| question_count  |int  | 题目数量 |
-| suggest_time  |int  | 建议时长(分钟) |
-| limit_start_time  |datetime  | 时段试卷 开始时间 |
-| limit_end_time  |datetime  | 时段试卷 结束时间 |
-| frame_text_content_id  |int  | 试卷框架 内容为JSON |
-| create_user  |int  |  |
-| create_time  |datetime  | |
-| deleted  | bit  | |
+| exam_paper_id  | int  |  |
+| paper_name  | varchar  | 试卷名称 |
+| paper_type  | int  | 试卷类型( 1固定试卷  2临时试卷 3班级试卷 4.时段试卷 ) |
+| subject_id  | int  | 学科 |
+| system_score  | int  | 系统判定得分 |
+| user_score  | int  | 最终得分(千分制) |
+| paper_score  | int  | 试卷总分 |
+| question_correct  | int  | 做对题目数量 |
+| question_count  | int  | 题目总数量 |
+| do_time  | int  | 做题时间(秒) |
+| status  | int  | 试卷状态(1待判分 2完成) |
+| create_user  | int  | 学生 |
+| create_time  | datetime  | 提交时间 |
 | task_exam_id  | int  |  |
 
 ## 项目开发
