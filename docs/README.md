@@ -80,7 +80,7 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 
 |  字段名   | 类型  | 注释  |
 |  ----  | ----  | ----  |
-| id  |int  |  |
+| id  | int  |  |
 | exam_paper_id  | int  |  |
 | paper_name  | varchar  | 试卷名称 |
 | paper_type  | int  | 试卷类型( 1固定试卷  2临时试卷 3班级试卷 4.时段试卷 ) |
@@ -95,6 +95,26 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 | create_user  | int  | 学生 |
 | create_time  | datetime  | 提交时间 |
 | task_exam_id  | int  |  |
+
+### 试卷题目答案表 t_exam_paper_question_customer_answer
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  | int  |  |
+| question_id  | int  | 题目Id |
+| exam_paper_id  | int  | 答案Id |
+| exam_paper_answer_id  | int  |  |
+| question_type  | int  | 题型 |
+| subject_id  | int  | 学科 |
+| customer_score  | int  | 得分 |
+| question_score  | int  | 题目原始分数 |
+| question_text_content_id  | int  | 问题内容 |
+| answer  | varchar  | 做题答案 |
+| text_content_id  | int  | 做题内容 |
+| do_right  | bit  | 是否正确 |
+| create_user  | int  | 做题人 |
+| create_time  | datetime  |  |
+| item_order  | int  |  |
 
 ## 项目开发
 
