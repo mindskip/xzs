@@ -116,6 +116,20 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 | create_time  | datetime  |  |
 | item_order  | int  |  |
 
+### 消息表 t_message
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  | int  |  |
+| title  | varchar  | 标题 |
+| content  | varchar  | 内容 |
+| create_time  | datetime  |  |
+| send_user_id  | int  | 发送者用户ID |
+| send_user_name  | varchar  | 发送者用户名 |
+| send_real_name  | varchar  | 发送者真实姓名 |
+| receive_user_count  | int  | 接收人数 |
+| read_count  | int  | 已读人数 |
+
 ## 项目开发
 
 ### 开发说明
