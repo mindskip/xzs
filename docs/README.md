@@ -130,6 +130,19 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 | receive_user_count  | int  | 接收人数 |
 | read_count  | int  | 已读人数 |
 
+### 用户消息表 t_message_user
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  | int  |  |
+| message_id  | int  | 消息内容ID |
+| receive_user_id  | int  | 接收人ID |
+| receive_user_name  | varchar  | 接收人用户名 |
+| receive_real_name  | varchar  | 接收人真实姓名 |
+| readed  | bit  | 是否已读 |
+| create_time  | datetime  |  |
+| read_time  | datetime  | 阅读时间 |
+
 ## 项目开发
 
 ### 开发说明
