@@ -143,6 +143,23 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 | create_time  | datetime  |  |
 | read_time  | datetime  | 阅读时间 |
 
+### 题目表 t_question
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  | int  |  |
+| question_type  | int  | 1.单选题  2.多选题  3.判断题 4.填空题 5.简答题 |
+| subject_id  | int  | 学科 |
+| score  | int  | 题目总分(千分制) |
+| grade_level  | int  | 级别 |
+| difficult  | int  | 题目难度 |
+| correct  | text  | 正确答案 |
+| info_text_content_id  | int  | 题目  填空、 题干、解析、答案等信息 |
+| create_user  | int  | 创建人 |
+| status  | int  | 1.正常 |
+| create_time  | datetime  | 创建时间 |
+| deleted  | bit  |  |
+
 ## 项目开发
 
 ### 开发说明
