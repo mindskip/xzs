@@ -52,7 +52,7 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 
 ## 架构图
 
-![架构图](https://gitee.com/mindskip/uexam/raw/master/doc/image/frame/1.png)
+![架构图](1.png)
 
 ## 数据库设计
 
