@@ -160,6 +160,17 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 | create_time  | datetime  | 创建时间 |
 | deleted  | bit  |  |
 
+### 学科表 t_subject
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  | int  |  |
+| name  | varchar  | 语文 数学 英语 等 |
+| level  | int  | 年级 (1-12) 小学 初中 高中  大学 |
+| level_name  | varchar  | 一年级、二年级等 |
+| item_order  | int  | 排序 |
+| deleted  | bit  |  |
+
 ## 项目开发
 
 ### 开发说明
