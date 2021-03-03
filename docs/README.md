@@ -171,6 +171,19 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 | item_order  | int  | 排序 |
 | deleted  | bit  |  |
 
+### 任务表 t_task_exam
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  | int  |  |
+| title  | varchar  |  |
+| grade_level  | int  | 级别 |
+| frame_text_content_id  | int  | 任务框架 内容为JSON |
+| create_user  | int  |  |
+| create_time  | datetime  |  |
+| deleted  | bit  |  |
+| create_user_name  | varchar  |  |
+
 ## 项目开发
 
 ### 开发说明
