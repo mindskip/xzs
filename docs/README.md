@@ -21,7 +21,7 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 |  环境   | 版本  |
 |  ----  | ----  |
 | 操作系统  | Windows / Linux |
-| Jdk  | 8 |
+| Jdk  | 1.8 |
 | Redis  | 6.0 |
 | PostgreSql  | 12.0 |
 
