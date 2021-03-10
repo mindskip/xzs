@@ -194,6 +194,14 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 | create_time  | datetime  |  |
 | text_content_id  | int  | 任务完成情况(Json) |
 
+### 文本表 t_text_content
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  | int  |  |
+| content  | text  |  |
+| create_time  | datetime  |  |
+
 ## 项目开发
 
 ### 开发说明
