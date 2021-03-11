@@ -202,6 +202,29 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 | content  | text  |  |
 | create_time  | datetime  |  |
 
+### 用户表 t_user
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  | int  |  |
+| user_uuid  | varchar  |  |
+| user_name  | varchar  | 用户名  |
+| password  | varchar  |  |
+| real_name  | varchar  |  真实姓名 |
+| age  | int  |  |
+| sex  | int  | 1.男 2女 |
+| birth_day  | datetime  |  |
+| user_level  | int  | 学生年级(1-12) |
+| phone  | varchar  |  |
+| role  | int  | 1.学生 2.老师 3.管理员 |
+| status  | int  | 1.启用 2禁用 |
+| image_path  | varchar  | 头像地址 |
+| create_time  | datetime  |  |
+| modify_time  | datetime  |  |
+| last_active_time  | datetime  |  |
+| deleted  | bit  | 是否删除 |
+| wx_open_id  | varchar  | 微信openId |
+
 ## 项目开发
 
 ### 开发说明
