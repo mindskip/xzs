@@ -225,6 +225,17 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 | deleted  | bit  | 是否删除 |
 | wx_open_id  | varchar  | 微信openId |
 
+### 用户日志表 t_user_event_log
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  | int  |  |
+| user_id  | int  | 用户id |
+| user_name  | varchar  | 用户名 |
+| real_name  | varchar  | 真实姓名 |
+| content  | text  | 内容 |
+| create_time  | datetime  | 时间 |
+
 ## 项目开发
 
 ### 开发说明
