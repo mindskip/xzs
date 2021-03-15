@@ -236,6 +236,18 @@ github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mind
 | content  | text  | 内容 |
 | create_time  | datetime  | 时间 |
 
+### 用户Token表 t_user_token
+
+|  字段名   | 类型  | 注释  |
+|  ----  | ----  | ----  |
+| id  | int  |  |
+| token  | varchar  |  |
+| user_id  | int  | 用户Id |
+| wx_open_id  | varchar  | 微信openId |
+| create_time  | datetime  |  |
+| end_time  | datetime  |  |
+| user_name  | varchar  | 用户名 |
+
 ## 项目开发
 
 ### 开发说明
