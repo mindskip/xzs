@@ -11,7 +11,7 @@
 
 * /uexam/source/xzs为后台代码，建议使用IntelliJ IDEA打开
 * 打开application-dev.yml文件中，配置好postgesql、redis的服务地址
-* 去七牛云官网申请好云存储账号，修改application.yml中的qn相关的配置
+* 去七牛云官网申请好对象存储账号，修改application.yml中的qn相关的配置，七牛云主要用于文件存储。
 * 启动后台程序,默认端口为8000。
 * 学生系统地址：<http://ip:8000/student>
 * 管理端地址：<http://ip:8000/admin>
