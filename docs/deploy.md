@@ -14,7 +14,7 @@ npm run build
 * 执行下列命令，运行程序
 
  ```java
-nohup java -Duser.timezone=Asia/Shanghai -jar -Dspring.profiles.active=prod  xzs-3.2.0.jar  > start1.log  2>&1 &
+nohup java -Duser.timezone=Asia/Shanghai -jar -Dspring.profiles.active=prod  xzs-3.3.0.jar  > start1.log  2>&1 &
  ```
 
 ### 前后端分离部署
