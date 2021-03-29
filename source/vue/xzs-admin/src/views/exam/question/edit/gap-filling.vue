@@ -159,7 +159,7 @@ export default {
       gapfillingItems.forEach(function (span, index) {
         let pairRegex = /<span class="gapfilling-span (.*?)">(.*?)<\/span>/
         pairRegex.test(span)
-        newFormItem.push({ id: null, prefix: RegExp.$2, content: '', score: '0' })
+        newFormItem.push({ id: null, itemUuid: RegExp.$1, prefix: RegExp.$2, content: '', score: '0' })
       })
 
       newFormItem.forEach(function (item) {
