@@ -158,6 +158,7 @@ public class QuestionServiceImpl extends BaseServiceImpl<Question> implements Qu
                     QuestionItemObject item = new QuestionItemObject();
                     item.setPrefix(i.getPrefix());
                     item.setContent(i.getContent());
+                    item.setItemUuid(i.getItemUuid());
                     item.setScore(ExamUtil.scoreFromVM(i.getScore()));
                     return item;
                 }
