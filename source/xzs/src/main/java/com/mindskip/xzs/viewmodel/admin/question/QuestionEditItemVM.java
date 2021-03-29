@@ -1,7 +1,6 @@
 package com.mindskip.xzs.viewmodel.admin.question;
 
 
-
 import javax.validation.constraints.NotBlank;
 
 
@@ -12,6 +11,8 @@ public class QuestionEditItemVM {
     private String content;
 
     private String score;
+
+    private String itemUuid;
 
     public String getPrefix() {
         return prefix;
@@ -36,4 +37,13 @@ public class QuestionEditItemVM {
     public void setScore(String score) {
         this.score = score;
     }
+
+    public String getItemUuid() {
+        return itemUuid;
+    }
+
+    public void setItemUuid(String itemUuid) {
+        this.itemUuid = itemUuid;
+    }
+
 }
