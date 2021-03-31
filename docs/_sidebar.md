@@ -4,4 +4,5 @@
   - [数据库设计](database.md)
   - [项目开发](develop.md)
   - [项目部署](deploy.md)
+  - [视频教程](video.md)
   
