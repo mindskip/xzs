@@ -20,7 +20,6 @@
 * 所有准备工具安装已结束，下一步是调试开发环境
 * 视频地址：<https://www.bilibili.com/video/BV1rp4y1b7Se>
 
-
 ### 第二部分：本地代码调试运行
 
 * 打开仓库地址 <https://gitee.com/mindskip/xzs-mysql> ，下载源代码
@@ -38,3 +37,16 @@
 * 建议先将package-lock.json文件删掉，再执行npm install命令
 * 前后端都已启动完成
 * 视频地址：<https://www.bilibili.com/video/BV1Qh411S7RY>
+
+### 第三部分：微信小程序开发
+
+* 去官网下载小程序开发工具，并安装
+* 去微信小程序官网 （微信公众平台），创建小程序
+* 登录成功后，点击左边菜单开发下面的开发管理，在点击开发设置
+* 拿到appId、AppSecret后配置到代码中
+* 修改代码配置后，重新启动后台程序
+* 打开微信开发工具，导入微信小程序代码
+* 微信接口默认是<http://localhost:8000>，默认就可以了，和后端端口保持一致
+* 启动后需要修改appid,和代码中的保持一致
+* 微信小程序就启动成功了
+* 视频地址：<https://www.bilibili.com/video/BV1mK4y127C5>
