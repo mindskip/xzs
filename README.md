@@ -50,9 +50,13 @@
 * QQ：`2693073475`
 * 微信：`alvis-u`
 
-### 开发部署教程
+### 开发部署文档教程
 
 * [https://www.mindskip.net:888](https://www.mindskip.net:888)
+
+### 开发部署视频教程
+
+* [https://www.mindskip.net:888/#/video](https://www.mindskip.net:888/#/video)
 
 ### 学生系统功能
 
