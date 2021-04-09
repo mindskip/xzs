@@ -63,3 +63,40 @@
 * 微信小程序配置
 * 配置都已经介绍完毕
 * 视频地址：<https://www.bilibili.com/video/BV19V411n7XV>
+
+### 第五部分：win系统部署
+
+* 下面介绍下在win平台下怎么部署学之思，包含win所有平台
+* 先预装好下面软件，不会的可以看第一部分视频
+
+```软件简介
+    VC_redist.x64 :  Redis数据库依赖、mysql依赖，先安装这个
+    ideaIU-2020.3.3 ： java开发工具
+    mysql-installer-community-8.0.19.0 ： Mysql数据库安装包
+    navicat150_mysql_cs_x64 ： Mysql数据库连接工具
+    rdm-2021.3.0.0 ：Redis连接工具
+    Redis-x64-3.0.504 ： Redis内存数据库
+    WebStorm-2020.3.3:  前端开发工具
+    jdk-8u241-windows-x64：java运行环境
+    node-v12.16.1-x64：前端vue运行环境
+```
+
+* 按文档教程中的项目部署操作来
+* 首先展示集成部署
+* 这个jar包就是打包之后的运行程序，我们使用命令运行
+
+```运行命令
+   java -Duser.timezone=Asia/Shanghai -jar -Dspring.profiles.active=prod  xzs-3.3.0.jar 
+```
+
+* 访问成功，说明部署没问题
+* 下面我们看下前后的分离部署，需要安装nginx
+* 访问localhost,看到这个页面就说nginx启动没问题
+* 配置学之思
+* 先启动后端程序
+* 再修改前端配置，启动前端程序，访问地址没问题，就说明部署成功了
+* 这里需要注意两点：
+* 1.8001端口默认是微信开发工具的启动端口，建议先关闭微信开发工具，再启动nginx
+* 2.root C:/xzs/release/web;  这里的路径要填反斜杠，不能直接用win的复制路径
+* win系统部署结束
+* 视频地址：<https://www.bilibili.com/video/BV1XA41157P4>
