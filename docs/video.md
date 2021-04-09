@@ -71,14 +71,10 @@
 
 ```软件简介
     VC_redist.x64 :  Redis数据库依赖、mysql依赖，先安装这个
-    ideaIU-2020.3.3 ： java开发工具
     mysql-installer-community-8.0.19.0 ： Mysql数据库安装包
     navicat150_mysql_cs_x64 ： Mysql数据库连接工具
-    rdm-2021.3.0.0 ：Redis连接工具
     Redis-x64-3.0.504 ： Redis内存数据库
-    WebStorm-2020.3.3:  前端开发工具
-    jdk-8u241-windows-x64：java运行环境
-    node-v12.16.1-x64：前端vue运行环境
+    jdk-8u241-windows-x64：java运行环
 ```
 
 * 按文档教程中的项目部署操作来
@@ -96,7 +92,7 @@
 * 先启动后端程序
 * 再修改前端配置，启动前端程序，访问地址没问题，就说明部署成功了
 * 这里需要注意两点：
-* 1.8001端口默认是微信开发工具的启动端口，建议先关闭微信开发工具，再启动nginx
-* 2.root C:/xzs/release/web;  这里的路径要填反斜杠，不能直接用win的复制路径
+* 1. 8001端口默认是微信开发工具的启动端口，建议先关闭微信开发工具，再启动nginx
+* 2. root C:/xzs/release/web;  这里的路径要填反斜杠，不能直接用win的复制路径
 * win系统部署结束
 * 视频地址：<https://www.bilibili.com/video/BV1XA41157P4>
