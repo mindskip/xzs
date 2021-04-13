@@ -17,11 +17,11 @@
 
 </div>
 
-# 学之思在线考试系统 - Postgresql版
+# 学之思开源考试系统 - Postgresql版
 
 ## 项目介绍
 
-学之思在线考试系统是一款 java + vue 的前后端分离的考试系统。主要优点是开发、部署简单快捷、界面设计友好、代码结构清晰。支持web端和微信小程序，能覆盖到pc机和手机等设备。
+学之思开源考试系统是一款 java + vue 的前后端分离的考试系统。主要优点是开发、部署简单快捷、界面设计友好、代码结构清晰。支持web端和微信小程序，能覆盖到pc机和手机等设备。
 支持多种部署方式：集成部署、前后端分离部署、docker部署。
 
 ### 开源版使用须知
@@ -32,8 +32,8 @@
 ### 演示地址
 
 * 官网：[https://www.mindskip.net](https://www.mindskip.net)
-* 学之思考试系统：[https://www.mindskip.net/xzs.html](https://www.mindskip.net/xzs.html)
-* 思多多智能考试平台：[https://www.mindskip.net/sdd.html](https://www.mindskip.net/sdd.html)
+* 学之思开源考试系统：[https://www.mindskip.net/xzs.html](https://www.mindskip.net/xzs.html)
+* 思多多智能考试系统：[https://www.mindskip.net/sdd.html](https://www.mindskip.net/sdd.html)
 * 维多多培训考试系统：[https://www.mindskip.net/wdd.html](https://www.mindskip.net/wdd.html)
 * 学多多考试系统：[https://www.mindskip.net/xdd.html](https://www.mindskip.net/xdd.html)
 
