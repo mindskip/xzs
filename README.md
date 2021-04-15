@@ -33,9 +33,19 @@
 
 * 官网：[https://www.mindskip.net](https://www.mindskip.net)
 * 学之思开源考试系统：[https://www.mindskip.net/xzs.html](https://www.mindskip.net/xzs.html)
+
+### 商业版考试系统
+
 * 思多多智能考试系统：[https://www.mindskip.net/sdd.html](https://www.mindskip.net/sdd.html)
 * 维多多培训考试系统：[https://www.mindskip.net/wdd.html](https://www.mindskip.net/wdd.html)
 * 学多多考试系统：[https://www.mindskip.net/xdd.html](https://www.mindskip.net/xdd.html)
+
+### 学之思交流群(加群获取数据库脚本)
+
+* QQ交流群九：`604864648`
+* 商务QQ：`2732007709`
+* 商务微信：`mind_skip`
+* 商务邮箱：`mindskip@qq.com`
 
 ### 学之思仓库版本地址
 
@@ -43,12 +53,6 @@
 * gitee - mysql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
 * github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 * github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
-
-### 学之思交流群(加群获取数据库脚本)
-
-* QQ交流群九：`604864648`
-* QQ：`2693073475`
-* 微信：`alvis-u`
 
 ### 开发部署文档教程
 
