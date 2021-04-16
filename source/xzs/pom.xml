@@ -7,10 +7,14 @@
     <artifactId>xzs</artifactId>
     <version>3.3.0</version>
     <packaging>jar</packaging>
-
     <name>xzs</name>
-    <description>学之思考试系统 - 武汉思维跳跃科技有限公司</description>
-
+    <url>https://www.mindskip.net/xzs.html</url>
+    <description>学之思开源考试系统 - 武汉思维跳跃科技有限公司</description>
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License v3.0</name>
+        </license>
+    </licenses>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
