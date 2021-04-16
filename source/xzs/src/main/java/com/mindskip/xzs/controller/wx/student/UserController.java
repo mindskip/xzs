@@ -78,7 +78,7 @@ public class UserController extends BaseWXApiController {
         user.setDeleted(false);
         userService.insertByFilter(user);
         UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
-        userEventLog.setContent("欢迎 " + user.getUserName() + " 注册来到学之思考试系统");
+        userEventLog.setContent("欢迎 " + user.getUserName() + " 注册来到学之思开源考试系统");
         eventPublisher.publishEvent(new UserEvent(userEventLog));
         return RestResponse.ok();
     }
