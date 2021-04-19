@@ -96,3 +96,36 @@
 * 2. root C:/xzs/release/web;  这里的路径要填反斜杠，不能直接用win的复制路径
 * win系统部署结束
 * 视频地址：<https://www.bilibili.com/video/BV1XA41157P4>
+
+### 第六部分：CentOS系统部署
+
+* 下载好xshell和xftp，这个工具用于连接centos服务器的
+* 可在群文件中找到Xftp-7.0.0063p 和 Xshell-7.0.0065p ，直接安装
+* 打开xshell , 连接准备好的centos服务器
+* 服务器中要安装好 redis、mysql 8 、jdk 1.8、nginx , 可以自行搜索教程进行安装
+* 安装好后，我们检测下是否都在运行
+* 创建数据库xzs、导入xzs-mysql.sql脚本
+* 登录mysql，执行导入命令：
+
+```脚本导入命令
+    mysql -u root -p -D xzs < /usr/local/xzs/sql/xzs-mysql.sql
+```
+
+* 数据导入成功后，可以登录mysql数据库，检查一下是否成功
+* 打包jar文件，注意修改配置文件application-prod.yml ，正式环境用的这个文件，这里里面的数据库连接地址和账号等，由于都是服务器本地的，都用localhost即可
+* 上传jar包到服务器中
+* 启动学之思后端程序
+
+```运行命令
+    nohup java -Duser.timezone=Asia/Shanghai -jar -Dspring.profiles.active=prod  xzs-3.3.0.jar  > start1.log  2>&1 &
+```
+
+* 打开浏览器，检查是否启动成功
+* 集成部署已经完成，下面介绍下前后端分离部署，分离部署前端页面要放在nginx中，需要配置nginx
+* 上传成功后配置nginx，nginx默认配置目录为 /etc/nginx/conf.d ，在里面新建xzs.conf配置文件即可
+* 执行命令：nginx -s reload  ，重新加载nginx配置文件
+* 在浏览器中能访问成功说明部署正确
+* docker部署，先安装好docker
+* 执行教程中的命令，下载镜像，运行容器
+* 打开浏览器验证下是否能访问，访问成功表示docker版运行正常
+* 视频地址：<https://www.bilibili.com/video/BV17b4y1D7Re>
