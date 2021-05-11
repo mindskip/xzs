@@ -5,7 +5,7 @@
 | id  | int |  |
 | name  | varchar | 试卷名称 |
 | subject_id  | int | 学科 |
-| paper_type  | int  | 试卷类型( 1固定试卷  4.时段试卷 6.任务试卷) |
+| paper_type  | int  | 试卷类型( 1.固定试卷  4.时段试卷 6.任务试卷 ) |
 | grade_level  | int  | 年级 |
 | score  | int  | 试卷总分(千分制) |
 | question_count  | int  | 题目数量 |
@@ -25,7 +25,7 @@
 | id  | int  |  |
 | exam_paper_id  | int  |  |
 | paper_name  | varchar  | 试卷名称 |
-| paper_type  | int  | 试卷类型( 1固定试卷  2临时试卷 3班级试卷 4.时段试卷 ) |
+| paper_type  | int  | 试卷类型( 1.固定试卷  4.时段试卷 6.任务试卷 ) |
 | subject_id  | int  | 学科 |
 | system_score  | int  | 系统判定得分 |
 | user_score  | int  | 最终得分(千分制) |
@@ -158,7 +158,7 @@
 | birth_day  | datetime  |  |
 | user_level  | int  | 学生年级(1-12) |
 | phone  | varchar  |  |
-| role  | int  | 1.学生 2.老师 3.管理员 |
+| role  | int  | 1.学生  3.管理员 |
 | status  | int  | 1.启用 2禁用 |
 | image_path  | varchar  | 头像地址 |
 | create_time  | datetime  |  |
