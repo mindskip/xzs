@@ -18,7 +18,8 @@
 
 * 工具安装
 * 所有准备工具安装已结束，下一步是调试开发环境
-* 视频地址：<https://www.bilibili.com/video/BV1rp4y1b7Se>
+* 哔哩哔哩：<https://www.bilibili.com/video/BV1rp4y1b7Se>
+* 腾讯课堂：<https://ke.qq.com/webcourse/index.html#cid=3455124&term_id=103592943&taid=11286748855580820&type=1024&vid=5285890818155010100>
 
 ### 第二部分：本地代码调试运行
 
@@ -36,7 +37,8 @@
 * 学生前端也同样操作，启动
 * 建议先将package-lock.json文件删掉，再执行npm install命令
 * 前后端都已启动完成
-* 视频地址：<https://www.bilibili.com/video/BV1Qh411S7RY>
+* 哔哩哔哩：<https://www.bilibili.com/video/BV1Qh411S7RY>
+* 腾讯课堂：<https://ke.qq.com/webcourse/index.html#cid=3455124&term_id=103592943&taid=11286753150548116&type=1024&vid=5285890818155251193>
 
 ### 第三部分：微信小程序开发
 
@@ -49,7 +51,8 @@
 * 微信接口默认是<http://localhost:8000>，默认就可以了，和后端端口保持一致
 * 启动后需要修改appid,和代码中的保持一致
 * 微信小程序就启动成功了
-* 视频地址：<https://www.bilibili.com/video/BV1mK4y127C5>
+* 哔哩哔哩：<https://www.bilibili.com/video/BV1mK4y127C5>
+* 腾讯课堂：<https://ke.qq.com/webcourse/index.html#cid=3455124&term_id=103592943&taid=11286757445515412&type=1024&vid=5285890818155261437>
 
 ### 第四部分：代码配置介绍
 
@@ -62,7 +65,8 @@
 * 管理端vue配置
 * 微信小程序配置
 * 配置都已经介绍完毕
-* 视频地址：<https://www.bilibili.com/video/BV19V411n7XV>
+* 哔哩哔哩：<https://www.bilibili.com/video/BV19V411n7XV>
+* 腾讯课堂：<https://ke.qq.com/webcourse/index.html#cid=3455124&term_id=103592943&taid=11286761740482708&type=1024&vid=5285890818155250943>
 
 ### 第五部分：win系统部署
 
@@ -95,7 +99,8 @@
 * 1. 8001端口默认是微信开发工具的启动端口，建议先关闭微信开发工具，再启动nginx
 * 2. root C:/xzs/release/web;  这里的路径要填反斜杠，不能直接用win的复制路径
 * win系统部署结束
-* 视频地址：<https://www.bilibili.com/video/BV1XA41157P4>
+* 哔哩哔哩：<https://www.bilibili.com/video/BV1XA41157P4>
+* 腾讯课堂：<https://ke.qq.com/webcourse/index.html#cid=3455124&term_id=103592943&taid=11286766035450004&type=1024&vid=5285890818058778391>
 
 ### 第六部分：CentOS系统部署
 
@@ -128,7 +133,8 @@
 * docker部署，先安装好docker
 * 执行教程中的命令，下载镜像，运行容器
 * 打开浏览器验证下是否能访问，访问成功表示docker版运行正常
-* 视频地址：<https://www.bilibili.com/video/BV17b4y1D7Re>
+* 哔哩哔哩：<https://www.bilibili.com/video/BV17b4y1D7Re>
+* 腾讯课堂：<https://ke.qq.com/webcourse/index.html#cid=3455124&term_id=103592943&taid=11286770330417300&type=1024&vid=5285890818155321589>
 
 ### 第七部分：使用手册
 
@@ -139,4 +145,5 @@
 * 任务管理：添加任务
 * 消息管理：消息发送
 * 成绩管理：查看成绩
-* 视频地址：<https://www.bilibili.com/video/BV1884y1F71Y>
+* 哔哩哔哩：<https://www.bilibili.com/video/BV1884y1F71Y>
+* 腾讯课堂：<https://ke.qq.com/webcourse/index.html#cid=3455124&term_id=103592943&taid=11286774625384596&type=1024&vid=5285890818155321700>
