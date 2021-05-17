@@ -9,16 +9,34 @@ public class UserToken implements Serializable {
 
     private Integer id;
 
+    /**
+     * 用户token
+     */
     private String token;
 
+    /**
+     * 用户Id
+     */
     private Integer userId;
 
+    /**
+     * 微信小程序openId
+     */
     private String wxOpenId;
 
+    /**
+     * 创建时间
+     */
     private Date createTime;
 
+    /**
+     * 结束时间
+     */
     private Date endTime;
 
+    /**
+     * 用户名
+     */
     private String userName;
 
     public Integer getId() {
