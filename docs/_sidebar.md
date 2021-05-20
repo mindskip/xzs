@@ -5,7 +5,7 @@
   - 接口设计
     - [学生考试端](student.md)
     - [微信小程序](wx.md)
-    - [系统管理端](admin.md)
+    - [管理系统端](admin.md)
   - [项目开发](develop.md)
   - [项目部署](deploy.md)
   - [视频教程](video.md)
