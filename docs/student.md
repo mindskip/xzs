@@ -1,15 +1,19 @@
-####  首页 （/api/admin/dashboard/index）
+####  首页 （/api/student/dashboard/index）
 
 ```请求参数
 
 ```
 
 ```返回参数
-     Integer examPaperCount;  试卷总数
-     Integer questionCount;   题目总数
-     Integer doExamPaperCount;  总答卷数
-     Integer doQuestionCount;   总题数
-     List<Integer> mothDayUserActionValue;  活跃度
-     List<Integer> mothDayDoExamQuestionValue;  月做题数
-     List<String> mothDayText;  本月天数
+{
+    "fixedPaper": [  //固定试卷
+        {
+            "id": 2399,  //试卷Id
+            "name": "test33333",  //试卷名称
+            "limitStartTime": null,  //考试开始时间
+            "limitEndTime": null     //考试结束时间
+        }
+    ],
+    "timeLimitPaper": []    //时段试卷
+}
 ```
