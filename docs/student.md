@@ -1,4 +1,21 @@
-####  首页 （/api/student/dashboard/index）
+#### 登录 （/api/user/login）
+
+```请求参数
+{
+    "userName": "student",  //用户名
+    "password": "EJBZqzo8/MvOLuOIiGeRjHZsQ9OOdnCvdFCI1cBWL2O1wpzyTXJ+UQXgwxF7a1Qzo7kV6flm+ygituIsXEwkzCOdJsrt7Gy0LOqjT7vOrKWA627uOWO4oRqEAoj/biOvVZ78PRZtRupbx9VHp275q1beiTkaDgMl90BeaLMV7ZU=",  //密码
+    "remember": false  //下次自动登录
+}
+```
+
+```返回参数
+{
+        "userName": "student",  //用户名
+        "imagePath": "https://www.mindskip.net:7000/resource/image/09d1158f-3264-4c7c-bc96-5861f9154dbd/1.png",  //头像
+    }
+```
+
+#### 首页 （/api/student/dashboard/index）
 
 ```请求参数
 
