@@ -34,3 +34,26 @@
     "timeLimitPaper": []    //时段试卷
 }
 ```
+
+#### 任务中心 （/api/student/dashboard/task）
+
+```请求参数
+
+```
+
+```返回参数
+[
+        {
+            "id": 9,  //任务id
+            "title": "2021-04-25作业",  //任务标题
+            "paperItems": [
+                {
+                    "examPaperId": 181,   //任务试卷id
+                    "examPaperName": "第一次出卷",  //任务试卷名称
+                    "examPaperAnswerId": 579,  //答卷id
+                    "status": 2  //答卷状态
+                }
+            ]
+        }
+    ]
+```
