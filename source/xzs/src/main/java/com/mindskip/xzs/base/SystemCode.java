@@ -1,7 +1,10 @@
 package com.mindskip.xzs.base;
 
 /**
- * @author 武汉思维跳跃科技有限公司
+ * @version 3.3.0
+ * @description: The enum System code.
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/5/25 10:45
  */
 public enum SystemCode {
     /**
@@ -32,9 +35,15 @@ public enum SystemCode {
     /**
      * AccessDenied
      */
-    AccessDenied(502,"用户没有权限访问");
+    AccessDenied(502, "用户没有权限访问");
 
+    /**
+     * The Code.
+     */
     int code;
+    /**
+     * The Message.
+     */
     String message;
 
     SystemCode(int code, String message) {
@@ -42,10 +51,20 @@ public enum SystemCode {
         this.message = message;
     }
 
+    /**
+     * Gets code.
+     *
+     * @return the code
+     */
     public int getCode() {
         return code;
     }
 
+    /**
+     * Gets message.
+     *
+     * @return the message
+     */
     public String getMessage() {
         return message;
     }
