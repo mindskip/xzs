@@ -71,3 +71,22 @@
     "response": 0  //未读消息数量
 }
 ```
+
+#### 学科列表 （/api/student/education/subject/list）
+
+```请求参数
+
+```
+
+```返回参数
+{
+    "code": 1,
+    "message": "成功",
+    "response": [
+        {
+            "id": "18",  //学科id
+            "name": "英语"  //学科名称
+        }
+    ]
+}
+```
