@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "core-js": "^3.13.0",
-    "element-ui": "^2.15.0",
+    "core-js": "^3.13.1",
+    "element-ui": "^2.15.2",
     "js-cookie": "2.2.0",
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",
