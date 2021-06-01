@@ -90,3 +90,39 @@
     ]
 }
 ```
+
+#### 试卷列表 （/api/student/exam/paper/pageList）
+
+```请求参数
+{
+    "paperType": 1, //试卷类型
+    "subjectId": 158, //学科id
+    "pageIndex": 1, //页数
+    "pageSize": 10  //每页条数
+}
+```
+
+```返回参数
+{
+    "code": 1,
+    "message": "成功",
+    "response": {
+        "total": 1,
+        "list": [
+            {
+                "id": 2520,  //试卷id
+                "name": "生理卫生",  //试卷名称
+                "questionCount": 1,  //题目数
+                "score": 20,  //试卷分数
+                "createTime": "2021-05-31 13:34:49", //创建时间
+                "createUser": 2,   //创建人
+                "subjectId": 158,  //学科
+                "subjectName": "英语",  //学科
+                "paperType": 1,   //试卷类型
+                "frameTextContentId": 9016  //试卷内容
+            }
+        ]
+    }
+}
+```
+
