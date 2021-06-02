@@ -3,7 +3,7 @@
 ```请求参数
 {
     "userName": "student",  //用户名
-    "password": "EJBZqzo8/MvOLuOIiGeRjHZsQ9OOdnCvdFCI1cBWL2O1wpzyTXJ+UQXgwxF7a1Qzo7kV6flm+ygituIsXEwkzCOdJsrt7Gy0LOqjT7vOrKWA627uOWO4oRqEAoj/biOvVZ78PRZtRupbx9VHp275q1beiTkaDgMl90BeaLMV7ZU=",  //密码
+    "password": "",  //密码
     "remember": false  //下次自动登录
 }
 ```
@@ -11,7 +11,7 @@
 ```返回参数
 {
         "userName": "student",  //用户名
-        "imagePath": "https://www.mindskip.net:7000/resource/image/09d1158f-3264-4c7c-bc96-5861f9154dbd/1.png",  //头像
+        "imagePath": "",  //头像
     }
 ```
 
@@ -126,3 +126,39 @@
 }
 ```
 
+#### 考试记录 （/api/student/exampaper/answer/pageList）
+
+```请求参数
+{
+    "pageIndex": 1, //页码
+    "pageSize": 10  //每页条数
+}
+```
+
+```返回参数
+{
+    "code": 1,
+    "message": "成功",
+    "response": {
+        "total": 6204,
+        "list": [
+            {
+                "id": 6534,  //试卷id
+                "createTime": "2021-06-01 17:56:38",  //创建时间
+                "userScore": "0",  //考试分数
+                "subjectName": "数学",  //考试学科
+                "subjectId": 129, //学科id
+                "questionCount": 1,  //题目数量
+                "questionCorrect": 0,  //题目正确数
+                "paperScore": "3",  //试卷总分
+                "doTime": "4 秒",  //耗时
+                "paperType": 7,  //试卷类型
+                "systemScore": "0",  //系统批改得分
+                "status": 2,   //试卷状态
+                "paperName": "智能训练试卷 - 1845",  //试卷名称
+                "userName": null  //用户名
+            }
+        ]
+    }
+}
+```
