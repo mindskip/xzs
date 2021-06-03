@@ -162,3 +162,32 @@
     }
 }
 ```
+
+
+#### 考试记录 （/api/student/question/answer/page）
+
+```请求参数
+{
+    "pageIndex": 1, //页码
+    "pageSize": 10  //每页条数
+}
+```
+
+```返回参数
+{
+    "code": 1,
+    "message": "成功",
+    "response": {
+        "total": 17002,
+        "list": [
+            {
+                "id": 24928,   //题目id
+                "questionType": 1,  //题型
+                "createTime": "2021-06-02 16:07:11",  //创建时间
+                "subjectName": "语文",  //学科
+                "shortTitle": "666"  //题干
+            }
+        ]
+    }
+}
+```
