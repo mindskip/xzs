@@ -163,8 +163,7 @@
 }
 ```
 
-
-#### 考试记录 （/api/student/question/answer/page）
+#### 错题本 （/api/student/question/answer/page）
 
 ```请求参数
 {
@@ -188,6 +187,54 @@
                 "shortTitle": "666"  //题干
             }
         ]
+    }
+}
+```
+
+#### 答题详情 （/api/student/question/answer/select/25067）
+
+```请求参数
+{
+    "pageIndex": 1, //页码
+    "pageSize": 10  //每页条数
+}
+```
+
+```返回参数
+{
+    "code": 1,
+    "message": "成功",
+    "response": {
+        "questionVM": {
+            "id": 507,    //题目id
+            "questionType": 1,   //题目类型
+            "subjectId": 46,  //学科id
+            "title": "111",   //题干
+            "gradeLevel": 12,    //年级
+            "items": [        //选项
+                {
+                    "prefix": "A",  //选项
+                    "content": "A",  //选项内容
+                    "score": null    //选项分数
+                }
+            ],
+            "analyze": "D",     //解析
+            "correctArray": null,  //标答
+            "correct": "D",   //标答
+            "score": "2",  //分数
+            "difficult": 3,  //难度
+            "itemOrder": null  //排序
+        },
+        "questionAnswerVM": {   //用户答案
+            "id": 25067,  
+            "questionId": 507,  //题目id
+            "doRight": false,   //是否正确
+            "content": "A",   //用户答案
+            "itemOrder": 2,   //排序
+            "contentArray": null,   //用户答案
+            "score": "0",  //得分
+            "questionScore": "2"  //题目分数
+        }
     }
 }
 ```
