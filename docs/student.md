@@ -238,3 +238,26 @@
     }
 }
 ```
+
+#### 用户动态 （/api/student/user/log）
+
+```请求参数
+
+```
+
+```返回参数
+{
+    "code": 1,
+    "message": "成功",
+    "response": [
+        {
+            "id": 1812,  
+            "userId": 1,  //用户id
+            "userName": "student",  //用户名
+            "realName": "Test",  //用户真实姓名
+            "content": "student 登录了学多多考试系统",  //动态内容
+            "createTime": "2021-06-08 17:12:50"  //创建时间
+        }
+    ]
+}
+```
