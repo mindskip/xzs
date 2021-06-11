@@ -292,3 +292,34 @@
     }
 }
 ```
+
+#### 修改用户信息 （/api/student/user/update）
+
+```请求参数
+{
+    "id": 1,
+    "userUuid": "d2d29da2-dcb3-4013-b874-727626236f47",
+    "userName": "student",  //用户名
+    "realName": "Test",  //真实姓名
+    "age": 18,   //年龄
+    "role": 1,   //角色
+    "sex": 1,  //性别
+    "birthDay": "2019-09-01 00:00:00",  //生日
+    "phone": "158800882",  //手机号
+    "lastActiveTime": "",
+    "createTime": "2019-09-07 18:55:02",
+    "modifyTime": "2021-06-09 17:04:31",
+    "status": 1,  //状态
+    "userLevel": 1,   //年级
+    "classes": "1班",  //用户班级
+    "imagePath": ""  //用户头像
+}
+```
+
+```返回参数
+{
+    "code": 1,
+    "message": "成功",
+    "response": null
+}
+```
