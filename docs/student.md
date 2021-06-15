@@ -323,3 +323,33 @@
     "response": null
 }
 ```
+
+#### 消息列表 （/api/student/user/message/page）
+
+```请求参数
+{
+    "pageIndex": 1, //页码
+    "pageSize": 10  //每页条数
+}
+```
+
+```返回参数
+{
+    "code": 1,
+    "message": "成功",
+    "response": {
+        "total": 5,
+        "list": [
+            {
+                "id": 11,
+                "title": "rwerw",   //消息标题
+                "messageId": 10,
+                "content": "sfsdf",  //消息内容
+                "readed": true, //是否已读
+                "createTime": "2021-06-11 16:32:40",   //创建时间
+                "sendUserName": "admin"  //发送人
+            }
+        ]
+    }
+}
+```
