@@ -58,7 +58,7 @@
     ]
 ```
 
-#### 未读消息 （/api/student/user/message/unreadCount）
+#### 未读消息数量 （/api/student/user/message/unreadCount）
 
 ```请求参数
 
@@ -351,5 +351,19 @@
             }
         ]
     }
+}
+```
+
+#### 消息标记已读 （/api/student/user/message/read/14）
+
+```请求参数
+
+```
+
+```返回参数
+{
+    "code": 1,
+    "message": "成功",
+    "response": null
 }
 ```
