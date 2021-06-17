@@ -367,3 +367,17 @@
     "response": null
 }
 ```
+
+#### 登出 （/api/user/logout）
+
+```请求参数
+
+```
+
+```返回参数
+{
+    "code": 1,
+    "message": "成功",
+    "response": null
+}
+```
