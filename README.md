@@ -24,11 +24,6 @@
 学之思开源考试系统是一款 java + vue 的前后端分离的考试系统。主要优点是开发、部署简单快捷、界面设计友好、代码结构清晰。支持web端和微信小程序，能覆盖到pc机和手机等设备。
 支持多种部署方式：集成部署、前后端分离部署、docker部署。
 
-### 开源版使用须知
-
-* 仅用个人学习
-* 禁止将本项目的代码和资源进行任何形式的出售，产生的一切任何后果责任由侵权者自负
-
 ### 演示地址
 
 * 官网：[https://www.mindskip.net](https://www.mindskip.net)
@@ -60,7 +55,7 @@
 
 ### 开发部署视频教程
 
-* [https://www.mindskip.net:888/#/video](https://www.mindskip.net:888/#/video)
+* [https://www.mindskip.net:888/guide/video.html](https://www.mindskip.net:888/guide/video.html)
 
 ### 学生系统功能
 
