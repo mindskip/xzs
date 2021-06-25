@@ -3,7 +3,7 @@
 
 <p align="center">
 <a href="https://www.mindskip.net" target="_blank">
- <img src="doc/image/logo/1.png" height="80"/>
+ <img src="docs/images/logo/1.png" height="80"/>
 <a/>
 </p>
 
@@ -95,24 +95,24 @@
 * 学生考试系统
 <table>
     <tr>
-        <td><img src="doc/image/student/2.png"/></td>
-        <td><img src="doc/image/student/12.png"/></td>
+        <td><img src="docs/images/student/2.png"/></td>
+        <td><img src="docs/images/student/12.png"/></td>
     </tr>
 </table>
 
 *  小程序考试系统
 <table>
     <tr>
-        <td><img src="doc/image/wx/student/1.png"/></td>
-        <td><img src="doc/image/wx/student/2.png"/></td>
-        <td><img src="doc/image/wx/student/3.png"/></td>
-        <td><img src="doc/image/wx/student/4.png"/></td>
+        <td><img src="docs/images/wx/student/1.png"/></td>
+        <td><img src="docs/images/wx/student/2.png"/></td>
+        <td><img src="docs/images/wx/student/3.png"/></td>
+        <td><img src="docs/images/wx/student/4.png"/></td>
     </tr>
     <tr>
-        <td><img src="doc/image/wx/student/5.png"/></td>
-        <td><img src="doc/image/wx/student/8.png"/></td>
-        <td><img src="doc/image/wx/student/6.png"/></td>
-        <td><img src="doc/image/wx/student/7.png"/></td>
+        <td><img src="docs/images/wx/student/5.png"/></td>
+        <td><img src="docs/images/wx/student/8.png"/></td>
+        <td><img src="docs/images/wx/student/6.png"/></td>
+        <td><img src="docs/images/wx/student/7.png"/></td>
     </tr>
 </table>
 
@@ -120,7 +120,7 @@
 
 <table>
     <tr>
-        <td><img src="doc/image/admin/12.png"/></td>
-        <td><img src="doc/image/admin/13.png"/></td>
+        <td><img src="docs/images/admin/12.png"/></td>
+        <td><img src="docs/images/admin/13.png"/></td>
     </tr>
 </table>
