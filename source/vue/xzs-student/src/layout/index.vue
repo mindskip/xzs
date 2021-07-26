@@ -37,7 +37,7 @@
           <h4>产品介绍</h4>
           <a href="https://www.mindskip.net/sdd.html" target="_blank" class="footer-main-link">思多多智能考试平台</a>
           <a href="https://www.mindskip.net/wdd.html" target="_blank" class="footer-main-link">维多多培训考试系统</a>
-          <a href="https://www.mindskip.net/xdd.html" target="_blank" class="footer-main-link">学多多考试系统</a>
+          <a href="https://www.mindskip.net/xdd.html" target="_blank" class="footer-main-link">学多多教育考试系统</a>
           <a href="https://www.mindskip.net/xzs.html" target="_blank" class="footer-main-link">学之思开源考试系统</a>
         </div>
         <div class="footer-main">
