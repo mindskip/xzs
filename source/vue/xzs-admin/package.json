@@ -20,7 +20,7 @@
         "core-js": "^3.16.0",
         "driver.js": "^0.9.8",
         "dropzone": "^5.9.2",
-        "element-ui": "^2.15.3",
+        "element-ui": "^2.15.5",
         "js-cookie": "2.2.0",
         "normalize.css": "8.0.1",
         "nprogress": "0.2.0",
