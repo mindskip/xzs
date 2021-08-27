@@ -55,7 +55,7 @@
 
 ### 开发部署视频教程
 
-* [https://www.mindskip.net:888/guide/video.html](https://www.mindskip.net:888/guide/video.html)
+* [https://ke.qq.com/course/3614230](https://ke.qq.com/course/3614230)
 
 ### 学生系统功能
 
