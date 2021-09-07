@@ -33,7 +33,6 @@
 
 * 思多多智能考试系统：[https://www.mindskip.net/sdd.html](https://www.mindskip.net/sdd.html)
 * 维多多培训考试系统：[https://www.mindskip.net/wdd.html](https://www.mindskip.net/wdd.html)
-* 学多多教育考试系统：[https://www.mindskip.net/xdd.html](https://www.mindskip.net/xdd.html)
 
 ### 学之思交流群(加群获取数据库脚本)
 
