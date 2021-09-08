@@ -28,9 +28,6 @@
 
 * 官网：[https://www.mindskip.net](https://www.mindskip.net)
 * 学之思开源考试系统：[https://www.mindskip.net/xzs.html](https://www.mindskip.net/xzs.html)
-
-### 商业版考试系统
-
 * 思多多智能考试系统：[https://www.mindskip.net/sdd.html](https://www.mindskip.net/sdd.html)
 * 维多多培训考试系统：[https://www.mindskip.net/wdd.html](https://www.mindskip.net/wdd.html)
 
