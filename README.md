@@ -45,13 +45,10 @@
 * github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 * github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
 
-### 开发部署文档教程
+### 开发部署教程
 
-* [https://www.mindskip.net:888](https://www.mindskip.net:888)
-
-### 开发部署视频教程
-
-* [https://ke.qq.com/course/3614230](https://ke.qq.com/course/3614230)
+* 文档教程：[https://www.mindskip.net:888](https://www.mindskip.net:888)
+* 视频教程：[https://ke.qq.com/course/3614230](https://ke.qq.com/course/3614230)
 
 ### 学生系统功能
 
