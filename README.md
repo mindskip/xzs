@@ -28,11 +28,8 @@
 
 * 官网：[https://www.mindskip.net](https://www.mindskip.net)
 * 学之思开源考试系统：[https://www.mindskip.net/xzs.html](https://www.mindskip.net/xzs.html)
-
-### 商业版考试系统
-
-* 思多多智能考试系统：[https://www.mindskip.net/sdd.html](https://www.mindskip.net/sdd.html)
 * 维多多培训考试系统：[https://www.mindskip.net/wdd.html](https://www.mindskip.net/wdd.html)
+* 思多多智能考试系统：[https://www.mindskip.net/sdd.html](https://www.mindskip.net/sdd.html)
 
 ### 学之思交流群(加群获取数据库脚本)
 
@@ -48,13 +45,10 @@
 * github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 * github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
 
-### 开发部署文档教程
+### 开发部署教程
 
-* [https://www.mindskip.net:888](https://www.mindskip.net:888)
-
-### 开发部署视频教程
-
-* [https://ke.qq.com/course/3614230](https://ke.qq.com/course/3614230)
+* 文档教程：[https://www.mindskip.net:888](https://www.mindskip.net:888)
+* 视频教程：[https://ke.qq.com/course/3614230](https://ke.qq.com/course/3614230)
 
 ### 学生系统功能
 
