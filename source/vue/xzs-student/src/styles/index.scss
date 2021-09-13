@@ -86,10 +86,16 @@ html {
   width: 100%;
   box-sizing: border-box;
 
+  .foot-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    flex-wrap: wrap;
+  }
+
   .footer-main {
     display: inline-block;
     vertical-align: top;
-    margin-right: 70px;
 
     .footer-main-link {
       display: block;
@@ -97,6 +103,7 @@ html {
       line-height: 2;
       font-size: 14px;
       color: #666;
+      text-decoration: none;
     }
   }
 
@@ -118,6 +125,7 @@ html {
     }
   }
 }
+
 
 
 @media only screen and (max-width: 768px) {
