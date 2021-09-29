@@ -24,15 +24,21 @@ import org.springframework.data.redis.serializer.*;
 
 import java.time.Duration;
 
-
+/**
+ * @version 3.3.0
+ * @description: The type Cache config.
+ * Copyright (C), 2019-2021, 武汉思维跳跃科技有限公司
+ * @date 2021 /5/26 10:45
+ */
 @Configuration
 @EnableCaching
 public class CacheConfig extends CachingConfigurerSupport {
 
     /**
-     * spring boot redis默认序列化方式
+     * spring boot redis
      *
-     * @return RedisTemplate
+     * @param redisConnectionFactory the redis connection factory
+     * @return RedisTemplate redis template
      */
     @Bean
     public RedisTemplate<String, Object> getRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
@@ -46,11 +52,11 @@ public class CacheConfig extends CachingConfigurerSupport {
     }
 
     /**
-     * spring redis 默认生成key方式,包含::号
+     * spring redis key
      *
-     * @param prefix
-     * @param key
-     * @return
+     * @param prefix the prefix
+     * @param key    the key
+     * @return string
      */
     public String simpleKeyGenerator(String prefix, String key) {
         return CacheKeyPrefix.simple().compute(prefix) + key;
