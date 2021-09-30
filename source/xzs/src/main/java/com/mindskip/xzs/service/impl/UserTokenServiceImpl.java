@@ -1,7 +1,6 @@
 package com.mindskip.xzs.service.impl;
 
 import com.mindskip.xzs.configuration.property.SystemConfig;
-import com.mindskip.xzs.configuration.spring.cache.CacheConfig;
 import com.mindskip.xzs.domain.User;
 import com.mindskip.xzs.domain.UserToken;
 import com.mindskip.xzs.repository.UserTokenMapper;
@@ -9,8 +8,8 @@ import com.mindskip.xzs.service.UserService;
 import com.mindskip.xzs.service.UserTokenService;
 import com.mindskip.xzs.utility.DateTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,17 +23,13 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
     private final UserTokenMapper userTokenMapper;
     private final UserService userService;
     private final SystemConfig systemConfig;
-    private final CacheConfig cacheConfig;
-    private final RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
-    public UserTokenServiceImpl(UserTokenMapper userTokenMapper, UserService userService, SystemConfig systemConfig, CacheConfig cacheConfig, RedisTemplate<String, Object> redisTemplate) {
+    public UserTokenServiceImpl(UserTokenMapper userTokenMapper, UserService userService, SystemConfig systemConfig) {
         super(userTokenMapper);
         this.userTokenMapper = userTokenMapper;
         this.userService = userService;
         this.systemConfig = systemConfig;
-        this.cacheConfig = cacheConfig;
-        this.redisTemplate = redisTemplate;
     }
 
 
@@ -63,6 +58,7 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
     }
 
     @Override
+    @Cacheable(value = CACHE_NAME, key = "#result.token", unless = "#result == null")
     public UserToken insertUserToken(User user) {
         Date startTime = new Date();
         Date endTime = DateTimeUtil.addDuration(startTime, systemConfig.getWx().getTokenToLive());
@@ -75,21 +71,17 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
         userToken.setUserName(user.getUserName());
         userService.updateByIdFilter(user);
         userTokenMapper.insertSelective(userToken);
-        String key = cacheConfig.simpleKeyGenerator(CACHE_NAME, userToken.getToken());
-        redisTemplate.opsForValue().set(key, userToken, systemConfig.getWx().getTokenToLive());
         return userToken;
     }
 
     @Override
-    @Transactional
+    @CacheEvict(value = CACHE_NAME, key = "#userToken.token")
     public void unBind(UserToken userToken) {
         User user = userService.selectById(userToken.getUserId());
         user.setModifyTime(new Date());
         user.setWxOpenId(null);
         userService.updateById(user);
         userTokenMapper.deleteByPrimaryKey(userToken.getId());
-        String key = cacheConfig.simpleKeyGenerator(CACHE_NAME, userToken.getToken());
-        redisTemplate.delete(key);
     }
 
 }
