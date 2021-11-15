@@ -21,6 +21,7 @@
         "driver.js": "^0.9.8",
         "dropzone": "^5.9.3",
         "element-ui": "^2.15.6",
+        "file-saver": "^2.0.5",
         "js-cookie": "2.2.0",
         "normalize.css": "8.0.1",
         "nprogress": "0.2.0",
