@@ -11,17 +11,6 @@ import java.util.List;
 
 @Mapper
 public interface QuestionMapper extends BaseMapper<Question> {
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(Question record);
-
-    int insertSelective(Question record);
-
-    Question selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Question record);
-
-    int updateByPrimaryKey(Question record);
 
     List<Question> page(QuestionPageRequestVM requestVM);
 
