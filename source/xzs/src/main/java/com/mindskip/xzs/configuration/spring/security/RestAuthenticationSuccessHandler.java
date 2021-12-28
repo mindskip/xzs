@@ -36,14 +36,21 @@ public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        User springUser = (User) authentication.getPrincipal();
-        com.mindskip.xzs.domain.User user = userService.getUserByUserName(springUser.getUsername());
-        UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
-        userEventLog.setContent(user.getUserName() + " 登录了学之思考试系统");
-        eventPublisher.publishEvent(new UserEvent(userEventLog));
-        com.mindskip.xzs.domain.User newUser = new com.mindskip.xzs.domain.User();
-        newUser.setUserName(user.getUserName());
-        newUser.setImagePath(user.getImagePath());
-        RestUtil.response(response, SystemCode.OK.getCode(), SystemCode.OK.getMessage(), newUser);
+        Object object = authentication.getPrincipal();
+        if (null != object) {
+            User springUser = (User) object;
+            com.mindskip.xzs.domain.User user = userService.getUserByUserName(springUser.getUsername());
+            if (null != user) {
+                UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
+                userEventLog.setContent(user.getUserName() + " 登录了学之思开源考试系统");
+                eventPublisher.publishEvent(new UserEvent(userEventLog));
+                com.mindskip.xzs.domain.User newUser = new com.mindskip.xzs.domain.User();
+                newUser.setUserName(user.getUserName());
+                newUser.setImagePath(user.getImagePath());
+                RestUtil.response(response, SystemCode.OK.getCode(), SystemCode.OK.getMessage(), newUser);
+            }
+        } else {
+            RestUtil.response(response, SystemCode.UNAUTHORIZED.getCode(), SystemCode.UNAUTHORIZED.getMessage());
+        }
     }
 }

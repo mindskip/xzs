@@ -1,10 +1,11 @@
 {
   "name": "xzs-student",
-  "version": "3.2.0",
+  "version": "3.5.0",
   "author": "武汉思维跳跃科技有限公司",
-  "description": "学之思考试系统",
+  "description": "学之思开源考试系统",
   "license": "AGPL-3.0",
   "private": true,
+  "homepage": "https://www.mindskip.net/xzs.html",
   "scripts": {
     "serve": "vue-cli-service serve --mode dev",
     "build": "vue-cli-service build --mode prod",
@@ -14,23 +15,44 @@
     "build:prod": "vue-cli-service build --mode prod",
     "lint": "vue-cli-service lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitee.com/mindskip/uexam.git"
+  },
+  "bugs": {
+    "url": "https://gitee.com/mindskip/uexam/issues",
+    "email": "mindskip@qq.com"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "dependencies": {
     "axios": "^0.19.0",
-    "core-js": "^3.8.3",
-    "element-ui": "^2.15.0",
+    "core-js": "^3.20.1",
+    "element-ui": "^2.15.6",
+    "husky": "^7.0.4",
     "js-cookie": "2.2.0",
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",
-    "vue": "^2.6.10",
-    "vue-router": "^3.4.9",
-    "vuex": "^3.6.0"
+    "screenfull": "^5.2.0",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.3",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.10",
-    "@vue/cli-plugin-eslint": "^4.5.10",
-    "@vue/cli-plugin-router": "^4.5.10",
-    "@vue/cli-plugin-vuex": "^4.5.10",
-    "@vue/cli-service": "^4.5.10",
+    "@vue/cli-plugin-babel": "^4.5.15",
+    "@vue/cli-plugin-eslint": "^4.5.15",
+    "@vue/cli-plugin-router": "^4.5.15",
+    "@vue/cli-plugin-vuex": "^4.5.15",
+    "@vue/cli-service": "^4.5.15",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
@@ -38,6 +60,6 @@
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.0",
     "svg-sprite-loader": "4.1.6",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.14"
   }
 }

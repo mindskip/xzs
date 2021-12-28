@@ -65,6 +65,7 @@ export default {
       })
     },
     resetForm () {
+      let lastId = this.form.id
       this.$refs['form'].resetFields()
       this.form = {
         id: null,
@@ -72,6 +73,7 @@ export default {
         level: 1,
         levelName: ''
       }
+      this.form.id = lastId
     },
     ...mapActions('tagsView', { delCurrentView: 'delCurrentView' })
   },

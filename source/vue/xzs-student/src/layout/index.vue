@@ -32,36 +32,28 @@
       <router-view/>
     </el-main>
     <el-footer height="340" class="student-footer">
-      <div class="container">
+      <div class="foot-container">
         <div class="footer-main">
           <h4>产品介绍</h4>
-          <a href="http://www.mindskip.net/sdd.html" target="_blank" class="footer-main-link">思多多智能考试平台</a>
-          <a href="http://www.mindskip.net/wdd.html" target="_blank" class="footer-main-link">维多多培训考试系统</a>
-          <a href="http://www.mindskip.net/xdd.html" target="_blank" class="footer-main-link">学多多考试系统</a>
-          <a href="http://www.mindskip.net/xzs.html" target="_blank" class="footer-main-link">学之思考试系统</a>
+          <a href="https://www.mindskip.net/sdd.html" target="_blank" class="footer-main-link">思多多智能考试系统</a>
+          <a href="https://www.mindskip.net/wdd.html" target="_blank" class="footer-main-link">维多多培训考试系统</a>
+          <a href="https://www.mindskip.net/xzs.html" target="_blank" class="footer-main-link">学之思开源考试系统</a>
         </div>
         <div class="footer-main">
-          <h4>学多多小程序</h4>
+          <h4>微信小程序</h4>
+          <img src="@/assets/code/3.jpg" style="width: 100px;height: 100px;margin-right: 30px"/>
+          <img src="@/assets/code/7.jpg" style="width: 100px;height: 100px;margin-right: 30px"/>
           <img src="@/assets/code/1.jpg" style="width: 100px;height: 100px;"/>
-        </div>
-        <div class="footer-main">
-          <h4>跃考 H5、小程序</h4>
-          <img src="@/assets/code/2.png" style="width: 100px;height: 100px;"/>
-          <img src="@/assets/code/3.jpg" style="width: 100px;height: 100px;margin-left: 10px"/>
-        </div>
-        <div class="footer-main">
-          <h4>维考 H5、小程序</h4>
-          <img src="@/assets/code/6.png" style="width: 100px;height: 100px;"/>
-          <img src="@/assets/code/7.jpg" style="width: 100px;height: 100px;margin-left: 10px"/>
         </div>
         <div class="footer-main">
           <h4>关于我们</h4>
           <img src="@/assets/4.jpg" style="width: 100px;height: 100px;"/>
         </div>
-        <div class="footer-social">
-          <p class="footer-social-title">开源社区</p>
-          <a href="https://github.com/mindskip/xzs" target="_blank"> <svg-icon icon-class="social-github" style="width: 32px;height: 32px;" /></a>
-          <a href="https://gitee.com/mindskip/uexam" target="_blank"><svg-icon icon-class="gitee" style="width: 32px;height: 32px;" /></a>
+        <div class="footer-main">
+          <h4>文档中心</h4>
+          <a href="https://gitee.com/mindskip" target="_blank" class="footer-main-link">学之思仓库地址</a>
+          <a href="https://www.mindskip.net:999" target="_blank" class="footer-main-link">学之思开发文档</a>
+          <a href="https://ke.qq.com/course/3614230" target="_blank" class="footer-main-link">学之思视频教程</a>
         </div>
       </div>
     </el-footer>
