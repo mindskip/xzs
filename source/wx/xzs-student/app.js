@@ -6,7 +6,7 @@ const mtjwxsdk = require('./utils/mtj-wx-sdk.js');
 App({
   globalData: {
     baseAPI: "http://localhost:8000",
-    pageSize: 10
+    pageSize: 20
   },
   onLaunch: function() {
     let _this = this

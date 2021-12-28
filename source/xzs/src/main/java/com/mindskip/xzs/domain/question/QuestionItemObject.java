@@ -9,6 +9,8 @@ public class QuestionItemObject {
 
     private Integer score;
 
+    private String itemUuid;
+
     public String getPrefix() {
         return prefix;
     }
@@ -31,5 +33,13 @@ public class QuestionItemObject {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    public String getItemUuid() {
+        return itemUuid;
+    }
+
+    public void setItemUuid(String itemUuid) {
+        this.itemUuid = itemUuid;
     }
 }

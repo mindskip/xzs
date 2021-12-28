@@ -54,25 +54,12 @@ pagehelper:
 
 #mybatis datasource default HikariPool
 spring:
-  session:
-    store-type: redis
   datasource:
     hikari:
       idle-timeout: 600000  #10 min
       max-lifetime: 1800000 #30 min
-  redis:
-    timeout: 10000 #超时时间
-    database: 0 #0-15 16个库 默认0
-    lettuce:
-      pool:
-        max-active: 8 #最大连接数
-        max-wait: -1 #默认-1 最大连接阻塞等待时间
-        max-idle: 8 #最大空闲连接 默认8
-        min-idle: 0 #最小空闲连接
   cache:
-    type: redis
-    redis:
-      time-to-live: 12h   #12 hour
+    type: simple
 
 
   #runningtime environment

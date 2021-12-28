@@ -14,17 +14,6 @@ import java.util.List;
 
 @Mapper
 public interface ExamPaperMapper extends BaseMapper<ExamPaper> {
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(ExamPaper record);
-
-    int insertSelective(ExamPaper record);
-
-    ExamPaper selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(ExamPaper record);
-
-    int updateByPrimaryKey(ExamPaper record);
 
     List<ExamPaper> page(ExamPaperPageRequestVM requestVM);
 

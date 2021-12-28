@@ -11,17 +11,6 @@ import java.util.List;
 
 @Mapper
 public interface ExamPaperAnswerMapper extends BaseMapper<ExamPaperAnswer> {
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(ExamPaperAnswer record);
-
-    int insertSelective(ExamPaperAnswer record);
-
-    ExamPaperAnswer selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(ExamPaperAnswer record);
-
-    int updateByPrimaryKey(ExamPaperAnswer record);
 
     List<ExamPaperAnswer> studentPage(ExamPaperAnswerPageVM requestVM);
 
@@ -31,4 +20,5 @@ public interface ExamPaperAnswerMapper extends BaseMapper<ExamPaperAnswer> {
 
     ExamPaperAnswer getByPidUid(@Param("pid") Integer paperId, @Param("uid") Integer uid);
 
+    List<ExamPaperAnswer> adminPage(com.mindskip.xzs.viewmodel.admin.paper.ExamPaperAnswerPageRequestVM requestVM);
 }

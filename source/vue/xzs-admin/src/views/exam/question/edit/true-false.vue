@@ -172,6 +172,7 @@ export default {
       })
     },
     resetForm () {
+      let lastId = this.form.id
       this.$refs['form'].resetFields()
       this.form = {
         id: null,
@@ -188,6 +189,7 @@ export default {
         score: '',
         difficult: 0
       }
+      this.form.id = lastId
     },
     levelChange () {
       this.form.subjectId = null
