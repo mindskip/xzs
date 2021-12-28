@@ -2,9 +2,7 @@
  * @license MIT */
 
 /*!
-  * vue-router v4.0.10
+  * vue-router v4.0.12
   * (c) 2021 Eduardo San Martin Morote
   * @license MIT
   */
-
-/*! medium-zoom 1.0.6 | MIT License | https://github.com/francoischalifour/medium-zoom */
