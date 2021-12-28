@@ -5,12 +5,11 @@
 
     <groupId>com.mindskip</groupId>
     <artifactId>xzs</artifactId>
-    <version>3.2.0</version>
+    <version>3.5.0</version>
     <packaging>jar</packaging>
-
     <name>xzs</name>
-    <description>学之思考试系统 - 武汉思维跳跃科技有限公司</description>
-
+    <url>https://www.mindskip.net/xzs.html</url>
+    <description>学之思开源考试系统 - postgresql版，支持多种题型：选择题、多选题、判断题、填空题、解答题以及数学公式，包含PC端、小程序端，扩展性强，部署方便(集成部署、前后端分离部署、docker部署)、界面设计友好、代码结构清晰</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,10 +29,37 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+
+    <issueManagement>
+        <system>Gitee Issue</system>
+        <url>https://gitee.com/mindskip/uexam/issues</url>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/agpl-3.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <organization>武汉思维跳跃科技有限公司</organization>
+            <organizationUrl>https://www.mindskip.net</organizationUrl>
+            <email>mindskip@qq.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git@gitee.com:mindskip/uexam.git</connection>
+        <developerConnection>scm:git@gitee.com:mindskip/uexam.git</developerConnection>
+        <url>git@gitee.com:mindskip/uexam.git</url>
+    </scm>
+
     <repositories>
         <repository>
-            <id>nexus-aliyun</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <id>aliyun-releases</id>
+            <url>https://maven.aliyun.com/repository/public</url>
         </repository>
     </repositories>
 
@@ -67,16 +93,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-data-redis</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
