@@ -9,15 +9,32 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
 
+
 /**
- * @author 武汉思维跳跃科技有限公司
+ * @version 3.5.0
+ * @description:  The type Date time util.
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
  */
 public class DateTimeUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(DateTimeUtil.class);
+    /**
+     * The constant STANDER_FORMAT.
+     */
     public static final String STANDER_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    /**
+     * The constant STANDER_SHORT_FORMAT.
+     */
     public static final String STANDER_SHORT_FORMAT = "yyyy-MM-dd";
 
+    /**
+     * Add duration date.
+     *
+     * @param date     the date
+     * @param duration the duration
+     * @return the date
+     */
     public static Date addDuration(Date date, Duration duration) {
         Calendar ca = Calendar.getInstance();
         ca.setTime(date);
@@ -25,6 +42,12 @@ public class DateTimeUtil {
         return ca.getTime();
     }
 
+    /**
+     * Date format string.
+     *
+     * @param date the date
+     * @return the string
+     */
     public static String dateFormat(Date date) {
         if (null == date) {
             return "";
@@ -33,6 +56,12 @@ public class DateTimeUtil {
         return dateFormat.format(date);
     }
 
+    /**
+     * Date short format string.
+     *
+     * @param date the date
+     * @return the string
+     */
     public static String dateShortFormat(Date date) {
         if (null == date) {
             return "";
@@ -41,6 +70,13 @@ public class DateTimeUtil {
         return dateFormat.format(date);
     }
 
+    /**
+     * Parse date.
+     *
+     * @param dateStr the date str
+     * @param format  the format
+     * @return the date
+     */
     public static Date parse(String dateStr, String format) {
         try {
             return new SimpleDateFormat(format).parse(dateStr);
@@ -50,6 +86,11 @@ public class DateTimeUtil {
         return null;
     }
 
+    /**
+     * Gets month start day.
+     *
+     * @return the month start day
+     */
     public static Date getMonthStartDay() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 00:00:00");
         Calendar cale = Calendar.getInstance();
@@ -59,6 +100,11 @@ public class DateTimeUtil {
         return parse(dateStr, "yyyy-MM-dd HH:mm:ss");
     }
 
+    /**
+     * Gets month end day.
+     *
+     * @return the month end day
+     */
     public static Date getMonthEndDay() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 23:59:59");
         Calendar cale = Calendar.getInstance();
@@ -69,6 +115,11 @@ public class DateTimeUtil {
     }
 
 
+    /**
+     * Moth start to now format list.
+     *
+     * @return the list
+     */
     public static List<String> MothStartToNowFormat() {
         Date startTime = getMonthStartDay();
         Calendar nowCalendar = Calendar.getInstance();
@@ -88,6 +139,11 @@ public class DateTimeUtil {
     }
 
 
+    /**
+     * Moth day list.
+     *
+     * @return the list
+     */
     public static List<String> MothDay() {
         Calendar endCalendar = Calendar.getInstance();
         endCalendar.setTime(getMonthEndDay());

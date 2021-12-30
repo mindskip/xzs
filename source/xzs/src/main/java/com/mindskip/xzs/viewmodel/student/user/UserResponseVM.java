@@ -4,10 +4,6 @@ import com.mindskip.xzs.domain.User;
 import com.mindskip.xzs.utility.DateTimeUtil;
 import com.mindskip.xzs.viewmodel.BaseVM;
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
-
 public class UserResponseVM extends BaseVM {
 
     private Integer id;

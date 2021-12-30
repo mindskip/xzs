@@ -3,10 +3,6 @@ package com.mindskip.xzs.viewmodel.admin.user;
 import com.mindskip.xzs.base.BasePage;
 
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
-
 
 public class UserEventPageRequestVM extends BasePage {
 

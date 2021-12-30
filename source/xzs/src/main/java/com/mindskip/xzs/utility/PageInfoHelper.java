@@ -6,10 +6,22 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * @author 武汉思维跳跃科技有限公司
+ * @version 3.5.0
+ * @description:  The type Page info helper.
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
  */
 public class PageInfoHelper {
 
+    /**
+     * Copy map page info.
+     *
+     * @param <T>    the type parameter
+     * @param <J>    the type parameter
+     * @param source the source
+     * @param mapper the mapper
+     * @return the page info
+     */
     public static <T, J> PageInfo<J> copyMap(PageInfo<T> source, Function<? super T, ? extends J> mapper) {
         PageInfo<J> newPage = new PageInfo<>();
         newPage.setPageNum(source.getPageNum());

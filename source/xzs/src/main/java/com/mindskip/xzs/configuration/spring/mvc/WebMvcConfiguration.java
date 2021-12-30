@@ -10,15 +10,23 @@ import java.util.List;
 
 
 /**
- * @author 武汉思维跳跃科技有限公司
+ * @version 3.5.0
+ * @description: The type Web mvc configuration.
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
  */
-
 @Configuration
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     private final TokenHandlerInterceptor tokenHandlerInterceptor;
     private final SystemConfig systemConfig;
 
+    /**
+     * Instantiates a new Web mvc configuration.
+     *
+     * @param tokenHandlerInterceptor the token handler interceptor
+     * @param systemConfig            the system config
+     */
     @Autowired
     public WebMvcConfiguration(TokenHandlerInterceptor tokenHandlerInterceptor, SystemConfig systemConfig) {
         this.tokenHandlerInterceptor = tokenHandlerInterceptor;

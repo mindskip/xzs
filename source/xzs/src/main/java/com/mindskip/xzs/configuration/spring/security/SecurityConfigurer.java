@@ -19,13 +19,18 @@ import java.util.List;
 
 
 /**
- * @author 武汉思维跳跃科技有限公司
+ * @version 3.5.0
+ * @description: The type Security configurer.
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
  */
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfigurer {
 
+    /**
+     * The type Form login web security configurer adapter.
+     */
     @Configuration
     public static class FormLoginWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
@@ -38,6 +43,18 @@ public class SecurityConfigurer {
         private final RestLogoutSuccessHandler restLogoutSuccessHandler;
         private final RestAccessDeniedHandler restAccessDeniedHandler;
 
+        /**
+         * Instantiates a new Form login web security configurer adapter.
+         *
+         * @param systemConfig                     the system config
+         * @param restAuthenticationEntryPoint     the rest authentication entry point
+         * @param restAuthenticationProvider       the rest authentication provider
+         * @param formDetailsService               the form details service
+         * @param restAuthenticationSuccessHandler the rest authentication success handler
+         * @param restAuthenticationFailureHandler the rest authentication failure handler
+         * @param restLogoutSuccessHandler         the rest logout success handler
+         * @param restAccessDeniedHandler          the rest access denied handler
+         */
         @Autowired
         public FormLoginWebSecurityConfigurerAdapter(SystemConfig systemConfig, LoginAuthenticationEntryPoint restAuthenticationEntryPoint, RestAuthenticationProvider restAuthenticationProvider, RestDetailsServiceImpl formDetailsService, RestAuthenticationSuccessHandler restAuthenticationSuccessHandler, RestAuthenticationFailureHandler restAuthenticationFailureHandler, RestLogoutSuccessHandler restLogoutSuccessHandler, RestAccessDeniedHandler restAccessDeniedHandler) {
             this.systemConfig = systemConfig;
@@ -79,6 +96,11 @@ public class SecurityConfigurer {
         }
 
 
+        /**
+         * Cors configuration source cors configuration source.
+         *
+         * @return the cors configuration source
+         */
         @Bean
         public CorsConfigurationSource corsConfigurationSource() {
             final CorsConfiguration configuration = new CorsConfiguration();
@@ -93,6 +115,12 @@ public class SecurityConfigurer {
         }
 
 
+        /**
+         * Authentication filter rest login authentication filter.
+         *
+         * @return the rest login authentication filter
+         * @throws Exception the exception
+         */
         @Bean
         public RestLoginAuthenticationFilter authenticationFilter() throws Exception {
             RestLoginAuthenticationFilter authenticationFilter = new RestLoginAuthenticationFilter();
