@@ -8,9 +8,7 @@ import com.mindskip.xzs.utility.RsaUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
+
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
 

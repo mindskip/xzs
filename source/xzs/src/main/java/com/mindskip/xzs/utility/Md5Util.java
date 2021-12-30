@@ -11,12 +11,21 @@ import java.security.NoSuchAlgorithmException;
 
 
 /**
- * @author 武汉思维跳跃科技有限公司
+ * @version 3.5.0
+ * @description:  The type Md 5 util.
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
  */
 public class Md5Util {
 
     private static final Logger logger = LoggerFactory.getLogger(Md5Util.class);
 
+    /**
+     * Encode string.
+     *
+     * @param pwd the pwd
+     * @return the string
+     */
     public static String encode(String pwd) {
         String hash = null;
         try {
