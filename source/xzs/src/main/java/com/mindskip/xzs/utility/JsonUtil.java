@@ -11,6 +11,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+
+/**
+ * @version 3.5.0
+ * @description: The type Json util.
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
+ */
 public class JsonUtil {
     private static final ObjectMapper MAPPER = new ObjectMapper();
     private static final Logger logger = LoggerFactory.getLogger(JsonUtil.class);
@@ -19,6 +26,13 @@ public class JsonUtil {
         MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
+    /**
+     * To json str string.
+     *
+     * @param <T> the type parameter
+     * @param o   the o
+     * @return the string
+     */
     public static <T> String toJsonStr(T o) {
         try {
             return MAPPER.writeValueAsString(o);
@@ -28,6 +42,14 @@ public class JsonUtil {
         return null;
     }
 
+    /**
+     * To json object t.
+     *
+     * @param <T>       the type parameter
+     * @param json      the json
+     * @param valueType the value type
+     * @return the t
+     */
     public static <T> T toJsonObject(String json, Class<T> valueType) {
         try {
             return MAPPER.<T>readValue(json, valueType);
@@ -38,6 +60,14 @@ public class JsonUtil {
     }
 
 
+    /**
+     * To json list object list.
+     *
+     * @param <T>       the type parameter
+     * @param json      the json
+     * @param valueType the value type
+     * @return the list
+     */
     public static <T> List<T> toJsonListObject(String json, Class<T> valueType) {
         try {
             JavaType getCollectionType = MAPPER.getTypeFactory().constructParametricType(List.class, valueType);
@@ -49,6 +79,14 @@ public class JsonUtil {
         return null;
     }
 
+    /**
+     * To json object t.
+     *
+     * @param <T>       the type parameter
+     * @param stream    the stream
+     * @param valueType the value type
+     * @return the t
+     */
     public static <T> T toJsonObject(InputStream stream, Class<T> valueType) {
         try {
             T object = MAPPER.<T>readValue(stream, valueType);

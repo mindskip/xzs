@@ -9,10 +9,6 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
-
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
 

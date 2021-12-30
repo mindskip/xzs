@@ -3,7 +3,19 @@ package com.mindskip.xzs.utility;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @version 3.5.0
+ * @description: The type Html util.
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
+ */
 public class HtmlUtil {
+    /**
+     * Clear string.
+     *
+     * @param htmlStr the html str
+     * @return the string
+     */
     public static String clear(String htmlStr) {
         String regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>";
         String regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>";
