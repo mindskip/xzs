@@ -16,6 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
+/**
+ * @version 3.5.0
+ * @description: The type Token handler interceptor.
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
+ */
 @Component
 public class TokenHandlerInterceptor implements HandlerInterceptor {
 
@@ -23,6 +29,13 @@ public class TokenHandlerInterceptor implements HandlerInterceptor {
     private final UserService userService;
     private final WxContext wxContext;
 
+    /**
+     * Instantiates a new Token handler interceptor.
+     *
+     * @param userTokenService the user token service
+     * @param userService      the user service
+     * @param wxContext        the wx context
+     */
     @Autowired
     public TokenHandlerInterceptor(UserTokenService userTokenService, UserService userService, WxContext wxContext) {
         this.userTokenService = userTokenService;

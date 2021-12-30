@@ -11,11 +11,12 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
+
 /**
- * Rsa加密解密工具类
- */
-/**
- * @author 武汉思维跳跃科技有限公司
+ * @version 3.5.0
+ * @description:  Rsa加密解密工具类
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
  */
 public class RsaUtil {
     /**
@@ -27,6 +28,13 @@ public class RsaUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(RsaUtil.class);
 
+    /**
+     * Rsa encode string.
+     *
+     * @param publicCertificate the public certificate
+     * @param text              the text
+     * @return the string
+     */
     public static String rsaEncode(String publicCertificate, String text) {
         try {
             byte[] publicBytes = baseStrToByte(publicCertificate);
@@ -46,6 +54,13 @@ public class RsaUtil {
     }
 
 
+    /**
+     * Rsa decode string.
+     *
+     * @param privateCertificate the private certificate
+     * @param text               the text
+     * @return the string
+     */
     public static String rsaDecode(String privateCertificate, String text) {
         try {
             byte[] privateBytes = baseStrToByte(privateCertificate);
