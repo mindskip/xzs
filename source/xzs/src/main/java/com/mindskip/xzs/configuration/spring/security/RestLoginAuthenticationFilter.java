@@ -17,14 +17,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * 登录参数序列化
- * @author 武汉思维跳跃科技有限公司
- */
 
+/**
+ * @version 3.5.0
+ * @description: 登录参数序列化
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
+ */
 public class RestLoginAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
     private final org.slf4j.Logger logger = LoggerFactory.getLogger(RestLoginAuthenticationFilter.class);
 
+    /**
+     * Instantiates a new Rest login authentication filter.
+     */
     public RestLoginAuthenticationFilter() {
         super(new AntPathRequestMatcher("/api/user/login", "POST"));
     }
@@ -45,6 +50,11 @@ public class RestLoginAuthenticationFilter extends AbstractAuthenticationProcess
 
     }
 
+    /**
+     * Sets user details service.
+     *
+     * @param userDetailsService the user details service
+     */
     void setUserDetailsService(UserDetailsService userDetailsService) {
         RestTokenBasedRememberMeServices tokenBasedRememberMeServices = new RestTokenBasedRememberMeServices(CookieConfig.getName(), userDetailsService);
         tokenBasedRememberMeServices.setTokenValiditySeconds(CookieConfig.getInterval());

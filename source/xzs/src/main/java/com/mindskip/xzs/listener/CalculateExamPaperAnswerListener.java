@@ -18,7 +18,10 @@ import java.util.List;
 
 
 /**
- * @author 武汉思维跳跃科技有限公司
+ * @version 3.5.0
+ * @description: The type Calculate exam paper answer listener.
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
  */
 @Component
 public class CalculateExamPaperAnswerListener implements ApplicationListener<CalculateExamPaperAnswerCompleteEvent> {
@@ -28,6 +31,14 @@ public class CalculateExamPaperAnswerListener implements ApplicationListener<Cal
     private final TextContentService textContentService;
     private final TaskExamCustomerAnswerService examCustomerAnswerService;
 
+    /**
+     * Instantiates a new Calculate exam paper answer listener.
+     *
+     * @param examPaperAnswerService                 the exam paper answer service
+     * @param examPaperQuestionCustomerAnswerService the exam paper question customer answer service
+     * @param textContentService                     the text content service
+     * @param examCustomerAnswerService              the exam customer answer service
+     */
     @Autowired
     public CalculateExamPaperAnswerListener(ExamPaperAnswerService examPaperAnswerService, ExamPaperQuestionCustomerAnswerService examPaperQuestionCustomerAnswerService, TextContentService textContentService, TaskExamCustomerAnswerService examCustomerAnswerService) {
         this.examPaperAnswerService = examPaperAnswerService;

@@ -29,10 +29,6 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 @Controller("WXStudentUserController")
 @RequestMapping(value = "/api/wx/student/user")
 @ResponseBody

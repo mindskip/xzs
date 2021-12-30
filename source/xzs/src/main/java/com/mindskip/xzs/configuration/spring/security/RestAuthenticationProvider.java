@@ -21,13 +21,13 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
-/**
- * 登录用户名密码验证
- *
- * @author :  武汉思维跳跃科技有限公司
- * Description :  身份验证
- */
 
+/**
+ * @version 3.5.0
+ * @description: 登录用户名密码验证
+ * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * @date 2021/12/25 9:45
+ */
 @Component
 public class RestAuthenticationProvider implements AuthenticationProvider {
 
@@ -35,6 +35,13 @@ public class RestAuthenticationProvider implements AuthenticationProvider {
     private final UserService userService;
     private final WebContext webContext;
 
+    /**
+     * Instantiates a new Rest authentication provider.
+     *
+     * @param authenticationService the authentication service
+     * @param userService           the user service
+     * @param webContext            the web context
+     */
     @Autowired
     public RestAuthenticationProvider(AuthenticationService authenticationService, UserService userService, WebContext webContext) {
         this.authenticationService = authenticationService;
