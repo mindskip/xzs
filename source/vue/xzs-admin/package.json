@@ -45,6 +45,7 @@
         "husky": "^7.0.4",
         "js-cookie": "2.2.0",
         "jsonlint": "^1.6.3",
+        "jszip": "^3.7.1",
         "normalize.css": "8.0.1",
         "nprogress": "0.2.0",
         "screenfull": "^5.2.0",
