@@ -1,4 +1,4 @@
-import{d as n}from"./app.5e06a136.js";import{_ as s}from"./plugin-vue_export-helper.21dcd24c.js";const e={},a=n(`<h1 id="_4-3-\u7BA1\u7406\u7AEF" tabindex="-1"><a class="header-anchor" href="#_4-3-\u7BA1\u7406\u7AEF" aria-hidden="true">#</a> 4.3 \u7BA1\u7406\u7AEF</h1><h3 id="_4-3-1-\u767B\u5F55" tabindex="-1"><a class="header-anchor" href="#_4-3-1-\u767B\u5F55" aria-hidden="true">#</a> 4.3.1 \u767B\u5F55</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/user/login</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
+import{d as n}from"./app.bad701a3.js";import{_ as s}from"./plugin-vue_export-helper.21dcd24c.js";const e={},a=n(`<h1 id="_4-3-\u7BA1\u7406\u7AEF" tabindex="-1"><a class="header-anchor" href="#_4-3-\u7BA1\u7406\u7AEF" aria-hidden="true">#</a> 4.3 \u7BA1\u7406\u7AEF</h1><h3 id="_4-3-1-\u767B\u5F55" tabindex="-1"><a class="header-anchor" href="#_4-3-1-\u767B\u5F55" aria-hidden="true">#</a> 4.3.1 \u767B\u5F55</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/user/login</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
     &quot;userName&quot;: &quot;admin&quot;,  //\u7528\u6237\u540D
     &quot;password&quot;: &quot;&quot;,  //\u5BC6\u7801
     &quot;remember&quot;: false  //\u8BB0\u4F4F\u6211
@@ -709,7 +709,7 @@ import{d as n}from"./app.5e06a136.js";import{_ as s}from"./plugin-vue_export-hel
     &quot;age&quot;: 30, //\u5E74\u9F84
     &quot;role&quot;: 3, //\u89D2\u8272
     &quot;sex&quot;: 1, //\u6027\u522B
-    &quot;birthDay&quot;: &quot;2019-09-07 18:56:07&quot;,  //\u51FA\u751F\u65E5\u671F
+    &quot;birthDay&quot;: &quot;2021-09-07 18:56:07&quot;,  //\u51FA\u751F\u65E5\u671F
     &quot;phone&quot;: &quot;2112112&quot;, //\u624B\u673A\u53F7
     &quot;lastActiveTime&quot;: &quot;&quot;, //\u6700\u540E\u6D3B\u52A8\u65F6\u95F4
     &quot;createTime&quot;: &quot;2019-09-07 18:56:21&quot;,  //\u521B\u5EFA\u65F6\u95F4
