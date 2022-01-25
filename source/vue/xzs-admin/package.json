@@ -40,6 +40,7 @@
         "core-js": "^3.20.3",
         "driver.js": "^0.9.8",
         "dropzone": "^5.9.3",
+        "echarts": "^5.2.2",
         "element-ui": "^2.15.6",
         "file-saver": "^2.0.5",
         "husky": "^7.0.4",
