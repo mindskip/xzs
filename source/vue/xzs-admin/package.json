@@ -43,6 +43,7 @@
         "echarts": "^5.3.0",
         "element-ui": "^2.15.6",
         "file-saver": "^2.0.5",
+        "fuse.js": "^6.5.3",
         "husky": "^7.0.4",
         "js-cookie": "2.2.0",
         "jsonlint": "^1.6.3",
