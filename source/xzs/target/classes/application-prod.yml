@@ -1,0 +1,8 @@
+logging:
+  path: /usr/log/xzs/
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/xzs
+    username: postgres
+    password: 123456
