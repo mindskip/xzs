@@ -17,10 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitee.com/mindskip/uexam.git"
+    "url": "git+https://gitee.com/mindskip/xzs-mysql.git"
   },
   "bugs": {
-    "url": "https://gitee.com/mindskip/uexam/issues",
+    "url": "https://gitee.com/mindskip/xzs-mysql/issues",
     "email": "mindskip@qq.com"
   },
   "husky": {
