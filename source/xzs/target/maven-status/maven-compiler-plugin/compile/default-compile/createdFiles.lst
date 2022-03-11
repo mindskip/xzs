@@ -178,7 +178,6 @@ com\mindskip\xzs\utility\PageInfoHelper.class
 com\mindskip\xzs\viewmodel\student\dashboard\PaperInfoVM.class
 com\mindskip\xzs\service\SubjectService.class
 com\mindskip\xzs\configuration\spring\security\RestUtil.class
-com\mindskip\xzs\utility\Md5Util.class
 com\mindskip\xzs\controller\admin\TaskController.class
 com\mindskip\xzs\service\TaskExamService.class
 com\mindskip\xzs\viewmodel\admin\file\UploadResultVM.class
