@@ -58,11 +58,11 @@
         "vuex": "^3.6.2"
     },
     "devDependencies": {
-        "@vue/cli-plugin-babel": "^4.5.15",
-        "@vue/cli-plugin-eslint": "^4.5.15",
-        "@vue/cli-plugin-router": "^4.5.15",
-        "@vue/cli-plugin-vuex": "^4.5.15",
-        "@vue/cli-service": "^4.5.15",
+        "@vue/cli-plugin-babel": "^4.5.16",
+        "@vue/cli-plugin-eslint": "^4.5.16",
+        "@vue/cli-plugin-router": "^4.5.16",
+        "@vue/cli-plugin-vuex": "^4.5.16",
+        "@vue/cli-service": "^4.5.16",
         "@vue/eslint-config-standard": "^4.0.0",
         "babel-eslint": "^10.1.0",
         "eslint": "^5.16.0",
