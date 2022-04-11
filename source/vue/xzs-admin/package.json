@@ -1,6 +1,6 @@
 {
     "name": "xzs-admin",
-    "version": "3.6.0",
+    "version": "3.7.0",
     "author": "武汉思维跳跃科技有限公司",
     "description": "学之思管理系统",
     "license": "AGPL-3.0",
@@ -17,10 +17,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/mindskip/xzs.git"
+        "url": "git+https://gitee.com/mindskip/xzs-mysql.git"
     },
     "bugs": {
-        "url": "https://github.com/mindskip/xzs/issues",
+        "url": "https://gitee.com/mindskip/xzs-mysql/issues",
         "email": "mindskip@qq.com"
     },
     "husky": {
@@ -51,6 +51,7 @@
         "jszip": "^3.7.1",
         "normalize.css": "8.0.1",
         "nprogress": "0.2.0",
+        "path-to-regexp": "^6.2.0",
         "screenfull": "^5.2.0",
         "vue": "^2.6.14",
         "vue-count-to": "^1.0.13",
