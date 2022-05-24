@@ -1,4 +1,4 @@
-import{d as n}from"./app.c08ea582.js";import{_ as s}from"./plugin-vue_export-helper.21dcd24c.js";const e={},a=n(`<h1 id="_4-1-\u5B66\u751F\u7AEF" tabindex="-1"><a class="header-anchor" href="#_4-1-\u5B66\u751F\u7AEF" aria-hidden="true">#</a> 4.1 \u5B66\u751F\u7AEF</h1><h3 id="_4-1-1-\u767B\u5F55" tabindex="-1"><a class="header-anchor" href="#_4-1-1-\u767B\u5F55" aria-hidden="true">#</a> 4.1.1 \u767B\u5F55</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/user/login</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
+import{d as n}from"./app.12d2a8de.js";import{_ as s}from"./plugin-vue_export-helper.21dcd24c.js";const e={},a=n(`<h1 id="_4-1-\u5B66\u751F\u7AEF" tabindex="-1"><a class="header-anchor" href="#_4-1-\u5B66\u751F\u7AEF" aria-hidden="true">#</a> 4.1 \u5B66\u751F\u7AEF</h1><h3 id="_4-1-1-\u767B\u5F55" tabindex="-1"><a class="header-anchor" href="#_4-1-1-\u767B\u5F55" aria-hidden="true">#</a> 4.1.1 \u767B\u5F55</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/user/login</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
     &quot;userName&quot;: &quot;student&quot;,  //\u7528\u6237\u540D
     &quot;password&quot;: &quot;&quot;,  //\u5BC6\u7801
     &quot;remember&quot;: false  //\u4E0B\u6B21\u81EA\u52A8\u767B\u5F55
@@ -35,7 +35,7 @@ import{d as n}from"./app.c08ea582.js";import{_ as s}from"./plugin-vue_export-hel
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="_4-1-5-\u4EFB\u52A1\u4E2D\u5FC3" tabindex="-1"><a class="header-anchor" href="#_4-1-5-\u4EFB\u52A1\u4E2D\u5FC3" aria-hidden="true">#</a> 4.1.5 \u4EFB\u52A1\u4E2D\u5FC3</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/student/dashboard/task</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A\u65E0</li><li>\u8FD4\u56DE\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>[
         {
-            &quot;id&quot;: 20,  //\u4EFB\u52A1id
+            &quot;id&quot;: 25,  //\u4EFB\u52A1id
             &quot;title&quot;: &quot;2021-04-25\u4F5C\u4E1A&quot;,  //\u4EFB\u52A1\u6807\u9898
             &quot;paperItems&quot;: [
                 {
@@ -88,7 +88,7 @@ import{d as n}from"./app.c08ea582.js";import{_ as s}from"./plugin-vue_export-hel
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 20,  //\u8BD5\u5377id
+        &quot;id&quot;: 25,  //\u8BD5\u5377id
         &quot;level&quot;: 1,  //\u5E74\u7EA7
         &quot;subjectId&quot;: 1,  //\u5B66\u79D1
         &quot;paperType&quot;: 1,  //\u8BD5\u5377\u7C7B\u578B
@@ -100,7 +100,7 @@ import{d as n}from"./app.c08ea582.js";import{_ as s}from"./plugin-vue_export-hel
                 &quot;name&quot;: &quot;\u4E00\u3001\u9009\u62E9\u9898&quot;,  //\u8BD5\u5377\u6807\u9898
                 &quot;questionItems&quot;: [
                     {
-                        &quot;id&quot;: 20,      //\u9898\u76EEid
+                        &quot;id&quot;: 25,      //\u9898\u76EEid
                         &quot;questionType&quot;: 5,  //\u9898\u578B
                         &quot;subjectId&quot;: 1,  //\u5B66\u79D1
                         &quot;title&quot;: &quot;\u9ED8\u5199\u548F\u9E45&quot;,  //\u6807\u9898
@@ -146,7 +146,7 @@ import{d as n}from"./app.c08ea582.js";import{_ as s}from"./plugin-vue_export-hel
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
         &quot;paper&quot;: {  //\u8BD5\u5377\u4FE1\u606F
-            &quot;id&quot;: 20,  //\u8BD5\u5377id
+            &quot;id&quot;: 25,  //\u8BD5\u5377id
             &quot;level&quot;: 1, //\u5E74\u7EA7
             &quot;subjectId&quot;: 1,  //\u5B66\u79D1
             &quot;paperType&quot;: 4,  //\u8BD5\u5377\u7C7B\u578B
@@ -161,7 +161,7 @@ import{d as n}from"./app.c08ea582.js";import{_ as s}from"./plugin-vue_export-hel
                     &quot;name&quot;: &quot;\u4E00\u3001\u5B8C\u6210\u9898\u76EE&quot;,  //\u6807\u9898
                     &quot;questionItems&quot;: [   //\u9898\u76EE\u5217\u8868
                         {
-                            &quot;id&quot;: 20,  //\u9898\u76EEid
+                            &quot;id&quot;: 25,  //\u9898\u76EEid
                             &quot;questionType&quot;: 4,   //\u9898\u76EE\u7C7B\u578B
                             &quot;subjectId&quot;: 1,  //\u5B66\u79D1
                             &quot;title&quot;: &quot;\u66F2\u9879\u5411\u5929\u6B4C\u7EA2\u638C\u62E8\u6E05\u6CE2&quot;,  //\u9898\u76EE\u6807\u9898
@@ -194,12 +194,12 @@ import{d as n}from"./app.c08ea582.js";import{_ as s}from"./plugin-vue_export-hel
             &quot;score&quot;: &quot;18&quot;   //\u8BD5\u5377\u5206\u6570
         },
         &quot;answer&quot;: {  //\u7B54\u5377\u4FE1\u606F
-            &quot;id&quot;: 20,  //\u7B54\u5377id
+            &quot;id&quot;: 25,  //\u7B54\u5377id
             &quot;doTime&quot;: 14,  //\u8017\u65F6
             &quot;score&quot;: &quot;2&quot;,  //\u5F97\u5206
             &quot;answerItems&quot;: [   //\u7B54\u9898\u4FE1\u606F
                 {
-                    &quot;id&quot;: 20,  //\u7B54\u9898id
+                    &quot;id&quot;: 25,  //\u7B54\u9898id
                     &quot;questionId&quot;: 4,  //\u9898\u76EEid
                     &quot;doRight&quot;: null,  //\u662F\u5426\u6B63\u786E
                     &quot;content&quot;: null, //\u7B54\u9898\u5185\u5BB9
@@ -216,12 +216,12 @@ import{d as n}from"./app.c08ea582.js";import{_ as s}from"./plugin-vue_export-hel
     }
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br></div></div><h3 id="_4-1-11-\u8BD5\u5377\u6279\u6539" tabindex="-1"><a class="header-anchor" href="#_4-1-11-\u8BD5\u5377\u6279\u6539" aria-hidden="true">#</a> 4.1.11 \u8BD5\u5377\u6279\u6539</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/student/exampaper/answer/edit</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
-    &quot;id&quot;: 20,  //\u7B54\u5377id
+    &quot;id&quot;: 25,  //\u7B54\u5377id
     &quot;doTime&quot;: 14,  //\u8017\u65F6
     &quot;score&quot;: &quot;2&quot;,  //\u5F97\u5206\u6570
     &quot;answerItems&quot;: [
         {
-            &quot;id&quot;: 20, //\u7B54\u9898id
+            &quot;id&quot;: 25, //\u7B54\u9898id
             &quot;questionId&quot;: 4, //\u9898\u76EEid
             &quot;doRight&quot;: null,  //\u662F\u5426\u6B63\u786E
             &quot;content&quot;: null,  //\u7B54\u9898\u5185\u5BB9
@@ -347,7 +347,7 @@ import{d as n}from"./app.c08ea582.js";import{_ as s}from"./plugin-vue_export-hel
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 20,
+        &quot;id&quot;: 25,
         &quot;userUuid&quot;: &quot;d2d29da2-dcb3-4013-b874-727626236f47&quot;,
         &quot;userName&quot;: &quot;student&quot;,  //\u7528\u6237\u540D
         &quot;realName&quot;: &quot;Test&quot;,  //\u771F\u5B9E\u59D3\u540D
@@ -366,7 +366,7 @@ import{d as n}from"./app.c08ea582.js";import{_ as s}from"./plugin-vue_export-hel
     }
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h3 id="_4-1-17-\u4FEE\u6539\u7528\u6237\u4FE1\u606F" tabindex="-1"><a class="header-anchor" href="#_4-1-17-\u4FEE\u6539\u7528\u6237\u4FE1\u606F" aria-hidden="true">#</a> 4.1.17 \u4FEE\u6539\u7528\u6237\u4FE1\u606F</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/student/user/update</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
-    &quot;id&quot;: 20,
+    &quot;id&quot;: 25,
     &quot;userUuid&quot;: &quot;d2d29da2-dcb3-4013-b874-727626236f47&quot;,
     &quot;userName&quot;: &quot;student&quot;,  //\u7528\u6237\u540D
     &quot;realName&quot;: &quot;Test&quot;,  //\u771F\u5B9E\u59D3\u540D
@@ -399,7 +399,7 @@ import{d as n}from"./app.c08ea582.js";import{_ as s}from"./plugin-vue_export-hel
         &quot;total&quot;: 5,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 20,
+                &quot;id&quot;: 25,
                 &quot;title&quot;: &quot;rwerw&quot;,   //\u6D88\u606F\u6807\u9898
                 &quot;messageId&quot;: 10,
                 &quot;content&quot;: &quot;sfsdf&quot;,  //\u6D88\u606F\u5185\u5BB9
