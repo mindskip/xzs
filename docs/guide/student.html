@@ -23,7 +23,7 @@
 			}
     </script>
     <link rel="icon" href="https://www.mindskip.net/style/images/favicon.png"><title>4.1 学生端 | 学之思教程</title><meta name="description" content="学之思开发部署教程">
-    <link rel="modulepreload" href="/xzs/assets/app.07a94e02.js"><link rel="modulepreload" href="/xzs/assets/student.html.604e442d.js"><link rel="modulepreload" href="/xzs/assets/student.html.5842ac68.js"><link rel="modulepreload" href="/xzs/assets/plugin-vue_export-helper.21dcd24c.js">
+    <link rel="modulepreload" href="/xzs/assets/app.6ca37457.js"><link rel="modulepreload" href="/xzs/assets/student.html.604e442d.js"><link rel="modulepreload" href="/xzs/assets/student.html.08d70321.js"><link rel="modulepreload" href="/xzs/assets/plugin-vue_export-helper.21dcd24c.js">
     <link rel="stylesheet" href="/xzs/assets/style.9006ea3b.css">
   </head>
   <body>
@@ -64,7 +64,7 @@
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="_4-1-5-任务中心" tabindex="-1"><a class="header-anchor" href="#_4-1-5-任务中心" aria-hidden="true">#</a> 4.1.5 任务中心</h3><ul><li>接口地址：/api/student/dashboard/task</li><li>请求参数：无</li><li>返回参数：</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>[
         {
-            &quot;id&quot;: 9,  //任务id
+            &quot;id&quot;: 61,  //任务id
             &quot;title&quot;: &quot;2021-04-25作业&quot;,  //任务标题
             &quot;paperItems&quot;: [
                 {
@@ -117,7 +117,7 @@
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;成功&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 9,  //试卷id
+        &quot;id&quot;: 61,  //试卷id
         &quot;level&quot;: 1,  //年级
         &quot;subjectId&quot;: 1,  //学科
         &quot;paperType&quot;: 1,  //试卷类型
@@ -129,7 +129,7 @@
                 &quot;name&quot;: &quot;一、选择题&quot;,  //试卷标题
                 &quot;questionItems&quot;: [
                     {
-                        &quot;id&quot;: 9,      //题目id
+                        &quot;id&quot;: 61,      //题目id
                         &quot;questionType&quot;: 5,  //题型
                         &quot;subjectId&quot;: 1,  //学科
                         &quot;title&quot;: &quot;默写咏鹅&quot;,  //标题
@@ -175,7 +175,7 @@
     &quot;message&quot;: &quot;成功&quot;,
     &quot;response&quot;: {
         &quot;paper&quot;: {  //试卷信息
-            &quot;id&quot;: 9,  //试卷id
+            &quot;id&quot;: 61,  //试卷id
             &quot;level&quot;: 1, //年级
             &quot;subjectId&quot;: 1,  //学科
             &quot;paperType&quot;: 4,  //试卷类型
@@ -190,7 +190,7 @@
                     &quot;name&quot;: &quot;一、完成题目&quot;,  //标题
                     &quot;questionItems&quot;: [   //题目列表
                         {
-                            &quot;id&quot;: 9,  //题目id
+                            &quot;id&quot;: 61,  //题目id
                             &quot;questionType&quot;: 4,   //题目类型
                             &quot;subjectId&quot;: 1,  //学科
                             &quot;title&quot;: &quot;曲项向天歌红掌拨清波&quot;,  //题目标题
@@ -223,12 +223,12 @@
             &quot;score&quot;: &quot;18&quot;   //试卷分数
         },
         &quot;answer&quot;: {  //答卷信息
-            &quot;id&quot;: 9,  //答卷id
+            &quot;id&quot;: 61,  //答卷id
             &quot;doTime&quot;: 14,  //耗时
             &quot;score&quot;: &quot;2&quot;,  //得分
             &quot;answerItems&quot;: [   //答题信息
                 {
-                    &quot;id&quot;: 9,  //答题id
+                    &quot;id&quot;: 61,  //答题id
                     &quot;questionId&quot;: 4,  //题目id
                     &quot;doRight&quot;: null,  //是否正确
                     &quot;content&quot;: null, //答题内容
@@ -245,12 +245,12 @@
     }
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br></div></div><h3 id="_4-1-11-试卷批改" tabindex="-1"><a class="header-anchor" href="#_4-1-11-试卷批改" aria-hidden="true">#</a> 4.1.11 试卷批改</h3><ul><li>接口地址：/api/student/exampaper/answer/edit</li><li>请求参数：</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
-    &quot;id&quot;: 9,  //答卷id
+    &quot;id&quot;: 61,  //答卷id
     &quot;doTime&quot;: 14,  //耗时
     &quot;score&quot;: &quot;2&quot;,  //得分数
     &quot;answerItems&quot;: [
         {
-            &quot;id&quot;: 9, //答题id
+            &quot;id&quot;: 61, //答题id
             &quot;questionId&quot;: 4, //题目id
             &quot;doRight&quot;: null,  //是否正确
             &quot;content&quot;: null,  //答题内容
@@ -376,7 +376,7 @@
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;成功&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 9,
+        &quot;id&quot;: 61,
         &quot;userUuid&quot;: &quot;d2d29da2-dcb3-4013-b874-727626236f47&quot;,
         &quot;userName&quot;: &quot;student&quot;,  //用户名
         &quot;realName&quot;: &quot;Test&quot;,  //真实姓名
@@ -395,7 +395,7 @@
     }
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h3 id="_4-1-17-修改用户信息" tabindex="-1"><a class="header-anchor" href="#_4-1-17-修改用户信息" aria-hidden="true">#</a> 4.1.17 修改用户信息</h3><ul><li>接口地址：/api/student/user/update</li><li>请求参数：</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
-    &quot;id&quot;: 9,
+    &quot;id&quot;: 61,
     &quot;userUuid&quot;: &quot;d2d29da2-dcb3-4013-b874-727626236f47&quot;,
     &quot;userName&quot;: &quot;student&quot;,  //用户名
     &quot;realName&quot;: &quot;Test&quot;,  //真实姓名
@@ -428,7 +428,7 @@
         &quot;total&quot;: 5,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 9,
+                &quot;id&quot;: 61,
                 &quot;title&quot;: &quot;rwerw&quot;,   //消息标题
                 &quot;messageId&quot;: 10,
                 &quot;content&quot;: &quot;sfsdf&quot;,  //消息内容
@@ -450,6 +450,6 @@
     &quot;response&quot;: 0  //未读消息数量
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">上次更新: </span><!----></div><!----></footer><nav class="page-nav"><p class="inner"><!----><span class="next"><a href="/xzs/guide/wx.html" class="" aria-label="4.2 小程序"><!--[--><!--]--> 4.2 小程序 <!--[--><!--]--></a></span></p></nav><!--[--><!--]--></main><!--]--></div><!----><!--]--></div>
-    <script type="module" src="/xzs/assets/app.07a94e02.js" defer></script>
+    <script type="module" src="/xzs/assets/app.6ca37457.js" defer></script>
   </body>
 </html>
