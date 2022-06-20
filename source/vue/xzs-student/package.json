@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "core-js": "^3.22.5",
+    "core-js": "^3.23.1",
     "element-ui": "^2.15.8",
     "husky": "^7.0.4",
     "js-cookie": "2.2.0",
@@ -48,11 +48,11 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.17",
-    "@vue/cli-plugin-eslint": "^4.5.17",
-    "@vue/cli-plugin-router": "^4.5.17",
-    "@vue/cli-plugin-vuex": "^4.5.17",
-    "@vue/cli-service": "^4.5.17",
+    "@vue/cli-plugin-babel": "^4.5.18",
+    "@vue/cli-plugin-eslint": "^4.5.18",
+    "@vue/cli-plugin-router": "^4.5.18",
+    "@vue/cli-plugin-vuex": "^4.5.18",
+    "@vue/cli-service": "^4.5.18",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
