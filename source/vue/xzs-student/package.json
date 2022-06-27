@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "core-js": "^3.23.1",
+    "core-js": "^3.23.3",
     "element-ui": "^2.15.8",
     "husky": "^7.0.4",
     "js-cookie": "2.2.0",
