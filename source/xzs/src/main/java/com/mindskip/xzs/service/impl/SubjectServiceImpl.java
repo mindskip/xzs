@@ -7,8 +7,6 @@ import com.mindskip.xzs.viewmodel.admin.education.SubjectPageRequestVM;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +14,6 @@ import java.util.List;
 @Service
 public class SubjectServiceImpl extends BaseServiceImpl<Subject> implements SubjectService {
 
-    private final static String CACHE_NAME = "xzs:subject";
     private final SubjectMapper subjectMapper;
 
     @Autowired
@@ -26,13 +23,11 @@ public class SubjectServiceImpl extends BaseServiceImpl<Subject> implements Subj
     }
 
     @Override
-    @Cacheable(value = CACHE_NAME, key = "#id", unless = "#result == null")
     public Subject selectById(Integer id) {
         return super.selectById(id);
     }
 
     @Override
-    @CacheEvict(value = CACHE_NAME, key = "#record.id")
     public int updateByIdFilter(Subject record) {
         return super.updateByIdFilter(record);
     }
