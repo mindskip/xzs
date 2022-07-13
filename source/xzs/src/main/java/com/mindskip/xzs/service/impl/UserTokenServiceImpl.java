@@ -8,8 +8,6 @@ import com.mindskip.xzs.service.UserService;
 import com.mindskip.xzs.service.UserTokenService;
 import com.mindskip.xzs.utility.DateTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +17,6 @@ import java.util.UUID;
 @Service
 public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements UserTokenService {
 
-    private final static String CACHE_NAME = "xzs:token";
     private final UserTokenMapper userTokenMapper;
     private final UserService userService;
     private final SystemConfig systemConfig;
@@ -52,13 +49,11 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
     }
 
     @Override
-    @Cacheable(value = CACHE_NAME, key = "#token", unless = "#result == null")
     public UserToken getToken(String token) {
         return userTokenMapper.getToken(token);
     }
 
     @Override
-    @Cacheable(value = CACHE_NAME, key = "#result.token", unless = "#result == null")
     public UserToken insertUserToken(User user) {
         Date startTime = new Date();
         Date endTime = DateTimeUtil.addDuration(startTime, systemConfig.getWx().getTokenToLive());
@@ -75,7 +70,6 @@ public class UserTokenServiceImpl extends BaseServiceImpl<UserToken> implements 
     }
 
     @Override
-    @CacheEvict(value = CACHE_NAME, key = "#userToken.token")
     public void unBind(UserToken userToken) {
         User user = userService.selectById(userToken.getUserId());
         user.setModifyTime(new Date());
