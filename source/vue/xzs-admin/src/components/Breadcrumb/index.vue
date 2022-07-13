@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import pathToRegexp from 'path-to-regexp'
+import * as pathToRegexp from 'path-to-regexp'
 
 export default {
   data () {
