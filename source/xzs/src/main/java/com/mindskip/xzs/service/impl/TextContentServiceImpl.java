@@ -5,8 +5,6 @@ import com.mindskip.xzs.repository.TextContentMapper;
 import com.mindskip.xzs.service.TextContentService;
 import com.mindskip.xzs.utility.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -17,7 +15,6 @@ import java.util.stream.Collectors;
 @Service
 public class TextContentServiceImpl extends BaseServiceImpl<TextContent> implements TextContentService {
 
-    private final static String CACHE_NAME = "xzs:textcontent";
     private final TextContentMapper textContentMapper;
 
     @Autowired
@@ -27,7 +24,6 @@ public class TextContentServiceImpl extends BaseServiceImpl<TextContent> impleme
     }
 
     @Override
-    @Cacheable(value = CACHE_NAME, key = "#id", unless = "#result == null")
     public TextContent selectById(Integer id) {
         return super.selectById(id);
     }
@@ -38,7 +34,6 @@ public class TextContentServiceImpl extends BaseServiceImpl<TextContent> impleme
     }
 
     @Override
-    @CacheEvict(value = CACHE_NAME, key = "#record.id")
     public int updateByIdFilter(TextContent record) {
         return super.updateByIdFilter(record);
     }
@@ -53,7 +48,6 @@ public class TextContentServiceImpl extends BaseServiceImpl<TextContent> impleme
             frameTextContent = JsonUtil.toJsonStr(mapList);
         }
         TextContent textContent = new TextContent(frameTextContent, now);
-        //insertByFilter(textContent);  cache useless
         return textContent;
     }
 
@@ -67,7 +61,6 @@ public class TextContentServiceImpl extends BaseServiceImpl<TextContent> impleme
             frameTextContent = JsonUtil.toJsonStr(mapList);
         }
         textContent.setContent(frameTextContent);
-        //this.updateByIdFilter(textContent);  cache useless
         return textContent;
     }
 
