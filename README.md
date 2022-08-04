@@ -31,8 +31,11 @@
 * 维多多培训考试系统：[https://www.mindskip.net/wdd.html](https://www.mindskip.net/wdd.html)
 * 思多多智能考试系统：[https://www.mindskip.net/sdd.html](https://www.mindskip.net/sdd.html)
 
-### 学之思交流群(加群获取数据库脚本)
+### 文档视频教程
 
+* 数据库脚本下载地址：[https://www.mindskip.net:888](https://www.mindskip.net:888)
+* 文档教程：[https://www.mindskip.net:888](https://www.mindskip.net:888)
+* 视频教程：[https://ke.qq.com/course/3614230](https://ke.qq.com/course/3614230)
 * QQ交流群16：`556522923`
 * 商务QQ：`2732007709`
 * 商务微信：`mind_skip`
@@ -45,10 +48,6 @@
 * github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 * github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
 
-### 开发部署教程
-
-* 文档教程：[https://www.mindskip.net:888](https://www.mindskip.net:888)
-* 视频教程：[https://ke.qq.com/course/3614230](https://ke.qq.com/course/3614230)
 
 ### 学生系统功能
 
