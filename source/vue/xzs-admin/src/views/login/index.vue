@@ -52,7 +52,7 @@
     </el-form>
 
     <div class="account-foot-copyright">
-      <span>Copyright © 2021 武汉思维跳跃科技有限公司 版权所有</span>
+      <span>Copyright ©2019-2022 武汉思维跳跃科技有限公司 版权所有</span>
     </div>
   </div>
 </template>
