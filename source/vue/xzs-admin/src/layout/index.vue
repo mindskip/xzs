@@ -9,7 +9,7 @@
       </div>
       <app-main />
       <div class="foot-copyright">
-        <span>Copyright © 2021 武汉思维跳跃科技有限公司 版权所有</span>
+        <span>Copyright ©2019-2022 武汉思维跳跃科技有限公司 版权所有</span>
       </div>
       <back-to-top :visibility-height="100" :back-position="0" transition-name="fade" ref="backTop"/>
     </div>
