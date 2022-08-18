@@ -3,7 +3,7 @@
 
 <p align="center">
 <a href="https://www.mindskip.net" target="_blank">
- <img src="docs/images/logo/1.png" height="80"/>
+ <img src="https://www.mindskip.net/style/git/images/logo/1.png" height="80"/>
 <a/>
 </p>
 
@@ -109,24 +109,24 @@
 * 学生考试系统
 <table>
     <tr>
-        <td><img src="docs/images/student/1.png"/></td>
-        <td><img src="docs/images/student/2.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/student/1.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/student/2.png"/></td>
     </tr>
 </table>
 
 *  小程序考试系统
 <table>
     <tr>
-        <td><img src="docs/images/wx/student/1.png"/></td>
-        <td><img src="docs/images/wx/student/2.png"/></td>
-        <td><img src="docs/images/wx/student/3.png"/></td>
-        <td><img src="docs/images/wx/student/4.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/wx/student/1.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/wx/student/2.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/wx/student/3.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/wx/student/4.png"/></td>
     </tr>
     <tr>
-        <td><img src="docs/images/wx/student/5.png"/></td>
-        <td><img src="docs/images/wx/student/8.png"/></td>
-        <td><img src="docs/images/wx/student/6.png"/></td>
-        <td><img src="docs/images/wx/student/7.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/wx/student/5.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/wx/student/8.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/wx/student/6.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/wx/student/7.png"/></td>
     </tr>
 </table>
 
@@ -134,7 +134,7 @@
 
 <table>
     <tr>
-        <td><img src="docs/images/admin/1.png"/></td>
-        <td><img src="docs/images/admin/2.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/admin/1.png"/></td>
+        <td><img src="https://www.mindskip.net/style/git/images/admin/2.png"/></td>
     </tr>
 </table>
