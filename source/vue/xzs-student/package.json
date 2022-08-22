@@ -43,7 +43,7 @@
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",
     "screenfull": "^5.2.0",
-    "vue": "^2.7.8",
+    "vue": "^2.7.9",
     "vue-router": "^3.5.4",
     "vuex": "^3.6.2"
   },
@@ -60,6 +60,6 @@
     "node-sass": "^6.0.1",
     "sass-loader": "^10.3.1",
     "svg-sprite-loader": "4.1.6",
-    "vue-template-compiler": "^2.7.8"
+    "vue-template-compiler": "^2.7.9"
   }
 }
