@@ -36,15 +36,15 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "core-js": "^3.24.1",
+    "core-js": "^3.25.0",
     "element-ui": "^2.15.9",
     "husky": "^7.0.4",
     "js-cookie": "2.2.0",
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",
     "screenfull": "^5.2.0",
-    "vue": "^2.7.9",
-    "vue-router": "^3.5.4",
+    "vue": "^2.7.10",
+    "vue-router": "^3.6.4",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
@@ -60,6 +60,6 @@
     "node-sass": "^6.0.1",
     "sass-loader": "^10.3.1",
     "svg-sprite-loader": "4.1.6",
-    "vue-template-compiler": "^2.7.9"
+    "vue-template-compiler": "^2.7.10"
   }
 }
