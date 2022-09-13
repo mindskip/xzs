@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "core-js": "^3.25.0",
+    "core-js": "^3.25.1",
     "element-ui": "^2.15.9",
     "husky": "^7.0.4",
     "js-cookie": "2.2.0",
@@ -44,7 +44,7 @@
     "nprogress": "0.2.0",
     "screenfull": "^5.2.0",
     "vue": "^2.7.10",
-    "vue-router": "^3.6.4",
+    "vue-router": "^3.6.5",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
