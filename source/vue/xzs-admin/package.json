@@ -54,7 +54,7 @@
         "path-to-regexp": "^6.2.1",
         "screenfull": "^5.2.0",
         "script-loader": "^0.7.2",
-        "vue": "^2.7.10",
+        "vue": "^2.7.13",
         "vue-count-to": "^1.0.13",
         "vue-router": "^3.6.5",
         "vuex": "^3.6.2",
@@ -73,6 +73,6 @@
         "node-sass": "^6.0.1",
         "sass-loader": "^10.3.1",
         "svg-sprite-loader": "4.1.6",
-        "vue-template-compiler": "^2.7.10"
+        "vue-template-compiler": "^2.7.13"
     }
 }
