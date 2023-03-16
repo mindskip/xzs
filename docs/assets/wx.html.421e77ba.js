@@ -1,4 +1,4 @@
-import{_ as e,o as i,c as n,e as u}from"./app.685763fd.js";const d={},s=u(`<h1 id="_4-2-\u5C0F\u7A0B\u5E8F" tabindex="-1"><a class="header-anchor" href="#_4-2-\u5C0F\u7A0B\u5E8F" aria-hidden="true">#</a> 4.2 \u5C0F\u7A0B\u5E8F</h1><h3 id="_4-2-1-\u767B\u5F55" tabindex="-1"><a class="header-anchor" href="#_4-2-1-\u767B\u5F55" aria-hidden="true">#</a> 4.2.1 \u767B\u5F55</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/wx/student/auth/bind</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>     userName: student  //\u7528\u6237\u540D
+import{_ as e,o as i,c as n,e as u}from"./app.09cf822d.js";const d={},s=u(`<h1 id="_4-2-\u5C0F\u7A0B\u5E8F" tabindex="-1"><a class="header-anchor" href="#_4-2-\u5C0F\u7A0B\u5E8F" aria-hidden="true">#</a> 4.2 \u5C0F\u7A0B\u5E8F</h1><h3 id="_4-2-1-\u767B\u5F55" tabindex="-1"><a class="header-anchor" href="#_4-2-1-\u767B\u5F55" aria-hidden="true">#</a> 4.2.1 \u767B\u5F55</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/wx/student/auth/bind</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>     userName: student  //\u7528\u6237\u540D
      password: 123456   //\u5BC6\u7801
      code: 023BNuFa1CQ14B07KVHa16RHM94BNuF0   //\u6388\u6743\u7801
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul><li>\u8FD4\u56DE\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
@@ -33,7 +33,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.685763fd.js";const d={},s=u(`<h1 i
     &quot;response&quot;: {
         &quot;fixedPaper&quot;: [  //\u56FA\u5B9A\u8BD5\u5377
             {
-                &quot;id&quot;: 78,  //\u8BD5\u5377id
+                &quot;id&quot;: 50,  //\u8BD5\u5377id
                 &quot;name&quot;: &quot;aaa&quot;,  //\u8BD5\u5377\u540D\u79F0
                 &quot;limitStartTime&quot;: null,
                 &quot;limitEndTime&quot;: null
@@ -41,7 +41,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.685763fd.js";const d={},s=u(`<h1 i
         ],
         &quot;timeLimitPaper&quot;: [  //\u65F6\u6BB5\u8BD5\u5377
             {
-                &quot;id&quot;: 78,  //\u8BD5\u5377id
+                &quot;id&quot;: 50,  //\u8BD5\u5377id
                 &quot;name&quot;: &quot;202008705&quot;,  //\u8BD5\u5377\u540D\u79F0
                 &quot;limitStartTime&quot;: 1600704000000,
                 &quot;limitEndTime&quot;: 1664985600000,
@@ -64,7 +64,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.685763fd.js";const d={},s=u(`<h1 i
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: [
         {
-            &quot;id&quot;: 78,
+            &quot;id&quot;: 50,
             &quot;title&quot;: &quot;\u57FA\u7840\u4EFB\u52A1&quot;, //\u4EFB\u52A1\u6807\u9898
             &quot;paperItems&quot;: [
                 {
@@ -87,7 +87,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.685763fd.js";const d={},s=u(`<h1 i
         &quot;total&quot;: 9,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 78,
+                &quot;id&quot;: 50,
                 &quot;name&quot;: &quot;\u56FA\u5B9A\u8BD5\u5377&quot;, //\u8BD5\u5377\u540D\u79F0
                 &quot;questionCount&quot;: 1, //\u9898\u76EE\u6570\u91CF
                 &quot;score&quot;: 50, //\u5206\u6570
@@ -110,7 +110,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.685763fd.js";const d={},s=u(`<h1 i
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 78, //\u8BD5\u5377id
+        &quot;id&quot;: 50, //\u8BD5\u5377id
         &quot;level&quot;: 1,  //\u5E74\u7EA7
         &quot;subjectId&quot;: 4,  //\u5B66\u79D1
         &quot;paperType&quot;: 1,  //\u8BD5\u5377\u7C7B\u578B
@@ -122,7 +122,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.685763fd.js";const d={},s=u(`<h1 i
                 &quot;name&quot;: &quot;\u4E00\u3001\u89E3\u7B54\u9898&quot;,  //\u6807\u9898\u540D\u79F0
                 &quot;questionItems&quot;: [  //\u9898\u76EE\u5217\u8868
                     {
-                        &quot;id&quot;: 78,  //\u9898\u76EEid
+                        &quot;id&quot;: 50,  //\u9898\u76EEid
                         &quot;questionType&quot;: 1, //\u9898\u76EE\u7C7B\u578B
                         &quot;subjectId&quot;: 4, //\u5B66\u79D1
                         &quot;title&quot;: &quot;\u4E2D\u534E\u56DB\u5927\u540D\u8457\u90FD\u6709\u54EA\u4E9B\uFF0C\u4E0B\u5217\u6B63\u786E\u7684\u662F&quot;,  //\u9898\u5E72
@@ -192,7 +192,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.685763fd.js";const d={},s=u(`<h1 i
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 78,
+        &quot;id&quot;: 50,
         &quot;userUuid&quot;: &quot;d2d29da2-dcb3-4013-b874-727626236f47&quot;, //\u7528\u6237uuid
         &quot;userName&quot;: &quot;student&quot;, //\u7528\u6237\u540D
         &quot;realName&quot;: &quot;\u5B66\u751F&quot;, //\u771F\u5B9E\u59D3\u540D
@@ -220,7 +220,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.685763fd.js";const d={},s=u(`<h1 i
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 78,
+        &quot;id&quot;: 50,
         &quot;userUuid&quot;: &quot;d2d29da2-dcb3-4013-b874-727626236f47&quot;,  //\u7528\u6237uuid
         &quot;userName&quot;: &quot;student&quot;, //\u7528\u6237\u540D
         &quot;realName&quot;: &quot;\u5B66\u751F&quot;,  //\u771F\u5B9E\u59D3\u540D
@@ -262,7 +262,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.685763fd.js";const d={},s=u(`<h1 i
         &quot;total&quot;: 7,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 78, //\u6D88\u606F
+                &quot;id&quot;: 50, //\u6D88\u606F
                 &quot;title&quot;: &quot;\u56FD\u5E86\u5047\u8BF4\u660E&quot;,  //\u6D88\u606F\u6807\u9898
                 &quot;messageId&quot;: 17,  //\u6D88\u606Fid
                 &quot;content&quot;: &quot;\u5047\u671F\u4E03\u5929\u8BF7\u6CE8\u610F\u5B89\u5168\u3002\u3002\u3002&quot;,  //\u6D88\u606F\u5185\u5BB9
@@ -277,7 +277,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.685763fd.js";const d={},s=u(`<h1 i
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 78,
+        &quot;id&quot;: 50,
         &quot;title&quot;: &quot;\u56FD\u5E86\u5047\u8BF4\u660E&quot;,  //\u6D88\u606F\u6807\u9898
         &quot;content&quot;: &quot;\u5047\u671F\u4E03\u5929\u8BF7\u6CE8\u610F\u5B89\u5168\u3002\u3002\u3002&quot;,  //\u6D88\u606F\u5185\u5BB9
         &quot;createTime&quot;: &quot;2021-09-25 14:51:32&quot;,  //\u521B\u5EFA\u65F6\u95F4
