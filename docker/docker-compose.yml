@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+    mysql:
+        image: registry.cn-hangzhou.aliyuncs.com/mindskip/mysql:8.0.33
+        restart: always
+        ports:
+            - 127.0.0.1:3306:3306
+        privileged: true
+        container_name: xzs-mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: "123456"
+            TZ: "Asia/Shanghai"
+        volumes:
+            - "./sql:/docker-entrypoint-initdb.d/"
+    java:
+        image: registry.cn-hangzhou.aliyuncs.com/mindskip/java:1.8.0
+        container_name: xzs-java
+        privileged: true
+        network_mode: host
+        restart: always
+        command:
+            /bin/bash -c "java -Duser.timezone=Asia/Shanghai -jar -Dspring.profiles.active=prod /usr/local/xzs/release/xzs-3.9.0.jar"
+        ports: 
+            - 8000:8000
+        volumes:
+            - "./release:/usr/local/xzs/release/"        
+            - "./log:/usr/log/xzs/"
