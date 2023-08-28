@@ -42,7 +42,7 @@
         "driver.js": "^0.9.8",
         "dropzone": "^5.9.3",
         "echarts": "^5.4.3",
-        "element-ui": "^2.15.13",
+        "element-ui": "^2.15.14",
         "file-saver": "^2.0.5",
         "fuse.js": "^6.6.2",
         "husky": "^7.0.4",
