@@ -1,4 +1,4 @@
-import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 id="_4-3-\u7BA1\u7406\u7AEF" tabindex="-1"><a class="header-anchor" href="#_4-3-\u7BA1\u7406\u7AEF" aria-hidden="true">#</a> 4.3 \u7BA1\u7406\u7AEF</h1><h3 id="_4-3-1-\u767B\u5F55" tabindex="-1"><a class="header-anchor" href="#_4-3-1-\u767B\u5F55" aria-hidden="true">#</a> 4.3.1 \u767B\u5F55</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/user/login</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
+import{_ as e,o as i,c as n,e as u}from"./app.2752763d.js";const l={},d=u(`<h1 id="_4-3-\u7BA1\u7406\u7AEF" tabindex="-1"><a class="header-anchor" href="#_4-3-\u7BA1\u7406\u7AEF" aria-hidden="true">#</a> 4.3 \u7BA1\u7406\u7AEF</h1><h3 id="_4-3-1-\u767B\u5F55" tabindex="-1"><a class="header-anchor" href="#_4-3-1-\u767B\u5F55" aria-hidden="true">#</a> 4.3.1 \u767B\u5F55</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/user/login</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
     &quot;userName&quot;: &quot;admin&quot;,  //\u7528\u6237\u540D
     &quot;password&quot;: &quot;&quot;,  //\u5BC6\u7801
     &quot;remember&quot;: false  //\u8BB0\u4F4F\u6211
@@ -152,7 +152,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: [
         {
-            &quot;id&quot;: 76,  //\u5B66\u79D1id
+            &quot;id&quot;: 98,  //\u5B66\u79D1id
             &quot;name&quot;: &quot;\u8BED\u6587&quot;,  //\u5B66\u79D1\u540D\u79F0
             &quot;level&quot;: 1,  //\u5E74\u7EA7
             &quot;levelName&quot;: &quot;\u4E00\u5E74\u7EA7&quot;,  //\u5E74\u7EA7\u540D\u79F0
@@ -173,7 +173,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
         &quot;total&quot;: 2,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 76,
+                &quot;id&quot;: 98,
                 &quot;name&quot;: &quot;\u6570\u5B66&quot;,  //\u5B66\u79D1\u540D\u79F0
                 &quot;level&quot;: 1,  //\u5E74\u7EA7
                 &quot;levelName&quot;: &quot;\u4E00\u5E74\u7EA7&quot;  //\u5E74\u7EA7\u540D\u79F0
@@ -185,14 +185,14 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 76,
+        &quot;id&quot;: 98,
         &quot;name&quot;: &quot;\u6570\u5B66&quot;,  //\u5B66\u79D1\u540D\u79F0
         &quot;level&quot;: 1,    //\u5E74\u7EA7
         &quot;levelName&quot;: &quot;\u4E00\u5E74\u7EA7&quot;   //\u5E74\u7EA7\u540D\u79F0
     }
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-3-12-\u5B66\u79D1\u7F16\u8F91" tabindex="-1"><a class="header-anchor" href="#_4-3-12-\u5B66\u79D1\u7F16\u8F91" aria-hidden="true">#</a> 4.3.12 \u5B66\u79D1\u7F16\u8F91</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/admin/education/subject/edit</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
-    &quot;id&quot;: 76,
+    &quot;id&quot;: 98,
     &quot;name&quot;: &quot;\u6570\u5B66&quot;,  //\u5B66\u79D1\u540D\u79F0
     &quot;level&quot;: 2,   //\u5E74\u7EA7
     &quot;levelName&quot;: &quot;\u4E8C\u5E74\u7EA7&quot;  //\u5E74\u7EA7\u540D\u79F0
@@ -221,7 +221,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
         &quot;total&quot;: 9,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 76,     //\u8BD5\u5377id
+                &quot;id&quot;: 98,     //\u8BD5\u5377id
                 &quot;name&quot;: &quot;\u4E2D\u7EA7\u4EFB\u52A1\u4E8C&quot;,    //\u8BD5\u5377\u540D\u79F0
                 &quot;questionCount&quot;: 5,  //\u9898\u76EE\u603B\u6570
                 &quot;score&quot;: 180, //\u8BD5\u5377\u5206\u6570
@@ -238,7 +238,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 76,   //\u8BD5\u5377id
+        &quot;id&quot;: 98,   //\u8BD5\u5377id
         &quot;level&quot;: 1,  //\u5E74\u7EA7
         &quot;subjectId&quot;: 1,  //\u5B66\u79D1
         &quot;paperType&quot;: 1,  //\u8BD5\u5377\u7C7B\u578B
@@ -250,7 +250,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
                 &quot;name&quot;: &quot;\u4E00\u3001\u9009\u62E9\u9898&quot;,  //\u8BD5\u5377\u6807\u9898
                 &quot;questionItems&quot;: [
                     {
-                        &quot;id&quot;: 76,   //\u9898\u76EEid
+                        &quot;id&quot;: 98,   //\u9898\u76EEid
                         &quot;questionType&quot;: 5,  //\u9898\u76EE\u7C7B\u578B
                         &quot;subjectId&quot;: 1,  //\u5B66\u79D1
                         &quot;title&quot;: &quot;\u9ED8\u5199\u548F\u9E45&quot;, //\u9898\u5E72
@@ -270,7 +270,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     }
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-3-16-\u8BD5\u5377\u7F16\u8F91" tabindex="-1"><a class="header-anchor" href="#_4-3-16-\u8BD5\u5377\u7F16\u8F91" aria-hidden="true">#</a> 4.3.16 \u8BD5\u5377\u7F16\u8F91</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/admin/exam/paper/edit</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
-    &quot;id&quot;: 76,  //\u8BD5\u5377id
+    &quot;id&quot;: 98,  //\u8BD5\u5377id
     &quot;level&quot;: 1,  //\u5E74\u7EA7
     &quot;subjectId&quot;: 1,  //\u5B66\u79D1
     &quot;paperType&quot;: 6,  //\u8BD5\u5377\u7C7B\u578B
@@ -282,7 +282,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
             &quot;name&quot;: &quot;\u4E00\u3001\u9009\u62E9\u9898&quot;,  //\u6807\u9898
             &quot;questionItems&quot;: [   //\u9898\u76EE\u5217\u8868
                 {
-                    &quot;id&quot;: 76,   //\u9898\u76EEid
+                    &quot;id&quot;: 98,   //\u9898\u76EEid
                     &quot;questionType&quot;: 2,  //\u9898\u578B
                     &quot;subjectId&quot;: 1,  //\u5B66\u79D1
                     &quot;title&quot;: &quot;\u4EE5\u4E0B\u54EA\u4E9B\u8BD7\u53E5\u662F\u9759\u591C\u601D\u7684\uFF1F&quot;,  //\u9898\u5E72
@@ -314,7 +314,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 76,  //\u8BD5\u5377id
+        &quot;id&quot;: 98,  //\u8BD5\u5377id
         &quot;level&quot;: 1,  //\u5E74\u7EA7
         &quot;subjectId&quot;: 1,   //\u5B66\u79D1
         &quot;paperType&quot;: 6,   //\u8BD5\u5377\u7C7B\u578B
@@ -326,7 +326,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
                 &quot;name&quot;: &quot;\u4E00\u3001\u9009\u62E9\u9898&quot;,  //\u6807\u9898
                 &quot;questionItems&quot;: [
                     {
-                        &quot;id&quot;: 76,   //\u9898\u76EEid
+                        &quot;id&quot;: 98,   //\u9898\u76EEid
                         &quot;questionType&quot;: 2,    //\u9898\u578B
                         &quot;subjectId&quot;: 1,   //\u5B66\u79D1
                         &quot;title&quot;: &quot;\u4EE5\u4E0B\u54EA\u4E9B\u8BD7\u53E5\u662F\u9759\u591C\u601D\u7684\uFF1F&quot;,   //\u9898\u5E72
@@ -374,7 +374,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
         &quot;total&quot;: 1,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 76,
+                &quot;id&quot;: 98,
                 &quot;name&quot;: &quot;\u4EFB\u52A1\u8BD5\u5377\u4E94&quot;,   //\u8BD5\u5377\u540D\u79F0
                 &quot;questionCount&quot;: 2,   //\u9898\u76EE\u603B\u6570
                 &quot;score&quot;: 60,   //\u8BD5\u5377\u5206\u6570
@@ -402,7 +402,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
         &quot;total&quot;: 7,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 76,
+                &quot;id&quot;: 98,
                 &quot;questionType&quot;: 5,  //\u9898\u578B
                 &quot;textContentId&quot;: null,
                 &quot;createTime&quot;: &quot;2021-01-21 11:45:57&quot;,  //\u521B\u5EFA\u65F6\u95F4
@@ -437,7 +437,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     }
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-3-21-\u9898\u76EE\u7F16\u8F91" tabindex="-1"><a class="header-anchor" href="#_4-3-21-\u9898\u76EE\u7F16\u8F91" aria-hidden="true">#</a> 4.3.21 \u9898\u76EE\u7F16\u8F91</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/admin/question/edit</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
-    &quot;id&quot;: 76, //\u9898\u76EEid
+    &quot;id&quot;: 98, //\u9898\u76EEid
     &quot;questionType&quot;: 5, //\u9898\u578B
     &quot;subjectId&quot;: 1,  //\u5B66\u79D1
     &quot;title&quot;: &quot;\u9ED8\u5199\u548F\u9E45&quot;,   //\u9898\u5E72
@@ -472,7 +472,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
         &quot;total&quot;: 2,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 76,   //\u4EFB\u52A1id
+                &quot;id&quot;: 98,   //\u4EFB\u52A1id
                 &quot;title&quot;: &quot;\u4E2D\u7EA7\u4EFB\u52A1&quot;,   //\u4EFB\u52A1\u6807\u9898
                 &quot;gradeLevel&quot;: 1,  //\u5E74\u7EA7
                 &quot;createUserName&quot;: &quot;admin&quot;,  //\u521B\u5EFA\u4EBA\u7528\u6237\u540D
@@ -486,7 +486,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 76,  //\u4EFB\u52A1id
+        &quot;id&quot;: 98,  //\u4EFB\u52A1id
         &quot;gradeLevel&quot;: 12,  //\u5E74\u7EA7
         &quot;title&quot;: &quot;\u8003\u8BD5&quot;,  //\u4EFB\u52A1\u6807\u9898
         &quot;paperItems&quot;: [
@@ -506,12 +506,12 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     }
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-3-25-\u4EFB\u52A1\u7F16\u8F91" tabindex="-1"><a class="header-anchor" href="#_4-3-25-\u4EFB\u52A1\u7F16\u8F91" aria-hidden="true">#</a> 4.3.25 \u4EFB\u52A1\u7F16\u8F91</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/admin/task/edit</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
-    &quot;id&quot;: 76,
+    &quot;id&quot;: 98,
     &quot;gradeLevel&quot;: 1,
     &quot;title&quot;: &quot;\u4E2D\u7EA7\u4EFB\u52A1&quot;,
     &quot;paperItems&quot;: [
         {
-            &quot;id&quot;: 76,  //\u8BD5\u5377id
+            &quot;id&quot;: 98,  //\u8BD5\u5377id
             &quot;name&quot;: &quot;\u4E2D\u7EA7\u4EFB\u52A1\u4E00&quot;,  //\u8BD5\u5377\u540D\u79F0
             &quot;questionCount&quot;: 5,  //\u9898\u76EE\u6570\u91CF
             &quot;score&quot;: 180,  //\u8BD5\u5377\u5206\u6570
@@ -527,12 +527,12 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 76,  //\u4EFB\u52A1id
+        &quot;id&quot;: 98,  //\u4EFB\u52A1id
         &quot;gradeLevel&quot;: 1,   //\u5E74\u7EA7
         &quot;title&quot;: &quot;\u4E2D\u7EA7\u4EFB\u52A1&quot;,  //\u4EFB\u52A1\u6807\u9898
         &quot;paperItems&quot;: [
             {
-                &quot;id&quot;: 76,  //\u8BD5\u5377id
+                &quot;id&quot;: 98,  //\u8BD5\u5377id
                 &quot;name&quot;: &quot;\u4E2D\u7EA7\u4EFB\u52A1\u4E00&quot;,  //\u8BD5\u5377\u540D\u79F0
                 &quot;questionCount&quot;: 5,  //\u9898\u76EE\u6570\u91CF
                 &quot;score&quot;: 180,  //\u8BD5\u5377\u5206\u6570
@@ -562,7 +562,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
         &quot;total&quot;: 36,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 76,   //\u6D88\u606Fid
+                &quot;id&quot;: 98,   //\u6D88\u606Fid
                 &quot;title&quot;: &quot;\u4F60\u597D\uFF0C\u540C\u5B66\uFF01&quot;,  //\u6D88\u606F\u6807\u9898
                 &quot;content&quot;: &quot;\u8003\u8BD5\u8BF7\u4E0D\u8981\u4F5C\u5F0A&quot;,  //\u6D88\u606F\u5185\u5BB9
                 &quot;sendUserName&quot;: &quot;admin&quot;,  //\u53D1\u9001\u4EBA\u7528\u6237\u540D
@@ -598,7 +598,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
         &quot;total&quot;: 4,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 76,
+                &quot;id&quot;: 98,
                 &quot;createTime&quot;: &quot;2021-07-07 14:03:02&quot;,  //\u63D0\u4EA4\u65F6\u95F4
                 &quot;userScore&quot;: &quot;16&quot;,  //\u7528\u6237\u5F97\u5206
                 &quot;subjectName&quot;: &quot;\u8BED\u6587&quot;,  //\u5B66\u79D1\u540D\u79F0
@@ -629,7 +629,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
         &quot;total&quot;: 68,
         &quot;list&quot;: [
             {
-                &quot;id&quot;: 76,  //\u65E5\u5FD7id
+                &quot;id&quot;: 98,  //\u65E5\u5FD7id
                 &quot;userId&quot;: 2,  //\u7528\u6237id
                 &quot;userName&quot;: &quot;admin&quot;,  //\u7528\u6237\u540D
                 &quot;realName&quot;: &quot;\u7BA1\u7406\u5458&quot;, //\u771F\u5B9E\u59D3\u540D
@@ -643,7 +643,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     &quot;code&quot;: 1,
     &quot;message&quot;: &quot;\u6210\u529F&quot;,
     &quot;response&quot;: {
-        &quot;id&quot;: 76,
+        &quot;id&quot;: 98,
         &quot;userUuid&quot;: &quot;52045f5f-a13f-4ccc-93dd-f7ee8270ad4c&quot;, //\u7528\u6237uuid
         &quot;userName&quot;: &quot;admin&quot;,  //\u7528\u6237\u540D
         &quot;realName&quot;: &quot;\u7BA1\u7406\u5458&quot;, //\u771F\u5B9E\u59D3\u540D
@@ -661,7 +661,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     }
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-3-32-\u7528\u6237\u4FE1\u606F\u66F4\u65B0" tabindex="-1"><a class="header-anchor" href="#_4-3-32-\u7528\u6237\u4FE1\u606F\u66F4\u65B0" aria-hidden="true">#</a> 4.3.32 \u7528\u6237\u4FE1\u606F\u66F4\u65B0</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/admin/user/update</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
-    &quot;id&quot;: 76,  //\u7528\u6237id
+    &quot;id&quot;: 98,  //\u7528\u6237id
     &quot;userUuid&quot;: &quot;52045f5f-a13f-4ccc-93dd-f7ee8270ad4c&quot;, //\u7528\u6237\u6807\u8BC6
     &quot;userName&quot;: &quot;admin&quot;, //\u7528\u6237\u540D
     &quot;realName&quot;: &quot;\u7BA1\u7406\u5458&quot;, //\u771F\u5B9E\u59D3\u540D
@@ -702,7 +702,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.b1a70216.js";const l={},d=u(`<h1 i
     &quot;state&quot;: &quot;SUCCESS&quot;
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-3-34-\u4E2A\u4EBA\u4FE1\u606F\u4FEE\u6539" tabindex="-1"><a class="header-anchor" href="#_4-3-34-\u4E2A\u4EBA\u4FE1\u606F\u4FEE\u6539" aria-hidden="true">#</a> 4.3.34 \u4E2A\u4EBA\u4FE1\u606F\u4FEE\u6539</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/admin/user/update</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
-    &quot;id&quot;: 76,
+    &quot;id&quot;: 98,
     &quot;userUuid&quot;: &quot;52045f5f-a13f-4ccc-93dd-f7ee8270ad4c&quot;,  //\u7528\u6237uuid
     &quot;userName&quot;: &quot;admin&quot;, //\u7528\u6237\u540D
     &quot;realName&quot;: &quot;\u7BA1\u7406\u5458&quot;, //\u771F\u5B9E\u59D3\u540D
