@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableConfigurationProperties(value = { SystemConfig.class})
 public class XzsApplication {
     public static void main(String[] args) {
+        int a = 0;
         SpringApplication.run(XzsApplication.class, args);
     }
 }
