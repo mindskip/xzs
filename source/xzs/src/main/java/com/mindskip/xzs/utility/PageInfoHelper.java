@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * @version 3.5.0
  * @description:  The type Page info helper.
- * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * Copyright (C), 2020-2024, 武汉思维跳跃科技有限公司
  * @date 2021/12/25 9:45
  */
 public class PageInfoHelper {

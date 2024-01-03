@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * @version 3.5.0
  * @description: 验证通过之后,第二、三...请求，会调用此类
- * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
+ * Copyright (C), 2020-2024, 武汉思维跳跃科技有限公司
  * @date 2021/12/25 9:45
  */
 @Component
