@@ -36,7 +36,7 @@
 * 数据库脚本下载地址：[https://www.mindskip.net:888](https://www.mindskip.net:888)
 * 文档教程：[https://www.mindskip.net:888](https://www.mindskip.net:888)
 * 视频教程：[https://ke.qq.com/course/3614230](https://ke.qq.com/course/3614230)
-* QQ交流群17：`450704712`
+* QQ交流群17：`624825080`
 * 商务QQ：`2732007709`
 * 商务微信：`mind_skip`
 * 商务邮箱：`mindskip@qq.com`
