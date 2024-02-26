@@ -41,7 +41,7 @@
         "core-js": "^3.36.0",
         "driver.js": "^0.9.8",
         "dropzone": "^5.9.3",
-        "echarts": "^5.4.3",
+        "echarts": "^5.5.0",
         "element-ui": "^2.15.14",
         "file-saver": "^2.0.5",
         "fuse.js": "^6.6.2",
