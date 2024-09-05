@@ -47,6 +47,8 @@
 * gitee - mysql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
 * GitHub - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 * GitHub - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
+* GitCode - postgresql ：[https://gitcode.com/mindskip/xzs](https://gitcode.com/mindskip/xzs)
+* GitCode - mysql ：[https://gitcode.com/mindskip/xzs-mysql](https://gitcode.com/mindskip/xzs-mysql)
 
 
 ### 学生系统功能
