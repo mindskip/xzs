@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @version 3.3.0
  * @description: The type Qn config.
- * Copyright (C), 2019-2024, 武汉思维跳跃科技有限公司
+ * Copyright (C), 2019-2025, 武汉思维跳跃科技有限公司
  * @date 2021 /5/26 10:45
  */
 public class QnConfig {
