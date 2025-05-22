@@ -13,6 +13,7 @@
 [![Gitee fork](https://gitee.com/mindskip/uexam/badge/fork.svg?theme=gvp)](https://gitee.com/mindskip/uexam)
 [![Github stars](https://img.shields.io/github/stars/mindskip/xzs?logo=github)](https://github.com/mindskip/xzs) 
 [![Github forks](https://img.shields.io/github/forks/mindskip/xzs?logo=github)](https://github.com/mindskip/xzs) 
+![star](https://gitcode.com/mindskip/xzs/star/badge.svg)
 [![Github license](https://img.shields.io/badge/license-AGPL-yellow)](https://gitee.com/mindskip/uexam/blob/master/LICENSE) 
 
 </div>
