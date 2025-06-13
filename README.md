@@ -9,12 +9,12 @@
 
 <div align="center">
 
-[![Gitee star](https://gitee.com/mindskip/uexam/badge/star.svg?theme=gvp)](https://gitee.com/mindskip/uexam) 
-[![Gitee fork](https://gitee.com/mindskip/uexam/badge/fork.svg?theme=gvp)](https://gitee.com/mindskip/uexam)
+[![Gitee star](https://gitee.com/mindskip/xzs/badge/star.svg?theme=gvp)](https://gitee.com/mindskip/xzs) 
+[![Gitee fork](https://gitee.com/mindskip/xzs/badge/fork.svg?theme=gvp)](https://gitee.com/mindskip/xzs)
 [![Github stars](https://img.shields.io/github/stars/mindskip/xzs?logo=github)](https://github.com/mindskip/xzs) 
 [![Github forks](https://img.shields.io/github/forks/mindskip/xzs?logo=github)](https://github.com/mindskip/xzs) 
 ![star](https://gitcode.com/mindskip/xzs/star/badge.svg)
-[![Github license](https://img.shields.io/badge/license-AGPL-yellow)](https://gitee.com/mindskip/uexam/blob/master/LICENSE) 
+[![Github license](https://img.shields.io/badge/license-AGPL-yellow)](https://gitee.com/mindskip/xzs/blob/master/LICENSE) 
 
 </div>
 
@@ -44,7 +44,7 @@
 
 ### 学之思仓库版本地址
 
-* gitee - postgresql ：[https://gitee.com/mindskip/uexam](https://gitee.com/mindskip/uexam)
+* gitee - postgresql ：[https://gitee.com/mindskip/xzs](https://gitee.com/mindskip/xzs)
 * gitee - mysql ：[https://gitee.com/mindskip/xzs-mysql](https://gitee.com/mindskip/xzs-mysql)
 * github - postgresql ：[https://github.com/mindskip/xzs](https://github.com/mindskip/xzs)
 * github - mysql ：[https://github.com/mindskip/xzs-mysql](https://github.com/mindskip/xzs-mysql)
