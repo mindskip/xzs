@@ -142,7 +142,7 @@ function detect(ua) {
 
     var weChat = (/micromessenger/i).test(ua);
 
-    // Todo: clean this up with a better OS/browser seperation:
+    // Todo: clean this up with a better OS/browser separation:
     // - discern (more) between multiple browsers on android
     // - decide if kindle fire in silk mode is android or not
     // - Firefox on Android doesn't specify the Android version
@@ -286,7 +286,7 @@ function $override(name, fn) {
 /**
  * Those data types can be cloned:
  *     Plain object, Array, TypedArray, number, string, null, undefined.
- * Those data types will be assgined using the orginal data:
+ * Those data types will be assigned using the original data:
  *     BUILTIN_OBJECT
  * Instance of user defined class will be cloned to a plain object, without
  * properties in prototype.
@@ -812,8 +812,8 @@ function assert$1(condition, message) {
 
 /**
  * @memberOf module:zrender/core/util
- * @param {string} str string to be trimed
- * @return {string} trimed string
+ * @param {string} str string to be trimmed
+ * @return {string} trimmed string
  */
 function trim(str) {
     if (str == null) {
@@ -4563,7 +4563,7 @@ Animator.prototype = {
 
         // This optimization will help the case that in the upper application
         // the view may be refreshed frequently, where animation will be
-        // called repeatly but nothing changed.
+        // called repeatedly but nothing changed.
         if (!clipCount) {
             this._doneCallback();
         }
@@ -4660,7 +4660,7 @@ else if (debugMode > 1) {
 var zrLog = log;
 
 /**
- * @alias modue:zrender/mixin/Animatable
+ * @alias module:zrender/mixin/Animatable
  * @constructor
  */
 var Animatable = function () {
@@ -4850,7 +4850,7 @@ function animateTo(animatable, target, time, delay, easing, callback, forceAnima
         callback && callback();
     }
     // Start after all animators created
-    // Incase any animator is done immediately when all animation properties are not changed
+    // In case any animator is done immediately when all animation properties are not changed
     for (var i = 0; i < animators.length; i++) {
         animators[i]
             .done(done)
@@ -5677,9 +5677,9 @@ Group.prototype = {
             var childRect = child.getBoundingRect();
             var transform = child.getLocalTransform(tmpMat);
             // TODO
-            // The boundingRect cacluated by transforming original
+            // The boundingRect calculated by transforming original
             // rect may be bigger than the actual bundingRect when rotation
-            // is used. (Consider a circle rotated aginst its center, where
+            // is used. (Consider a circle rotated against its center, where
             // the actual boundingRect should be the same as that not be
             // rotated.) But we can not find better approach to calculate
             // actual boundingRect yet, considering performance.
@@ -6789,7 +6789,7 @@ Style.prototype = {
     fontFamily: null,
 
     /**
-     * Reserved for special functinality, like 'hr'.
+     * Reserved for special functionality, like 'hr'.
      * @type {string}
      */
     textTag: null,
@@ -6817,7 +6817,7 @@ Style.prototype = {
 
     /**
      * textStroke may be set as some color as a default
-     * value in upper applicaion, where the default value
+     * value in upper application, where the default value
      * of textStrokeWidth should be 0 to make sure that
      * user can choose to do not use text stroke.
      * @type {number}
@@ -7102,7 +7102,7 @@ Style.getGradient = styleProto.getGradient;
 
 var Pattern = function (image, repeat) {
     // Should do nothing more in this constructor. Because gradient can be
-    // declard by `color: {image: ...}`, where this constructor will not be called.
+    // declared by `color: {image: ...}`, where this constructor will not be called.
 
     this.image = image;
     this.repeat = repeat;
@@ -7396,7 +7396,7 @@ function createOrUpdateImage(newImageOrSrc, image, hostEl, cb, cbPayload) {
     }
     else if (typeof newImageOrSrc === 'string') {
 
-        // Image should not be loaded repeatly.
+        // Image should not be loaded repeatedly.
         if ((image && image.__zrImageSrc === newImageOrSrc) || !hostEl) {
             return image;
         }
@@ -7586,7 +7586,7 @@ function adjustTextY(y, height, textVerticalAlign) {
 
 /**
  * @public
- * @param {stirng} textPosition
+ * @param {string} textPosition
  * @param {Object} rect {x, y, width, height}
  * @param {number} distance
  * @return {Object} {x, y, textAlign, textVerticalAlign}
@@ -7962,7 +7962,7 @@ function parseRichText(text, style) {
             // textPadding should not inherit from style.
             var textPadding = token.textPadding = tokenStyle.textPadding;
 
-            // textFont has been asigned to font by `normalizeStyle`.
+            // textFont has been assigned to font by `normalizeStyle`.
             var font = token.font = tokenStyle.font || style.font;
 
             // textHeight can be used when textVerticalAlign is specified in token.
@@ -8015,7 +8015,7 @@ function parseRichText(text, style) {
                     // use `imageHelper.findExistImage` to find cached image.
                     // `imageHelper.findExistImage` will always be called here before
                     // `imageHelper.createOrUpdateImage` in `graphic/helper/text.js#renderRichText`
-                    // which ensures that image will not be rendered before correct size calcualted.
+                    // which ensures that image will not be rendered before correct size calculated.
                     if (bgImg) {
                         bgImg = findExistImage(bgImg);
                         if (isImageReady(bgImg)) {
@@ -8829,7 +8829,7 @@ RectText.prototype = {
         // FIXME
         // Do not provide prevEl to `textHelper.renderText` for ctx prop cache,
         // but use `ctx.save()` and `ctx.restore()`. Because the cache for rect
-        // text propably break the cache for its host elements.
+        // text probably break the cache for its host elements.
         ctx.save();
 
         // Transform rect to view space
@@ -8889,7 +8889,7 @@ function Displayable(opts) {
     // Shapes for cascade clipping.
     this.__clipPaths = [];
 
-    // FIXME Stateful must be mixined after style is setted
+    // FIXME Stateful must be mixined after style is set
     // Stateful.call(this, opts);
 }
 
@@ -8985,7 +8985,7 @@ Displayable.prototype = {
 
     /**
      * Render the element progressively when the value >= 0,
-     * usefull for large data.
+     * useful for large data.
      * @type {boolean}
      */
     progressive: false,
@@ -9481,7 +9481,7 @@ Painter.prototype = {
 
         this._paintList(list, paintAll, this._redrawId);
 
-        // Paint custum layers
+        // Paint custom layers
         for (var i = 0; i < zlevelList.length; i++) {
             var z = zlevelList[i];
             var layer = this._layers[z];
@@ -9547,7 +9547,7 @@ Painter.prototype = {
         }
         sort(hoverElements, this.storage.displayableSortFunc);
 
-        // Use a extream large zlevel
+        // Use a extreme large zlevel
         // FIXME?
         if (!hoverLayer) {
             hoverLayer = this._hoverlayer = this.getLayer(HOVER_LAYER_ZLEVEL);
@@ -9941,7 +9941,7 @@ Painter.prototype = {
             }
 
             if (!layer.__builtin__) {
-                zrLog('ZLevel ' + zlevel + ' has been used by unkown layer ' + layer.id);
+                zrLog('ZLevel ' + zlevel + ' has been used by unknown layer ' + layer.id);
             }
 
             if (layer !== prevLayer) {
@@ -11409,7 +11409,7 @@ var TEXT_STYLE_OPTIONS = [
 /**
  * The method do not ensure performance.
  * data could be [12, 2323, {value: 223}, [1221, 23], {value: [2, 23]}]
- * This helper method retieves value from data.
+ * This helper method retrieves value from data.
  * @param {string|number|Date|Array|Object} dataItem
  * @return {number|string|Date|Array.<number|string|Date>}
  */
@@ -11573,7 +11573,7 @@ function makeIdAndName(mapResult) {
             return;
         }
 
-        // name can be overwitten. Consider case: axis.name = '20km'.
+        // name can be overwritten. Consider case: axis.name = '20km'.
         // But id generated by name will not be changed, which affect
         // only in that case: setOption with 'not merge mode' and view
         // instance will be recreated, which can be accepted.
@@ -11581,7 +11581,7 @@ function makeIdAndName(mapResult) {
             ? opt.name + ''
             : existCpt
             ? existCpt.name
-            // Avoid diffferent series has the same name,
+            // Avoid different series has the same name,
             // because name may be used like in color pallet.
             : DUMMY_COMPONENT_NAME_PREFIX + index;
 
@@ -11593,9 +11593,9 @@ function makeIdAndName(mapResult) {
         }
         else {
             // Consider this situatoin:
-            //  optionA: [{name: 'a'}, {name: 'a'}, {..}]
+            //  optional: [{name: 'a'}, {name: 'a'}, {..}]
             //  optionB [{..}, {name: 'a'}, {name: 'a'}]
-            // Series with the same name between optionA and optionB
+            // Series with the same name between optional and optionB
             // should be mapped.
             var idNum = 0;
             do {
@@ -11746,7 +11746,7 @@ function parseFinder(ecModel, finder, opt) {
     each$2(finder, function (value, key) {
         var value = finder[key];
 
-        // Exclude 'dataIndex' and other illgal keys.
+        // Exclude 'dataIndex' and other illegal keys.
         if (key === 'dataIndex' || key === 'dataIndexInside') {
             result[key] = value;
             return;
@@ -11928,7 +11928,7 @@ function enableClassCheck(Clz) {
 // class A has method f,
 // class B inherits class A, overrides method f, f call superApply('f'),
 // class C inherits class B, do not overrides method f,
-// then when method of class C is called, dead loop occured.
+// then when method of class C is called, dead loop occurred.
 function superCall(context, methodName) {
     var args = slice(arguments, 2);
     return this.superClass.prototype[methodName].apply(context, args);
@@ -15314,7 +15314,7 @@ var Circle = Path.extend({
 
     buildPath: function (ctx, shape, inBundle) {
         // Better stroking in ShapeBundle
-        // Always do it may have performence issue ( fill may be 2x more cost)
+        // Always do it may have performance issue ( fill may be 2x more cost)
         if (inBundle) {
             ctx.moveTo(shape.cx + shape.r, shape.cy);
         }
@@ -15740,7 +15740,7 @@ var round$1 = Math.round;
  *
  * @param {Object} outputShape The modification will be performed on `outputShape`.
  *                 `outputShape` and `inputShape` can be the same object.
- *                 `outputShape` object can be used repeatly, because all of
+ *                 `outputShape` object can be used repeatedly, because all of
  *                 the `x1`, `x2`, `y1`, `y2` will be assigned in this method.
  * @param {Object} [inputShape]
  * @param {number} [inputShape.x1]
@@ -15783,7 +15783,7 @@ function subPixelOptimizeLine$1(outputShape, inputShape, style) {
  *
  * @param {Object} outputShape The modification will be performed on `outputShape`.
  *                 `outputShape` and `inputShape` can be the same object.
- *                 `outputShape` object can be used repeatly, because all of
+ *                 `outputShape` object can be used repeatedly, because all of
  *                 the `x`, `y`, `width`, `height` will be assigned in this method.
  * @param {Object} [inputShape]
  * @param {number} [inputShape.x]
@@ -15839,7 +15839,7 @@ function subPixelOptimize$1(position, lineWidth, positiveOrNegative) {
  * @module zrender/graphic/shape/Rect
  */
 
-// Avoid create repeatly.
+// Avoid create repeatedly.
 var subPixelOptimizeOutputShape = {};
 
 var Rect = Path.extend({
@@ -15898,7 +15898,7 @@ var Rect = Path.extend({
  * @module zrender/graphic/shape/Line
  */
 
-// Avoid create repeatly.
+// Avoid create repeatedly.
 var subPixelOptimizeOutputShape$1 = {};
 
 var Line = Path.extend({
@@ -16233,7 +16233,7 @@ Gradient.prototype = {
  */
 var LinearGradient = function (x, y, x2, y2, colorStops, globalCoord) {
     // Should do nothing more in this constructor. Because gradient can be
-    // declard by `color: {type: 'linear', colorStops: ...}`, where
+    // declared by `color: {type: 'linear', colorStops: ...}`, where
     // this constructor will not be called.
 
     this.x = x == null ? 0 : x;
@@ -16270,7 +16270,7 @@ inherits(LinearGradient, Gradient);
  */
 var RadialGradient = function (x, y, r, colorStops, globalCoord) {
     // Should do nothing more in this constructor. Because gradient can be
-    // declard by `color: {type: 'radial', colorStops: ...}`, where
+    // declared by `color: {type: 'radial', colorStops: ...}`, where
     // this constructor will not be called.
 
     this.x = x == null ? 0.5 : x;
@@ -16372,7 +16372,7 @@ IncrementalDisplayble.prototype.update = function () {
 };
 
 IncrementalDisplayble.prototype.brush = function (ctx, prevEl) {
-    // Render persistant displayables.
+    // Render persistent displayables.
     for (var i = this._cursor; i < this._displayables.length; i++) {
         var displayable = this._displayables[i];
         displayable.beforeBrush && displayable.beforeBrush(ctx);
@@ -16910,7 +16910,7 @@ function leaveEmphasis() {
  *
  * (2)
  * Call the method for a "root" element once. Do not call it for each descendants.
- * If the descendants elemenets of a group has itself hover style different from the
+ * If the descendants elements of a group has itself hover style different from the
  * root group, we can simply mount the style on `el.hoverStyle` for them, but should
  * not call this method for them.
  *
@@ -16922,7 +16922,7 @@ function leaveEmphasis() {
 function setHoverStyle(el, hoverStyle, opt) {
     el.isGroup
         ? el.traverse(function (child) {
-            // If element has sepcified hoverStyle, then use it instead of given hoverStyle
+            // If element has specified hoverStyle, then use it instead of given hoverStyle
             // Often used when item group has a label element and it's hoverStyle is different
             !child.isGroup && setElementHoverStyle(child, child.hoverStyle || hoverStyle);
         })
@@ -17024,7 +17024,7 @@ function setLabelStyle(
         // values have to be set on `normalStyle`.
         // If we set default values on `emphasisStyle`, consider case:
         // Firstly, `setOption(... label: {normal: {text: null}, emphasis: {show: true}} ...);`
-        // Secondly, `setOption(... label: {noraml: {show: true, text: 'abc', color: 'red'} ...);`
+        // Secondly, `setOption(... label: {normal: {show: true, text: 'abc', color: 'red'} ...);`
         // Then the 'red' will not work on emphasis.
         setTextStyle(normalStyle, normalModel, normalSpecified, opt);
         setTextStyle(emphasisStyle, emphasisModel, emphasisSpecified, opt, true);
@@ -17088,14 +17088,14 @@ function setText(textStyle, labelModel, defaultColor) {
  *
  * The `textStyle` object can either be a plain object or an instance of
  * `zrender/src/graphic/Style`, and either be the style of normal or emphasis.
- * After this mothod called, the `textStyle` object can then be used in
+ * After this method called, the `textStyle` object can then be used in
  * `el.setStyle(textStyle)` or `el.hoverStyle = textStyle`.
  *
  * Default value will be adopted and `insideRollbackOpt` will be created.
  * See `applyDefaultTextStyle` `rollbackDefaultTextStyle` for more details.
  *
  * opt: {
- *      disableBox: boolean, Whether diable drawing box of block (outer most).
+ *      disableBox: boolean, Whether disable drawing box of block (outer most).
  *      isRectText: boolean,
  *      autoColor: string, specify a color when color is 'auto',
  *              for textFill, textStroke, textBackgroundColor, and textBorderColor.
@@ -17215,7 +17215,7 @@ function setTokenTextStyle(textStyle, textStyleModel, globalTextStyle, opt, isEm
         globalTextStyle.textBorderWidth
     );
 
-    // Save original textPosition, because style.textPosition will be repalced by
+    // Save original textPosition, because style.textPosition will be replaced by
     // real location (like [10, 30]) in zrender.
     textStyle.insideRawTextPosition = textStyle.textPosition;
 
@@ -17347,7 +17347,7 @@ function applyDefaultTextStyle(textStyle) {
  * }
  * In the normal state, the `textFill` will be set as '#fff' for pretty view (see
  * `applyDefaultTextStyle`), but when switching to emphasis state, the `textFill`
- * should be retured to 'autoColor', but not keep '#fff'.
+ * should be returned to 'autoColor', but not keep '#fff'.
  */
 function rollbackDefaultTextStyle(style) {
     var insideRollback = style.insideRollback;
@@ -17529,8 +17529,8 @@ function groupTransition(g1, g2, animatableModel, cb) {
     function getElMap(g) {
         var elMap = {};
         g.traverse(function (el) {
-            if (!el.isGroup && el.anid) {
-                elMap[el.anid] = el;
+            if (!el.isGroup && el.and) {
+                elMap[el.and] = el;
             }
         });
         return elMap;
@@ -17548,8 +17548,8 @@ function groupTransition(g1, g2, animatableModel, cb) {
     var elMap1 = getElMap(g1);
 
     g2.traverse(function (el) {
-        if (!el.isGroup && el.anid) {
-            var oldEl = elMap1[el.anid];
+        if (!el.isGroup && el.and) {
+            var oldEl = elMap1[el.and];
             if (oldEl) {
                 var newProp = getAnimatableProps(el);
                 el.attr(getAnimatableProps(oldEl));
@@ -17570,7 +17570,7 @@ function groupTransition(g1, g2, animatableModel, cb) {
  * @return {Array.<Array.<number>>} A new clipped points.
  */
 function clipPointsByRect(points, rect) {
-    // FIXME: this way migth be incorrect when grpahic clipped by a corner.
+    // FIXME: this way might be incorrect when graphic clipped by a corner.
     // and when element have border.
     return map(points, function (point) {
         var x = point[0];
@@ -17594,7 +17594,7 @@ function clipRectByRect(targetRect, rect) {
     var y = mathMax$1(targetRect.y, rect.y);
     var y2 = mathMin$1(targetRect.y + targetRect.height, rect.y + rect.height);
 
-    // If the total rect is cliped, nothing, including the border,
+    // If the total rect is clipped, nothing, including the border,
     // should be painted. So return undefined.
     if (x2 >= x && y2 >= y) {
         return {
@@ -18074,7 +18074,7 @@ function enableSubTypeDefaulter(entity) {
  *
  * If 'xAxis' or 'yAxis' is absent in componentTypeList, just ignore it in topology.
  *
- * If there is circle dependencey, Error will be thrown.
+ * If there is circle dependency, Error will be thrown.
  *
  */
 function enableTopologicalTravel(entity, dependencyGetter) {
@@ -18212,11 +18212,11 @@ function enableTopologicalTravel(entity, dependencyGetter) {
 */
 
 /*
-* A third-party license is embeded for some of the code in this file:
+* A third-party license is embedded for some of the code in this file:
 * The method "quantile" was copied from "d3.js".
 * (See more details in the comment of the method below.)
 * The use of the source code of this file is also subject to the terms
-* and consitions of the license of "d3.js" (BSD-3Clause, see
+* and conditions of the license of "d3.js" (BSD-3Clause, see
 * </licenses/LICENSE-d3>).
 */
 
@@ -18401,7 +18401,7 @@ function getPixelPrecision(dataExtent, pixelExtent) {
 /**
  * Get a data of given precision, assuring the sum of percentages
  * in valueList is 1.
- * The largest remainer method is used.
+ * The largest remainder method is used.
  * https://en.wikipedia.org/wiki/Largest_remainder_method
  *
  * @param {Array.<number>} valueList a list of all data
@@ -18494,7 +18494,7 @@ var TIME_REG = /^(?:(\d{4})(?:[-\/](\d{1,2})(?:[-\/](\d{1,2})(?:[T ](\d{1,2})(?:
  *     + time zone: '2012-03-01T12:22:33Z', '2012-03-01T12:22:33+8000', '2012-03-01T12:22:33-05:00',
  *     all of which will be treated as local time if time zone is not specified
  *     (see <https://momentjs.com/>).
- *   + Or other string format, including (all of which will be treated as loacal time):
+ *   + Or other string format, including (all of which will be treated as local time):
  *     '2012', '2012-3-1', '2012/3/1', '2012/03/01',
  *     '2009/6/12 2:00', '2009/6/12 2:05:08', '2009/6/12 2:05:08.123'
  *   + a timestamp, which represent a time in UTC.
@@ -18517,7 +18517,7 @@ function parseDate(value) {
             return new Date(NaN);
         }
 
-        // Use local time when no timezone offset specifed.
+        // Use local time when no timezone offset specified.
         if (!match[8]) {
             // match[n] can only be string or undefined.
             // But take care of '12' + 1 => '121'.
@@ -18628,7 +18628,7 @@ function nice(val, round) {
     val = nf * exp10;
 
     // Fix 3 * 0.1 === 0.30000000000000004 issue (see IEEE 754).
-    // 20 is the uppper bound of toFixed.
+    // 20 is the upper bound of toFixed.
     return exponent >= -20 ? +val.toFixed(exponent < 0 ? -exponent : 0) : val;
 }
 
@@ -19007,7 +19007,7 @@ function getTextBoundingRect(opt) {
 /**
  * @deprecated
  * the `textLineHeight` was added later.
- * For backward compatiblility, put it as the last parameter.
+ * For backward compatibility, put it as the last parameter.
  * But deprecated this interface. Please use `getTextBoundingRect` instead.
  */
 function getTextRect(
@@ -19303,11 +19303,11 @@ function getLayoutRect(
  * Logic:
  *     1. Scale (against origin point in parent coord)
  *     2. Rotate (against origin point in parent coord)
- *     3. Traslate (with el.position by this method)
+ *     3. Translate (with el.position by this method)
  * So this method only fixes the last step 'Traslate', which does not affect
  * scaling and rotating.
  *
- * If be called repeatly with the same input el, the same result will be gotten.
+ * If be called repeatedly with the same input el, the same result will be gotten.
  *
  * @param {module:zrender/Element} el Should have `getBoundingRect` method.
  * @param {Object} positionInfo
@@ -19591,10 +19591,10 @@ var ComponentModel = Model.extend({
 
     /**
      * Because simplified concept is probably better, series.name (or component.name)
-     * has been having too many resposibilities:
+     * has been having too many responsibilities:
      * (1) Generating id (which requires name in option should not be modified).
      * (2) As an index to mapping series when merging option or calling API (a name
-     * can refer to more then one components, which is convinient is some case).
+     * can refer to more then one components, which is convenient is some case).
      * (3) Display.
      * @readOnly
      */
@@ -20189,7 +20189,7 @@ var SERIES_LAYOUT_BY_ROW = 'row';
  * @param {Array|Object} [fields.data]
  * @param {string} [seriesLayoutBy='column']
  * @param {Array.<Object|string>} [dimensionsDefine]
- * @param {Objet|HashMap} [encodeDefine]
+ * @param {Object|HashMap} [encodeDefine]
  * @param {number} [startIndex=0]
  * @param {number} [dimensionsDetectCount]
  */
@@ -20232,7 +20232,7 @@ function Source(fields) {
     /**
      * encode definition in option.
      * can be null/undefined.
-     * @type {Objet|HashMap}
+     * @type {Object|HashMap}
      */
     this.encodeDefine = fields.encodeDefine && createHashMap(fields.encodeDefine);
 
@@ -20347,14 +20347,14 @@ function detectSourceFormat(datasetModel) {
  *     series: [{
  *         encode: {...}
  *         // Ignore datasetIndex means `datasetIndex: 0`
- *         // and the dimensions defination in dataset is used
+ *         // and the dimensions definition in dataset is used
  *     }, {
  *         encode: {...},
  *         seriesLayoutBy: 'column',
  *         datasetIndex: 1
  *     }]
  *
- * Get data from series itself or datset.
+ * Get data from series itself or dataset.
  * @return {module:echarts/data/Source} source
  */
 function getSource(seriesModel) {
@@ -20376,7 +20376,7 @@ function resetSourceDefaulter(ecModel) {
  * before "series.getInitailData()" called.
  *
  * [The rule of making default encode]:
- * Category axis (if exists) alway map to the first dimension.
+ * Category axis (if exists) always map to the first dimension.
  * Each other axis occupies a subsequent dimension.
  *
  * [Why make default encode]:
@@ -20529,7 +20529,7 @@ function completeBySourceData(data, sourceFormat, seriesLayoutBy, sourceHeader, 
 
 // Consider dimensions defined like ['A', 'price', 'B', 'price', 'C', 'price'],
 // which is reasonable. But dimension name is duplicated.
-// Returns undefined or an array contains only object without null/undefiend or string.
+// Returns undefined or an array contains only object without null/undefined or string.
 function normalizeDimensionsDefine(dimensionsDefine) {
     if (!dimensionsDefine) {
         // The meaning of null/undefined is different from empty array.
@@ -20540,8 +20540,8 @@ function normalizeDimensionsDefine(dimensionsDefine) {
         item = extend({}, isObject$1(item) ? item : {name: item});
 
         // User can set null in dimensions.
-        // We dont auto specify name, othewise a given name may
-        // cause it be refered unexpectedly.
+        // We dont auto specify name, otherwise a given name may
+        // cause it be referred unexpectedly.
         if (item.name == null) {
             return item;
         }
@@ -20640,7 +20640,7 @@ function makeDefaultEncode(
 
                 // ??? TODO give a better default series name rule?
                 // especially when encode x y specified.
-                // consider: when mutiple series share one dimension
+                // consider: when multiple series share one dimension
                 // category axis, series name should better use
                 // the other dimsion name. On the other hand, use
                 // both dimensions name.
@@ -20958,7 +20958,7 @@ var GlobalModel = Model.extend({
         resetSourceDefaulter(this);
 
         // If no component class, merge directly.
-        // For example: color, animaiton options, etc.
+        // For example: color, animation options, etc.
         each$1(newOption, function (componentOption, mainType) {
             if (componentOption == null) {
                 return;
@@ -21333,7 +21333,7 @@ var GlobalModel = Model.extend({
 
     /**
      * After filtering, series may be different
-     * frome raw series.
+     * from raw series.
      *
      * @param {Function} cb
      * @param {*} context
@@ -21358,9 +21358,9 @@ var GlobalModel = Model.extend({
 
     /**
      * After filtering, series may be different.
-     * frome raw series.
+     * from raw series.
      *
-     * @parma {string} subType
+     * @param {string} subType
      * @param {Function} cb
      * @param {*} context
      */
@@ -21377,7 +21377,7 @@ var GlobalModel = Model.extend({
     /**
      * Iterate raw series before filtered of given type.
      *
-     * @parma {string} subType
+     * @param {string} subType
      * @param {Function} cb
      * @param {*} context
      */
@@ -21479,7 +21479,7 @@ function initBase(baseOption) {
     baseOption = baseOption;
 
     // Using OPTION_INNER_KEY to mark that this option can not be used outside,
-    // i.e. `chart.setOption(chart.getModel().option);` is forbiden.
+    // i.e. `chart.setOption(chart.getModel().option);` is forbidden.
     this.option = {};
     this.option[OPTION_INNER_KEY] = 1;
 
@@ -21494,7 +21494,7 @@ function initBase(baseOption) {
     /**
      * Mapping between filtered series list and raw series list.
      * key: filtered series indices, value: raw series indices.
-     * @type {Array.<nubmer>}
+     * @type {Array.<number>}
      * @private
      */
     this._seriesIndices;
@@ -21856,7 +21856,7 @@ OptionManager.prototype = {
 
             // For simplicity, timeline options and media options do not support merge,
             // that is, if you `setOption` twice and both has timeline options, the latter
-            // timeline opitons will not be merged to the formers, but just substitude them.
+            // timeline options will not be merged to the formers, but just substitute them.
             if (newParsedOption.timelineOptions.length) {
                 oldOptionBackup.timelineOptions = newParsedOption.timelineOptions;
             }
@@ -22044,7 +22044,7 @@ function applyMediaQuery(query, ecWidth, ecHeight) {
         aspectratio: ecWidth / ecHeight // lowser case for convenientce.
     };
 
-    var applicatable = true;
+    var applicable = true;
 
     each$1(query, function (value, attr) {
         var matched = attr.match(QUERY_REG);
@@ -22057,11 +22057,11 @@ function applyMediaQuery(query, ecWidth, ecHeight) {
         var realAttr = matched[2].toLowerCase();
 
         if (!compare(realMap[realAttr], value, operator)) {
-            applicatable = false;
+            applicable = false;
         }
     });
 
-    return applicatable;
+    return applicable;
 }
 
 function compare(real, expect, operator) {
@@ -22100,7 +22100,7 @@ function indicesEquals(indices1, indices2) {
  * MEMO: We've considered some other approaches:
  * 1. Each model handle its self restoration but not uniform treatment.
  *     (Too complex in logic and error-prone)
- * 2. Use a shadow ecModel. (Performace expensive)
+ * 2. Use a shadow ecModel. (Performance expensive)
  */
 function mergeOption(oldOption, newOption) {
     newOption = newOption || {};
@@ -22560,7 +22560,7 @@ var backwardCompat = function (option, isTheme) {
 // (1) [Caution]: the logic is correct based on the premises:
 //     data processing stage is blocked in stream.
 //     See <module:echarts/stream/Scheduler#performDataProcessorTasks>
-// (2) Only register once when import repeatly.
+// (2) Only register once when import repeatedly.
 //     Should be executed before after series filtered and before stack calculation.
 var dataStack = function (ecModel) {
     var stackInfoMap = createHashMap();
@@ -23201,8 +23201,8 @@ function createTask(define) {
  * @param {Object} define
  * @param {Function} define.reset Custom reset
  * @param {Function} [define.plan] Returns 'reset' indicate reset immediately.
- * @param {Function} [define.count] count is used to determin data task.
- * @param {Function} [define.onDirty] count is used to determin data task.
+ * @param {Function} [define.count] count is used to determine data task.
+ * @param {Function} [define.onDirty] count is used to determine data task.
  */
 function Task(define) {
     define = define || {};
@@ -23464,9 +23464,9 @@ taskProto.getDownstream = function () {
 taskProto.setOutputEnd = function (end) {
     // This only happend in dataTask, dataZoom, map, currently.
     // where dataZoom do not set end each time, but only set
-    // when reset. So we should record the setted end, in case
+    // when reset. So we should record the set end, in case
     // that the stub of dataZoom perform again and earse the
-    // setted end by upstream.
+    // set end by upstream.
     this._outputDueEnd = this._settedOutputEnd = end;
 };
 
@@ -24016,7 +24016,7 @@ var SeriesModel = ComponentModel.extend({
     pipeTask: null,
 
     /**
-     * Convinient for override in extended class.
+     * Convenient for override in extended class.
      * @protected
      * @type {Function}
      */
@@ -24097,7 +24097,7 @@ function getCurrentTask(seriesModel) {
     var pipeline = scheduler && scheduler.getPipeline(seriesModel.uid);
 
     if (pipeline) {
-        // When pipline finished, the currrentTask keep the last
+        // When pipeline finished, the currrentTask keep the last
         // task (renderTask).
         var task = pipeline.currentTask;
         if (task) {
@@ -24158,7 +24158,7 @@ Component$1.prototype = {
      * @param {Object} query
      * @param {module:zrender/Element} targetEl
      * @param {Object} packedEvent
-     * @return {boolen} Pass only when return `true`.
+     * @return {boolean} Pass only when return `true`.
      */
     filterForExposedEvent: null
 
@@ -24359,7 +24359,7 @@ Chart.prototype = {
      * @param {Object} query
      * @param {module:zrender/Element} targetEl
      * @param {Object} packedEvent
-     * @return {boolen} Pass only when return `true`.
+     * @return {boolean} Pass only when return `true`.
      */
     filterForExposedEvent: null
 
@@ -25111,7 +25111,7 @@ proto.restoreData = function (ecModel, payload) {
     // if a data processor depends on a component (e.g., dataZoomProcessor depends
     // on the settings of `dataZoom`), it should be re-performed if the component
     // is modified by `setOption`.
-    // (2) If a processor depends on sevral series, speicified by its `getTargetSeries`,
+    // (2) If a processor depends on several series, specified by its `getTargetSeries`,
     // it should be re-performed when the result array of `getTargetSeries` changed.
     // We use `dependencies` to cover these issues.
     // (3) How to update target series when coordinate system related components modified.
@@ -25405,7 +25405,7 @@ function createOverallStageTask(scheduler, stageHandler, stageHandlerRecord, ecM
         scheduler: scheduler
     };
 
-    // Reuse orignal stubs.
+    // Reuse original stubs.
     var agentStubMap = overallTask.agentStubMap = overallTask.agentStubMap || createHashMap();
 
     var seriesType = stageHandler.seriesType;
@@ -25426,7 +25426,7 @@ function createOverallStageTask(scheduler, stageHandler, stageHandlerRecord, ecM
     // Otherwise, (usually it is legancy case), the overall task will only be
     // executed when upstream dirty. Otherwise the progressive rendering of all
     // pipelines will be disabled unexpectedly. But it still needs stubs to receive
-    // dirty info from upsteam.
+    // dirty info from upstream.
     else {
         overallProgress = false;
         each$1(ecModel.getSeries(), createStub);
@@ -25969,7 +25969,7 @@ SVGParser.prototype.parse = function (xml, opt) {
             // some users only intend to show the clipped content inside the viewBox,
             // but not intend to transform the output group. So we keep the output
             // group no transform. If the user intend to use the viewBox as a
-            // camera, just set `opt.ignoreViewBox` as `true` and set transfrom
+            // camera, just set `opt.ignoreViewBox` as `true` and set transform
             // manually according to the viewBox info in the output of this method.
             var elRoot = root;
             root = new Group();
@@ -26908,7 +26908,7 @@ echartsProto._onframe = function () {
 
             // Do not update coordinate system here. Because that coord system update in
             // each frame is not a good user experience. So we follow the rule that
-            // the extent of the coordinate system is determin in the first frame (the
+            // the extent of the coordinate system is determine in the first frame (the
             // frame is executed immedietely after task reset.
             // this._coordSysMgr.update(ecModel, api);
 
@@ -26991,7 +26991,7 @@ echartsProto.setOption = function (option, notMerge, lazyUpdate) {
 
         updateMethods.update.call(this);
 
-        // Ensure zr refresh sychronously, and then pixel in canvas can be
+        // Ensure zr refresh synchronously, and then pixel in canvas can be
         // fetched after `setOption`.
         this._zr.flush();
 
@@ -27341,7 +27341,7 @@ echartsProto.getVisual = function (finder, visualType) {
 
     if (__DEV__) {
         if (!seriesModel) {
-            console.warn('There is no specified seires model');
+            console.warn('There is no specified series model');
         }
     }
 
@@ -27410,7 +27410,7 @@ var updateMethods = {
         // Undo (restoration of total ecModel) can be carried out in 'action' or outside API call.
 
         // Create new coordinate system each update
-        // In LineView may save the old coordinate system and use it to get the orignal point
+        // In LineView may save the old coordinate system and use it to get the original point
         coordSysMgr.create(ecModel, api);
 
         scheduler.performDataProcessorTasks(ecModel, payload);
@@ -27734,7 +27734,7 @@ echartsProto.makeActionFromEvent = function (eventObj) {
 };
 
 /**
- * @pubilc
+ * @public
  * @param {Object} payload
  * @param {string} [payload.type] Action type
  * @param {Object|boolean} [opt] If pass boolean, means opt.silent
@@ -27771,7 +27771,7 @@ echartsProto.dispatchAction = function (payload, opt) {
         this._zr.flush(true);
     }
     else if (opt.flush !== false && env$1.browser.weChat) {
-        // In WeChat embeded browser, `requestAnimationFrame` and `setInterval`
+        // In WeChat embedded browser, `requestAnimationFrame` and `setInterval`
         // hang when sliding page (on touch event), which cause that zr does not
         // refresh util user interaction finished, which is not expected.
         // But `dispatchAction` may be called too frequently when pan on touch
@@ -27890,7 +27890,7 @@ function bindRenderedEvent(zr, ecIns) {
 
         ecIns.trigger('rendered');
 
-        // The `finished` event should not be triggered repeatly,
+        // The `finished` event should not be triggered repeatedly,
         // so it should only be triggered when rendering indeed happend
         // in zrender. (Consider the case that dipatchAction is keep
         // triggering when mouse move).
@@ -28013,7 +28013,7 @@ function prepareView(ecIns, type, ecModel, scheduler) {
 }
 
 // /**
-//  * Encode visual infomation from data after data processing
+//  * Encode visual information from data after data processing
 //  *
 //  * @param {module:echarts/model/Global} ecModel
 //  * @param {object} layout
@@ -28450,7 +28450,7 @@ EventProcessor.prototype = {
     },
 
     afterTrigger: function () {
-        // Make sure the eventInfo wont be used in next trigger.
+        // Make sure the eventInfo won't be used in next trigger.
         this.eventInfo = null;
     }
 };
@@ -29201,7 +29201,7 @@ function summarizeDimensions(data) {
         // of `completeDimension`, remove `extraPrefix`.
         encodeFirstDimNotExtra[coordDim] = dimArr[0];
         // Not necessary to remove duplicate, because a data
-        // dim canot on more than one coordDim.
+        // dim cannot on more than one coordDim.
         dataDimsOnCoord = dataDimsOnCoord.concat(dimArr);
     });
 
@@ -29209,7 +29209,7 @@ function summarizeDimensions(data) {
     summary.encodeFirstDimNotExtra = encodeFirstDimNotExtra;
 
     var encodeLabel = encode.label;
-    // FIXME `encode.label` is not recommanded, because formatter can not be set
+    // FIXME `encode.label` is not recommended, because formatter can not be set
     // in this way. Use label.formatter instead. May be remove this approach someday.
     if (encodeLabel && encodeLabel.length) {
         defaultedLabel = encodeLabel.slice();
@@ -29288,7 +29288,7 @@ var UNDEFINED = 'undefined';
 var INDEX_NOT_FOUND = -1;
 
 // Use prefix to avoid index to be the same as otherIdList[idx],
-// which will cause weird udpate animation.
+// which will cause weird update animation.
 var ID_PREFIX = 'e\0\0';
 
 var dataCtors = {
@@ -29402,7 +29402,7 @@ var List = function (dimensions, hostModel) {
     this.dimensions = dimensionNames;
 
     /**
-     * Infomation of each data dimension, like data type.
+     * Information of each data dimension, like data type.
      * @type {Object}
      */
     this._dimensionInfos = dimensionInfos;
@@ -29459,7 +29459,7 @@ var List = function (dimensions, hostModel) {
     this._visual = {};
 
     /**
-     * Globel layout properties.
+     * Global layout properties.
      * @type {Object}
      * @private
      */
@@ -29513,7 +29513,7 @@ var List = function (dimensions, hostModel) {
     this._rawData;
 
     /**
-     * Raw extent will not be cloned, but only transfered.
+     * Raw extent will not be cloned, but only transferred.
      * It will not be calculated util needed.
      * key: dim,
      * value: {end: number, extent: Array.<number>}
@@ -29625,7 +29625,7 @@ listProto.mapDimension = function (coordDim, idx) {
  * Initialize from data
  * @param {Array.<Object|number|Array>} data source or data or data provider.
  * @param {Array.<string>} [nameLIst] The name of a datum is used on data diff and
- *        defualt label/tooltip.
+ *        default label/tooltip.
  *        A name can be specified in encode.itemName,
  *        or dataItem.name (only for series option data),
  *        or provided in nameList from outside.
@@ -29717,7 +29717,7 @@ listProto.appendData = function (data) {
  *            [NaN, 43, 1],
  *            ['-', 'asdf', 0]
  *        ]
- *        Each item is exaclty cooresponding to a dimension.
+ *        Each item is exactly corresponding to a dimension.
  * @param {Array.<string>} [names]
  */
 listProto.appendValues = function (values, names) {
@@ -30101,7 +30101,7 @@ listProto.getValues = function (dimensions, idx /*, stack */) {
 };
 
 /**
- * If value is NaN. Inlcuding '-'
+ * If value is NaN. Including '-'
  * Only check the coord dimensions.
  * @param {string} dim
  * @param {number} idx
@@ -30259,7 +30259,7 @@ listProto.getMedian = function (dim /*, stack */) {
 };
 
 // /**
-//  * Retreive the index with given value
+//  * Retrieve the index with given value
 //  * @param {string} dim Concrete dimension.
 //  * @param {number} value
 //  * @return {number}
@@ -30305,7 +30305,7 @@ listProto.rawIndexOf = function (dim, value) {
 };
 
 /**
- * Retreive the index with given name
+ * Retrieve the index with given name
  * @param {number} idx
  * @param {number} name
  * @return {number}
@@ -30321,7 +30321,7 @@ listProto.indexOfName = function (name) {
 };
 
 /**
- * Retreive the index with given raw data index
+ * Retrieve the index with given raw data index
  * @param {number} idx
  * @param {number} name
  * @return {number}
@@ -30362,7 +30362,7 @@ listProto.indexOfRawIndex = function (rawIndex) {
 };
 
 /**
- * Retreive the index of nearest value
+ * Retrieve the index of nearest value
  * @param {string} dim
  * @param {number} value
  * @param {number} [maxDistance=Infinity]
@@ -30480,7 +30480,7 @@ function normalizeDimensions(dimensions) {
 
 function validateDimensions(list, dims) {
     for (var i = 0; i < dims.length; i++) {
-        // stroage may be empty when no data, so use
+        // storage may be empty when no data, so use
         // dimensionInfos to check.
         if (!list._dimensionInfos[dims[i]]) {
             console.error('Unkown dimension ' + dims[i]);
@@ -30789,7 +30789,7 @@ listProto.mapArray = function (dimensions, cb, context, contextCompat) {
     return result;
 };
 
-// Data in excludeDimensions is copied, otherwise transfered.
+// Data in excludeDimensions is copied, otherwise transferred.
 function cloneListForMapAndSample(original, excludeDimensions) {
     var allDimensions = original.dimensions;
     var list = new List(
@@ -30806,7 +30806,7 @@ function cloneListForMapAndSample(original, excludeDimensions) {
     for (var i = 0; i < allDimensions.length; i++) {
         var dim = allDimensions[i];
         if (originalStorage[dim]) {
-            // Notice that we do not reset invertedIndicesMap here, becuase
+            // Notice that we do not reset invertedIndicesMap here, because
             // there is no scenario of mapping or sampling ordinal dimension.
             if (indexOf(excludeDimensions, dim) >= 0) {
                 storage[dim] = cloneDimStore(originalStorage[dim]);
@@ -31283,7 +31283,7 @@ listProto.CHANGABLE_METHODS = ['filterSelf', 'selectRange'];
  *      [{dimsDef: [string|Object, ...]}, ...] dimsDef of sysDim item provides default dim name, and
  *                                    provide dims count that the sysDim required.
  *      [{ordinalMeta}] can be specified.
- * @param {module:echarts/data/Source|Array|Object} source or data (for compatibal with pervious)
+ * @param {module:echarts/data/Source|Array|Object} source or data (for compatibal with previous)
  * @param {Object} [opt]
  * @param {Array.<Object|string>} [opt.dimsDef] option.series.dimensions User defined dimensions
  *      For example: ['asdf', {name, type}, ...].
@@ -31341,7 +31341,7 @@ function completeDimensions(sysDims, source, opt) {
         // Name will be applied later for avoiding duplication.
         if (userDimName != null && dataDimNameMap.get(userDimName) == null) {
             // Only if `series.dimensions` is defined in option
-            // displayName, will be set, and dimension will be diplayed vertically in
+            // displayName, will be set, and dimension will be displayed vertically in
             // tooltip by default.
             resultItem.name = resultItem.displayName = userDimName;
             dataDimNameMap.set(userDimName, i);
@@ -31373,7 +31373,7 @@ function completeDimensions(sysDims, source, opt) {
         });
     });
 
-    // Apply templetes and default order from `sysDims`.
+    // Apply templates and default order from `sysDims`.
     var availDimIdx = 0;
     each$1(sysDims, function (sysDimItem, sysDimIndex) {
         var coordDim;
@@ -31485,7 +31485,7 @@ function completeDimensions(sysDims, source, opt) {
 // But
 // (1) custom series should be considered. where other dims
 // may be visited.
-// (2) sometimes user need to calcualte bubble size or use visualMap
+// (2) sometimes user need to calculate bubble size or use visualMap
 // on other dimensions besides coordSys needed.
 // So, dims that is not used by system, should be shared in storage?
 function getDimCount(source, sysDims, dimsDef, optDimCount) {
@@ -32109,7 +32109,7 @@ proto$1.parseAndCollect = function (category) {
     // Optimize for the scenario:
     // category is ['2012-01-01', '2012-01-02', ...], where the input
     // data has been ensured not duplicate and is large data.
-    // Notice, if a dataset dimension provide categroies, usually echarts
+    // Notice, if a dataset dimension provide categories, usually echarts
     // should remove duplication except user tell echarts dont do that
     // (set axis.deduplication = false), because echarts do not know whether
     // the values in the category dimension has duplication (consider the
@@ -32472,7 +32472,7 @@ var IntervalScale = Scale.extend({
      */
     setInterval: function (interval) {
         this._interval = interval;
-        // Dropped auto calculated niceExtent and use user setted extent
+        // Dropped auto calculated niceExtent and use user set extent
         // We assume user wan't to set both interval, min, max to get a better result
         this._niceExtent = this._extent.slice();
 
@@ -32645,7 +32645,7 @@ function getAxisKey(axis) {
 /**
  * @param {Object} opt
  * @param {module:echarts/coord/Axis} opt.axis Only support category axis currently.
- * @param {number} opt.count Positive interger.
+ * @param {number} opt.count Positive integer.
  * @param {number} [opt.barWidth]
  * @param {number} [opt.barMaxWidth]
  * @param {number} [opt.barGap]
@@ -33037,12 +33037,12 @@ function getValueAxisStart(baseAxis, valueAxis, stacked) {
 */
 
 /*
-* A third-party license is embeded for some of the code in this file:
+* A third-party license is embedded for some of the code in this file:
 * The "scaleLevels" was originally copied from "d3.js" with some
 * modifications made for this project.
 * (See more details in the comment on the definition of "scaleLevels" below.)
 * The use of the source code of this file is also subject to the terms
-* and consitions of the license of "d3.js" (BSD-3Clause, see
+* and conditions of the license of "d3.js" (BSD-3Clause, see
 * </licenses/LICENSE-d3>).
 */
 
@@ -33051,8 +33051,8 @@ function getValueAxisStart(baseAxis, valueAxis, stacked) {
 // In most cases, `number.parseDate` will treat input data string as local time
 // (except time zone is specified in time string). And `format.formateTime` returns
 // local time by default. option.useUTC is false by default. This design have
-// concidered these common case:
-// (1) Time that is persistent in server is in UTC, but it is needed to be diplayed
+// considered these common case:
+// (1) Time that is persistent in server is in UTC, but it is needed to be displayed
 // in local time by default.
 // (2) By default, the input data string (e.g., '2011-01-02') should be displayed
 // as its original time, without any time difference.
@@ -33622,7 +33622,7 @@ function adjustScaleForOverflow(min, max, model, barWidthAndOffset) {
     maxOverflow = Math.abs(maxOverflow);
     var totalOverFlow = minOverflow + maxOverflow;
 
-    // Calulate required buffer based on old range and overflow
+    // Calculate required buffer based on old range and overflow
     var oldRange = max - min;
     var oldRangePercentOfNew = (1 - (minOverflow + maxOverflow) / axisLength);
     var overflowBuffer = ((oldRange / oldRangePercentOfNew) - oldRange);
@@ -33718,7 +33718,7 @@ function makeLabelFormatter(axis) {
         labelFormatter = (function (tpl) {
             return function (val) {
                 // For category axis, get raw value; for numeric axis,
-                // get foramtted label like '1,333,444'.
+                // get formatted label like '1,333,444'.
                 val = axis.scale.getLabel(val);
                 return tpl.replace('{value}', val != null ? val : '');
             };
@@ -33825,7 +33825,7 @@ function getOptionCategoryInterval(model) {
 
 /**
  * Set `categoryInterval` as 0 implicitly indicates that
- * show all labels reguardless of overlap.
+ * show all labels regardless of overlap.
  * @param {Object} axis axisModel.axis
  * @return {boolean}
  */
@@ -34087,7 +34087,7 @@ var Arrow = extendShape({
 });
 
 /**
- * Map of path contructors
+ * Map of path constructors
  * @type {Object.<string, module:zrender/graphic/Path>}
  */
 var symbolCtors = {
@@ -34323,7 +34323,7 @@ function createSymbol(symbolType, x, y, w, h, color, keepAspect) {
 
 // import createGraphFromNodeEdge from './chart/helper/createGraphFromNodeEdge';
 /**
- * Create a muti dimension List structure from seriesModel.
+ * Create a multi dimension List structure from seriesModel.
  * @param  {module:echarts/model/Model} seriesModel
  * @return {module:echarts/data/List} list
  */
@@ -34359,7 +34359,7 @@ function createScale(dataExtent, option) {
 /**
  * Mixin common methods to axis model,
  *
- * Inlcude methods
+ * Include methods
  * `getFormattedLabels() => Array.<string>`
  * `getCategories() => Array.<string>`
  * `getMin(origin: boolean) => number`
@@ -34667,7 +34667,7 @@ function decodePolygon(coordinate, encodeOffsets, encodeScale) {
         // ZigZag decoding
         x = (x >> 1) ^ (-(x & 1));
         y = (y >> 1) ^ (-(y & 1));
-        // Delta deocding
+        // Delta decoding
         x += prevX;
         y += prevY;
 
@@ -34816,7 +34816,7 @@ function makeCategoryLabelsActually(axis, labelModel) {
         labels = makeLabelsByNumericCategoryInterval(axis, numericLabelInterval);
     }
 
-    // Cache to avoid calling interval function repeatly.
+    // Cache to avoid calling interval function repeatedly.
     return listCacheSet(labelsCache, optionLabelInterval, {
         labels: labels, labelCategoryInterval: numericLabelInterval
     });
@@ -34858,7 +34858,7 @@ function makeCategoryTicks(axis, tickModel) {
         ticks = makeLabelsByNumericCategoryInterval(axis, tickCategoryInterval, true);
     }
 
-    // Cache to avoid calling interval function repeatly.
+    // Cache to avoid calling interval function repeatedly.
     return listCacheSet(ticksCache, optionTickInterval, {
         ticks: ticks, tickCategoryInterval: tickCategoryInterval
     });
@@ -34878,11 +34878,11 @@ function makeRealNumberLabels(axis) {
     };
 }
 
-// Large category data calculation is performence sensitive, and ticks and label
+// Large category data calculation is performance sensitive, and ticks and label
 // probably be fetched by multiple times. So we cache the result.
 // axis is created each time during a ec process, so we do not need to clear cache.
 function getListCache(axis, prop) {
-    // Because key can be funciton, and cache size always be small, we use array cache.
+    // Because key can be function, and cache size always be small, we use array cache.
     return inner$6(axis)[prop] || (inner$6(axis)[prop] = []);
 }
 
@@ -35350,7 +35350,7 @@ Axis.prototype = {
     /**
      * Only be called in category axis.
      * Can be overrided, consider other axes like in 3D.
-     * @return {number} Auto interval for cateogry axis tick and label
+     * @return {number} Auto interval for category axis tick and label
      */
     calculateCategoryInterval: function () {
         return calculateCategoryInterval(this);
@@ -35981,7 +35981,7 @@ function onMouseOut() {
 
 function onEmphasis() {
     // Do not support this hover animation util some scenario required.
-    // Animation can only be supported in hover layer when using `el.incremetal`.
+    // Animation can only be supported in hover layer when using `el.incremental`.
     if (this.incremental || this.useHoverLayer) {
         return;
     }
@@ -36431,7 +36431,7 @@ var lineAnimationDiff = function (
         var pointAdded = true;
 
         // FIXME, animation is not so perfect when dataZoom window moves fast
-        // Which is in case remvoing or add more than one data in the tail or head
+        // Which is in case removing or add more than one data in the tail or head
         switch (diffItem.cmd) {
             case '=':
                 var currentPt = oldData.getItemLayout(diffItem.idx);
@@ -37420,7 +37420,7 @@ Chart.extend({
                 el.stopAnimation(true);
             });
 
-            // In the case data zoom triggerred refreshing frequently
+            // In the case data zoom triggered refreshing frequently
             // Data may not change if line has a category axis. So it should animate nothing
             if (!isPointsSame(this._stackedOnPoints, stackedOnPoints)
                 || !isPointsSame(this._points, points)
@@ -38340,7 +38340,7 @@ Axis2D.prototype = {
     },
 
     /**
-     * Each item cooresponds to this.getExtent(), which
+     * Each item corresponds to this.getExtent(), which
      * means globalExtent[0] may greater than globalExtent[1],
      * unless `asc` is input.
      *
@@ -38416,7 +38416,7 @@ var defaultOption = {
     name: '',
     // 'start' | 'middle' | 'end'
     nameLocation: 'end',
-    // By degree. By defualt auto rotate by nameLocation.
+    // By degree. By default auto rotate by nameLocation.
     nameRotate: null,
     nameTruncate: {
         maxWidth: null,
@@ -38497,7 +38497,7 @@ axisDefault.categoryAxis = merge({
     // The gap at both ends of the axis. For categoryAxis, boolean.
     boundaryGap: true,
     // Set false to faster category collection.
-    // Only usefull in the case like: category is
+    // Only useful in the case like: category is
     // ['2012-01-01', '2012-01-02', ...], where the input
     // data has been ensured not duplicate and is large data.
     // null means "auto":
@@ -38551,7 +38551,7 @@ axisDefault.valueAxis = merge({
     // + `true`: the extent do not consider value 0.
     // scale: false,
 
-    // AxisTick and axisLabel and splitLine are caculated based on splitNumber.
+    // AxisTick and axisLabel and splitLine are calculated based on splitNumber.
     splitNumber: 5
 
     // Interval specifies the span of the ticks is mandatorily.
@@ -39312,7 +39312,7 @@ gridProto._updateScale = function (ecModel, gridModel) {
     function unionExtent(data, axis, seriesModel) {
         each$1(data.mapDimension(axis.dim, true), function (dim) {
             axis.scale.unionExtentFromData(
-                // For example, the extent of the orginal dimension
+                // For example, the extent of the original dimension
                 // is [0.1, 0.5], the extent of the `stackResultDimension`
                 // is [7, 9], the final extent should not include [0.1, 0.5].
                 data, getStackedDimension(data, dim)
@@ -39508,7 +39508,7 @@ function makeAxisEventDataBase(axisModel) {
  * @param {number} [opt.nameDirection=1] 1 or -1 Used when nameLocation is 'middle' or 'center'.
  * @param {number} [opt.tickDirection=1] 1 or -1
  * @param {number} [opt.labelDirection=1] 1 or -1
- * @param {number} [opt.labelOffset=0] Usefull when onZero.
+ * @param {number} [opt.labelOffset=0] Useful when onZero.
  * @param {string} [opt.axisLabelShow] default get from axisModel.
  * @param {string} [opt.axisName] default get from axisModel.
  * @param {number} [opt.axisNameAvailableWidth]
@@ -39545,7 +39545,7 @@ var AxisBuilder = function (axisModel, opt) {
      */
     this.group = new Group();
 
-    // FIXME Not use a seperate text group?
+    // FIXME Not use a separate text group?
     var dumbGroup = new Group({
         position: opt.position.slice(),
         rotation: opt.rotation
@@ -39610,7 +39610,7 @@ var builders = {
 
         this.group.add(new Line(subPixelOptimizeLine({
             // Id for animation
-            anid: 'line',
+            and: 'line',
 
             shape: {
                 x1: pt1[0],
@@ -39787,7 +39787,7 @@ var builders = {
 
         var textEl = new Text({
             // Id for animation
-            anid: 'name',
+            and: 'name',
 
             __fullText: name,
             __truncatedText: truncatedText,
@@ -40040,7 +40040,7 @@ function buildAxisTick(axisBuilder, axisModel, opt) {
         // Tick line, Not use group transform to have better line draw
         var tickEl = new Line(subPixelOptimizeLine({
             // Id for animation
-            anid: 'tick_' + ticksCoords[i].tickValue,
+            and: 'tick_' + ticksCoords[i].tickValue,
 
             shape: {
                 x1: pt1[0],
@@ -40111,7 +40111,7 @@ function buildAxisLabel(axisBuilder, axisModel, opt) {
 
         var textEl = new Text({
             // Id for animation
-            anid: 'label_' + tickValue,
+            and: 'label_' + tickValue,
             position: pos,
             rotation: labelLayout.rotation,
             silent: silent,
@@ -40132,7 +40132,7 @@ function buildAxisLabel(axisBuilder, axisModel, opt) {
                     // in category axis.
                     // (2) Compatible with previous version, which always use formatted label as
                     // input. But in interval scale the formatted label is like '223,445', which
-                    // maked user repalce ','. So we modify it to return original val but remain
+                    // maked user replace ','. So we modify it to return original val but remain
                     // it as 'string' to avoid error in replacing.
                     axis.type === 'category'
                         ? rawLabel
@@ -40240,8 +40240,8 @@ function collectAxesInfo(result, ecModel, api) {
         var axesInfoInCoordSys = result.coordSysAxesInfo[coordSysKey] = {};
         result.coordSysMap[coordSysKey] = coordSys;
 
-        // Set tooltip (like 'cross') is a convienent way to show axisPointer
-        // for user. So we enable seting tooltip on coordSys model.
+        // Set tooltip (like 'cross') is a convenient way to show axisPointer
+        // for user. So we enable setting tooltip on coordSys model.
         var coordSysModel = coordSys.model;
         var baseTooltipModel = coordSysModel.getModel('tooltip', globalTooltipModel);
 
@@ -40346,7 +40346,7 @@ function makeAxisPointerModel(
     // triggered from tooltip and trigger tooltip.
     volatileOption.snap = axis.type !== 'category' && !!triggerTooltip;
 
-    // Compatibel with previous behavior, tooltip axis do not show label by default.
+    // Compatible with previous behavior, tooltip axis do not show label by default.
     // Only these properties can be overrided from tooltip to axisPointer.
     if (tooltipAxisPointerModel.get('type') === 'cross') {
         volatileOption.type = 'line';
@@ -40842,7 +40842,7 @@ var CartesianAxisView = AxisView.extend({
             var colorIndex = (lineCount++) % lineColors.length;
             var tickValue = ticksCoords[i].tickValue;
             this._axisGroup.add(new Line(subPixelOptimizeLine({
-                anid: tickValue != null ? 'line_' + ticksCoords[i].tickValue : null,
+                and: tickValue != null ? 'line_' + ticksCoords[i].tickValue : null,
                 shape: {
                     x1: p1[0],
                     y1: p1[1],
@@ -40884,7 +40884,7 @@ var CartesianAxisView = AxisView.extend({
             return;
         }
 
-        // For Making appropriate splitArea animation, the color and anid
+        // For Making appropriate splitArea animation, the color and and
         // should be corresponding to previous one if possible.
         var areaColorsLen = areaColors.length;
         var lastSplitAreaColors = this._splitAreaColors;
@@ -40931,7 +40931,7 @@ var CartesianAxisView = AxisView.extend({
             tickValue != null && newSplitAreaColors.set(tickValue, colorIndex);
 
             this._axisGroup.add(new Rect({
-                anid: tickValue != null ? 'area_' + tickValue : null,
+                and: tickValue != null ? 'area_' + tickValue : null,
                 shape: {
                     x: x,
                     y: y,
@@ -41757,7 +41757,7 @@ var createListSimply = function (seriesModel, opt, nameList) {
 
 /**
  * Data selectable mixin for chart series.
- * To eanble data select, option of series must have `selectedMode`.
+ * To enable data select, option of series must have `selectedMode`.
  * And each data item will use `selected` to toggle itself selected status
  */
 
@@ -42004,7 +42004,7 @@ var PieSeries = extendSeriesModel({
             borderWidth: 1
         },
 
-        // Animation type canbe expansion, scale
+        // Animation type can be expansion, scale
         animationType: 'expansion',
 
         animationEasing: 'cubicOut'
@@ -42506,7 +42506,7 @@ var createDataSelectAction = function (seriesType, actionInfos) {
 var dataColor = function (seriesType) {
     return {
         getTargetSeries: function (ecModel) {
-            // Pie and funnel may use diferrent scope
+            // Pie and funnel may use different scope
             var paletteScope = {};
             var seiresModelMap = createHashMap();
 
@@ -43616,13 +43616,13 @@ var GraphicModel = extendComponentModel({
         // Extra properties for each elements:
         //
         // left/right/top/bottom: (like 12, '22%', 'center', default undefined)
-        //      If left/rigth is set, shape.x/shape.cx/position will not be used.
+        //      If left/right is set, shape.x/shape.cx/position will not be used.
         //      If top/bottom is set, shape.y/shape.cy/position will not be used.
         //      This mechanism is useful when you want to position a group/element
         //      against the right side or the center of this container.
         //
         // width/height: (can only be pixel value, default 0)
-        //      Only be used to specify contianer(group) size, if needed. And
+        //      Only be used to specify container(group) size, if needed. And
         //      can not be percentage value (like '33%'). See the reason in the
         //      layout algorithm below.
         //
@@ -43631,7 +43631,7 @@ var GraphicModel = extendComponentModel({
         //      'all': Get uioned and transformed boundingRect
         //          from both itself and its descendants.
         //          This mode simplies confining a group of elements in the bounding
-        //          of their ancester container (e.g., using 'right: 0').
+        //          of their ancestor container (e.g., using 'right: 0').
         //      'raw': Only use the boundingRect of itself and before transformed.
         //          This mode is similar to css behavior, which is useful when you
         //          want an element to be able to overflow its container. (Consider
@@ -43646,7 +43646,7 @@ var GraphicModel = extendComponentModel({
 
     /**
      * Save el options for the sake of the performance (only update modified graphics).
-     * The order is the same as those in option. (ancesters -> descendants)
+     * The order is the same as those in option. (ancestors -> descendants)
      *
      * @private
      * @type {Array.<Object>}
@@ -44328,7 +44328,7 @@ function processOnAxis(axisInfo, newValue, updaters, dontSnap, outputFinder) {
     var snapToValue = payloadInfo.snapToValue;
 
     // Fill content of event obj for echarts.connect.
-    // By defualt use the first involved series data as a sample to connect.
+    // By default use the first involved series data as a sample to connect.
     if (payloadBatch[0] && outputFinder.seriesIndex == null) {
         extend(outputFinder, payloadBatch[0]);
     }
@@ -44496,7 +44496,7 @@ function dispatchTooltipActually(dataByCoordSys, point, payload, dispatchAction)
     }
 
     // In most case only one axis (or event one series is used). It is
-    // convinient to fetch payload.seriesIndex and payload.dataIndex
+    // convenient to fetch payload.seriesIndex and payload.dataIndex
     // dirtectly. So put the first seriesIndex and dataIndex of the first
     // axis on the payload.
     var sampleItem = ((dataByCoordSys.list[0].dataByAxis[0] || {}).seriesDataIndices || [])[0] || {};
@@ -44517,8 +44517,8 @@ function dispatchTooltipActually(dataByCoordSys, point, payload, dispatchAction)
 
 function dispatchHighDownActually(axesInfo, dispatchAction, api) {
     // FIXME
-    // highlight status modification shoule be a stage of main process?
-    // (Consider confilct (e.g., legend and axisPointer) and setOption)
+    // highlight status modification should be a stage of main process?
+    // (Consider conflict (e.g., legend and axisPointer) and setOption)
 
     var zr = api.getZr();
     var highDownKey = 'axisPointerLastHighlights';
@@ -44979,7 +44979,7 @@ BaseAxisPointer.prototype = {
         this._axisPointerModel = axisPointerModel;
         this._api = api;
 
-        // Optimize: `render` will be called repeatly during mouse move.
+        // Optimize: `render` will be called repeatedly during mouse move.
         // So it is power consuming if performing `render` each time,
         // especially on mobile device.
         if (!forceRender
@@ -45089,7 +45089,7 @@ BaseAxisPointer.prototype = {
      * @protected
      */
     makeElOption: function (elOption, value, axisModel, axisPointerModel, api) {
-        // Shoule be implemenented by sub-class.
+        // Should be implemenented by sub-class.
     },
 
     /**
@@ -45290,7 +45290,7 @@ BaseAxisPointer.prototype = {
         }
 
         var value = this._axisPointerModel.get('value');
-        // Consider snap or categroy axis, handle may be not consistent with
+        // Consider snap or category axis, handle may be not consistent with
         // axisPointer. So move handle to align the exact value position when
         // drag ended.
         this._moveHandleToValue(value);
@@ -46164,10 +46164,10 @@ TooltipContent.prototype = {
 
         el.style.display = el.innerHTML ? 'block' : 'none';
 
-        // If mouse occsionally move over the tooltip, a mouseout event will be
-        // triggered by canvas, and cuase some unexpectable result like dragging
+        // If mouse occasionally move over the tooltip, a mouseout event will be
+        // triggered by canvas, and cause some unexpectable result like dragging
         // stop, "unfocusAdjacency". Here `pointer-events: none` is used to solve
-        // it. Although it is not suppored by IE8~IE10, fortunately it is a rare
+        // it. Although it is not supported by IE8~IE10, fortunately it is a rare
         // scenario.
         el.style.pointerEvents = this._enterable ? 'auto' : 'none';
 
@@ -46215,7 +46215,7 @@ TooltipContent.prototype = {
         if (this._show && !(this._inContent && this._enterable)) {
             if (time) {
                 this._hideDelay = time;
-                // Set show false to avoid invoke hideLater mutiple times
+                // Set show false to avoid invoke hideLater multiple times
                 this._show = false;
                 this._hideTimeout = setTimeout(bind(this.hide, this), time);
             }
@@ -46411,7 +46411,7 @@ TooltipRichContent.prototype = {
         if (this._show && !(this._inContent && this._enterable)) {
             if (time) {
                 this._hideDelay = time;
-                // Set show false to avoid invoke hideLater mutiple times
+                // Set show false to avoid invoke hideLater multiple times
                 this._show = false;
                 this._hideTimeout = setTimeout(bind(this.hide, this), time);
             }
@@ -46756,7 +46756,7 @@ extendComponentView({
     _showOrMove: function (tooltipModel, cb) {
         // showDelay is used in this case: tooltip.enterable is set
         // as true. User intent to move mouse into tooltip and click
-        // something. `showDelay` makes it easyer to enter the content
+        // something. `showDelay` makes it easier to enter the content
         // but tooltip do not move immediately.
         var delay = tooltipModel.get('showDelay');
         cb = bind(cb, this);
@@ -46955,7 +46955,7 @@ extendComponentView({
         var asyncTicket = Math.random();
 
         // Do not check whether `trigger` is 'none' here, because `trigger`
-        // only works on cooridinate system. In fact, we have not found case
+        // only works on coordinate system. In fact, we have not found case
         // that requires setting `trigger` nothing on component yet.
 
         this._showOrMove(subTooltipModel, function () {
@@ -47411,7 +47411,7 @@ var LegendModel = extendComponentModel({
         this._availableNames = availableNames;
 
         // If legend.data not specified in option, use availableNames as data,
-        // which is convinient for user preparing option.
+        // which is convenient for user preparing option.
         var rawData = this.get('data') || potentialData;
 
         var legendData = map(rawData, function (dataItem) {
@@ -47764,7 +47764,7 @@ var LegendView = extendComponentView({
 
         /**
          * If first rendering, `contentGroup.position` is [0, 0], which
-         * does not make sense and may cause unexepcted animation if adopted.
+         * does not make sense and may cause unexpected animation if adopted.
          * @private
          * @type {boolean}
          */
@@ -48026,7 +48026,7 @@ var LegendView = extendComponentView({
             invisible: true,
             tooltip: tooltipModel.get('show') ? extend({
                 content: name,
-                // Defaul formatter
+                // Default formatter
                 formatter: legendGlobalTooltipModel.get('formatter', true) || function () {
                     return name;
                 },
@@ -48442,9 +48442,9 @@ var ScrollableLegendView = LegendView.extend({
         var showController = this._showController = contentRect[wh] > maxSize[wh];
 
         var contentPos = [-contentRect.x, -contentRect.y];
-        // Remain contentPos when scroll animation perfroming.
+        // Remain contentPos when scroll animation performing.
         // If first rendering, `contentGroup.position` is [0, 0], which
-        // does not make sense and may cause unexepcted animation if adopted.
+        // does not make sense and may cause unexpected animation if adopted.
         if (!isFirstRender) {
             contentPos[orientIdx] = contentGroup.position[orientIdx];
         }
@@ -48510,7 +48510,7 @@ var ScrollableLegendView = LegendView.extend({
             contentGroup,
             {position: pageInfo.contentPosition},
             // When switch from "show controller" to "not show controller", view should be
-            // updated immediately without animation, otherwise causes weird efffect.
+            // updated immediately without animation, otherwise causes weird effect.
             showController ? legendModel : false
         );
 
@@ -48601,14 +48601,14 @@ var ScrollableLegendView = LegendView.extend({
         // Strategy:
         // (1) Always align based on the left/top most item.
         // (2) It is user-friendly that the last item shown in the
-        // current window is shown at the begining of next window.
+        // current window is shown at the beginning of next window.
         // Otherwise if half of the last item is cut by the window,
         // it will have no chance to display entirely.
         // (3) Consider that item size probably be different, we
         // have calculate pageIndex by size rather than item index,
         // and we can not get page index directly by division.
         // (4) The window is to narrow to contain more than
-        // one item, we should make sure that the page can be fliped.
+        // one item, we should make sure that the page can be flipped.
 
         for (var i = targetItemIndex + 1,
             winStartItemInfo = targetItemInfo,
@@ -51271,7 +51271,7 @@ function isCoordSupported(coordType) {
 /**
  * Create "each" method to iterate names.
  *
- * @pubilc
+ * @public
  * @param  {Array.<string>} names
  * @param  {Array.<string>=} attrs
  * @return {Function}
@@ -51632,7 +51632,7 @@ AxisProxy.prototype = {
 
     /**
      * Notice: reset should not be called before series.restoreData() called,
-     * so it is recommanded to be called in "process stage" but not "model init
+     * so it is recommended to be called in "process stage" but not "model init
      * stage".
      *
      * @param {module: echarts/component/dataZoom/DataZoomModel} dataZoomModel
@@ -52104,7 +52104,7 @@ var DataZoomModel = extendComponentModel({
      */
     _judgeAutoMode: function () {
         // Auto set only works for setOption at the first time.
-        // The following is user's reponsibility. So using merged
+        // The following is user's responsibility. So using merged
         // option is OK.
         var thisOption = this.option;
 
@@ -52112,7 +52112,7 @@ var DataZoomModel = extendComponentModel({
         eachAxisDim(function (dimNames) {
             // When user set axisIndex as a empty array, we think that user specify axisIndex
             // but do not want use auto mode. Because empty array may be encountered when
-            // some error occured.
+            // some error occurred.
             if (thisOption[dimNames.axisIndex] != null) {
                 hasIndexSpecified = true;
             }
@@ -52577,8 +52577,8 @@ var SliderZoomModel = DataZoomModel.extend({
     defaultOption: {
         show: true,
 
-        // ph => placeholder. Using placehoder here because
-        // deault value can only be drived in view stage.
+        // ph => placeholder. Using placeholder here because
+        // default value can only be drived in view stage.
         right: 'ph',  // Default align to grid rect.
         top: 'ph',    // Default align to grid rect.
         width: 'ph',  // Default align to grid rect.
@@ -53450,7 +53450,7 @@ var SliderZoomView = DataZoomView.extend({
 
         this._updateView(!realtime);
 
-        // Avoid dispatch dataZoom repeatly but range not changed,
+        // Avoid dispatch dataZoom repeatedly but range not changed,
         // which cause bad visual effect when progressive enabled.
         changed && realtime && this._dispatchZoomAction();
     },
@@ -53503,7 +53503,7 @@ var SliderZoomView = DataZoomView.extend({
      * @private
      */
     _findCoordRect: function () {
-        // Find the grid coresponding to the first axis referred by dataZoom.
+        // Find the grid corresponding to the first axis referred by dataZoom.
         var rect;
         each$14(this.getTargetCoordInfo(), function (coordInfoList) {
             if (!rect && coordInfoList.length) {
@@ -53833,7 +53833,7 @@ function mousewheel(e) {
         // FIXME: Should do more test in different environment.
         // wheelDelta is too complicated in difference nvironment
         // (https://developer.mozilla.org/en-US/docs/Web/Events/mousewheel),
-        // although it has been normallized by zrender.
+        // although it has been normalized by zrender.
         // wheelDelta of mouse wheel is bigger than touch pad.
         var factor = absWheelDeltaDelta > 3 ? 1.4 : absWheelDeltaDelta > 1 ? 1.2 : 1.1;
         var scale = wheelDelta > 0 ? factor : 1 / factor;
@@ -53916,7 +53916,7 @@ function isAvailableBehavior(behaviorToCheck, e, settings) {
 */
 
 // Only create one roam controller for each coordinate system.
-// one roam controller might be refered by two inside data zoom
+// one roam controller might be referred by two inside data zoom
 // components (for example, one for x and one for y). When user
 // pan or zoom, only dispatch one action for those data zoom
 // components.
@@ -54775,7 +54775,7 @@ extendComponentView({
             var iconStyleModel = featureModel.getModel('iconStyle');
             var iconStyleEmphasisModel = featureModel.getModel('emphasis.iconStyle');
 
-            // If one feature has mutiple icon. they are orginaized as
+            // If one feature has multiple icon. they are orginaized as
             // {
             //     icon: {
             //         foo: '',
@@ -55797,7 +55797,7 @@ function BrushController(zr) {
 
     /**
      * @private
-     * @type {Array.<nubmer>}
+     * @type {Array.<number>}
      */
     this._track = [];
 
@@ -55815,7 +55815,7 @@ function BrushController(zr) {
 
     /**
      * @private
-     * @type {moudule:zrender/container/Group}
+     * @type {module:zrender/container/Group}
      */
     this._creatingCover;
 
@@ -55989,7 +55989,7 @@ BrushController.prototype = {
         function addOrUpdate(newIndex, oldIndex) {
             var newBrushOption = brushOptionList[newIndex];
             // Consider setOption in event listener of brushSelect,
-            // where updating cover when creating should be forbiden.
+            // where updating cover when creating should be forbidden.
             if (oldIndex != null && oldCovers[oldIndex] === creatingCover) {
                 newCovers[newIndex] = oldCovers[oldIndex];
             }
@@ -56543,7 +56543,7 @@ function handleDragEnd(e) {
         this._track = [];
         this._creatingCover = null;
 
-        // trigger event shoule be at final, after procedure will be nested.
+        // trigger event should be at final, after procedure will be nested.
         eventParams && trigger$1(this, eventParams);
     }
 }
@@ -56922,7 +56922,7 @@ proto$5.setInputRanges = function (areas, ecModel) {
         // convert coordRange to global range and set panelId.
         if (targetInfo && targetInfo !== true) {
             area.panelId = targetInfo.panelId;
-            // (1) area.range shoule always be calculate from coordRange but does
+            // (1) area.range should always be calculate from coordRange but does
             // not keep its original value, for the sake of the dataZoom scenario,
             // where area.coordRange remains unchanged but area.range may be changed.
             // (2) Only support converting one coordRange to pixel range in brush
@@ -56958,7 +56958,7 @@ proto$5.makePanelOpts = function (api, getDefaultBrushType) {
 
 proto$5.controlSeries = function (area, seriesModel, ecModel) {
     // Check whether area is bound in coord, and series do not belong to that coord.
-    // If do not do this check, some brush (like lineX) will controll all axes.
+    // If do not do this check, some brush (like lineX) will control all axes.
     var targetInfo = this.findTargetInfo(area, ecModel);
     return targetInfo === true || (
         targetInfo && indexOf$2(targetInfo.coordSyses, seriesModel.coordinateSystem) >= 0
@@ -56967,7 +56967,7 @@ proto$5.controlSeries = function (area, seriesModel, ecModel) {
 
 /**
  * If return Object, a coord found.
- * If reutrn true, global found.
+ * If return true, global found.
  * Otherwise nothing found.
  *
  * @param {Object} area
@@ -58361,7 +58361,7 @@ if (!env$1.canvasSupported) {
                 ow = image.width;
                 oh = image.height;
 
-                // and remove overides
+                // and remove overrides
                 imageRuntimeStyle.width = oldRuntimeWidth;
                 imageRuntimeStyle.height = oldRuntimeHeight;
 
@@ -59929,7 +59929,7 @@ Definable.prototype.removeDom = function (element) {
 /**
  * Get DOMs of this element.
  *
- * @return {HTMLDomElement} doms of this defineable elements in <defs>
+ * @return {HTMLDomElement} doms of this definable elements in <defs>
  */
 Definable.prototype.getDoms = function () {
     var defs = this.getDefs(false);
