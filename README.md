@@ -34,7 +34,6 @@
 
 ### 文档视频教程
 
-* 数据库脚本下载地址：[https://www.mindskip.net:888](https://www.mindskip.net:888)
 * 文档教程：[https://www.mindskip.net:888](https://www.mindskip.net:888)
 * 视频教程：[https://space.bilibili.com/1389892305](https://space.bilibili.com/1389892305)
 * QQ交流群17：`624825080`
