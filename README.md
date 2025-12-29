@@ -36,7 +36,7 @@
 
 * 文档教程：[https://www.mindskip.net:888](https://www.mindskip.net:888)
 * 视频教程：[https://space.bilibili.com/1389892305](https://space.bilibili.com/1389892305)
-* QQ交流群17：`624825080`
+* QQ交流群18：`700540955`
 * 商务QQ：`2732007709`
 * 商务微信：`whmindskip`
 * 商务邮箱：`mindskip@qq.com`
