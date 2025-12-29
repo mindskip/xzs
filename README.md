@@ -3,7 +3,7 @@
 
 <p align="center">
 <a href="https://www.mindskip.net" target="_blank">
- <img src="https://www.mindskip.net/style/git/images/logo/1.png" style="height:80px;"/>
+ <img src="https://www.mindskip.net/style/git/images/logo/1.png" height="80" style="height:80px;"/>
 <a/>
 </p>
 
