@@ -12,7 +12,10 @@ import org.springframework.context.ApplicationEvent;
 public class OnRegistrationCompleteEvent extends ApplicationEvent {
 
 
-    private final User user;
+    /**
+     * Avoid serializing full user details when this event is persisted.
+     */
+    private final transient User user;
 
 
     /**
